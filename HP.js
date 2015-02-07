@@ -18,7 +18,7 @@ var HP = function(max){
 				this.value += amount;
 				break;
 			case 2:
-				this.value -= (maxHP * amount);
+				this.value += (this.maxHP * amount * 0.01);
 				break;
 			default:
 				console.log("TYPE ERROR");

@@ -16,9 +16,12 @@
 <script src="circular-progress.js"></script>
 <script src="countdown.js"></script>
 <script>
+
+var timeUp = function() { console.log("time is up!"); };
+
 var countdown = null;
 $(document).ready(function (){
-	countdown = CountDown('#progress_hunter', 20, 10, 20, null);
+	countdown = CountDown('#progress_hunter', 20, 10, 20, timeUp);
 });
 </script>
 </head>
@@ -29,10 +32,8 @@ $(document).ready(function (){
 	  </div>
 	</div>
 
-	<input type="number" id="textPercentage" value="10">
-	<!--
-	<input type="button" id="textBtn" onclick='testPercentage()' value="測試"> 
-	//-->
+	<!--<input type="number" id="textPercentage" value="10">-->
+
 	<input type="button" id="textBtn" onclick='countdown.startCountdown()' value="Start"> 
 	<input type="button" id="textPause" onclick='countdown.pause()' value="Pause">
 	<input type="button" id="textReset" onclick='countdown.reset()' value="Reset"> 

@@ -13,23 +13,27 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js">
 </script>
 <script src="timer.js"></script>
+<script src="circular-progress.js"></script>
 <script src="countdown.js"></script>
 <script>
-	var countdown = new CountDown('#progress_hunter', 10, null);
+var countdown = null;
+$(document).ready(function (){
+	countdown = new CountDown('#progress_hunter', 70, 10, null);
+});
 </script>
 </head>
 
 <body>
-	<div class="progress">
-	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;" id="progress_hunter">  
-	    100
+	<div>
+	  <div id="progress_hunter">
 	  </div>
 	</div>
-	<input type="number" id="textPercentage">
+
+	<input type="number" id="textPercentage" value="10">
 	<!--
 	<input type="button" id="textBtn" onclick='testPercentage()' value="測試"> 
 	//-->
-	<input type="button" id="textBtn" onclick='countdown.startCountdown()' value="測試"> 
+	<input type="button" id="textBtn" onclick='countdown.startCountdown($("#textPercentage").val())' value="測試"> 
 	<input type="button" id="textPause" onclick='countdown.pause()' value="Pause"> 
 	<input type="button" id="textResume" onclick='countdown.resume()' value="Resume"> 
 	<input type="button" id="textReset" onclick='countdown.reset()' value="Reset"> 

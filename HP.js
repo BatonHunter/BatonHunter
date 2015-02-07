@@ -1,5 +1,4 @@
 var HP = function(maxHP){
-	this.max = maxHP;
 	this.value = maxHP;
 
 	HP.prototype.getValue = function(){
@@ -24,8 +23,8 @@ var HP = function(maxHP){
 				console.log("TYPE ERROR");
 				break;
 			}
-		if(this.value > this.max){
-			this.value = this.max;
+		if(this.value > maxHP){
+			this.value = maxHP;
 		}else if(this.value < 0){
 			this.value = 0;
 		}

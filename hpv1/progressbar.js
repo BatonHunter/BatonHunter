@@ -9,7 +9,8 @@
  * @param  {Number} percent
  * @param  {Number} $element progressBar DOM element
  */
-function progressBar(percent, $element) {
+function progressBar(value, total, $element) {
+	var percent = value/total*100;
 	var progressBarWidth = percent * $element.width() / 100;
-	$element.find('div').animate({ width: progressBarWidth }, 500).html(percent + "%&nbsp;");
+	$element.find('div').animate({ width: progressBarWidth }, 500).html( value + "/" + total + "&nbsp;(" +percent + "%)&nbsp;");
 }

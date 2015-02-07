@@ -3,6 +3,7 @@
 <head>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 	<script type="text/javascript" src="progressbar.js"></script>
+	<script type="text/javascript" src="HP.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="progressbar.css">
 	<link rel="stylesheet" type="text/css" href="skins/jquery-ui-like/progressbar.css">
@@ -15,7 +16,13 @@
 
 
 	<script>
-		progressBar(25, $('#progressBar'));
+		var _hp = new HP(10000);
+		
+		_hp.setHP(-200, 1);
+		//alert(_hp.getValue());
+		//alert(_hp.maxHP);
+	
+		progressBar(_hp.getValue(), _hp.maxHP, $('#progressBar'));
 	</script>
 
 </body>

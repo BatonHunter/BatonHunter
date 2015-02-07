@@ -23,8 +23,10 @@ var HP = function(maxHP){
 				console.log("TYPE ERROR");
 				break;
 			}
-		if(this.value >= maxHP){
+		if(this.value > maxHP){
 			this.value = maxHP;
+		}else if(this.value < 0){
+			this.value = 0;
 		}
 	}
 }

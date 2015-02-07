@@ -37,6 +37,7 @@ var Timer = function(options) {
 
     this.pause = function() {
         clearInterval(this.internalTimer);
+        delete this.internalTimer;
     }
 
     this.resume = function() {
@@ -64,9 +65,12 @@ var Timer = function(options) {
 
         this.pause();
         this.currentTimeSecond = this.totalTimeSecond;
+
         if (this.callbackUpdatePerSecond) {
             this.callbackUpdatePerSecond(this.totalTimeSecond, this.currentTimeSecond);    
         }
+
+        delete this.internalTimer;
     }
 
     this.stopTimer = function() {

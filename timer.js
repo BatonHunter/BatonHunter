@@ -27,7 +27,7 @@ var Timer = function(options) {
         self.internalTimer = setInterval(function() {
                 self.updateIntervalPerSecond();
             }, 
-            self.totalTimeSecond * 1000
+            1000
         );
     }
 
@@ -41,7 +41,7 @@ var Timer = function(options) {
             self.internalTimer = setInterval(function() {  
                     self.updateIntervalPerSecond();
                 }, 
-                self.currentTimeSecond * 1000
+                1000
             );
         } else {
 

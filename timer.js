@@ -40,27 +40,6 @@ var Timer = function(options) {
         delete this.internalTimer;
     }
 
-    this.resume = function() {
-
-        var self = this;
-
-        if (self.internalTimer) {
-                return;
-        }
-
-        if (self.currentTimeSecond > 0) {
-
-            self.internalTimer = setInterval(function() {  
-                    self.updateIntervalPerSecond();
-                }, 
-                1000
-            );
-        } else {
-
-            this.stopTimer();
-        }
-    }
-
     this.reset = function() {
 
         this.pause();

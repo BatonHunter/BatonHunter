@@ -7,6 +7,7 @@
     <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="hpv1/skins/jquery-ui-like/progressbar.css">
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
 <body>
@@ -32,17 +33,34 @@
         </div>
       </header> 
       <div class="question col-sm-12">
-        題目
-      </div>
       <div class="tools col-sm-12">
         <ul class="">
           <li><button class="btn btn-primary">藥草 x 1</button></li>
           <li><button class="btn btn-success">紅藥水 x 1</button></li>
         </ul>
       </div>
+
+        <div id ="problem" class="col-md-12 questionitem">
+          <h3 class="title">thsi is title</h3>
+          <div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!</div>
+        </div>
+
       <div class="answer-block col-sm-12">
       <div>
-        作答區
+        <div id="result" style="display: none;">
+            <p>result (not finished)</p>
+            <img src="img/true.png" alt="">
+            <img src="img/false.png" alt="">
+          </div>
+       </div> 
+        <div id="answer"class="row">
+          <button id="trueButton" class="col-xs-6 trueitem btn btn-primary">
+            Yes
+          </button>
+          <button id="falseButton" class="col-xs-6 falseitem btn btn-danger">
+            No
+          </button>
+        </div>
       </div>
     </section>
   </div>
@@ -53,6 +71,7 @@
   <script src="countdown.js"></script>
   <script type="text/javascript" src="Scripts/HP.js"></script>
   <script type="text/javascript" src="Scripts/progressbar.js"></script>
+  <script src="js/main.js"></script>
 <script>
   var countdown = null;
 

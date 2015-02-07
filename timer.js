@@ -24,6 +24,10 @@ var Timer = function(options) {
 
         var self = this;
 
+        if (self.internalTimer || self.currentTimeSecond <= 0) {
+            return;
+        }
+
         self.internalTimer = setInterval(function() {
                 self.updateIntervalPerSecond();
             }, 
@@ -39,7 +43,12 @@ var Timer = function(options) {
 
         var self = this;
 
+        if (self.internalTimer) {
+                return;
+        }
+
         if (self.currentTimeSecond > 0) {
+
             self.internalTimer = setInterval(function() {  
                     self.updateIntervalPerSecond();
                 }, 

@@ -2,6 +2,9 @@ var HP = function(max){
 	this.maxHP = max;
 	this.value = maxHP;
 
+	HP.prototype.getValue = function(){
+		return this.value;
+	}
 	HP.prototype.isDead = function() {
 		if(this.value <= 0){
 			return true;
@@ -10,14 +13,16 @@ var HP = function(max){
 		}
 	};
 	HP.prototype.setHP = function(amount, type){
-		switch type
+		switch (type){
 			case 1:
 				this.value += amount;
 				break;
 			case 2:
 				this.value -= (maxHP * amount);
-	}
-	HP.prototype.getValue = function(){
-		return this.value;
+				break;
+			default:
+				console.log("TYPE ERROR");
+				break;
+			}
 	}
 }

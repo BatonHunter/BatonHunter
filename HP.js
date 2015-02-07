@@ -1,6 +1,6 @@
 var HP = function(max){
 	this.maxHP = max;
-	this.value = maxHP;
+	this.value = this.maxHP;
 
 	HP.prototype.getValue = function(){
 		return this.value;

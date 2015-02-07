@@ -55,6 +55,9 @@ var Timer = function(options) {
 
         this.pause();
         this.currentTimeSecond = this.totalTimeSecond;
+        if (this.callbackUpdatePerSecond) {
+            this.callbackUpdatePerSecond(this.totalTimeSecond, this.currentTimeSecond);    
+        }
     }
 
     this.stopTimer = function() {

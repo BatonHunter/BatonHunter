@@ -30,7 +30,8 @@ section ul {
     list-style:none;    
 }
 section li{
-    text-indent:140px
+    text-indent:140px;
+    font-size:20px;
 }
 section .exp-icon{background:url(../images/icon01.png) no-repeat;height:110px; line-height:110px;}
 section .gold-icon{background:url(../images/icon02.png) no-repeat;height:80px;line-height:80px;}

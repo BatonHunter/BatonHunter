@@ -4,6 +4,9 @@ var HP = function(maxHP){
 	HP.prototype.getValue = function(){
 		return this.value;
 	}
+	HP.prototype.getMaxHP = function(){
+		return maxHP;
+	}
 	HP.prototype.isDead = function() {
 		if(this.value <= 0){
 			return true;

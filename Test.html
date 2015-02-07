@@ -7,11 +7,11 @@
     <script type="text/javascript" src="Scripts/progressbar.js"></script>
     <script>
       jQuery(function($){
-        var _hp = new HP(10000);
+        var _hp = new HP(1000);
         $('#hpButton').click(function(){
           console.log($('#hpvalue').val());
 		      _hp.setHP(parseInt($('#hpvalue').val()), 1);
-		      progressBar(_hp.getValue(), _hp.maxHP, $('#progressBar'));
+		      progressBar(_hp.getValue(), _hp.getMaxHP(), $('#progressBar'));
         });
       });
     </script>

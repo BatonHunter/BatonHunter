@@ -21,7 +21,7 @@
 
     <section id="" class="row content user">
       <header class="blood-flow col-sm-12">
-        <div class="fa fa-clock-o clock">
+        <div id="counter" class="clock">
         </div>
         我方血條
       </header> 
@@ -35,10 +35,22 @@
         </ul>
       </div>
       <div class="answer-block col-sm-12">
+      <div id="progress_hunter">
         作答區
       </div>
     </section>
   </div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script src="timer.js"></script>
+<script src="circular-progress.js"></script>
+<script src="countdown.js"></script>
+<script>
+var countdown = null;
+$(document).ready(function (){
+  countdown = new CountDown('#counter', 20, 10, null); //id radius time callback
+  countdown.startCountdown();
+});
+</script>
 </body>
 </html>

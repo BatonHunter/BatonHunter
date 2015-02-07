@@ -56,9 +56,8 @@
   };
 
   // Update with a new `percent` value and redraw the canvas
-  CircularProgress.prototype.update = function (value, text) {
+  CircularProgress.prototype.update = function (value) {
     this._percent = value;
-    this.options.text.value = text;
     this.draw();
     return this;
   };
@@ -111,7 +110,14 @@
     }
 
     text = options.text.value === null ? (percent | 0) + '%' : options.text.value;
+    var fontOption = options.text.font || null;
+
+    if (fontOption) {
+      ctx.font = fontOption;
+    }
+    
     tw = ctx.measureText(text).width;
+
     fontSize = ctx.font.match(/(\d+)px/);
     fontSize = fontSize ? fontSize[1] : 0;
 

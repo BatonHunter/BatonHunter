@@ -37,6 +37,8 @@ var Timer = function(options) {
 
     this.resume = function() {
 
+        var self = this;
+
         if (self.currentTimeSecond > 0) {
             self.internalTimer = setInterval(function() {  
                     self.updateIntervalPerSecond();
@@ -49,6 +51,12 @@ var Timer = function(options) {
         }
     }
 
+    this.reset = function() {
+
+        this.pause();
+        this.currentTimeSecond = this.totalTimeSecond;
+    }
+
     this.stopTimer = function() {
 
         if (this.callbackTimeUp) {
@@ -59,13 +67,14 @@ var Timer = function(options) {
     }
 };
 
+/*
+var timer = new Timer({
+    totalTimeSecond: 3,
+    callbackTimeUp: function() { console.log('time up!'); },
+    callbackUpdatePerSecond: function(totalTimeSec, currentTimeSec) {
+        console.log('update : ' + currentTimeSec);
+    }
+});
 
-// var timer = new Timer({
-//     totalTimeSecond: 3,
-//     callbackTimeUp: function() { console.log('time up!'); },
-//     callbackUpdatePerSecond: function(totalTimeSec, currentTimeSec) {
-//         console.log('update : ' + currentTimeSec);
-//     }
-// });
-
-// timer.startCountdown();
+timer.startCountdown();
+*/

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Baton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/stylesheet/battleui.css" />
+    <link rel="stylesheet" href="ThisCssIsBreakingThePage!!main.css" />
+  </head>
+<body>
+  <div class="main container">
+
+    <section id="" class="row content enemy">
+    <header class="blood-flow col-sm-12">
+      <div id="enemy-hp" class="jquery-ui-like">
+        <div>&nbsp;</div>
+      </div>
+      </header>
+      <div class="role col-sm-12">
+        <p>敵方畫面</p>
+      </div>
+    </section>
+
+    <section id="" class="row content user">
+      <header class="blood-flow col-sm-12">
+        <div id="counter" class="clock">
+        </div>
+        <div id="user-hp" class="jquery-ui-like">
+          <div>&nbsp;</div>
+        </div>
+      </header> 
+
+      <div class="tools col-sm-12">
+        <ul class="">
+          <li><button class="btn btn-primary">藥草 x 1</button></li>
+          <li><button class="btn btn-success">紅藥水 x 1</button></li>
+        </ul>
+      </div>
+
+      <div id="question" class="col-sm-12"></div>
+    </section>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+
+  <script src="assets/lib/circular-progress.js"></script>
+  <script src="components/battletimer/timer.js"></script>
+  <script src="components/battletimer/countdown.js"></script>
+
+  <script src="components/truefalsequestion/truefalseQuestion.js"></script>
+
+  <script src="components/hpbar/HP.js"></script>
+  
+<script>
+  //component init
+  $("#question").load("components/truefalsequestion/truefalsequestion.html"); 
+
+  var contdown;
+  $(document).ready(function (){
+    //blood obj init
+    var enemyHP = new HP(1000, $('#enemy-hp'));
+    var userHP = new HP(1000, $('#user-hp'));
+
+    countdown = new CountDown('#counter', 20, 10, 20, function () {
+      startCount();
+    }); //id radius time callback
+    startCount();
+  });
+
+  function startCount() {
+    countdown.reset();
+    setTimeout(function () {
+      countdown.startCountdown();
+    }, 0);
+  }
+</script>
+</body>
+</html>

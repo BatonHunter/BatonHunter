@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+<meta charset=utf-8>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script src="../js/timer.js"></script>
+<script src="../js/circular-progress.js"></script>
+<script src="../js/countdown.js"></script>
+<script>
+
+var timeUp = function() { console.log("time is up!"); };
+
+var countdown = null;
+$(document).ready(function (){
+	countdown = CountDown('#progress_hunter', 20, 10, 20, timeUp);
+});
+</script>
+</head>
+
+<body>
+	<div>
+	  <div id="progress_hunter">
+	  </div>
+	</div>
+
+	<input type="button" id="textBtn" onclick='countdown.startCountdown()' value="Start"> 
+	<input type="button" id="textPause" onclick='countdown.pause()' value="Pause">
+	<input type="button" id="textReset" onclick='countdown.reset()' value="Reset"> 
+</html>

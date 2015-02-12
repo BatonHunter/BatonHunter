@@ -1,4 +1,4 @@
-var CountDown = function(domId, radius, totalTime, fontSize, timeUpCallback) {
+(CountDown = function(domId, radius, totalTime, fontSize, timeUpCallback) {
 	var progress = new CircularProgress({
         radius: radius,
         strokeStyle: 'blue',
@@ -24,4 +24,4 @@ var CountDown = function(domId, radius, totalTime, fontSize, timeUpCallback) {
 	});
 
 	return timer;
-}
+})();

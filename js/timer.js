@@ -24,6 +24,10 @@ var Timer = function(options) {
 
         var self = this;
 
+        if (self.internalTimer || self.currentTimeSecond <= 0) {
+            return;
+        }
+
         self.internalTimer = setInterval(function() {
                 self.updateIntervalPerSecond();
             }, 
@@ -33,31 +37,19 @@ var Timer = function(options) {
 
     this.pause = function() {
         clearInterval(this.internalTimer);
-    }
-
-    this.resume = function() {
-
-        var self = this;
-
-        if (self.currentTimeSecond > 0) {
-            self.internalTimer = setInterval(function() {  
-                    self.updateIntervalPerSecond();
-                }, 
-                1000
-            );
-        } else {
-
-            this.stopTimer();
-        }
+        delete this.internalTimer;
     }
 
     this.reset = function() {
 
         this.pause();
         this.currentTimeSecond = this.totalTimeSecond;
+
         if (this.callbackUpdatePerSecond) {
             this.callbackUpdatePerSecond(this.totalTimeSecond, this.currentTimeSecond);    
         }
+
+        delete this.internalTimer;
     }
 
     this.stopTimer = function() {

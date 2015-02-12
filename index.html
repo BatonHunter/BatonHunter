@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="hpv1/skins/jquery-ui-like/progressbar.css">
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="assets/stylesheet/battleui.css" />
+    <link rel="stylesheet" href="ThisCssIsBreakingThePage!!main.css" />
   </head>
 <body>
   <div class="main container">
@@ -32,7 +31,7 @@
           <div>&nbsp;</div>
         </div>
       </header> 
-      <div class="question col-sm-12">
+
       <div class="tools col-sm-12">
         <ul class="">
           <li><button class="btn btn-primary">藥草 x 1</button></li>
@@ -40,52 +39,34 @@
         </ul>
       </div>
 
-        <div id ="problem" class="col-md-12 questionitem">
-          <h3 class="title">thsi is title</h3>
-          <div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!</div>
-        </div>
-
-      <div class="answer-block col-sm-12">
-      <div>
-        <div id="result" style="display: none;">
-            <p>result (not finished)</p>
-            <img src="img/true.png" alt="">
-            <img src="img/false.png" alt="">
-          </div>
-       </div> 
-        <div id="answer"class="row">
-          <button id="trueButton" class="col-xs-6 trueitem btn btn-primary">
-            Yes
-          </button>
-          <button id="falseButton" class="col-xs-6 falseitem btn btn-danger">
-            No
-          </button>
-        </div>
-      </div>
+      <div id="question" class="col-sm-12"></div>
     </section>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-  <script src="timer.js"></script>
-  <script src="circular-progress.js"></script>
-  <script src="countdown.js"></script>
-  <script type="text/javascript" src="Scripts/HP.js"></script>
-  <script type="text/javascript" src="Scripts/progressbar.js"></script>
-  <script src="js/main.js"></script>
-<script>
-  var countdown = null;
 
+  <script src="assets/lib/circular-progress.js"></script>
+  <script src="components/battletimer/timer.js"></script>
+  <script src="components/battletimer/countdown.js"></script>
+
+  <script src="components/truefalsequestion/truefalseQuestion.js"></script>
+
+  <script src="components/hpbar/HP.js"></script>
+  
+<script>
+  //component init
+  $("#question").load("components/truefalsequestion/truefalsequestion.html"); 
+
+  var contdown;
   $(document).ready(function (){
+    //blood obj init
+    var enemyHP = new HP(1000, $('#enemy-hp'));
+    var userHP = new HP(1000, $('#user-hp'));
+
     countdown = new CountDown('#counter', 20, 10, 20, function () {
       startCount();
     }); //id radius time callback
     startCount();
-
-    var enemyHP = new HP(1000);
-    var userHP = new HP(1000);
-
-    progressBar(enemyHP.getValue(), enemyHP.getMaxHP(), $('#enemy-hp'));
-    progressBar(userHP.getValue(), userHP.getMaxHP(), $('#user-hp'));
   });
 
   function startCount() {

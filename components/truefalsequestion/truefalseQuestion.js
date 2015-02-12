@@ -30,8 +30,7 @@
       
     }
 
-
-    $(function(){
+    var questioninit = function (){
       var problems = getProblem();
       var problem = problems.pop();
       $('#problem .title').text(problem.title);
@@ -48,5 +47,5 @@
         displayResult(result);
       });
     
-    });
+    };
     

@@ -23,9 +23,6 @@ html,body{
 	height: 60%;
 }
 
-.content{
-}
-
 .blood-flow {
   background-color: rgba(255, 255, 255, .5);
   height: 25px;
@@ -37,7 +34,7 @@ html,body{
   padding-top: 5px;
 }
 
-.user .clock {
+.user #counter {
   float: left;
   font-size: 40px;
 }
@@ -81,6 +78,6 @@ html,body{
   overflow: hidden;   
 }
 .jquery-ui-like div {
-  background-image: url(../../assets/img/HP.gif);
+  background-image: url(../img/HP.gif);
   border-right: 1px solid #AAA;
 }

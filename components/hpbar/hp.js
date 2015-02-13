@@ -13,7 +13,7 @@ var HP = function(maxHP, $element){
 	this.HPuiController(this.maxHP);
 };
 
-HP.prototype.modifyHP = function hit(value, type){
+HP.prototype.modifyHP = function(value, type){
 	switch (type){
 		case 1:
 			this.currentHP += value;

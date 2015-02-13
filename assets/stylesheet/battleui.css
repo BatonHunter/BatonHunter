@@ -71,13 +71,22 @@ html,body{
   max-height: 50px;
 }
 
-.jquery-ui-like {
-  border-radius: 4px;
-  background: #FFF;
-  border: 1px solid #AAA;
-  overflow: hidden;   
+.potionBtn {
+  width: 2%;
+  height: 2%;
+    -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
 }
-.jquery-ui-like div {
-  background-image: url(../img/HP.gif);
-  border-right: 1px solid #AAA;
+
+.potionBtn:hover {
+  width: 2%;
+  height: 2%;
+  -webkit-transform: rotate(-20deg);
+     -moz-transform: rotate(-20deg);
+       -o-transform: rotate(-20deg);
+      -ms-transform: rotate(-20deg);
+          transform: rotate(-20deg);
 }

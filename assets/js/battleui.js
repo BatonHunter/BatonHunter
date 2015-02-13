@@ -1,25 +1,22 @@
-//global variable declaration
-var countdown;
-var enemyHP;
-var userHP;
-
 //component init
 $("#question").load("components/truefalsequestion/truefalsequestion.html"); 
 
+//global variable declaration
+var enemy;
+var user;
+
 $(document).ready(function (){
+  //count down clock init
+  batontimer.setUpClock('#counter', 20);
+  batontimer.reset();
+  batontimer.start();
   //blood obj init
-  enemyHP = new HP(1000, $('#enemy-hp'));
-  userHP = new HP(1000, $('#user-hp'));
 
-  countdown = new CountDown('#counter', 20, 10, 20, function () {
-    startCount();
-  }); //id radius time callback
-  startCount();
+  var medicine = [new Herb(1, -100),new Herb(1, 100)];
+  user = new Unit(new HP(1000, $('#user-hp')),medicine);
+  enemy = new Unit(new HP(1000, $('#enemy-hp')),[]);
+
+  user.onHerbsCountChanged = function(herbCount) {
+    $('#herbsCount').text(' X ' + herbCount);
+  }
 });
-
-function startCount() {
-  countdown.reset();
-  setTimeout(function () {
-    countdown.startCountdown();
-  }, 0);
-}

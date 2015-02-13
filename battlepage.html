@@ -8,6 +8,7 @@
     <!--<link rel="stylesheet" href="main.css" />-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/stylesheet/battleui.css" />
+    <link rel="stylesheet" href="components/hpbar/hp.css" />
   </head>
 
 <body>
@@ -35,8 +36,9 @@
 
       <div class="tools col-sm-12">
         <ul class="">
-          <li><button class="btn btn-primary">藥草 x 1</button></li>
-          <li><button class="btn btn-success">紅藥水 x 1</button></li>
+			   <img class="potionBtn" src="assets/img/potion.png" onclick="heal(1,100);"></img><span id="herbsCount">X 1</span>
+      
+			<li><button class="btn btn-success" onclick="heal(1,-100);">毒藥水(只能用一次)</button></li>
         </ul>
       </div>
 
@@ -44,12 +46,15 @@
     </section>
   </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+  <!--libs-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
   <script src="assets/lib/circular-progress.js"></script>
+  <!--js-->
   <script src="components/battletimer/timer.js"></script>
-  <script src="components/battletimer/countdown.js"></script>
   <script src="components/truefalsequestion/truefalseQuestion.js"></script>
-  <script src="components/hpbar/HP.js"></script>
+  <script src="components/hpbar/hp.js"></script>
   <script src="assets/js/battleui.js"></script>
+  <script src="assets/js/player.js"></script>
+  <script src="components/herbs/herbs.js"></script>
 </body>
 </html>

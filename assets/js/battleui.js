@@ -13,8 +13,8 @@ $(document).ready(function (){
   batontimer.start();
   //blood obj init
 
-  var medicine = [{type:1,healpoint:50}];
+  var medicine = [new Herb(1, -100),new Herb(1, 100)];
   user = new Unit(new HP(1000, $('#user-hp')),medicine);
   enemy = new Unit(new HP(1000, $('#enemy-hp')),[]);
-  user.takeMedicine(medicine[0]);
+
 });

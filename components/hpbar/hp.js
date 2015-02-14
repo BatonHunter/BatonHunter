@@ -25,6 +25,7 @@ HP.prototype.modifyHP = function(value, type){
 		//type error
 			break;
 		}
+		
 	if(this.currentHP > this.maxHP){
 		this.currentHP = this.maxHP;
 	}else if(this.currentHP < 0){

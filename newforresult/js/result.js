@@ -10,6 +10,7 @@ var result = function() {
 			location.href = "win.html"; 
 		}else{
 			location.href = "lose.html";
+			$("#resultBlock #exp").text("54645p");
 		}
 	}
 }

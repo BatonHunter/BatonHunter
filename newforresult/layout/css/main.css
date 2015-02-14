@@ -4,11 +4,38 @@
    Author's custom styles
    ========================================================================== */
 
+body ul {
+	list-style-type: none;
+}
 
+.glyphicon-home {
+	padding-left: 10px;
+}
 
-
-
-
+.info .glyphicon::before {
+	padding-right: 10px;
+}
+.continue-button p{
+	width: 100%;
+}
+.jumbotron {
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+}
+.vic-img {
+	background-image: url("../img/win.png");
+	-webkit-background-size: cover;
+	background-size: cover;
+	height: 180px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	padding: 0;
+	margin: 0;
+}
+.num {
+	padding-left: 10px;
+}
 
 
 

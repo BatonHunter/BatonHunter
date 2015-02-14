@@ -4,10 +4,31 @@ html,body{
   padding: 0;
 }
 
+#divtoBlink{
+      -webkit-transition: background 1.0s ease-in-out;
+      -moz-transition:    background 1.0s ease-in-out;
+      -ms-transition:     background 1.0s ease-in-out;
+      transition:         background 1.0s ease-in-out;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      top:0;
+      position:fixed;
+      _position:absolute;
+}
+
+.backgroundRed{
+        background: #F00;
+}
+
+
 .main {
   height: 100%;
   width: 100%;
+  -1
 }
+
+
 
 .enemy{
 	background-color: #8080FF;

@@ -17,7 +17,11 @@ $(document).ready(function (){
   $('#luckystar').fancybox({
     hideOnOverlayClick: false,
     onStart: function(){
-      //  do something before box closed.
+       $("#divtoBlink").show();
+
+        setInterval(function(){
+         $("#fancybox-overlay").removeAttr("style").toggleClass("backgroundRed");
+        },1000);  
     },
     onComplete: function(){
       //  do something before box closed.

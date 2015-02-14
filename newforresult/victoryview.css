@@ -1,0 +1,14 @@
+body{
+	font-size: medium;
+}
+header{
+border:solid 1px;
+}
+
+li{
+	list-style-type: none;
+}
+
+#container{
+	border:solid 1px;
+}

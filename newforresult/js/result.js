@@ -1,13 +1,13 @@
 var result = function() {
 	var isWin;
 	var timeCost;
-	var money;
+	var money = ((Math.random() * 500) + 100);
 	var exp = ((Math.random() * 500) + 100);
 	var score = ((Math.random() * 2000) + 1000);
 
 
 	result.prototype.callResultPage = function(isWin, timeCost){
-		if(typeof(Storage) !== "undefined") {
+		if(typeof(Storage) !== "undefined"){
 			if(isWin){
 				location.href = "win.html"; 
 			}else{
@@ -21,6 +21,9 @@ var result = function() {
 	}
 
 	result.prototype.loadResultValues = function(){
-		$("#exp").text(localStorage.timeCost);
+		$("#time").text(localStorage.timeCost);
+		$("#money").text(money);
+		$("#exp").text(exp);
+		$("#score").text(score);
 	}
 }

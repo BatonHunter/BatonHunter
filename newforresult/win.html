@@ -3,18 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Title</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script type="text/javascript"	src ="js/result.js"></script>
 </head>
-	<div>
-		money : <label>xxx</label><br/>
-		exp : <label>x%</label><br/>
-		score : <label>x%</label><br/>
-		time : <label>x%</label><br/>
+	<div id = "resultBlock">
+		money : <label id = "money">xxx</label><br/>
+		exp : <label id = "exp">x%</label><br/>
+		score : <label id = "score">x%</label><br/>
+		time : <label id = "time">x%</label><br/>
 	</div>
 	<div>
 		<button type="submit">next</button>
 	</div>
 <body>
-
+<script type="text/javascript">
+	var result = new result();
+	result.loadResultValues();
+</script>
 </body>
 
 </html>

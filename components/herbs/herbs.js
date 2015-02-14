@@ -3,6 +3,9 @@ var Herb = function(hpType, healVal)
 	this.healVal = healVal;
 	this.hpType = hpType;
 	
+    this.equals = function(herb) {
+        return this.hpType === herb.hpType && this.healVal === herb.healVal;
+    }
 };
 
 function heal(type, value)

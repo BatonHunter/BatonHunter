@@ -40,3 +40,7 @@ HP.prototype.isDead = function() {
 		return false;
 	}
 };
+
+HP.prototype.isFull = function() {
+	return (this.currentHP >= this.maxHP);
+}

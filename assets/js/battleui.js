@@ -7,7 +7,6 @@ var user;
 
 $(document).ready(function (){
   //count down clock init
-  debugger;
   batontimer.setUpClock('#counter', 20);
   batontimer.reset();
   batontimer.start();
@@ -17,4 +16,7 @@ $(document).ready(function (){
   user = new Unit(new HP(1000, $('#user-hp')),medicine);
   enemy = new Unit(new HP(1000, $('#enemy-hp')),[]);
 
+  user.onHerbsCountChanged = function(herbCount) {
+    $('#herbsCount').text(' X ' + herbCount);
+  }
 });

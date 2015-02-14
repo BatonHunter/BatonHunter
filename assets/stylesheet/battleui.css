@@ -70,3 +70,7 @@ html,body{
 #result img {
   max-height: 50px;
 }
+
+#luckystar {
+  cursor: pointer;
+}

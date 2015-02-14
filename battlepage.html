@@ -8,11 +8,13 @@
     <!--<link rel="stylesheet" href="main.css" />-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/stylesheet/battleui.css" />
+    <link rel="stylesheet" href="assets/stylesheet/jquery.fancybox-1.3.4.css" />
     <link rel="stylesheet" href="components/hpbar/hp.css" />
     <!--libs-->
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>-->
     <script src="assets/lib/jquery-1.4.3.min.js"></script>
     <script src="assets/lib/circular-progress.js"></script>
+    <script src="assets/lib/jquery.fancybox-1.3.4.js"></script>
     <!--js-->
     <script src="components/battletimer/timer.js"></script>
     <script src="components/truefalsequestion/truefalseQuestion.js"></script>
@@ -45,7 +47,7 @@
 
       <div class="tools col-sm-12">
         <ul class="">
-          <li><img src="assets/img/luckystar.png" alt="Smiley face" height="38" width="38"/>X 1</li>
+          <li><a id="luckystar" href="#showme"><img src="assets/img/luckystar.png" alt="Smiley face" height="38" width="38"/></a>X 1</li>
           <li><img src="assets/img/herb.png" alt="Smiley face" height="42" width="42"/>X 1</li>
         </ul>
       </div>
@@ -54,5 +56,10 @@
     </section>
   </div>
 
+	<div style="display: none;">
+		<div id="showme" style="width:400px;height:100px;overflow:auto;">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis mi eu elit tempor facilisis id et neque. Nulla sit amet sem sapien. Vestibulum imperdiet porta ante ac ornare. Nulla et lorem eu nibh adipiscing ultricies nec at lacus. Cras laoreet ultricies sem, at blandit mi eleifend aliquam. Nunc enim ipsum, vehicula non pretium varius, cursus ac tortor. Vivamus fringilla congue laoreet. Quisque ultrices sodales orci, quis rhoncus justo auctor in. Phasellus dui eros, bibendum eu feugiat ornare, faucibus eu mi. Nunc aliquet tempus sem, id aliquam diam varius ac. Maecenas nisl nunc, molestie vitae eleifend vel, iaculis sed magna. Aenean tempus lacus vitae orci posuere porttitor eget non felis. Donec lectus elit, aliquam nec eleifend sit amet, vestibulum sed nunc.
+		</div>
+	</div>
 </body>
 </html>

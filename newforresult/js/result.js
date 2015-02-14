@@ -3,7 +3,7 @@ function callResultPage(isWin, timeCost){
 		//cache[JoshWang]: for total fighting time storage
 		if(isWin){
 			localStorage.timeCost = timeCost;
-			location.href = "win.html"; 
+			location.href = "layout/index.html"; 
 		}else{
 			localStorage.timeCost = timeCost;
 			location.href = "lose.html";

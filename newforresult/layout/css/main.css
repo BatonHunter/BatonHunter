@@ -12,6 +12,11 @@ body ul {
 	padding-left: 10px;
 }
 
+.info {
+	margin: 20px 0;
+
+}
+
 .info .glyphicon::before {
 	padding-right: 10px;
 }
@@ -27,7 +32,7 @@ body ul {
 	background-image: url("../img/win.png");
 	-webkit-background-size: cover;
 	background-size: cover;
-	height: 180px;
+	min-height: 200px;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	padding: 0;
@@ -36,9 +41,16 @@ body ul {
 .num {
 	padding-left: 10px;
 }
-
-
-
+.info-container {
+	margin-top: 50px
+}
+.info h2 {
+	margin-top: 0;
+	margin-bottom: 30px;
+}
+.info ul li {
+	font-size: 20px;
+}
 
 
 

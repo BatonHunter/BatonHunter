@@ -1,16 +1,26 @@
 var result = function() {
-	this.money;
-	this.exp = ((Math.random() * 500) + 100);
-	this.score = ((Math.random() * 2000) + 1000);
+	var isWin;
+	var timeCost;
+	var money;
+	var exp = ((Math.random() * 500) + 100);
+	var score = ((Math.random() * 2000) + 1000);
+
 
 	result.prototype.callResultPage = function(isWin, timeCost){
-		this.isWin = isWin;
-		this.timeCost = timeCost;
-		if(isWin){
-			location.href = "win.html"; 
-		}else{
-			location.href = "lose.html";
-			$("#resultBlock #exp").text("54645p");
+		if(typeof(Storage) !== "undefined") {
+			if(isWin){
+				location.href = "win.html"; 
+			}else{
+				//cache[JoshWang]: for total fighting time storage
+				localStorage.timeCost = timeCost;
+				location.href = "lose.html";
+			}
+		}else {
+			alert("Sorry! No Web Storage support..");
 		}
+	}
+
+	result.prototype.loadResultValues = function(){
+		$("#exp").text(localStorage.timeCost);
 	}
 }

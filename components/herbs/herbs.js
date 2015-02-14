@@ -8,5 +8,5 @@ var Herb = function(hpType, healVal)
 function heal(type, value)
 {
 	var herb = new Herb(type, value)
-	user.takeMedicine(herb);
+	user.takeHerb(herb);
 }

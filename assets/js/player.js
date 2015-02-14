@@ -1,22 +1,22 @@
 
-var Unit = function(hp,medicines){
+var Unit = function(hp,herbs){
 	this.hp = hp;
-	this.medicines = medicines;
-    this.takeMedicine = function(medicine){
+	this.herbs = herbs;
+    this.takeHerb = function(herb){
  		
- 		if(!removeMedicine(this.medicines,medicine))
+ 		if(!removeherb(this.herbs,herb))
  			return;
 
-    	var addValue = medicine.healpoint;
-    	var type = medicine.type;
-        this.hp.modifyHP(addValue,type)
+    	var addValue = herb.healVal;
+    	var hpType = herb.hpType;
+        this.hp.modifyHP(addValue,hpType)
 
     }
 
-    function removeMedicine(medicines,medicine){
-	for (var i=0,leng = medicines.length ;i<leng ;++i){
-		if(medicine.type === medicines[i].type && medicine.healpoint === medicines[i].healpoint){
-			medicines.splice(i,1);
+    function removeherb(herbs,herb){
+	for (var i=0,leng = herbs.length ;i<leng ;++i){
+		if(herb.hpType === herbs[i].hpType && herb.healVal === herbs[i].healVal){
+			herbs.splice(i,1);
 			return true;
 		}
 	}

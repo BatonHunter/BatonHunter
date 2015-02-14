@@ -36,8 +36,10 @@
 
       <div class="tools col-sm-12">
         <ul class="">
-          <li><button class="btn btn-primary">藥草 x 1</button></li>
-          <li><button class="btn btn-success">紅藥水 x 1</button></li>
+			<li><button class="btn btn-primary" onclick="heal(1,-100);">毒草 x 1</button></li>
+			<li><button class="btn btn-success" onclick="heal(2,-30);">毒藥水 x 1</button></li>
+          <li><button class="btn btn-primary" onclick="heal(1,100);">藥草 x 1</button></li>
+          <li><button class="btn btn-success" onclick="heal(2,30);">紅藥水 x 1</button></li>
         </ul>
       </div>
 
@@ -46,7 +48,7 @@
   </div>
 
   <!--libs-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
   <script src="assets/lib/circular-progress.js"></script>
   <!--js-->
   <script src="components/battletimer/timer.js"></script>
@@ -54,5 +56,6 @@
   <script src="components/hpbar/hp.js"></script>
   <script src="assets/js/battleui.js"></script>
   <script src="assets/js/player.js"></script>
+  <script src="components/herbs/herbs.js"></script>
 </body>
 </html>

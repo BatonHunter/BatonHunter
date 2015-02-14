@@ -5,6 +5,13 @@
   overflow: hidden;   
 }
 .jquery-ui-like div {
-  background-image: url(../../assets/img/HP.gif);
-  border-right: 1px solid #AAA;
+  border-right: 3px solid #AAA;
+}
+
+.enemyHP div{ 
+	background-image: url(../../assets/img/HP_user.gif);
+}
+
+.userHP div{ 
+	background-image: url(../../assets/img/HP_enemy.gif); 
 }

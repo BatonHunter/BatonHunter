@@ -14,6 +14,7 @@ $(document).ready(function (){
   enemyHP = new HP(1000, $('#enemy-hp'));
   userHP = new HP(1000, $('#user-hp'));
   //  click lucky star
+  var countDown;
   $('#luckystar').fancybox({
     hideOnOverlayClick: false,
     onStart: function(){
@@ -21,9 +22,14 @@ $(document).ready(function (){
     },
     onComplete: function(){
       //  do something before box closed.
+      var countValue = $('span.countdown').html();
+        countDown = setInterval(function() {
+          console.log(countValue);
+        }, 100);
     },
     onCleanup: function(){
       //  do something before box closed.
+      clearInterval(countDown);
     },
     onClosed: function(){
       //  do something when box closed.

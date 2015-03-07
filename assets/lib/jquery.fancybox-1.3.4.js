@@ -1117,7 +1117,7 @@
 
 		overlayShow : true,
 		overlayOpacity : 0.7,
-		overlayColor : '#777',
+		//  overlayColor : '#777',
 
 		titleShow : true,
 		titlePosition : 'float', // 'float', 'outside', 'inside' or 'over'

@@ -23,26 +23,17 @@ body ul {
 .continue-button p{
 	width: 100%;
 }
-.jumbotron {
-	padding: 0;
-	margin: 0;
-	background-color: #fff;
+.main-image-container {
+	margin-top: 20px;
 }
-.vic-img {
-	background-image: url("../img/win.png");
-	-webkit-background-size: cover;
-	background-size: cover;
-	min-height: 200px;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	padding: 0;
-	margin: 0;
+.main-image {
+	width: 100%;
 }
 .num {
 	padding-left: 10px;
 }
 .info-container {
-	margin-top: 50px
+	margin-top: 30px;
 }
 .info h2 {
 	margin-top: 0;

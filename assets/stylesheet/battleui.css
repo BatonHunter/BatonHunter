@@ -4,6 +4,25 @@ html,body{
   padding: 0;
 }
 
+#showme {
+  text-align: center;
+  width: 200px;
+}
+
+#showme #hint-timer {
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: -30px;
+}
+
+#fancybox-content {
+  overflow: visible!important;
+}
+#fancybox-content div {
+  overflow: visible!important;
+}
+
 #divtoBlink{
       -webkit-transition: background 1.0s ease-in-out;
       -moz-transition:    background 1.0s ease-in-out;
@@ -17,8 +36,8 @@ html,body{
       _position:absolute;
 }
 
-.backgroundRed{
-        background: #F00;
+.background-red{
+  background: #F00;
 }
 
 

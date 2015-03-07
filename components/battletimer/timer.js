@@ -36,6 +36,7 @@ var batontimer = {
 
     //  setup a CircularProgress object and append to the element
     batontimer.setUpClock = function(domId, radius, color, lineCap, cb){
+      console.trace();
         this.clock = new CircularProgress({
             radius: radius,
             strokeStyle: color,

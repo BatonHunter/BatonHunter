@@ -1,52 +1,57 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 body ul {
-	list-style-type: none;
+    list-style-type: none;
 }
-
 .glyphicon-home {
-	padding-left: 10px;
+    padding-left: 10px;
 }
-
-.info {
-	margin: 20px 0;
-
+.info-container .glyphicon::before {
+    padding-right: 10px;
 }
-
-.info .glyphicon::before {
-	padding-right: 10px;
-}
-.continue-button p{
-	width: 100%;
+.button-container p {
+    width: 100%;
 }
 .main-image-container {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 .main-image {
-	width: 100%;
+    width: 100%;
 }
-.num {
-	padding-left: 10px;
+
+.img-container {
+	margin-bottom: 20px;
+}
+
+.info-container .num {
+    padding-left: 10px;
 }
 .info-container {
-	margin-top: 30px;
 }
-.info h2 {
-	margin-top: 0;
-	margin-bottom: 30px;
+.info-container .info-container h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
 }
-.info ul li {
-	font-size: 20px;
+<<<<<<< HEAD
+.info-container {
+    font-size: 20px;
 }
-
-
-
-
-
-
-
-
+footer {
+	width:100%;
+    position: absolute;
+    bottom: 0;
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 736px) and (orientation: portrait) {
+	.img-container {
+		margin-bottom: 50px;
+	}
+}
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+	.img-container {
+		margin-bottom: 70px;
+	}
+=======
+>>>>>>> 4b9ca4df7d66ff3c9db9adc4469df30f41a016f5
+}

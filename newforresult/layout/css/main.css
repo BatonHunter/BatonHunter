@@ -28,13 +28,10 @@ body ul {
 .info-container .num {
     padding-left: 10px;
 }
-.info-container {
-}
 .info-container .info-container h2 {
     margin-top: 0;
     margin-bottom: 30px;
 }
-<<<<<<< HEAD
 .info-container {
     font-size: 20px;
 }
@@ -52,6 +49,4 @@ footer {
 	.img-container {
 		margin-bottom: 70px;
 	}
-=======
->>>>>>> 4b9ca4df7d66ff3c9db9adc4469df30f41a016f5
 }

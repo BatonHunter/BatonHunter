@@ -1,5 +1,4 @@
-
-//default value for total count down time is 10 sec, default front size for clock is 20.
+//  default value for total count down time is 10 sec, default front size for clock is 20.
 var batontimer = {    
     totalTimeSecond: 10,
     currentTimeSecond: null,
@@ -9,69 +8,86 @@ var batontimer = {
 };
 
 (function(){
-    //private methods
-    //update clock element
-    updateClock = function() {
-        var p = batontimer.currentTimeSecond*100/batontimer.totalTimeSecond;
-        batontimer.clock.options.text = {
-            value: batontimer.currentTimeSecond,
-            font: batontimer.fontsize + "px sans-serif"
+
+    var i=0;
+
+    //  private methods
+
+    //  update clock element
+    batontimer.updateClock = function() {
+        var p = this.currentTimeSecond*100 / this.totalTimeSecond;
+        this.clock.options.text = {
+            value: this.currentTimeSecond,
+            font: this.fontsize + "px sans-serif"
         };
-        batontimer.clock.update(p);
+        this.clock.update(p);
     };
 
-    //public methods
-    //setters
-    batontimer.setTotalTimeSecond = function(totalTimeSecond){this.totalTimeSecond = totalTimeSecond};
-    batontimer.setFontsize = function(fontsize){this.fontsize = fontsize};
+    //  public methods
 
-    //setup a CircularProgress object and append to the element
-    batontimer.setUpClock = function(domId, radius){
+    //  setters
+    batontimer.setTotalTimeSecond = function(totalTimeSecond){
+      this.totalTimeSecond = totalTimeSecond
+    };
+
+    batontimer.setFontsize = function(fontsize){
+      this.fontsize = fontsize
+    };
+
+    //  setup a CircularProgress object and append to the element
+    batontimer.setUpClock = function(domId, radius, color, lineCap, cb){
+      console.trace();
         this.clock = new CircularProgress({
             radius: radius,
-            strokeStyle: 'blue',
-            lineCap: 'round',
+            strokeStyle: color,
+            lineCap: lineCap,
             lineWidth: 4
         });
+        this.cb = cb;
         $(domId).append(this.clock.el);
     };
 
-    //start or countinue counting
+    //  start or countinue counting
     batontimer.start = function() {
-        if (this.internalTimer || this.currentTimeSecond <= 0) {
+        var self = this;        
+        if (this.currentTimeSecond <= 0) {
             return;
         }
 
         this.internalTimer = setInterval(function() {
-                batontimer.updateIntervalPerSecond();
+                i++;
+                self.updateIntervalPerSecond();
             }, 
             1000
         );
-    };    
+    };
 
-    //pause the clock
+    //  pause the clock
     batontimer.pause = function() {
-        clearInterval(this.internalTimer);
+        var self = this;
+        clearInterval(self.internalTimer);
         delete this.internalTimer;
     };
 
-    //reset and pause the clock
+    //  reset and pause the clock
     batontimer.reset = function() {
         this.pause();
         this.currentTimeSecond = this.totalTimeSecond;
-        updateClock();    
+        this.updateClock();    
         delete this.internalTimer;
     };
 
-    //Interval method
+    //  Interval method
     batontimer.updateIntervalPerSecond = function() {
-        batontimer.currentTimeSecond--;
-        if(batontimer.currentTimeSecond < 0){
-            //TODO[IanChiu]:Undone task for time's up event.     
-            batontimer.reset();
-            batontimer.start();
-        }else{
-            updateClock();    
+        this.currentTimeSecond--;
+        this.updateClock();
+
+        if(this.currentTimeSecond <= 0){
+            //  TODO [IanChiu]:Undone task for time's up event.     
+            //this.reset();
+            //this.start();
+            this.pause();
+            this.cb && this.cb();
         }
     };
 })();

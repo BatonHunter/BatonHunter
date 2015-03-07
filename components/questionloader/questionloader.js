@@ -54,7 +54,13 @@ var QuestionLoader = (function () {
 
   function loadQuestion (dom_id) {
     //TODO: randomly load more different types of questions (instead of just true-false question)
-    $(dom_id).load("components/truefalsequestion/truefalsequestion.html");
+    $(dom_id).load("components/truefalsequestion/truefalsequestion.html", function () {
+    	truefalseQuestion.init(getNextQuestion(), checkAnswer, $('#truefalsequestion'));
+    });
+  }
+
+  var getNextQuestion = function() {
+      return questionDB[Math.floor((Math.random() * questionDB.length))];
   }
 
   function checkAnswer (q_id, ans) {
@@ -65,6 +71,10 @@ var QuestionLoader = (function () {
         question = questionDB[i];
       }
     }
+
+    setTimeout(function(){
+      truefalseQuestion.setQuestion(getNextQuestion());
+    },1000);
 
     if (question === undefined) {
       return undefined;

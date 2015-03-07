@@ -3,10 +3,10 @@ function callResultPage(isWin, timeCost){
 		//cache[JoshWang]: for total fighting time storage
 		if(isWin){
 			localStorage.timeCost = timeCost;
-			location.href = "layout/index.html"; 
+			location.href = "layout/win.html"; 
 		}else{
 			localStorage.timeCost = timeCost;
-			location.href = "lose.html";
+			location.href = "layout/lose.html";
 		}
 	}else {
 		alert("Sorry! No Web Storage support..");

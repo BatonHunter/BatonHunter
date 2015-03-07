@@ -1,11 +1,16 @@
 function fighteffect(type, element)
 {
 
-	//alert('123'+type);
- 
+	var options = {};
 	$(element).css('background-image', 'url(assets/img/avatar_fight.jpg)');  
-  
+	$(element).effect( 'shake', options, 500, callback(element));
+};	
 
- 	$(element).effect("bounce", "slow" );
+function callback(element) {
+var that = $(element);
 
-}
+      setTimeout(function() {
+        that.css('background-image', 'url(assets/img/avatar.jpg)');  
+      }, 1000 );
+};
+

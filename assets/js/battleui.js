@@ -1,6 +1,7 @@
 //component init
 QuestionLoader.loadQuestion('#question');
 
+
 //global variable declaration
 var enemyHP;
 var userHP;

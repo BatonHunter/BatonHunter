@@ -1,12 +1,11 @@
 function callResultPage(isWin, timeCost){
 	if(typeof(Storage) !== "undefined"){
-		//cache[JoshWang]: for total fighting time storage
+		//cache[Cloud Lin]: for total fighting time storage
+		localStorage.timeCost = timeCost;
 		if(isWin){
-			localStorage.timeCost = timeCost;
-			location.href = "layout/index.html"; 
+			location.href = "layout/win.html"; 
 		}else{
-			localStorage.timeCost = timeCost;
-			location.href = "lose.html";
+			location.href = "layout/lose.html";
 		}
 	}else {
 		alert("Sorry! No Web Storage support..");
@@ -15,9 +14,9 @@ function callResultPage(isWin, timeCost){
 
 function loadResultValues(){
 	//TODO [Cloud Lin] , 暫時用random
-	var money = (parseInt(Math.random() * 500) + 100);
-	var exp = (parseInt(Math.random() * 500) + 100);
-	var score = (parseInt(Math.random() * 2000) + 1000);
+	var money = (parseInt(Math.random() * 5000) + 1000);
+	var exp = (parseInt(Math.random() * 5000) + 321);
+	var score = (parseInt(Math.random() * 10000) + 1000);
 	$("#time").text(localStorage.timeCost);
 	$("#money").text(money);
 	$("#exp").text(exp);

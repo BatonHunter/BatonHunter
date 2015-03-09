@@ -22,30 +22,43 @@ $(document).ready(function (){
   //blood obj init
 
   var countDown,
-      blink,
+      blinkInterval,
+      blinker,
+      $overlay = $('#fancybox-overlay');
       $luckystar = $('#luckystar');
+
+  function startBlink() {
+    blinker = blink(1000);
+    blinkInterval = setInterval(function () {
+      if (hintTimer.currentTimeSecond === 7) {
+        clearInterval(blinker);
+        blinker = blink(500);
+      } else if (hintTimer.currentTimeSecond === 3) {
+        clearInterval(blinker);
+        blinker = blink(200);
+      }
+    }, 1000);
+  }
+
+  function blink(time) {
+    return setInterval(function () {
+        $overlay.toggleClass("background-red");
+    }, time);
+  }
+
+  function clearIntervals() {
+    clearInterval(countDown);
+    clearInterval(blinkInterval);
+    clearInterval(blinker);
+  }
 
   //  click lucky star
   $luckystar.fancybox({
     hideOnOverlayClick: false,
     onStart: function() {
-      var $overlay = $('#fancybox-overlay');
       $overlay.removeAttr('style');
-      blink = setInterval(function () {
-        $overlay.toggleClass("background-red");
-        if (hintTimer.currentTimeSecond <= 7) {
-          clearInterval(blink);
-          blink = setInterval(function () {
-            $overlay.toggleClass("background-red");
-            if (hintTimer.currentTimeSecond <= 3) {
-              clearInterval(blink);
-              blink = setInterval(function () {
-                $overlay.toggleClass("background-red");
-              }, 200);
-            }
-          }, 500);
-        }
-      }, 1000);
+
+      startBlink();
 
       hintTimer.reset();
       hintTimer.start();
@@ -61,8 +74,7 @@ $(document).ready(function (){
     },
     onCleanup: function(){
       //  do something before box closed.
-      clearInterval(countDown);
-      clearInterval(blink);
+      clearIntervals();
     },
     onClosed: function(){
       //  do something when box closed.

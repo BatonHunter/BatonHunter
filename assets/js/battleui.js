@@ -1,5 +1,6 @@
 //component init
-$("#question").load("components/truefalsequestion/truefalsequestion.html"); 
+QuestionLoader.loadQuestion('#question');
+
 
 //global variable declaration
 var enemyHP;

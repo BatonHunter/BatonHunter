@@ -15,12 +15,12 @@
 <body>
   <div class="main container">
 
+    <section id="enemy1" class="row content enemy">
+	  <header class="blood-flow col-sm-12">
+		  <div id="enemy-hp" class="jquery-ui-like enemyHP">
+			<div>&nbsp;</div>
+		  </div>
 
-    <section id="" class="row content enemy">
-    <header class="blood-flow col-sm-12">
-      <div id="enemy-hp" class="jquery-ui-like enemyHP">
-        <div>&nbsp;</div>
-      </div>
       </header>
       <div class="role col-sm-12">
         <p>敵方畫面</p>
@@ -43,11 +43,15 @@
 			   <img class="potionBtn" src="assets/img/potion.png" onclick="heal(1,100);"></img><span id="herbsCount">X 1</span>
       
 			<li><button class="btn btn-success" onclick="heal(1,-100);">毒藥水(只能用一次)</button></li>
+			<li><button onclick="fighteffect(1, '#enemy1')" >fight</button></li>
         </ul>
       </div>
 
       <div id="question" class="col-sm-12"></div>
     </section>
+	
+	
+	
   </div>
 
 	<div style="display: none;">
@@ -56,9 +60,8 @@
 		</div>
 	</div>
   <!--libs-->
-  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>-->
-  <script src="assets/lib/jquery-1.4.3.min.js"></script>
-  <script src="assets/lib/jquery.fancybox-1.3.4.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
   <script src="assets/lib/circular-progress.js"></script>
   <!--js-->
   <script src="components/battletimer/timer.js"></script>
@@ -67,5 +70,7 @@
   <script src="assets/js/battleui.js"></script>
   <script src="assets/js/player.js"></script>
   <script src="components/herbs/herbs.js"></script>
+  <script src="components/fighteffect/fighteffect.js"></script>
+
 </body>
 </html>

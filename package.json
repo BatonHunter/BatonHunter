@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "gulp-filter": "^2.0.2",
+    "gulp-install": "^0.2.0",
     "gulp-uglify": "^1.1.0",
-    "main-bower-files": "^2.5.0"
+    "main-bower-files": "2.5.0",
+    "rimraf": "^2.3.2",
+    "run-sequence": "^1.0.2"
   }
 }

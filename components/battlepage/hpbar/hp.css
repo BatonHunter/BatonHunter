@@ -9,9 +9,9 @@
 }
 
 .enemyHP div{ 
-	background-image: url(../../assets/img/HP_user.gif);
+	background-image: url(../../../assets/img/HP_user.gif);
 }
 
 .userHP div{ 
-	background-image: url(../../assets/img/HP_enemy.gif); 
+	background-image: url(../../../assets/img/HP_enemy.gif); 
 }

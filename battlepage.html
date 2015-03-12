@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="assets/lib/css/font-awesome.css">
     <link rel="stylesheet" href="assets/lib/css/jquery.fancybox.css" />
     <!--customs-->
-    <link rel="stylesheet" href="assets/stylesheet/battleui.css" />
-    <link rel="stylesheet" href="components/hpbar/hp.css" />
+    <link rel="stylesheet" href="assets/stylesheet/battlepage.css" />
+    <link rel="stylesheet" href="components/battlepage/hpbar/hp.css" />
+    <link rel="stylesheet" href="components/battlepage/luckystar/luckystar.css" />
 </head>
 
 <body>
@@ -24,7 +25,7 @@
 
             </header>
             <div class="role col-sm-12">
-                <p>敵方畫面</p>
+                <p></p>
             </div>
         </section>
 
@@ -38,27 +39,17 @@
             </header>
 
             <div class="tools col-sm-12">
-                <ul class="">
-                    <li>
-                        <a id="luckystar" href="#showme"><img src="assets/img/luckystar.png" alt="Smiley face" height="38" width="38" />
-                        </a>X 1</li>
-                    <li><img src="assets/img/herb.png" alt="Smiley face" height="42" width="42" />X 1</li>
-                    <img class="potionBtn" src="assets/img/potion.png" onclick="heal(1,100);"></img><span id="herbsCount">X 1</span>
 
-                    <li>
-                        <button class="btn btn-success" onclick="heal(1,-100);">毒藥水(只能用一次)</button>
-                    </li>
-                    <li>
-                        <button onclick="fighteffect(1, '#enemy1')">fight</button>
-                    </li>
-                </ul>
+                <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png" /><span id="luckyCount">X 1</span>
+                <img class="item" src="assets/img/potion.png" onclick="heal(1,100);" /><span id="herbsCount">X 1</span>
+                <button class="btn btn-success" onclick="heal(1,-100);">毒藥水(只能用一次)</button>
+
+                <button onclick="fighteffect(1, '#enemy1')">fight</button>
+
             </div>
 
             <div id="question" class="col-sm-12"></div>
         </section>
-
-
-
     </div>
 
     <div style="display: none;">
@@ -71,16 +62,17 @@
     <script src="assets/lib/js/jquery.fancybox.js"></script>
     <script src="assets/lib/js/jquery-ui.js"></script>
     <script src="assets/lib/js/circular-progress.js"></script>
-    <!--customs-->
-    <script src="components/battletimer/timer.js"></script>
-    <script src="components/questionloader/questionloader.js"></script>
-    <script src="components/truefalsequestion/truefalseQuestion.js"></script>
-    <script src="components/hpbar/hp.js"></script>
-    <script src="assets/js/battleui.js"></script>
+    <!--components-->
+    <script src="components/battlepage/batontimer/batontimer.js"></script>
+    <script src="components/battlepage/questionloader/questionloader.js"></script>
+    <script src="components/battlepage/truefalsequestion/truefalseQuestion.js"></script>
+    <script src="components/battlepage/hpbar/hp.js"></script>
+    <script src="components/battlepage/herbs/herbs.js"></script>
+    <script src="components/battlepage/fighteffect/fighteffect.js"></script>
+    <script src="components/battlepage/luckystar/luckystar.js"></script>
+    <!--main-->
+    <script src="assets/js/battlepage.js"></script>
     <script src="assets/js/player.js"></script>
-    <script src="components/herbs/herbs.js"></script>
-    <script src="components/fighteffect/fighteffect.js"></script>
-
 </body>
 
 </html>

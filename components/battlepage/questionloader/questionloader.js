@@ -54,7 +54,7 @@ var QuestionLoader = (function () {
 
   function loadQuestion (dom_id) {
     //TODO: randomly load more different types of questions (instead of just true-false question)
-    $(dom_id).load("components/truefalsequestion/truefalsequestion.html", function () {
+    $(dom_id).load("components/battlepage/truefalsequestion/truefalsequestion.html", function () {
     	truefalseQuestion.init(getNextQuestion(), checkAnswer, $('#truefalsequestion'));
     });
   }

@@ -1,21 +1,19 @@
 //  default value for total count down time is 10 sec, default front size for clock is 20.
-var batontimer = {    
+var batontimer = {
     totalTimeSecond: 10,
     currentTimeSecond: null,
     fontsize: 20,
     internalTimer: null,
-    clock:null
+    clock: null,
+    timesUpCallBack: null
 };
 
-(function(){
-
-    var i=0;
-
+(function() {
+    var i = 0;
     //  private methods
-
     //  update clock element
     batontimer.updateClock = function() {
-        var p = this.currentTimeSecond*100 / this.totalTimeSecond;
+        var p = this.currentTimeSecond * 100 / this.totalTimeSecond;
         this.clock.options.text = {
             value: this.currentTimeSecond,
             font: this.fontsize + "px sans-serif"
@@ -24,31 +22,30 @@ var batontimer = {
     };
 
     //  public methods
-
     //  setters
-    batontimer.setTotalTimeSecond = function(totalTimeSecond){
-      this.totalTimeSecond = totalTimeSecond
+    batontimer.setTotalTimeSecond = function(totalTimeSecond) {
+        this.totalTimeSecond = totalTimeSecond
     };
 
-    batontimer.setFontsize = function(fontsize){
-      this.fontsize = fontsize
+    batontimer.setFontsize = function(fontsize) {
+        this.fontsize = fontsize
     };
 
     //  setup a CircularProgress object and append to the element
-    batontimer.setUpClock = function(domId, radius, color, lineCap, cb){
+    batontimer.setUpClock = function(domId, radius, color, lineCap, timesUpCallBack) {
         this.clock = new CircularProgress({
             radius: radius,
             strokeStyle: color,
             lineCap: lineCap,
             lineWidth: 4
         });
-        this.cb = cb;
+        this.timesUpCallBack = timesUpCallBack;
         $(domId).append(this.clock.el);
     };
 
     //  start or countinue counting
     batontimer.start = function() {
-        var self = this;        
+        var self = this;
         if (this.currentTimeSecond <= 0) {
             return;
         }
@@ -56,7 +53,7 @@ var batontimer = {
         this.internalTimer = setInterval(function() {
                 i++;
                 self.updateIntervalPerSecond();
-            }, 
+            },
             1000
         );
     };
@@ -72,7 +69,7 @@ var batontimer = {
     batontimer.reset = function() {
         this.pause();
         this.currentTimeSecond = this.totalTimeSecond;
-        this.updateClock();    
+        this.updateClock();
         delete this.internalTimer;
     };
 
@@ -81,12 +78,11 @@ var batontimer = {
         this.currentTimeSecond--;
         this.updateClock();
 
-        if(this.currentTimeSecond <= 0){
-            //  TODO [IanChiu]:Undone task for time's up event.     
-            //this.reset();
-            //this.start();
+        if (this.currentTimeSecond <= 0) {
             this.pause();
-            this.cb && this.cb();
+            this.timesUpCallBack && this.timesUpCallBack();
+            this.reset();
+            this.start();
         }
     };
 })();

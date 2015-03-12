@@ -40,11 +40,12 @@
 
             <div class="tools col-sm-12">
 
-                <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png" /><span id="luckyCount">X 1</span>
-                <img class="item" src="assets/img/potion.png" onclick="heal(1,100);" /><span id="herbsCount">X 1</span>
-                <button class="btn btn-success" onclick="heal(1,-100);">毒藥水(只能用一次)</button>
+                <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png"/><span id="luckyCount"></span>
+                <img id="herb" class="item" src="assets/img/potion.png"/><span id="herbsCount"></span>
 
-                <button onclick="battle_effect.beatmonster('#enemy', battle_data.monsterImg_path)">fight</button>
+
+                <button class="btn btn-success" onclick="userHP.modifyHP(-100,1)";">毒藥水(只能用一次)</button>
+                <button onclick="battle_effect.beatmonster('#enemy', battle_data.monster.img_path)">fight</button>
             </div>
 
             <div id="question" class="col-sm-12"></div>
@@ -54,6 +55,7 @@
     <div style="display: none;">
         <div id="showme">
             <span id="hint-timer"></span>
+            <p class="tips"></p>
         </div>
     </div>
     <!--libs-->
@@ -70,10 +72,8 @@
     <script src="components/battlepage/questionloader/questionloader.js"></script>
     <script src="components/battlepage/truefalsequestion/truefalseQuestion.js"></script>
     <script src="components/battlepage/hpbar/hp.js"></script>
-    <script src="components/battlepage/herbs/herbs.js"></script>
     <!--main-->
     <script src="assets/js/battlepage.js"></script>
-    <script src="assets/js/player.js"></script>
 </body>
 
 </html>

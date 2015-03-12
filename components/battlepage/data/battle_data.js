@@ -1,11 +1,26 @@
 var battle_data = (function() {
 
-    var getMonsterImg_path = function() {
-    	//get monster's img dynamically
-        return 'assets/img/avatar';
-    }
+    var getMonster = function() {
+
+        return {
+            img_path: 'assets/img/avatar',
+            hp: 1000
+        };
+    };
+
+    var getPlayer = function() {
+        return {
+            herb: {
+            	quality: 100,
+            	quantity: 3
+            },
+            star: 3,
+            hp: 1000
+        };
+    };
 
     return {
-        monsterImg_path: getMonsterImg_path()
+        monster: getMonster(),
+        player: getPlayer()
     };
 })();

@@ -2,8 +2,8 @@
 QuestionLoader.loadQuestion('#question');
 
 //global variable declaration
-var enemy;
-var user;
+var enemyHP;
+var userHP;
 
 $(document).ready(function() {
     //fighting page countdown clock
@@ -21,14 +21,24 @@ $(document).ready(function() {
     });
     luckystar.setFancybox('#luckystar', hintTimer, battleTimer);
 
+    userHP = new HP(battle_data.player.hp, $("#user-hp"));
+    enemyHP = new HP(battle_data.monster.hp, $("#enemy-hp"));
 
+    $('#herbsCount').text(' X ' + (battle_data.player.herb.quantity));
+    $('#herb').on("click", {
+            value: battle_data.player.herb.quality,
+            type: 1
+        },
+        function(event) {
+            if (battle_data.player.herb.quantity !== 0) {
+                if (userHP.modifyHP(event.data.value, event.data.type)) {
+                    $('#herbsCount').text(' X ' + (battle_data.player.herb.quantity - 1));
+                    battle_data.player.herb.quantity = battle_data.player.herb.quantity - 1;
+                }
+            } else {
+                $('#herb').off;
+            }
+        }
+    );
 
-
-    var medicine = [new Herb(1, -100), new Herb(1, 100)];
-    user = new Unit(new HP(1000, $('#user-hp')), medicine);
-    enemy = new Unit(new HP(1000, $('#enemy-hp')), []);
-
-    user.onHerbsCountChanged = function(herbCount) {
-        $('#herbsCount').text(' X ' + herbCount);
-    }
 });

@@ -15,9 +15,20 @@ var HP = function(maxHP, $element) {
     this.HPuiController(this.maxHP);
 };
 
+HP.prototype.heal = function(event) {
+    if (battle_data.player.herb.quantity !== 0) {
+        if (userHP.modifyHP(event.data.value, event.data.type)) {
+            battle_data.player.herb.quantity = battle_data.player.herb.quantity - 1;
+            $(event.data.count_id).text(' X ' + battle_data.player.herb.quantity);
+        }
+    } else {
+        $(event.data.dom_id).off;
+    }
+};
+
 HP.prototype.modifyHP = function(value, type) {
-    if(value > 0 && this.currentHP >= this.maxHP){
-    	return false;
+    if (value > 0 && this.currentHP >= this.maxHP) {
+        return false;
     }
     switch (type) {
         case 1:

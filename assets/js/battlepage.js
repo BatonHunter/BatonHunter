@@ -19,26 +19,16 @@ $(document).ready(function() {
     hintTimer.setUpClock('#hint-timer', 30, 'red', 'circle', function() {
         $.fancybox.close();
     });
-    luckystar.setFancybox('#luckystar', hintTimer, battleTimer);
+    luckystar.setFancybox('#luckystar', hintTimer, battleTimer, '#luckyCount');
 
     userHP = new HP(battle_data.player.hp, $("#user-hp"));
     enemyHP = new HP(battle_data.monster.hp, $("#enemy-hp"));
 
-    $('#herbsCount').text(' X ' + (battle_data.player.herb.quantity));
+    $('#herbsCount').text(' X ' + battle_data.player.herb.quantity);
     $('#herb').on("click", {
-            value: battle_data.player.herb.quality,
-            type: 1
-        },
-        function(event) {
-            if (battle_data.player.herb.quantity !== 0) {
-                if (userHP.modifyHP(event.data.value, event.data.type)) {
-                    $('#herbsCount').text(' X ' + (battle_data.player.herb.quantity - 1));
-                    battle_data.player.herb.quantity = battle_data.player.herb.quantity - 1;
-                }
-            } else {
-                $('#herb').off;
-            }
-        }
-    );
-
+        dom_id: "#herb",
+        value: battle_data.player.herb.quality,
+        type: 1,
+        count_id: "#herbsCount"
+    }, userHP.heal);
 });

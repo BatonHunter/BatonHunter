@@ -1,80 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>BatonHunter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
-    <!--<link rel="stylesheet" href="main.css" />-->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!--libs-->
+    <link rel="stylesheet" href="assets/lib/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/lib/css/jquery.fancybox.css" />
+    <!--customs-->
     <link rel="stylesheet" href="assets/stylesheet/battleui.css" />
-    <link rel="stylesheet" href="assets/stylesheet/jquery.fancybox-1.3.4.css" />
     <link rel="stylesheet" href="components/hpbar/hp.css" />
-  </head>
+</head>
 
 <body>
-  <div class="main container">
+    <div class="main container">
 
-    <section id="enemy1" class="row content enemy">
-	  <header class="blood-flow col-sm-12">
-		  <div id="enemy-hp" class="jquery-ui-like enemyHP">
-			<div>&nbsp;</div>
-		  </div>
+        <section id="enemy1" class="row content enemy">
+            <header class="blood-flow col-sm-12">
+                <div id="enemy-hp" class="jquery-ui-like enemyHP">
+                    <div>&nbsp;</div>
+                </div>
 
-      </header>
-      <div class="role col-sm-12">
-        <p>敵方畫面</p>
-      </div>
-    </section>
+            </header>
+            <div class="role col-sm-12">
+                <p>敵方畫面</p>
+            </div>
+        </section>
 
-    <section id="" class="row content user">
-      <header class="blood-flow col-sm-12">
-        <div id="counter">
+        <section id="" class="row content user">
+            <header class="blood-flow col-sm-12">
+                <div id="counter">
+                </div>
+                <div id="user-hp" class="jquery-ui-like userHP">
+                    <div>&nbsp;</div>
+                </div>
+            </header>
+
+            <div class="tools col-sm-12">
+                <ul class="">
+                    <li>
+                        <a id="luckystar" href="#showme"><img src="assets/img/luckystar.png" alt="Smiley face" height="38" width="38" />
+                        </a>X 1</li>
+                    <li><img src="assets/img/herb.png" alt="Smiley face" height="42" width="42" />X 1</li>
+                    <img class="potionBtn" src="assets/img/potion.png" onclick="heal(1,100);"></img><span id="herbsCount">X 1</span>
+
+                    <li>
+                        <button class="btn btn-success" onclick="heal(1,-100);">毒藥水(只能用一次)</button>
+                    </li>
+                    <li>
+                        <button onclick="fighteffect(1, '#enemy1')">fight</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="question" class="col-sm-12"></div>
+        </section>
+
+
+
+    </div>
+
+    <div style="display: none;">
+        <div id="showme">
+            <span id="hint-timer"></span>
         </div>
-        <div id="user-hp" class="jquery-ui-like userHP">
-          <div>&nbsp;</div>
-        </div>
-      </header>
-
-      <div class="tools col-sm-12">
-        <ul class="">
-          <li><a id="luckystar" href="#showme"><img src="assets/img/luckystar.png" alt="Smiley face" height="38" width="38"/></a>X 1</li>
-          <li><img src="assets/img/herb.png" alt="Smiley face" height="42" width="42"/>X 1</li>
-			   <img class="potionBtn" src="assets/img/potion.png" onclick="heal(1,100);"></img><span id="herbsCount">X 1</span>
-      
-			<li><button class="btn btn-success" onclick="heal(1,-100);">毒藥水(只能用一次)</button></li>
-			<li><button onclick="fighteffect(1, '#enemy1')" >fight</button></li>
-        </ul>
-      </div>
-
-      <div id="question" class="col-sm-12"></div>
-    </section>
-	
-	
-	
-  </div>
-
-	<div style="display: none;">
-		<div id="showme">
-      <span id="hint-timer"></span>
-		</div>
-	</div>
-  <!--libs-->
-
-  <script src="assets/lib/jquery-1.4.3.min.js"></script>
-  <script src="assets/lib/jquery.fancybox-1.3.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-
-  <script src="assets/lib/circular-progress.js"></script>
-  <!--js-->
-  <script src="components/battletimer/timer.js"></script>
-  <script src="components/questionloader/questionloader.js"></script>
-  <script src="components/truefalsequestion/truefalseQuestion.js"></script>
-  <script src="components/hpbar/hp.js"></script>
-  <script src="assets/js/battleui.js"></script>
-  <script src="assets/js/player.js"></script>
-  <script src="components/herbs/herbs.js"></script>
-  <script src="components/fighteffect/fighteffect.js"></script>
+    </div>
+    <!--libs-->
+    <script src="assets/lib/js/jquery.js"></script>
+    <script src="assets/lib/js/jquery.fancybox.js"></script>
+    <script src="assets/lib/js/jquery-ui.js"></script>
+    <script src="assets/lib/js/circular-progress.js"></script>
+    <!--customs-->
+    <script src="components/battletimer/timer.js"></script>
+    <script src="components/questionloader/questionloader.js"></script>
+    <script src="components/truefalsequestion/truefalseQuestion.js"></script>
+    <script src="components/hpbar/hp.js"></script>
+    <script src="assets/js/battleui.js"></script>
+    <script src="assets/js/player.js"></script>
+    <script src="components/herbs/herbs.js"></script>
+    <script src="components/fighteffect/fighteffect.js"></script>
 
 </body>
+
 </html>

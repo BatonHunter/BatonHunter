@@ -6,88 +6,80 @@ QuestionLoader.loadQuestion('#question');
 var enemy;
 var user;
 
-$(document).ready(function (){
-  //count down clock init
-  var hintTimer = Object.create(batontimer);
-  var battleTimer = Object.create(batontimer);
+$(document).ready(function() {
+    //count down clock init
+    var battleTimer = Object.create(batontimer);
 
-  battleTimer.setUpClock('#counter', 20, 'red', 'circle', function () {
-    alert('You die!');
-  });
-  hintTimer.setUpClock('#hint-timer', 30, 'red', 'circle', function () {
-    $.fancybox.close();
-  });
+    battleTimer.setUpClock('#counter', 20, 'red', 'circle', function() {
+        alert('You die!');
+    });
+    battleTimer.reset();
+    battleTimer.start();
 
-  battleTimer.reset();
-  battleTimer.start();
-  //blood obj init
+    var blinkInterval,
+        blinker;
 
-  var countDown,
-      blinkInterval,
-      blinker,
-      $overlay = $('#fancybox-overlay');
-      $luckystar = $('#luckystar');
-
-  function startBlink() {
-    blinker = blink(1000);
-    blinkInterval = setInterval(function () {
-      if (hintTimer.currentTimeSecond === 7) {
-        clearInterval(blinker);
-        blinker = blink(500);
-      } else if (hintTimer.currentTimeSecond === 3) {
-        clearInterval(blinker);
-        blinker = blink(200);
-      }
-    }, 1000);
-  }
-
-  function blink(time) {
-    return setInterval(function () {
-        $overlay.toggleClass("background-red");
-    }, time);
-  }
-
-  function clearIntervals() {
-    clearInterval(countDown);
-    clearInterval(blinkInterval);
-    clearInterval(blinker);
-  }
-
-  //  click lucky star
-  $luckystar.fancybox({
-    hideOnOverlayClick: false,
-    onStart: function() {
-      $overlay.removeAttr('style');
-
-      startBlink();
-
-      hintTimer.reset();
-      hintTimer.start();
-
-      battleTimer.pause();
-    },
-    onComplete: function(){
-      //  do something before box closed.
-      var countValue = $('span.countdown').html();
-        countDown = setInterval(function() {
-          //console.log(countValue);
-        }, 100);
-    },
-    onCleanup: function(){
-      //  do something before box closed.
-      clearIntervals();
-    },
-    onClosed: function(){
-      //  do something when box closed.
-      battleTimer.start();
+    function startBlink() {
+        blinker = blink(1000);
+        blinkInterval = setInterval(function() {
+            if (hintTimer.currentTimeSecond === 7) {
+                clearInterval(blinker);
+                blinker = blink(500);
+            } else if (hintTimer.currentTimeSecond === 3) {
+                clearInterval(blinker);
+                blinker = blink(200);
+            }
+        }, 1000);
     }
-  });
 
-  var medicine = [new Herb(1, -100),new Herb(1, 100)];
-  user = new Unit(new HP(1000, $('#user-hp')),medicine);
-  enemy = new Unit(new HP(1000, $('#enemy-hp')),[]);
+    function blink(time) {
+        return setInterval(function() {   
+            $(".fancybox-overlay").toggleClass("background-red");
+        }, time);
+    }
 
-  user.onHerbsCountChanged = function(herbCount) {
-    $('#herbsCount').text(' X ' + herbCount);
-  }
+    function clearIntervals() {
+        clearInterval(blinkInterval);
+        clearInterval(blinker);
+    }
+
+    var medicine = [new Herb(1, -100), new Herb(1, 100)];
+    user = new Unit(new HP(1000, $('#user-hp')), medicine);
+    enemy = new Unit(new HP(1000, $('#enemy-hp')), []);
+
+    user.onHerbsCountChanged = function(herbCount) {
+        $('#herbsCount').text(' X ' + herbCount);
+    }
+
+
+
+
+    //lucky star
+    var hintTimer = Object.create(batontimer);
+    hintTimer.setUpClock('#hint-timer', 30, 'red', 'circle', function() {
+        $.fancybox.close();
+    });
+
+    var $luckystar = $('#luckystar');
+    $luckystar.fancybox({
+        hideOnOverlayClick: false,
+        beforeLoad: function() {
+            startBlink();
+
+            hintTimer.reset();
+            hintTimer.start();
+
+            battleTimer.pause();
+        },
+        afterLoad: function() {
+            var countValue = $('span.countdown').html();
+        },
+        beforeClose: function() {
+            clearIntervals();
+        },
+        afterClose: function() {
+            battleTimer.start();
+        }
+    });
+
 });

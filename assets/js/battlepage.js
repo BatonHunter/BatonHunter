@@ -21,6 +21,9 @@ $(document).ready(function() {
     });
     luckystar.setFancybox('#luckystar', hintTimer, battleTimer);
 
+
+
+
     var medicine = [new Herb(1, -100), new Herb(1, 100)];
     user = new Unit(new HP(1000, $('#user-hp')), medicine);
     enemy = new Unit(new HP(1000, $('#enemy-hp')), []);

@@ -1,15 +1,14 @@
 //component init
 QuestionLoader.loadQuestion('#question');
-
-//global variable declaration
-var enemyHP;
 var userHP;
+var enemyHP;
+var battleTimer;
 
 $(document).ready(function() {
     //fighting page countdown clock
-    var battleTimer = Object.create(batontimer);
+    battleTimer = Object.create(batontimer);
     battleTimer.setUpClock('#counter', 20, 'red', 'circle', function() {
-        //TODO: times up
+        userHP.modifyHP(-50, 1);
     });
     battleTimer.reset();
     battleTimer.start();
@@ -21,13 +20,13 @@ $(document).ready(function() {
     });
     luckystar.setFancybox('#luckystar', hintTimer, battleTimer, '#luckyCount');
 
-    userHP = new HP(battle_data.player.hp, $("#user-hp"));
-    enemyHP = new HP(battle_data.monster.hp, $("#enemy-hp"));
+    userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"));
+    enemyHP = new HP(battle_data.getMonster().getHp(), $("#enemy-hp"));
 
-    $('#herbsCount').text(' X ' + battle_data.player.herb.quantity);
+    $('#herbsCount').text(' X ' + battle_data.getPlayer().getHerbQuantity());
     $('#herb').on("click", {
         dom_id: "#herb",
-        value: battle_data.player.herb.quality,
+        value: battle_data.getPlayer().getHerbQuality(),
         type: 1,
         count_id: "#herbsCount"
     }, userHP.heal);

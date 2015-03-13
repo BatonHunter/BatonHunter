@@ -28,8 +28,9 @@ var luckystar = (function() {
 
     return {
         setFancybox: function(dom_id, hintTimer, battleTimer, count_id) {
-            if (battle_data.player.star !== 0) {
-                $(count_id).text(' X ' + battle_data.player.star);
+            if (battle_data.getPlayer().getStar() !== 0) {
+                $(count_id).text(' X ' + battle_data.getPlayer().getStar());
+
                 $(dom_id).fancybox({
                     hideOnOverlayClick: false,
                     beforeLoad: function() {
@@ -43,12 +44,11 @@ var luckystar = (function() {
                     },
                     afterClose: function() {
                         battleTimer.start();
-                        battle_data.player.star = battle_data.player.star - 1;
-                        $(count_id).text(' X ' + battle_data.player.star);
-                        if (battle_data.player.star === 0) {
+                        if (!battle_data.getPlayer().useStar()) {
                             $(dom_id).remove();
                             $(count_id).remove();
                         }
+                        $(count_id).text(' X ' + battle_data.getPlayer().getStar());
                     }
                 });
             } else {

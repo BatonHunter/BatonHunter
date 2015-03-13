@@ -11,15 +11,22 @@ var HP = function(maxHP, $element) {
         this.$element.find('div').animate({
             width: progressBarWidth
         }, 500).html(this.currentHP + "/" + this.maxHP + "&nbsp;(" + percent + "%)&nbsp;");
+        if (this.isDead()) {
+            if (this.$element.attr('id') === "user-hp") {
+                this.lose();
+            } else {
+                this.win();
+            }
+        }
     }
     this.HPuiController(this.maxHP);
 };
 
 HP.prototype.heal = function(event) {
-    if (battle_data.player.herb.quantity !== 0) {
+    if (battle_data.getPlayer().getHerbQuantity() !== 0) {
         if (userHP.modifyHP(event.data.value, event.data.type)) {
-            battle_data.player.herb.quantity = battle_data.player.herb.quantity - 1;
-            $(event.data.count_id).text(' X ' + battle_data.player.herb.quantity);
+            battle_data.getPlayer().useHerb();
+            $(event.data.count_id).text(' X ' + battle_data.getPlayer().getHerbQuantity());
         }
     } else {
         $(event.data.dom_id).off;
@@ -61,4 +68,12 @@ HP.prototype.isDead = function() {
 
 HP.prototype.isFull = function() {
     return (this.currentHP >= this.maxHP);
-}
+};
+
+HP.prototype.win = function() {
+    alert("really? winner?");
+};
+
+HP.prototype.lose = function() {
+    alert("you are a stupid loser!!!!");
+};

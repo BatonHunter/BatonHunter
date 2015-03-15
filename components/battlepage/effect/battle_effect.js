@@ -1,0 +1,1 @@
+var battle_effect = {};

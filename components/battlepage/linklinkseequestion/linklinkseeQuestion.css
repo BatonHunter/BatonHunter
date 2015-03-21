@@ -25,5 +25,5 @@
 	border: 0.5px #333 solid;
 }
 .llkConfirmBtn {
-	display: block;
+	display: block !important;
 }

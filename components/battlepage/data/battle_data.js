@@ -110,7 +110,7 @@ var battle_data = (function() {
             content: "Which color let people happy?\n",
             hint: '...',
             anslist: ['red', 'black', 'blue', 'brown'],
-            ans: "1"
+            ans: ['1'] 
         }, {
             id: 10,
             type: "ch",
@@ -118,12 +118,22 @@ var battle_data = (function() {
             content: "Which color let people sad?\n",
             hint: '...',
             anslist: ['red', 'yello', 'green', 'blue'],
-            ans: "4"
+            ans: ['4']
+        }, {
+            id: 11,
+            type: "ch",
+            title: "Question 11",
+            content: "Which color let people feel cold?\n",
+            hint: '...',
+            anslist: ['red', 'yello', 'black', 'blue'],
+            ans: ['3','4'] 
+        }, {
         }];
 
         return {
             getNextQuestion: function() {
-                return questions[Math.floor((Math.random() * questions.length))];
+                //  return questions[Math.floor((Math.random() * questions.length))];
+                return questions[10];
             },
             removeUsedQustion: function(current_question) {
                 questions.splice(questions.indexOf(current_question), 1);

@@ -1,7 +1,7 @@
 'use strict';
 
 var chooseQuestion = (function(){
-    var q_view, q_id, q_title, q_content, q_hint, q_anslist;
+    var q_view, q_id, q_title, q_content, q_hint, q_anslist, q_anslist_ture;
 
     var setQuestion = function(question) {
         q_id = question.id;
@@ -9,6 +9,7 @@ var chooseQuestion = (function(){
         q_content = question.content;
         q_hint = question.hint;
         q_anslist = question.anslist;
+        q_anslist_ture = question.ans;
         updateQuestionView();
     }
 
@@ -19,8 +20,14 @@ var chooseQuestion = (function(){
         q_view.find('#correctImg').hide();
         q_view.find('#wrongImg').hide();
         q_view.find('#answer .btn').attr("disabled", false);
+        var inpuType;
+        if (q_anslist_ture.length > 1) {
+          inpuType = 'checkbox';
+        } else {
+          inpuType = 'radio';
+        }
         for (var choAns in q_anslist) {
-          q_view.find('#answer button').before('<input type="radio" name="answers" id ="r' + (choAns + 1) + '" value="' + (parseInt(choAns) + 1) + '">' + q_anslist[choAns] + '</input>');
+          q_view.find('#answer button').before('<input type="' + inpuType + '" name="answers" id ="r' + (choAns + 1) + '" value="' + (parseInt(choAns) + 1) + '"><label for="r' + (choAns + 1) + '">' + q_anslist[choAns] + '</label></input>');
         }
     }
 
@@ -52,7 +59,7 @@ var chooseQuestion = (function(){
             q_view = dom_id.find("#choicequestion");
             setQuestion(question);
             q_view.find('#answer button').on("click", function() {
-                showResult(checkAnswer($('[name=answers]:checked').val()));
+                showResult(checkAnswer(q_anslist_ture, $('[name=answers]:checked')));
                 setTimeout(function() {
                     QuestionLoader.loadQuestion(dom_id);
                 }, 1000);

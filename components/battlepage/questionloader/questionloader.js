@@ -9,6 +9,22 @@ var QuestionLoader = (function() {
         return (current_question.ans === ans);
     };
 
+    var checkAnswerMutiChoice = function(ans, ansList) {
+        battle_data.getQuestion().removeUsedQustion(current_question);
+        if (ans.length !== ansList.length) {
+            return false;
+        } else {
+            var chkRst = true;    
+            ansList.each(function(){
+                if (ans.indexOf($(this).val()) === -1) {
+                    chkRst = false;
+                    return false;
+                }
+            });
+            return chkRst;
+        }
+    }
+
     return {
         loadQuestion: function(dom_id) {
             $(dom_id).empty();
@@ -21,7 +37,7 @@ var QuestionLoader = (function() {
                     break;
                 case 'ch':
                     $(dom_id).load("components/battlepage/choicequestion/choicequestion.html", function() {
-                        chooseQuestion.init(current_question, checkAnswer, $(dom_id));
+                        chooseQuestion.init(current_question, checkAnswerMutiChoice, $(dom_id));
                     });
                     break;
                 default:

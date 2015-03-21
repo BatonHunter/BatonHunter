@@ -6,6 +6,7 @@
     <title>BatonHunter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--libs-->
+    <link rel="stylesheet" href="assets/lib/css/bootstrap.css">
     <link rel="stylesheet" href="assets/lib/css/font-awesome.css">
     <link rel="stylesheet" href="assets/lib/css/jquery.fancybox.css" />
     <!--customs-->
@@ -17,16 +18,19 @@
 <body>
     <div class="main container">
 
-        <section id="enemy" class="row content enemy">
-            <header class="blood-flow col-sm-12">
-                <div id="enemy-hp" class="jquery-ui-like enemyHP">
-                    <div>&nbsp;</div>
-                </div>
+        <section id="battleview" class="row content enemy">
+		<div id="enemy" class="col-md-5-offset-1" >
+			
+		    <header class="blood-flow">
+			<div id="enemy-hp" class="jquery-ui-like enemyHP">
+			    <div>&nbsp;</div>
+			</div>
 
-            </header>
-            <div class="role col-sm-12">
-                <p></p>
-            </div>
+		    </header>
+		    <div class="role col-sm-12">
+			<p></p>
+		    </div>
+		</div>
         </section>
 
         <section id="" class="row content user">
@@ -56,6 +60,7 @@
     <!--libs-->
     <script src="assets/lib/js/jquery.js"></script>
     <script src="assets/lib/js/jquery.fancybox.js"></script>
+    <script src="assets/lib/js/bootstrap.js"></script>
     <script src="assets/lib/js/jquery-ui.js"></script>
     <script src="assets/lib/js/circular-progress.js"></script>
     <!--components-->

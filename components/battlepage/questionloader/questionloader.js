@@ -19,6 +19,10 @@ var QuestionLoader = (function() {
                         truefalseQuestion.init(current_question, checkAnswer, $(dom_id));
                     });
                     break;
+                case 'ch':
+                    $(dom_id).load("components/battlepage/choicequestion/choicequestion.html", function() {
+                        chooseQuestion.init(current_question, checkAnswer, $(dom_id));
+                    });
                 default:
                     break;
             }

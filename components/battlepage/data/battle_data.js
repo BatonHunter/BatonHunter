@@ -103,11 +103,20 @@ var battle_data = (function() {
             content: "the answer is false !!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
             hint: '...',
             ans: "No"
+        }, {
+            id: 9,
+            type: "ch",
+            title: "Question 9",
+            content: "Which color let people happy?\n",
+            hint: '...',
+            anslist: ['red', 'black', 'blue', 'brown'],
+            ans: "1"
         }];
 
         return {
             getNextQuestion: function() {
-                return questions[Math.floor((Math.random() * questions.length))];
+                //  return questions[Math.floor((Math.random() * questions.length))];
+                return questions[8];
             },
             removeUsedQustion: function(current_question) {
                 questions.splice(questions.indexOf(current_question), 1);

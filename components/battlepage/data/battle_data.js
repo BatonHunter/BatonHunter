@@ -128,6 +128,13 @@ var battle_data = (function() {
             anslist: ['red', 'yello', 'black', 'blue'],
             ans: ['3','4']
         }, {
+            id: 12,
+            type: "ch",
+            title: "Question 12",
+            content: "Who is most handsome?\n",
+            hint: '...',
+            anslist: ['Ian', 'Ian', 'Ian', 'Ian'],
+            ans: ['1', '2', '3','4']
         }];
 
         return {

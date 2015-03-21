@@ -18,5 +18,8 @@
     "main-bower-files": "2.5.0",
     "rimraf": "^2.3.2",
     "run-sequence": "^1.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11"
   }
 }

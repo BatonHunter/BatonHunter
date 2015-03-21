@@ -1,8 +1,21 @@
-//component init
-QuestionLoader.loadQuestion('#question');
-var userHP;
-var enemyHP;
-var battleTimer;
+
+// //component init
+
+
+// QuestionLoader.loadQuestion('#question');
+// var userHP;
+// var enemyHP;
+// var battleTimer;
+
+
+
+$(function () {
+        
+        $('.draggable, .droppable').sortable({
+            connectWith: '.ol-xs-4'
+        });
+         });
+
 
 $(document).ready(function() {
     //fighting page countdown clock
@@ -30,4 +43,11 @@ $(document).ready(function() {
         type: 1,
         count_id: "#herbsCount"
     }, userHP.heal);
+
+
+    
+
+
 });
+
+

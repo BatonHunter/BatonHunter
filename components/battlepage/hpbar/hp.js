@@ -79,8 +79,11 @@ HP.prototype.isFull = function() {
 
 HP.prototype.win = function() {
     alert("really? winner?");    
+    //alert("really? winner?");
+    $("html").load("./components/result_page/win.html");
 };
 
 HP.prototype.lose = function() {
-    alert("you are a stupid loser!!!!");
+    //alert("you are a stupid loser!!!!");
+    $("html").load("./components/result_page/lose.html");
 };

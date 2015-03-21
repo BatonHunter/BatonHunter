@@ -24,6 +24,8 @@
 .resultItem {
 	border: 0.5px #333 solid;
 }
-.llkConfirmBtn {
-	display: block !important;
+#llkConfirmBtn {
+	width: 50%;
+	margin-left: 50%;
+	transform: translateX(-50%);
 }

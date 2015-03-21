@@ -1,0 +1,71 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.main {
+    height: 100%;
+    width: 100%;
+}
+.enemy {
+    background-color: #8080FF;
+    background-image: url(../img/avatar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 40%;
+}
+.user {
+    background-color: #07BA92;
+    height: 60%;
+}
+.blood-flow {
+    background-color: rgba(255, 255, 255, .5);
+    height: 25px;
+}
+.user .blood-flow {
+    box-sizing: border-box;
+    height: 50px;
+    padding-top: 5px;
+}
+.user #counter {
+    float: left;
+    font-size: 40px;
+}
+.answer-block {
+    padding: 50px;
+    text-align: center;
+}
+#result img {
+    max-height: 50px;
+}
+/* item animation*/
+
+.tools {
+    background-color: #888;
+    height: 2.5em;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+.item {
+    cursor: pointer;
+    width: 2.4em;
+    height: 2.4em;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.item:hover {
+    width: 4.5em;
+    height: 4.5em;
+    margin-bottom: -2.1em;
+    margin-left: -2.1em;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+}

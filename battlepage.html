@@ -6,6 +6,7 @@
     <title>BatonHunter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--libs-->
+    <link rel="stylesheet" href="assets/lib/css/bootstrap.css">
     <link rel="stylesheet" href="assets/lib/css/font-awesome.css">
     <link rel="stylesheet" href="assets/lib/css/jquery.fancybox.css" />
     <!--customs-->
@@ -17,27 +18,35 @@
 <body>
     <div class="main container">
 
-        <section id="enemy" class="row content enemy">
-            <header class="blood-flow col-sm-12">
-                <div id="enemy-hp" class="jquery-ui-like enemyHP">
-                    <div>&nbsp;</div>
-                </div>
+        <section id="battleview" class="row content">
+		<div id="enemy" class="enemy col-xs-12 col-sm-5 col-sm-offset-1" >
+			
+		    <header class="blood-flow">
+			<div id="enemy-hp" class="jquery-ui-like enemyHP">
+			    <div>&nbsp;</div>
+			</div>
+		    </header>
 
-            </header>
-            <div class="role col-sm-12">
-                <p></p>
-            </div>
+		    <div class="role">
+		      <img class="img-responsive" src="assets/img/avatar.jpg">
+		    </div>
+		</div>
+
+		<div id="user" class="user col-xs-12 col-sm-5 col-sm-offset-6" >
+		    <div class="role hidden-xs">
+		      <img class="img-responsive" src="http://vignette3.wikia.nocookie.net/tos/images/2/22/Pet118.png/revision/latest?cb=20130131102559&path-prefix=zh">
+		    </div>
+
+		    <header class="blood-flow">
+			<div id="user-hp" class="jquery-ui-like userHP">
+			    <div>&nbsp;</div>
+			</div>
+		    </header>
+
+		</div>
         </section>
 
-        <section id="" class="row content user">
-            <header class="blood-flow col-sm-12">
-                <div id="counter">
-                </div>
-                <div id="user-hp" class="jquery-ui-like userHP">
-                    <div>&nbsp;</div>
-                </div>
-            </header>
-
+        <section id="" class="row content question">
             <div class="tools col-sm-12">
                 <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png" /><span id="luckyCount"></span>
                 <img id="herb" class="item" src="assets/img/potion.png" /><span id="herbsCount"></span>
@@ -56,6 +65,7 @@
     <!--libs-->
     <script src="assets/lib/js/jquery.js"></script>
     <script src="assets/lib/js/jquery.fancybox.js"></script>
+    <script src="assets/lib/js/bootstrap.js"></script>
     <script src="assets/lib/js/jquery-ui.js"></script>
     <script src="assets/lib/js/circular-progress.js"></script>
     <!--components-->

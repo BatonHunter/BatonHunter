@@ -111,12 +111,19 @@ var battle_data = (function() {
             hint: '...',
             anslist: ['red', 'black', 'blue', 'brown'],
             ans: "1"
+        }, {
+            id: 10,
+            type: "ch",
+            title: "Question 10",
+            content: "Which color let people sad?\n",
+            hint: '...',
+            anslist: ['red', 'yello', 'green', 'blue'],
+            ans: "4"
         }];
 
         return {
             getNextQuestion: function() {
-                //  return questions[Math.floor((Math.random() * questions.length))];
-                return questions[8];
+                return questions[Math.floor((Math.random() * questions.length))];
             },
             removeUsedQustion: function(current_question) {
                 questions.splice(questions.indexOf(current_question), 1);

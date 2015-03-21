@@ -1,14 +1,14 @@
 'use strict';
 
 var chooseQuestion = (function(){
-    var q_view, q_id, q_title, q_content, q_hint;
+    var q_view, q_id, q_title, q_content, q_hint, q_anslist;
 
     var setQuestion = function(question) {
         q_id = question.id;
         q_title = question.title;
         q_content = question.content;
         q_hint = question.hint;
-
+        q_anslist = question.anslist;
         updateQuestionView();
     }
 
@@ -19,6 +19,9 @@ var chooseQuestion = (function(){
         q_view.find('#correctImg').hide();
         q_view.find('#wrongImg').hide();
         q_view.find('#answer .btn').attr("disabled", false);
+        for (var choAns in q_anslist) {
+          q_view.find('#answer button').before('<input type="radio" name="answers" id ="r' + (choAns + 1) + '" value="' + (parseInt(choAns) + 1) + '">' + q_anslist[choAns] + '</input>');
+        }
     }
 
     var showResult = function(is_correct) {
@@ -46,14 +49,14 @@ var chooseQuestion = (function(){
 
     return {
         init: function(question, checkAnswer, dom_id) {
-            q_view = dom_id.find("#truefalsequestion");
+            q_view = dom_id.find("#choicequestion");
             setQuestion(question);
             q_view.find('#answer button').on("click", function() {
-                showResult(checkAnswer($(this).attr("val")));
+                showResult(checkAnswer($('[name=answers]:checked').val()));
                 setTimeout(function() {
                     QuestionLoader.loadQuestion(dom_id);
                 }, 1000);
             });
         }
     }
-});
+})(); 

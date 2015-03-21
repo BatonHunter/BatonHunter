@@ -23,6 +23,7 @@ var QuestionLoader = (function() {
                     $(dom_id).load("components/battlepage/choicequestion/choicequestion.html", function() {
                         chooseQuestion.init(current_question, checkAnswer, $(dom_id));
                     });
+                    break;
                 default:
                     break;
             }

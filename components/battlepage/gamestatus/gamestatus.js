@@ -12,7 +12,7 @@ function GameStatus(){
         //當遊戲己結束(win or lose), 將失敗或勝利畫面載入主畫面
         if ((battleStatus === 1) || (battleStatus=== 2))
         {
-            loadResultPage(battleStatus);
+            loadResultPage(battleStatus, hpObj);
         }
         
     };
@@ -47,19 +47,21 @@ function GameStatus(){
     //參數:(battleResult)
     //1: win
     //2: lose
-    var loadResultPage = function(battleResult){
+    var loadResultPage = function(battleResult, hpObj){
 
         if (battleResult === 1)
         {
             //$.load(win畫面);
             //$('#mainDiv').load("Win!");
-            $('#mainDiv').html('you win!');
+            hpObj.win();
+            //$('#mainDiv').html('you win!');
         }
         else
         {
             //$.load(lose畫面);   
             //$('#mainDiv').load("lose!");
-            $('#mainDiv').html('you lose!');
+            hpObj.lose();
+            //$('#mainDiv').html('you lose!');
 
         }
         

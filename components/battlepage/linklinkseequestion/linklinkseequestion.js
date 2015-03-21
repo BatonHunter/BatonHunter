@@ -19,11 +19,5 @@ $(document).on({
             	
             }
         });
-    },
-    mouseenter: function(e) {
-
-    },
-    mouseleave: function(e) {
-
     }
 }, ".linkLinkSeeRespond");

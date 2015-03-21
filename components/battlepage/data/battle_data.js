@@ -103,7 +103,22 @@ var battle_data = (function() {
             content: "the answer is false !!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
             hint: '...',
             ans: "No"
-        }];
+        },{
+            id: 9,
+            type: "linkQuestion",
+            title: "Question 9",
+            content:[{Qid:1, Qtxt:"11111"},{Qid:2, Qtxt:"2222"},{Qid:3, Qtxt:"333"},{Qid:4, Qtxt:"444"}],
+            hint: '...',
+            ans: [{Aid:1, Atxt:"11111"},{Aid:2, Atxt:"2222"},{Aid:3, Qtxt:"333"},{Aid:4, Atxt:"444"}],
+
+        },{
+            id: 10,
+            type: "linkQuestion",
+            title: "Question 10",
+            content:[{Qid:1, Qtxt:"11111"},{Qid:2, Qtxt:"2222"},{Qid:3, Qtxt:"333"},{Qid:4, Qtxt:"444"}],
+            hint: '...',
+            ans: [{Aid:1, Atxt:"11111"},{Aid:2, Atxt:"2222"},{Aid:3, Qtxt:"333"},{Aid:4, Atxt:"444"}],
+        }];        
 
         return {
             getNextQuestion: function() {

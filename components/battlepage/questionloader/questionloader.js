@@ -4,6 +4,13 @@
 var QuestionLoader = (function() {
     var current_question;
 
+    var checkllsAnswer = function(){
+        battle_data.getQuestion().removeUsedQustion(current_question);
+        var userAnswer = $('.resultItem').attr('data-id');
+        var trueAnswer = $('.choseItem').attr('data-id');
+        return (trueAnswer===userAnswer);
+    }
+
     var checkAnswer = function(ans) {
         battle_data.getQuestion().removeUsedQustion(current_question);
         return (current_question.ans === ans);
@@ -21,7 +28,7 @@ var QuestionLoader = (function() {
                     break;
                 case 'linkQuestion':
                     $(dom_id).load("components/battlepage/linklinkseequestion/linklinkseequestion.html", function() {
-                        linklinkseeQuestion.init(current_question, checkAnswer, $(dom_id));
+                        linklinkseeQuestion.init(current_question, checkllsAnswer, $(dom_id));
                     });
                     break;
                 default:

@@ -2,10 +2,10 @@
 // //component init
 
 
-// QuestionLoader.loadQuestion('#question');
-// var userHP;
-// var enemyHP;
-// var battleTimer;
+QuestionLoader.loadQuestion('#question');
+var userHP;
+var enemyHP;
+var battleTimer;
 
 
 

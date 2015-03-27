@@ -19,10 +19,10 @@
 	margin-bottom: 5px;
 }
 .choseItem {
-	border: 0.5px #222 solid;
+	border: 2px #222 solid;
 }
 .resultItem {
-	border: 0.5px #333 solid;
+	border: 2px #333 solid;
 }
 #llkConfirmBtn {
 	width: 50%;

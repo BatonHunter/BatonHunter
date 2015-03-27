@@ -19,6 +19,11 @@ var QuestionLoader = (function() {
                         truefalseQuestion.init(current_question, checkAnswer, $(dom_id));
                     });
                     break;
+                case 'linkQuestion':
+                    $(dom_id).load("components/battlepage/linklinkseequestion/linklinkseequestion.html", function() {
+                        linklinkseeQuestion.init(current_question, checkAnswer, $(dom_id));
+                    });
+                    break;
                 default:
                     break;
             }

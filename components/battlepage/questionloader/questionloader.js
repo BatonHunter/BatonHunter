@@ -6,9 +6,24 @@ var QuestionLoader = (function() {
 
     var checkllsAnswer = function(){
         battle_data.getQuestion().removeUsedQustion(current_question);
-        var userAnswer = $('.resultItem').attr('data-id');
-        var trueAnswer = $('.choseItem').attr('data-id');
-        return (trueAnswer===userAnswer);
+        var userAnswer = [];
+        var trueAnswer = [];
+
+        $('.resultItem').map(function(i) {
+            userAnswer.push($(this).attr('data-id'));
+        });
+
+        $('.choseItem').map(function(i) {
+            trueAnswer.push($(this).attr('data-id'));
+        });
+
+        for(var i =0;i<userAnswer.length;i++)
+        {
+            if(userAnswer[i] !== trueAnswer[i])
+                return false;
+        }
+
+        return true;
     }
 
     var checkAnswer = function(ans) {

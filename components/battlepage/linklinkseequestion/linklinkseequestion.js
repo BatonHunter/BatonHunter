@@ -2,7 +2,11 @@
 
 var linklinkseeQuestion = (function() {
 
-    var draggableInit = (function() {
+    var draggableInit = function() {
+
+
+        var test=1;
+
         jQuery.fn.swap = function(b) {
             // method from: http://blog.pengoworks.com/index.cfm/2008/9/24/A-quick-and-dirty-swap-method-for-jQuery
             b = jQuery(b)[0];
@@ -14,12 +18,7 @@ var linklinkseeQuestion = (function() {
             return this;
         };
 
-//實作方式還需要調整或修改
-        $(document).on({
-            mousedown: function(e) {
-                e.preventDefault();
-                var $this = $(this);
-                $this.draggable({
+        $( ".resultItem" ).draggable({
                     // revert: true,
                     helper: "clone",
                     cursorAt: {
@@ -27,15 +26,14 @@ var linklinkseeQuestion = (function() {
                         left: 5
                     }
                 });
-
-                $this.droppable({
+        $( ".resultItem" ).droppable({
                     accept: ".resultItem",
                     activeClass: "ui-state-hover",
                     hoverClass: "ui-state-active",
                     drop: function(event, ui) {
 
                         var draggable = ui.draggable,
-                            droppable = $(this),
+                            droppable = $( ".resultItem" ),
                             dragPos = draggable.position(),
                             dropPos = droppable.position();
 
@@ -51,9 +49,8 @@ var linklinkseeQuestion = (function() {
                         draggable.swap(droppable);
                     }
                 });
-            }
-        }, '.resultItem');
-    })();
+
+    };
 
     var q_view,
         q_id,
@@ -107,6 +104,9 @@ var linklinkseeQuestion = (function() {
 
     return {
         init: function(question, checkAnswer, dom_id) {
+
+
+
             q_view = dom_id.find("#linklinkquestion");
             setQuestion(question);
             q_view.find('#llkConfirmBtn').on("click", function() {
@@ -115,6 +115,9 @@ var linklinkseeQuestion = (function() {
                     QuestionLoader.loadQuestion(dom_id);
                 }, 1000);
             });
+
+            draggableInit();
+
         }
     }
 })();

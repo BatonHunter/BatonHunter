@@ -1,75 +1,95 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
     <meta charset="utf-8">
     <title>BatonHunter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--libs-->
+    <link rel="stylesheet" href="assets/lib/css/bootstrap.css">
     <link rel="stylesheet" href="assets/lib/css/font-awesome.css">
     <link rel="stylesheet" href="assets/lib/css/jquery.fancybox.css" />
-    <link rel="stylesheet" href="assets/lib/css/bootstrap.css" />
     <!--customs-->
     <link rel="stylesheet" href="assets/stylesheet/battlepage.css" />
     <link rel="stylesheet" href="components/battlepage/luckystar/luckystar.css" />
     <link rel="stylesheet" href="components/battlepage/hpbar/hp.css" />
-    <link rel="stylesheet" href="components/battlepage/linklinkseequestion/linklinkseequestion.css" />
     <link rel="stylesheet" href="components/battlepage/linklinkseequestion/semantic.css" />
-</head>
+    <link rel="stylesheet" href="components/battlepage/linklinkseequestion/linklinkseeQuestion.css" />
 
-<body>
+  </head>
+
+  <body>
     <div class="main container">
-        <section id="enemy" class="row content enemy">
-            <header class="blood-flow col-sm-12">
-                <div id="enemy-hp" class="jquery-ui-like enemyHP">
-                    <div>&nbsp;</div>
-                </div>
-            </header>
-            <div class="role col-sm-12">
-                <p></p>
-            </div>
-        </section>
-        <section id="" class="row content user">
-            <header class="blood-flow col-sm-12">
-                <div id="counter">
-                </div>
-                <div id="user-hp" class="jquery-ui-like userHP">
-                    <div>&nbsp;</div>
-                </div>
-            </header>
-            <div class="tools col-sm-12">
-                <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png" /><span id="luckyCount"></span>
-                <img id="herb" class="item" src="assets/img/potion.png" /><span id="herbsCount"></span>
-            </div>
-            <div id="question" class="col-sm-12">
-            </div>
-        </section>
-    </div>
-    <div style="display: none;">
-        <div id="showme">
-            <span id="hint-timer"></span>
-            <p class="tips"></p>
+      <section id="battleview" class="row content">
+        <div id="enemy" class="enemy col-sm-6 col-sm-push-6" >
+
+          <header class="blood-flow">
+          <div id="enemy-hp" class="jquery-ui-like enemyHP">
+            <div>&nbsp;</div>
+          </div>
+          </header>
+
+          <div class="role">
+            <img class="img-responsive" src="assets/img/avatar.jpg">
+          </div>
         </div>
+
+        <div id="user" class="user col-sm-6 col-sm-pull-6" >
+          <header class="blood-flow">
+          <div id="user-hp" class="jquery-ui-like userHP">
+            <div>&nbsp;</div>
+          </div>
+          </header>
+          <div class="role hidden-xs">
+            <img class="img-responsive" src="http://vignette3.wikia.nocookie.net/tos/images/2/22/Pet118.png/revision/latest?cb=20130131102559&path-prefix=zh">
+          </div>
+        </div>
+      </section>
+
+      <section id="" class="row content question">
+        <div id="counter" class="col-xs-2 col-sm-12">
+        </div>
+
+        <div class="tools col-xs-10 col-sm-2 col-sm-push-10">
+          <ul>
+            <li>
+              <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png" /><span id="luckyCount"></span>
+            </li>
+            <li>
+              <img id="herb" class="item" src="assets/img/potion.png" /><span id="herbsCount"></span>
+            </li>
+          </ul>
+        </div>
+
+        <div id="question" class="col-sm-10 col-sm-pull-2"></div>
+      </section>
+    </div>
+
+    <div style="display: none;">
+      <div id="showme">
+        <span id="hint-timer"></span>
+        <p class="tips"></p>
+      </div>
     </div>
     <!--libs-->
     <script src="assets/lib/js/jquery.js"></script>
     <script src="assets/lib/js/jquery.fancybox.js"></script>
+    <script src="assets/lib/js/bootstrap.js"></script>
     <script src="assets/lib/js/jquery-ui.js"></script>
     <script src="assets/lib/js/circular-progress.js"></script>
-    <script src="assets/lib/js/bootstrap.js"></script>
     <!--components-->
     <script src="components/battlepage/data/battle_data.js"></script>
     <script src="components/battlepage/effect/battle_effect.js"></script>
     <script src="components/battlepage/effect/fighteffect.js"></script>
     <script src="components/battlepage/batontimer/batontimer.js"></script>
     <script src="components/battlepage/luckystar/luckystar.js"></script>
-    <script src="components/battlepage/linklinkseequestion/semantic.js"></script>
     <script src="components/battlepage/questionloader/questionloader.js"></script>
-    <script src="components/battlepage/linklinkseequestion/linklinkseequestion.js"></script>
+    <script src="components/battlepage/choicequestion/choicequestion.js"></script>
     <script src="components/battlepage/truefalsequestion/truefalseQuestion.js"></script>
+    <script src="components/battlepage/linklinkseequestion/linklinkseequestion.js"></script>
     <script src="components/battlepage/hpbar/hp.js"></script>
     <!--main-->
     <script src="assets/js/battlepage.js"></script>
-</body>
+  </body>
 
 </html>

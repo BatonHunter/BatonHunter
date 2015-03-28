@@ -32,3 +32,11 @@
 	margin-left: 50%;
 	transform: translateX(-50%);
 }
+#resultItemFiled .ui.button, #choseItemFiled .ui.button {
+	box-shadow:0px 0px 0px 2px #EF2B2B inset !important;
+	color:#8E0404;
+	letter-spacing: 0.1em;
+	padding: 3px 0 ;
+	margin: 2px 0;
+	display: block;
+}

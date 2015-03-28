@@ -34,7 +34,7 @@ var linklinkseeQuestion = (function() {
                     drop: function(event, ui) {
 
                         var draggable = ui.draggable,
-                            droppable = $( ".resultItem" ),
+                            droppable = $(this),
                             dragPos = draggable.position(),
                             dropPos = droppable.position();
 

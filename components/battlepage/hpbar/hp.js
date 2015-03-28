@@ -71,11 +71,11 @@ HP.prototype.isFull = function() {
 };
 
 HP.prototype.win = function() {
-
-    $("html").load("./components/result_page/win.html");
+    window.location.href="/components/result_page/win.html";
+//    $("html").load("./components/result_page/win.html");
 };
 
 HP.prototype.lose = function() {
-
-    $("html").load("./components/result_page/lose.html");
+    window.location.href="/components/result_page/lose.html";
+//    $("html").load("./components/result_page/lose.html");
 };

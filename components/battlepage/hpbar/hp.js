@@ -75,5 +75,5 @@ HP.prototype.win = function() {
 };
 
 HP.prototype.lose = function() {
-    alert("you are a stupid loser!!!!");
+    //alert("you are a stupid loser!!!!");
 };

@@ -9,14 +9,50 @@ var QuestionLoader = (function() {
         return (current_question.ans === ans);
     };
 
+    // This function checks the answers by comparing two arrays
+    // Return true if two given arrays are identical
+    var checkAnswerMutiChoice = function(correct_answers, player_answers) {
+
+        battle_data.getQuestion().removeUsedQustion(current_question);
+
+        // If the length of those two arrays are not identical,
+        // they must be different
+        if (correct_answers.length !== player_answers.length) {
+            return false;
+        }
+
+        // Otherwise, let's compare each element in the array
+        var check_result = true;
+
+        player_answers.each(function(){
+
+            if (correct_answers.indexOf($(this).val()) === -1) {
+
+                check_result = false;
+
+                // return false will leave the loop each()
+                return false;
+            }
+        });
+
+        return check_result;
+    }
+
     return {
         loadQuestion: function(dom_id) {
             $(dom_id).empty();
             current_question = battle_data.getQuestion().getNextQuestion();
             switch (current_question.type) {
+                // case 'tf' stands for 'true/false questions'
                 case 'tf':
                     $(dom_id).load("components/battlepage/truefalsequestion/truefalsequestion.html", function() {
                         truefalseQuestion.init(current_question, checkAnswer, $(dom_id));
+                    });
+                    break;
+                // case 'ch' stands for 'choice questions'
+                case 'ch':
+                    $(dom_id).load("components/battlepage/choicequestion/choicequestion.html", function() {
+                        choiceQuestion.init(current_question, checkAnswerMutiChoice, $(dom_id));
                     });
                     break;
                 default:

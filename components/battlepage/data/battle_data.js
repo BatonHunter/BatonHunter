@@ -103,6 +103,38 @@ var battle_data = (function() {
             content: "the answer is false !!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
             hint: '...',
             ans: "No"
+        }, {
+            id: 9,
+            type: "ch",
+            title: "Question 9",
+            content: "Which color let people happy?\n",
+            hint: '...',
+            anslist: ['red', 'black', 'blue', 'brown'],
+            ans: ['1']
+        }, {
+            id: 10,
+            type: "ch",
+            title: "Question 10",
+            content: "Which color let people sad?\n",
+            hint: '...',
+            anslist: ['red', 'yello', 'green', 'blue'],
+            ans: ['4']
+        }, {
+            id: 11,
+            type: "ch",
+            title: "Question 11",
+            content: "Which color let people feel cold?\n",
+            hint: '...',
+            anslist: ['red', 'yello', 'black', 'blue'],
+            ans: ['3','4']
+        }, {
+            id: 12,
+            type: "ch",
+            title: "Question 12",
+            content: "Who is most handsome?\n",
+            hint: '...',
+            anslist: ['Ian', 'Ian', 'Ian', 'Ian'],
+            ans: ['1', '2', '3','4']
         }];
 
         return {

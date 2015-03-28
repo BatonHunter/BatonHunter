@@ -2,6 +2,10 @@
    Author's custom styles
    ========================================================================== */
 
+body {
+    padding-top: 50px;
+}
+
 body ul {
     list-style-type: none;
 }

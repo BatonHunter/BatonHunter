@@ -24,6 +24,9 @@
 .resultItem {
 	border: 2px #333 solid;
 }
+.resultItem:hover{
+	cursor: pointer;
+}
 #llkConfirmBtn {
 	width: 50%;
 	margin-left: 50%;

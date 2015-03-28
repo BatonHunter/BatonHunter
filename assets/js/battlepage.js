@@ -3,7 +3,6 @@
 
 
 QuestionLoader.loadQuestion('#question');
-QuestionLoader.loadQuestion('#question').draggableInit;
 var userHP;
 var enemyHP;
 var battleTimer;

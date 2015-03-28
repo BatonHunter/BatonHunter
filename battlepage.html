@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
     <meta charset="utf-8">
     <title>BatonHunter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,56 +13,60 @@
     <link rel="stylesheet" href="assets/stylesheet/battlepage.css" />
     <link rel="stylesheet" href="components/battlepage/luckystar/luckystar.css" />
     <link rel="stylesheet" href="components/battlepage/hpbar/hp.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="main container">
-        <div>Test</div>
-        <section id="battleview" class="row content">
-		<div id="enemy" class="enemy col-xs-12 col-sm-5 col-sm-offset-1" >
-			
-		    <header class="blood-flow">
-			<div id="enemy-hp" class="jquery-ui-like enemyHP">
-			    <div>&nbsp;</div>
-			</div>
-		    </header>
+      <section id="battleview" class="row content">
+        <div id="enemy" class="enemy col-sm-6 col-sm-push-6" >
 
-		    <div class="role">
-		      <img class="img-responsive" src="assets/img/avatar.jpg">
-		    </div>
-		</div>
+          <header class="blood-flow">
+          <div id="enemy-hp" class="jquery-ui-like enemyHP">
+            <div>&nbsp;</div>
+          </div>
+          </header>
 
-		<div id="user" class="user col-xs-12 col-sm-5 col-sm-offset-6" >
-		    <div class="role hidden-xs">
-		      <img class="img-responsive" src="http://vignette3.wikia.nocookie.net/tos/images/2/22/Pet118.png/revision/latest?cb=20130131102559&path-prefix=zh">
-		    </div>
+          <div class="role">
+            <img class="img-responsive" src="assets/img/avatar.jpg">
+          </div>
+        </div>
 
-		    <header class="blood-flow">
-			<div id="user-hp" class="jquery-ui-like userHP">
-			    <div>&nbsp;</div>
-			</div>
-		    </header>
+        <div id="user" class="user col-sm-6 col-sm-pull-6" >
+          <header class="blood-flow">
+          <div id="user-hp" class="jquery-ui-like userHP">
+            <div>&nbsp;</div>
+          </div>
+          </header>
+          <div class="role hidden-xs">
+            <img class="img-responsive" src="http://vignette3.wikia.nocookie.net/tos/images/2/22/Pet118.png/revision/latest?cb=20130131102559&path-prefix=zh">
+          </div>
+        </div>
+      </section>
 
-		</div>
-        </section>
+      <section id="" class="row content question">
+        <div id="counter" class="col-xs-2 col-sm-12">
+        </div>
 
-        <section id="" class="row content question">
-	    <div id="counter" class="col-xs-2">
-	    </div>
-            <div class="tools col-xs-10">
-                <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png" /><span id="luckyCount"></span>
-                <img id="herb" class="item" src="assets/img/potion.png" /><span id="herbsCount"></span>
-            </div>
+        <div class="tools col-xs-10 col-sm-2 col-sm-push-10">
+          <ul>
+            <li>
+              <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png" /><span id="luckyCount"></span>
+            </li>
+            <li>
+              <img id="herb" class="item" src="assets/img/potion.png" /><span id="herbsCount"></span>
+            </li>
+          </ul>
+        </div>
 
-            <div id="question" class="col-sm-12"></div>
-        </section>
+        <div id="question" class="col-sm-10 col-sm-pull-2"></div>
+      </section>
     </div>
 
     <div style="display: none;">
-        <div id="showme">
-            <span id="hint-timer"></span>
-            <p class="tips"></p>
-        </div>
+      <div id="showme">
+        <span id="hint-timer"></span>
+        <p class="tips"></p>
+      </div>
     </div>
     <!--libs-->
     <script src="assets/lib/js/jquery.js"></script>
@@ -81,6 +85,6 @@
     <script src="components/battlepage/hpbar/hp.js"></script>
     <!--main-->
     <script src="assets/js/battlepage.js"></script>
-</body>
+  </body>
 
 </html>

@@ -11,6 +11,7 @@
     "url": "https://github.com/BatonHunter/BatonHunter/issues"
   },
   "dependencies": {
+    "ansi-regex": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-filter": "^2.0.2",
     "gulp-install": "^0.2.0",

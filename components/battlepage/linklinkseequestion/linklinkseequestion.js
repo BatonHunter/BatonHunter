@@ -14,7 +14,7 @@ var linklinkseeQuestion = (function() {
             return this;
         };
 
-//實作方式還需要調整或修改
+        //實作方式還需要調整或修改
         $(document).on({
             mousedown: function(e) {
                 e.preventDefault();
@@ -74,6 +74,9 @@ var linklinkseeQuestion = (function() {
     var updateQuestionView = function() {
         q_view.find('.questionitem-block .title').text(q_title);
 
+        q_choseItem = randomArray(q_choseItem);
+        q_ans = randomArray(q_ans);
+
         $('.choseItem').each(function(index) {
             $(this).text(q_choseItem[index].Qtxt).attr('data-id', q_choseItem[index].Qid);
         });
@@ -82,6 +85,22 @@ var linklinkseeQuestion = (function() {
         });
 
         q_view.find('.questionitem-block .hint').text(q_hint);
+    };
+
+    var randomArray = function(array) {
+        var currentIndex = array.length,
+            temporaryValue, randomIndex;
+
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
     };
 
     var showResult = function(is_correct) {
@@ -94,7 +113,7 @@ var linklinkseeQuestion = (function() {
         deductHp(is_correct);
         battleTimer.reset();
         battleTimer.start();
-    }
+    };
 
     var deductHp = function(is_correct) {
         if (is_correct) {

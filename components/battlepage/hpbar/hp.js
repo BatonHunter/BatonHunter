@@ -11,18 +11,6 @@ var HP = function(maxHP, $element) {
         this.$element.find('div').animate({
             width: progressBarWidth
         }, 500).html(this.currentHP + "/" + this.maxHP + "&nbsp;(" + percent + "%)&nbsp;");
-        
-        //這段移到gamestatus.js中處理.
-        /*
-        if (this.isDead()) {
-            if (this.$element.attr('id') === "user-hp") {
-                this.lose();
-            } else {
-                this.win();
-            }
-        }
-        */
-        
     }
     this.HPuiController(this.maxHP);
 };
@@ -78,11 +66,9 @@ HP.prototype.isFull = function() {
 };
 
 HP.prototype.win = function() {
-    window.location.href="/components/result_page/win.html";
-//    $("html").load("./components/result_page/win.html");
+    window.location.href="./components/result_page/win.html";
 };
 
 HP.prototype.lose = function() {
-    window.location.href="/components/result_page/lose.html";
-//    $("html").load("./components/result_page/lose.html");
+    window.location.href="./components/result_page/lose.html";
 };

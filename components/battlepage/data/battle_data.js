@@ -47,80 +47,30 @@ var battle_data = (function() {
 
     };
     var question = (function() {
-        var questions = [{
+        var questions = [ {
             id: 1,
-            type: "tf",
-            title: "Question 1",
-            content: "Is it agile?\n",
-            hint: '...',
-            ans: "Yes"
-        }, {
-            id: 2,
-            type: "tf",
-            title: "Question 2",
-            content: "Is it JQuery?\n",
-            hint: '...',
-            ans: "Yes"
-        }, {
-            id: 3,
-            type: "tf",
-            title: "Question 3",
-            content: "the answer is true !!Lorem ipsum , consectetur adipisicing elit. Accusantium, nihil!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
-            hint: '...',
-            ans: "Yes"
-        }, {
-            id: 4,
-            type: "tf",
-            title: "Question 4",
-            content: "the answer is false !! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
-            hint: '...',
-            ans: "No"
-        }, {
-            id: 5,
-            type: "tf",
-            title: "Question 5",
-            content: "the answer is false !! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
-            hint: '...',
-            ans: "No"
-        }, {
-            id: 6,
-            type: "tf",
-            title: "Question 6",
-            content: "the answer is true !! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
-            hint: '...',
-            ans: "Yes"
-        }, {
-            id: 7,
-            type: "tf",
-            title: "Question 7",
-            content: "the answer is true !!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
-            hint: '...',
-            ans: "Yes"
-        }, {
-            id: 8,
             type: "tf",
             title: "Question 8",
             content: "the answer is false !!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
             hint: '...',
             ans: "No"
-        }, {
-            id: 9,
-            type: "ch",
+         },{
+            id: 2,
+            type: "linkQuestion",
             title: "Question 9",
-            content: "Which color let people happy?\n",
+            content:[{Qid:1, Qtxt:"11111"},{Qid:2, Qtxt:"2222"},{Qid:3, Qtxt:"333"},{Qid:4, Qtxt:"444"}],
             hint: '...',
-            anslist: ['red', 'black', 'blue', 'brown'],
-            ans: ['1']
-        }, {
-            id: 10,
-            type: "ch",
+            ans: [{Aid:1, Atxt:"11111"},{Aid:2, Atxt:"2222"},{Aid:3, Atxt:"333"},{Aid:4, Atxt:"444"}],
+
+        },{
+            id: 3,
+            type: "linkQuestion",
             title: "Question 10",
-            content: "Which color let people sad?\n",
+            content:[{Qid:1, Qtxt:"10"},{Qid:2, Qtxt:"2222"},{Qid:3, Qtxt:"333"},{Qid:4, Qtxt:"444"}],
             hint: '...',
-            anslist: ['red', 'yello', 'green', 'blue'],
-            ans: ['4']
+            ans: [{Aid:1, Atxt:"10"},{Aid:2, Atxt:"2222"},{Aid:3, Atxt:"333"},{Aid:4, Atxt:"444"}],
         }, {
-            id: 11,
+            id: 4,
             type: "ch",
             title: "Question 11",
             content: "Which color let people feel cold?\n",
@@ -128,7 +78,7 @@ var battle_data = (function() {
             anslist: ['red', 'yello', 'black', 'blue'],
             ans: ['3','4']
         }, {
-            id: 12,
+            id: 5,
             type: "ch",
             title: "Question 12",
             content: "Who is most handsome?\n",

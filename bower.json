@@ -36,6 +36,8 @@
           "less/bootstrap.less",
           "dist/css/bootstrap.css",
           "dist/css/bootstrap-theme.css",
+          "dist/css/bootstrap.css.map",
+          "dist/css/bootstrap-theme.css.map",
           "dist/js/bootstrap.js",
           "dist/fonts/glyphicons-halflings-regular.eot",
           "dist/fonts/glyphicons-halflings-regular.svg",

@@ -10,7 +10,14 @@ var HP = function(maxHP, $element) {
         var progressBarWidth = percent * this.$element.width() / 100;
         this.$element.find('div').animate({
             width: progressBarWidth
-        }, 500).html(this.currentHP + "/" + this.maxHP + "&nbsp;(" + percent + "%)&nbsp;");
+        }, 500).html(this.currentHP + "/" + this.maxHP + "&nbsp;(" + parseInt(percent) + "%)&nbsp;");
+        if (this.isDead()) {
+            if (this.$element.attr('id') === "user-hp") {
+                this.lose();
+            } else {
+                this.win();
+            }
+        }
     }
     this.HPuiController(this.maxHP);
 };

@@ -58,6 +58,7 @@ HP.prototype.modifyHP = function(value, type) {
     return true;
 };
 
+
 HP.prototype.isDead = function() {
     if (this.currentHP <= 0) {
         return true;
@@ -66,14 +67,15 @@ HP.prototype.isDead = function() {
     }
 };
 
+
 HP.prototype.isFull = function() {
     return (this.currentHP >= this.maxHP);
 };
 
 HP.prototype.win = function() {
-    alert("really? winner?");
+    window.location.href="./components/result_page/win.html";
 };
 
 HP.prototype.lose = function() {
-    //alert("you are a stupid loser!!!!");
+    window.location.href="./components/result_page/lose.html";
 };

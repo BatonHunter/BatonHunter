@@ -1,7 +1,7 @@
 var battle_data = (function() {
     var monster = (function() {
         var img_path = 'assets/img/avatar';
-        var hp = 1000;
+        var hp = 10;
         return {
             getImg_path: function() {
                 return img_path;
@@ -18,7 +18,7 @@ var battle_data = (function() {
             quantity: 3
         };
         var star = 3;
-        var hp = 1000;
+        var hp = 10;
         return {
             getStar: function() {
                 return star;

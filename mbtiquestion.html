@@ -33,23 +33,34 @@
         </div> 
       </div> 
     </nav>
-    <div class="container main-container">
+    <div id='mbti_container' class="container main-container">
       <div class="row">
         <div class="col-xs-12 info-container" id="questionArea">
-          Test
+          <p id=mbti_title></p>
+          <p id=mbti_content></p>
         </div>
         <div class="col-xs-12 info-container" id="answerArea">
           <ul>
-            <li><input type="radio" name="mbtians" value="1">&nbsp;A</li>
-            <li><input type="radio" name="mbtians" value="2">&nbsp;B</li>
-            <li><input type="radio" name="mbtians" value="3">&nbsp;C</li>
-            <li><input type="radio" name="mbtians" value="4">&nbsp;D</li>
+            <li><input type="radio" name="mbtians" value="1">&nbsp;[A] 5分, [B] 0分</li>
+            <li><input type="radio" name="mbtians" value="2">&nbsp;[A] 4分, [B] 1分</li>
+            <li><input type="radio" name="mbtians" value="3">&nbsp;[A] 3分, [B] 2分</li>
+            <li><input type="radio" name="mbtians" value="4">&nbsp;[A] 2分, [B] 3分</li>
+            <li><input type="radio" name="mbtians" value="5">&nbsp;[A] 1分, [B] 4分</li>
+            <li><input type="radio" name="mbtians" value="6">&nbsp;[A] 0分, [B] 5分</li>
           </ul>
         </div>
-        <div class="col-xs-12 button-container">
+        <div id='btn_mbti_continue' class="col-xs-12 button-container">
           <p class="btn btn-primary ">Continue</p>
         </div>
       </div>
     </div>
+  <script src="assets/lib/js/jquery.js"></script>
+  <script src="assets/lib/js/jquery.fancybox.js"></script>
+  <script src="assets/lib/js/bootstrap.js"></script>
+  <script src="assets/lib/js/jquery-ui.js"></script>
+  <script src="assets/lib/js/circular-progress.js"></script>
+  <script src="components/mbtiquestion/mbti_questionloader/mbti_questionloader.js"></script>
+  <script src="components/mbtiquestion/data/mbti_data.js"></script>
+  <script src="assets/js/mbtiquestion.js"></script>
   </body>
 </html>

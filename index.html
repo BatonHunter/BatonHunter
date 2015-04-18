@@ -4,8 +4,10 @@
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="assets/lib/js/jquery.js"></script>
+<!--libs-->
 <script src="assets/js/facebook.js"></script>
+<!--stylesheets
+<link rel="stylesheet" href="assets/stylesheet/main.css" />-->
 </head>
 <body>
 <!--
@@ -13,11 +15,10 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState();"></div>
+<a href="#" onclick="login();"><img src="assets/img/FB_login_01.png" border="0" alt=""></a>
 
 <div id="status">
 </div>
-<div id="gameButton"></div>
 
 
 </body>

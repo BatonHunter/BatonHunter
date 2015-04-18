@@ -9,10 +9,12 @@ var rimraf = require('rimraf');
 var js_dest_path = 'assets/lib/js';
 var css_dest_path = 'assets/lib/css';
 var img_for_fancybox = 'assets/lib/css';
+var font_path = 'assets/lib/fonts';
 
 var jsFilter = gulpFilter('*.js');
-var cssFilter = gulpFilter('*.css');
+var cssFilter = gulpFilter(['*.css', '*.css.map']);
 var imgFilter = gulpFilter(['*.gif', '*.png']);
+var fontFilter = gulpFilter(['*.eot', '*.svg', '*.ttf', '*.woff*']);
 
 gulp.task('build', function(callback) {
     runSequence('clean', 'install', 'exportBowerFiles', callback);
@@ -42,4 +44,8 @@ gulp.task('exportBowerFiles', function() {
 
     .pipe(imgFilter)
         .pipe(gulp.dest(img_for_fancybox))
+        .pipe(imgFilter.restore())
+
+    .pipe(fontFilter)
+        .pipe(gulp.dest(font_path))
 });

@@ -5,6 +5,7 @@ var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
 var install = require('gulp-install');
 var rimraf = require('rimraf');
+var sass = require('gulp-sass');
 
 var js_dest_path = 'assets/lib/js';
 var css_dest_path = 'assets/lib/css';
@@ -15,6 +16,14 @@ var jsFilter = gulpFilter('*.js');
 var cssFilter = gulpFilter(['*.css', '*.css.map']);
 var imgFilter = gulpFilter(['*.gif', '*.png']);
 var fontFilter = gulpFilter(['*.eot', '*.svg', '*.ttf', '*.woff*']);
+
+//Compile sass/scss To CSS
+gulp.task('styles',function(){
+    gulp.src('battleslot/style.{sass,scss}')
+    .pipe(sass())
+    .pipe(gulp.dest('battleslot/css'));
+});
+
 
 gulp.task('build', function(callback) {
     runSequence('clean', 'install', 'exportBowerFiles', callback);

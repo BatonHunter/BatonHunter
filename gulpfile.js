@@ -21,7 +21,7 @@ var fontFilter = gulpFilter(['*.eot', '*.svg', '*.ttf', '*.woff*']);
 gulp.task('styles',function(){
     gulp.src('battleslot/style.{sass,scss}')
     .pipe(sass())
-    .pipe(gulp.dest('battleslot/css'));
+    .pipe(gulp.dest('battleslot'));
 });
 
 

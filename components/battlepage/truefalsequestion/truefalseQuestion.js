@@ -43,9 +43,11 @@ var truefalseQuestion = (function() {
     var deductHp = function (is_correct){
         if(is_correct){
             battle_effect.beatmonster('#enemy', battle_data.getMonster().getImg_path());
-            enemyHP.modifyHP(-50, 1);
+            enemyHP.modifyHP(-500, 1);
+            gameStatus.changeBattleStatus(enemyHP);
         } else{
-            userHP.modifyHP(-150, 1);
+            userHP.modifyHP(-250, 1);
+            gameStatus.changeBattleStatus(userHP);
         }
     };
 

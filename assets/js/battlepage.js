@@ -1,14 +1,20 @@
-//component init
+
+// //component init
+
+
 QuestionLoader.loadQuestion('#question');
 var userHP;
 var enemyHP;
 var battleTimer;
+
+
 
 $(document).ready(function() {
     //fighting page countdown clock
     battleTimer = Object.create(batontimer);
     battleTimer.setUpClock('#counter', 20, 'red', 'circle', function() {
         userHP.modifyHP(-50, 1);
+        gameStatus.changeBattleStatus(userHP);
     });
     battleTimer.reset();
     battleTimer.start();
@@ -31,3 +37,4 @@ $(document).ready(function() {
         count_id: "#herbsCount"
     }, userHP.heal);
 });
+

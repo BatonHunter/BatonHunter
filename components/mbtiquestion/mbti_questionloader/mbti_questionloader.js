@@ -24,14 +24,11 @@ var mbti_questionloader = (function() {
     };
 
     var loadQuestion = function(question_id) {
-        current_question = mbti_data.getQuestion(question_id);
-        console.log(current_question);
-        console.log(current_dom_id.find('#mbti_title'));
-	current_dom_id.find('#mbti_title').text(current_question.title);
-        current_dom_id.find('#mbti_content').text(current_question.content); 
-	current_dom_id.find('input').each(function(){
-		console.log($(this).prop('checked', false));
-	});
+      current_question = mbti_data.getQuestion(question_id);
+	    current_dom_id.find('#mbti_title').text(current_question.title);
+      current_dom_id.find('#mbti_content').text(current_question.content); 
+	    current_dom_id.find('input').each(function(){
+	    });
     };
     var go_next = function(){
         //checkAnswer($(this).attr("val")));
@@ -54,6 +51,9 @@ var mbti_questionloader = (function() {
             init_score();
             loadQuestion(1);
             current_dom_id.find('#btn_mbti_continue').on("click", function() {
+                var scoreTmp = $('[name=mbtians]:checked').val();
+                score[current_question.ans_A] += (5 - scoreTmp);
+                score[current_question.ans_B] += (parseInt(scoreTmp));
                 go_next();
             });
         }

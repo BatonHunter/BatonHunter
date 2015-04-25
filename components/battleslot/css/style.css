@@ -1,3 +1,4 @@
+/* 拉把 */
 .main {
     width: 310px;
 }
@@ -120,4 +121,18 @@
     /*旋轉*/ 
     -webkit-transform: rotate3d(100, 10, 0, 180deg);
     transform-origin: 0% 100%;
+}
+
+/* Slots */
+.slots {
+  border: 1px solid #aaa;
+  display: inline-block;
+  height: 140px;
+  overflow: hidden;
+  text-align: center;
+  width: 80px;
+}
+
+.slots .slot {
+  font-size: 100px;
 }

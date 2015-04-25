@@ -7,11 +7,13 @@
 <!--libs-->
 <script src="assets/lib/js/jquery.js"></script>
 <script src="assets/lib/js/bootstrap.js"></script>
+<script src="assets/lib/js/jquery.validate.js"></script>
+<script src="components/homepage/validation.js"></script>
 <!--stylesheets-->
 <link rel="stylesheet" type="text/css" href="assets/lib/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="assets/stylesheet/bootstrap-extensions.css">
 </head>
-<body class="bg-primary"">
+<body class="bg-primary">
 
 <div class="container-fluid">
     <div class="row">
@@ -19,27 +21,40 @@
             <!-- place logo here -->
             <h1 style="font-size: 3em; margin: 40px 0 20px 0">Welcome to BatonHunter</h1>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <a href="signup.html"
+        <div class="col-md-4 col-md-offset-4">
+            <a href="#"
                style="text-decoration: none;">
                 <button 
                     type="button" 
                     id="signupButton" 
-                    data-loading-text="Loading..." 
+                    data-toggle="collapse"
+                    data-target="#collapseExample"
                     class="btn-success btn-primary btn-block btn-xlarge" 
                     style="margin-top: 10px; margin-bottom: 10px;"
                     autocomplete="off">Sign Up
                 </button>
             </a>
+            <!-- <div class="col-md-1"></div> -->
+            <div class="col-md-10 col-md-offset-1 collapse" id="collapseExample">
+                <form class="text-center" id="signUpForm" role="form" action="register" method="post">
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input type="email" class="form-control required" id="email">
+                        <span id="email-error" />
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control required" minLength="8" name="pwd" id="pwd">
+                        <label for="pwd">Type Password Again:</label>
+                        <input type="password" class="form-control required" minLength="8" name="pwd_confirm" id="pwd_confirm">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                </form>
+            </div>
         </div>
-        <div class="col-md-4"></div>
     </div>
     <div class="row">
         <div class="col-md-12"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <a href="signup.html"
+        <div class="col-md-4 col-md-offset-4">
+            <a href="#"
                style="text-decoration: none;">
                 <button 
                     type="button" 
@@ -47,16 +62,16 @@
                     data-loading-text="Loading..." 
                     class="btn-warning btn-primary btn-block btn-xlarge" 
                     style="margin-top: 10px; margin-bottom: 10px;"
+                    data-toggle="modal" 
+                    data-target=".login-dialog-box"
                     autocomplete="off">Login
                 </button>
             </a>
         </div>
-        <div class="col-md-4"></div>
     </div>
     <div class="row">
         <div class="col-md-12"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-offset-4">
             <a href="signup.html"
                style="text-decoration: none;">
                 <button 
@@ -69,7 +84,6 @@
                 </button>
             </a>
         </div>
-        <div class="col-md-4"></div>
     </div>
     <div class="row">
         <div class="col-md-12 text-center" style="margin-top: 20px">
@@ -77,6 +91,43 @@
         </div>
     </div>
 </div>
+
+<!-- popup dialog window -->
+<div class="modal fade login-dialog-box" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: center;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" style="color: black;" id="login">Baton Hunder Login<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
+            </div>
+            <div class="modal-body">
+                <form class="navbar-form">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="E-mail" style="width: 70px;">E-mail</span>
+                                <input type="text" class="form-control" placeholder="E-mail" aria-describedby="basic-addon1">
+                            </div>       
+                        </div>
+                        <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">        
+                            <div class="input-group">
+                                <span class="input-group-addon" id="password" style="width: 70px;">密碼</span>
+                                <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">       
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">        
+                            <a href="#">忘記密碼</a>
+                        </div>
+                        <div class="col-xs-12 col-md-12">
+                            <button type="submit" class="btn btn-primary">登入</button >
+                        </div>      
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- popup dialog window end here -->
 
 </body>
 </html>

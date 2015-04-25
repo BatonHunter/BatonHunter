@@ -34,8 +34,8 @@
                     autocomplete="off">Sign Up
                 </button>
             </a>
-            <!-- <div class="col-md-1"></div> -->
             <div class="col-md-10 col-md-offset-1 collapse" id="collapseExample">
+                <!-- display the sign up form -->
                 <form class="text-center" id="signUpForm" role="form" action="register" method="post">
                     <div class="form-group">
                         <label for="email">Email address:</label>
@@ -48,6 +48,7 @@
                     </div>
                     <button type="submit" class="btn btn-success btn-lg">Submit</button>
                 </form>
+                <!-- display the sign up form end here -->
             </div>
         </div>
     </div>
@@ -99,22 +100,22 @@
                 <h4 class="modal-title" style="color: black;" id="login">Baton Hunder Login<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
             </div>
             <div class="modal-body">
-                <form class="navbar-form">
+                <form class="navbar-form" id="loginForm">
                     <div class="row">
                         <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">
                             <div class="input-group">
                                 <span class="input-group-addon" id="E-mail" style="width: 70px;">E-mail</span>
-                                <input type="text" class="form-control" placeholder="E-mail" aria-describedby="basic-addon1">
+                                <input type="email" class="form-control required" placeholder="E-mail" aria-describedby="basic-addon1">    
                             </div>       
                         </div>
                         <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">        
                             <div class="input-group">
                                 <span class="input-group-addon" id="password" style="width: 70px;">密碼</span>
-                                <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">       
+                                <input type="password" minLength="8" class="form-control required" placeholder="Password" aria-describedby="basic-addon2">       
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">        
-                            <a href="#">忘記密碼</a>
+                            <a class="forgetPwd" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" data-toggle="modal" data-target=".fotgetPwd-dialog-box">忘記密碼</span></a>
                         </div>
                         <div class="col-xs-12 col-md-12">
                             <button type="submit" class="btn btn-primary">登入</button >
@@ -126,6 +127,33 @@
     </div>
 </div>
 <!-- popup dialog window end here -->
+
+<!-- popup dialog window to reset password -->
+<div class="modal fade fotgetPwd-dialog-box" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: center;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="login" style="color: black; ">忘記密碼<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
+            </div>
+            <div class="modal-body">
+                <form class="navbar-form" id="resetPasswordForm">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            <div class="input-group" style = "margin-bottom:20px">
+                                <span class="input-group-addon" id="E-mail" style="width: 70px;">E-mail</span>
+                                <input type="email" class="form-control required" placeholder="E-mail" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="col-xs-12 col-md-12">
+                                <button type="submit" class="btn btn-primary">傳送密碼至 E-mail</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- popup dialog window to reset password end here -->
 
 </body>
 </html>

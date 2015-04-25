@@ -23,7 +23,10 @@ $(document).ready(function() {
             }
         }
     });
-    
+
+    $('#loginForm').validate();
+    $('#resetPasswordForm').validate();
+
     $('form').on('submit', function(e){
 
         e.stopPropagation();

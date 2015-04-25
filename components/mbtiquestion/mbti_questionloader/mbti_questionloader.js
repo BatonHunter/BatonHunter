@@ -37,12 +37,15 @@ var mbti_questionloader = (function() {
                 current_dom_id.hide();
                 setTimeout(function() {
                     loadQuestion(current_question.id + 1);
+                    $('[name=mbtians]:checked').attr('', false);
                     current_dom_id.show();
                 }, 500);
             }, 300);
         }
         else{
             // FINISH TBD
+            $('#mbti_container').find('.row').hide();
+            $('#myModal').modal();
         }
     };
     return {

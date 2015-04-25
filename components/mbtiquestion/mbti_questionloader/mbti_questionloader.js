@@ -8,7 +8,7 @@ var mbti_questionloader = (function() {
     var init_score = function(){
         score = {
             I: 0,
-            E: 0,
+            E: 0
             N: 0,
             S: 0,
             T: 0,
@@ -37,7 +37,7 @@ var mbti_questionloader = (function() {
                 current_dom_id.hide();
                 setTimeout(function() {
                     loadQuestion(current_question.id + 1);
-                    $('[name=mbtians]:checked').attr('', false);
+                    $('[name=mbtians]:checked').attr('checked', false);
                     current_dom_id.show();
                 }, 500);
             }, 300);

@@ -8,7 +8,7 @@ var mbti_questionloader = (function() {
     var init_score = function(){
         score = {
             I: 0,
-            E: 0
+            E: 0,
             N: 0,
             S: 0,
             T: 0,

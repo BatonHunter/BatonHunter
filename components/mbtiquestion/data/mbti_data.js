@@ -196,35 +196,35 @@ var mbti_data = (function() {
 
     var mbti_character = [ {
         category:  "ISTJ",
-        style:     "公務員型",
+        style:     "▲公務員型",
         character: "王屬衛隊",
         value:     "▲注重傳統、安全及和平的生活",
         capability:"▲能使用邏輯和理性思維客觀地做出決定",
         picture:   "http://100sexiest.fhm.com.tw/upload/girl_8667456683.jpg"
      },{
         category:  "ISFJ",
-        style:     "照顧者型",
+        style:     "▲照顧者型",
         character: "靈療牧師",
         value:     "▲實際穩重、腳踏實地——他們不喜歡跟理論及抽象思維打交道",
         capability:"▲擅於察言觀色，對他人的情感和反應有著敏銳的洞察力",
         picture:   "http://100sexiest.fhm.com.tw/upload/girl_8e893ba4a7.jpg"
      },{
         category:  "INFJ",
-        style:     "作家型",
+        style:     "▲作家型",
         character: "真理修士",
         value:     "▲憑自己的直覺理解身邊的人和事物",
         capability:"▲能邏輯且理性地工作——運用直覺理解目標並向目標努力",
         picture:   "http://100sexiest.fhm.com.tw/upload/girl_d35e750596.jpg"
      },{
         category:  "INTJ",
-        style:     "專家型",
+        style:     "▲專家型",
         character: "煉金術師",
         value:     "▲能夠理解極為複雜的理論資料",
         capability:"▲邏輯及推理能力極強",
         picture:   "http://100sexiest.fhm.com.tw/upload/girl_d0289b3053.jpg"
      },{
         category:  "ISTP",
-        style:     "冒險家型",
+        style:     "▲冒險家型",
         character: "疾風遊俠",
         value:     "▲對於事物的工作原理很有興趣",
         capability:"▲擅於運用邏輯推理來分析自己所儲備的信息，並由此解決問題或發現事情的原委",

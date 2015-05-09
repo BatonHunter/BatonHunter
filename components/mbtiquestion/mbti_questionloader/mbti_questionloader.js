@@ -57,6 +57,7 @@ var mbti_questionloader = (function() {
                 var scoreTmp = $('[name=mbtians]:checked').val();
                 score[current_question.ans_A] += (5 - scoreTmp);
                 score[current_question.ans_B] += (parseInt(scoreTmp));
+                $('input.btn-success').switchClass('btn-success','btn-default');
                 go_next();
             });
         }

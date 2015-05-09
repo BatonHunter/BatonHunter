@@ -31,6 +31,7 @@ var mbti_questionloader = (function() {
 
     var checkAnswer = function() {
         var scoreTmp = $('[name=mbtians]:checked').val();
+        console.log(scoreTmp);
         if(scoreTmp == undefined)
         {
             var idx = Math.floor(Math.random() * 10 % 6);
@@ -59,6 +60,7 @@ var mbti_questionloader = (function() {
         }
         score[current_question.ans_A] += (5 - scoreTmp);
         score[current_question.ans_B] += (parseInt(scoreTmp));
+        $('input.btn-success').switchClass('btn-success','btn-default');
         go_next();
     };
 
@@ -76,45 +78,29 @@ var mbti_questionloader = (function() {
             type = mbti_data.getTypeByIdx(test_idx);
             console.log("type: "+type);
         }
+
         var result = mbti_data.getCharacter(type);
         $('#mbti_container').find('.row').hide();
         $('#mbti_result_title').text(result.character+' (' + type + ')');
         $('#mbti_result_type').text(result.style);
         $('#mbti_result_value').text(result.value);
         $('#mbti_result_capability').text(result.capability);
-
-            /*
-            http://100sexiest.fhm.com.tw/upload/girl_8667456683.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_a375240311.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_d35e750596.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_d0289b3053.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_e1816faa9e.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_29a6b31afb.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_cbe71bc8c8.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_e7fcdacc59.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_8e893ba4a7.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_0657d9265d.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_0024ebfddb.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_6ddb8a0d1d.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_c0a75049e5.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_ebad3887ee.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_dd39d0814e.jpg
-            http://100sexiest.fhm.com.tw/upload/girl_953a076d6b.jpg
-            */
         $('#mbti_result_image').attr('src', result.picture);    
         $('#modal_mbti_result').off('hidden.bs.modal');
         $('#modal_mbti_result').on('hidden.bs.modal', function () {
+            
+            //TEST
             if(IS_TEST_MODE){
                 alert('Test Finished.. Restart...');
                 test_idx = (test_idx+1) % mbti_data.getTotalCharacter();
             }
+            
             restart();  
         });
         $('#modal_mbti_result').modal();
     };
 
     var loadQuestion = function(question_id) {
-        console.log(question_id);
         current_question = mbti_data.getQuestion(question_id);
 	    current_dom_id.find('#mbti_title').text(current_question.title);
         current_dom_id.find('#mbti_content').text(current_question.content); 

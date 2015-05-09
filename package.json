@@ -1,0 +1,26 @@
+{
+  "name": "BatonHunter",
+  "version": "1.0.0",
+  "description": "BatonHunter web based game",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BatonHunter/BatonHunter.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/BatonHunter/BatonHunter/issues"
+  },
+  "dependencies": {
+    "ansi-regex": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-filter": "^2.0.2",
+    "gulp-install": "^0.2.0",
+    "gulp-uglify": "^1.1.0",
+    "main-bower-files": "2.5.0",
+    "rimraf": "^2.3.2",
+    "run-sequence": "^1.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  }
+}

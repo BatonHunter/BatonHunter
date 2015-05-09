@@ -7,7 +7,20 @@ body ul {
 }
 
 input[name=mbtians] {
- 
+ 	visibility: hidden;
+ 	
+}
+
+.mbti_btn {
+	font-size: 0.9em;
+}
+
+#btn_mbti_continue {
+	margin-top: 20px;
+}
+
+.btn_mbti_continue {
+	font-size: 1.2em;
 }
 
 .main-container {

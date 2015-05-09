@@ -7,7 +7,20 @@ body ul {
 }
 
 input[name=mbtians] {
-  visibility: hidden;
+ 	visibility: hidden;
+ 	
+}
+
+.mbti_btn {
+	font-size: 0.9em;
+}
+
+#btn_mbti_continue {
+	margin-top: 20px;
+}
+
+.btn_mbti_continue {
+	font-size: 1.2em;
 }
 
 .main-container {
@@ -25,3 +38,43 @@ input[name=mbtians] {
 .button-container p {
   width: 100%;
 }
+
+.modal-body{
+	text-align: center;
+}
+
+#mbti_result_title{
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#mbti_result_image{
+
+}
+
+.mbti_result_descript{
+	text-align: left;
+	margin-left: 5%; 
+	margin-top: 10px;
+	font-size: 1.2em;
+	font-style: oblique;
+}
+
+.mbti_result_table{
+	margin-top: 10px;
+	width: 90%;
+	margin-left: 5%;
+}
+
+.mbti_result_td1{
+	width: 15%;
+	vertical-align: text-top;
+	text-align: left;
+	padding-top: 5px;
+}
+
+.mbti_result_td2{
+	width: 85%;
+	padding-top: 5px;
+}
+

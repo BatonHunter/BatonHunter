@@ -1,0 +1,29 @@
+body {
+	background-color: #fff;
+}
+
+.no-bottom-margin {
+	margin-bottom: 0;
+}
+
+.name, .career, .nickname, .large-font {
+	font-size: 32px;
+	color: black;
+}
+
+.ability_radar {
+	width: 80%;
+	height: 80%;
+}
+
+.bg-yellow {
+	background-color: yellow;
+}
+
+.bg-brown {
+	background-color: brown;
+}
+
+.color-white {
+	color: white;
+}

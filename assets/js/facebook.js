@@ -28,7 +28,7 @@ function login() {
             console.log('User cancelled login or did not fully authorize.');
         }
     }, {
-        scope: 'publish_stream, email'
+        scope: 'email'
     });
 }
 
@@ -71,11 +71,10 @@ window.fbAsyncInit = function() {
 function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-        //console.log('Successful login for: ' + response.name);
-        // document.getElementById('status').innerHTML =
-        // 'Thanks for logging in, ' + response.name + '!';
+        // login to the corresponding page according to user's device
+        Homepage.login();
 
-        window.location = "battlepage.html";
+        //window.location = "battlepage.html";
     });
 }
 

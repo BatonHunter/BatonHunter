@@ -1,25 +1,5 @@
 
 
-var thingsToKnowData =
-[{
-    "id":1,
-    "title":"111",
-    "content":"111-content",
-    "imagePath": "1.jpg"
-},
-{
-    "id":2,
-    "title":"222",
-    "content":"222-content",
-    "imagePath": "2.jpg"
-},
-{
-    "id":3,
-    "title":"333",
-    "content":"333-content",
-    "imagePath": "3.jpg"
-}
-];
 
 var thingsStatus = [
 {      
@@ -33,12 +13,11 @@ var thingsStatus = [
 {      
     "id":3,
     "status":false
-}]
+}];
 
-    (function(){
+   var DataLoader = (function(){
         
-
-       function getstatus(isSuccess){
+       function getstatusString(isSuccess){
          var result ="";
 	   if(isSuccess){
               result="Complete";
@@ -48,26 +27,32 @@ var thingsStatus = [
 
         function getUserTutorialStatus(tutorialId,user){
           var user_tutorials = user.getTutorialsStatus;
+
           for (var i = 0; i < user_tutorials.lenght; i++) {
           	if (tutorialId == user_tutorials[i].Id){
-                   var isSuccess = user_tutorials[i].status; 
+                    var isSuccess = user_tutorials[i].status; 
+		    return isSuccess; 
 		}
-          };
-
+          }
+          return null;
 	}	    
 
 	
 
 	return {
 	    loadTutorials:function(dom_id,user){
-                
-		var tutorialsCount = thingsToKnowData.lenght;
+                var tutorials = training_data.getDatas();
+		var tutorialsCount = tutorials.lenght;
 		var tutorialsHtml = "";
-		for (var i=0;i<turtialsCount;i++){
-                  var tutorisalStatus = getstatus(thingsStatus[i].status)
+
 		    
+		for (var i=0;i<turtialsCount;i++){
+                  var tutorialStatus = getUserTutorialStatus(tutorials[i].id,user);
+		  var tutorialStatusString = getstatusString(tutorisalStatus);
+		  var tutorialTitle = tutorials[i].title; 
+		     
                   tutorialsHtml += "<li class='list-group-item'>";
-	          turtialshHtml += "<span class='badge'" + tutorisalStatus +"</span>"; 
+	          turtialshHtml += "<span class='badge'" + tutorialStatusString +"</span>"; 
 		  tutorialsHtml += tutorialTitle;
 		  tutorialsHtml += "</li>";
 		}
@@ -75,7 +60,7 @@ var thingsStatus = [
 		$(dom_id).append(tutorialsHtml);	        
 	    }
 
-	 }
+	 };
 
 
-    })()
+    })();

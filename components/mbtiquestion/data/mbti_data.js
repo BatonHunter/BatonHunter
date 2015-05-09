@@ -194,12 +194,141 @@ var mbti_data = (function() {
      }
     ];
 
+    var mbti_character = [ {
+        category:  "ISTJ",
+        style:     "公務員型",
+        character: "王屬衛隊",
+        value:     "▲注重傳統、安全及和平的生活",
+        capability:"▲能使用邏輯和理性思維客觀地做出決定",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_8667456683.jpg"
+     },{
+        category:  "ISFJ",
+        style:     "照顧者型",
+        character: "靈療牧師",
+        value:     "▲實際穩重、腳踏實地——他們不喜歡跟理論及抽象思維打交道",
+        capability:"▲擅於察言觀色，對他人的情感和反應有著敏銳的洞察力",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_8e893ba4a7.jpg"
+     },{
+        category:  "INFJ",
+        style:     "作家型",
+        character: "真理修士",
+        value:     "▲憑自己的直覺理解身邊的人和事物",
+        capability:"▲能邏輯且理性地工作——運用直覺理解目標並向目標努力",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_d35e750596.jpg"
+     },{
+        category:  "INTJ",
+        style:     "專家型",
+        character: "煉金術師",
+        value:     "▲能夠理解極為複雜的理論資料",
+        capability:"▲邏輯及推理能力極強",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_d0289b3053.jpg"
+     },{
+        category:  "ISTP",
+        style:     "冒險家型",
+        character: "疾風遊俠",
+        value:     "▲對於事物的工作原理很有興趣",
+        capability:"▲擅於運用邏輯推理來分析自己所儲備的信息，並由此解決問題或發現事情的原委",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_e1816faa9e.jpg",
+     },{
+        category:  "ISFP",
+        style:     "▲藝術家型",
+        character: "吟遊詩人",
+        value:     "▲活在當下",
+        capability:"▲對周圍的環境有著敏銳的洞察力",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_29a6b31afb.jpg",
+     },{
+        category:  "INFP",
+        style:     "▲哲學家型",
+        character: "水晶法師",
+        value:     "▲堅定地價值體系",
+        capability:"▲富於創意和靈感",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_cbe71bc8c8.jpg",
+     },{
+        category:  "INTP",
+        style:     "▲學者型",
+        character: "聖殿主教",
+        value:     "▲探究真相，試圖通過分析內在規律和結構來理解事物",
+        capability:"▲擅於記住事情細節,具洞察力  ▲具備創造力和洞察力",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_e7fcdacc59.jpg",
+     },{
+        category:  "ESTP",
+        style:     "▲挑戰者型",
+        character: "熾血鬥士",
+        value:     "▲活在當下, 喜歡冒險, 以行動為主",
+        capability:"▲能迅速發現問題，並及時給出優秀的解決方案  ▲優秀的人際技巧",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_a375240311.jpg",
+     },{
+        category:  "ESFP",
+        style:     "▲表演者型",
+        character: "星光舞者",
+        value:     "▲活在當下, 狂熱於新鮮事物和體驗",
+        capability:"▲知道如何讓自己和他人快樂  ▲待人熱情",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_0657d9265d.jpg",
+     },{
+        category:  "ENFP",
+        style:     "▲記者型",
+        character: "大地行者",
+        value:     "▲以計劃為中心",
+        capability:"▲能有邏輯且理性地工作  ▲善於合作，為人友好  ▲極相信直覺，且對他人的洞察力強",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_0024ebfddb.jpg"
+     },{
+        category:  "ENTP",
+        style:     "▲發明家型",
+        character: "創世技師",
+        value:     "▲對於知識和競爭力極為推崇  ▲以解決各類困難的問題為樂",
+        capability:"▲優秀的溝通技巧,人際技巧.樂於與他人進行論辯  ▲樂於思考,頭腦機敏,富於創造",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_6ddb8a0d1d.jpg"
+     },{
+        category:  "ESTJ",
+        style:     "▲大男人型",
+        character: "巨劍戰士",
+        value:     "▲在生活中擁有一套明晰的標準和信念  ▲重視安全與傳統,忠誠",
+        capability:"▲天生的領袖,樂於創造秩序和架構  ▲優秀的組織能力  ▲做事認真負責,充滿動力",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_c0a75049e5.jpg"
+     },{
+        category:  "ESFJ",
+        style:     "▲主人型",
+        character: "聖慈神官",
+        value:     "▲井井有條,忠心不二  ▲腳踏實地、注重實踐  ▲推崇平靜安全的生活",
+        capability:"▲喜歡構建秩序、架構和計劃 ▲對日常事務的處理中也十分出色  ▲喜歡與其他人溝通  ▲自始至終完成任務的可靠人選",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_ebad3887ee.jpg"
+     },{
+        category:  "ENFJ",
+        style:     "▲教育家型",
+        character: "白袍長老",
+        value:     "▲重視和諧,待人真誠熱情,重視他人的感受  ▲重視結構和組織",
+        capability:"▲優秀的組織能力,富於創造和想像力▲優於常人的人際交往能力,通過幫助他人來獲取滿足感",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_dd39d0814e.jpg"
+     },{
+        category:  "ENTJ",
+        style:     "▲陸軍元帥型",
+        character: "戰地霸主",
+        value:     "▲高度重視知識  ▲希望事物有組織有秩序▲自信, 果斷",
+        capability:"▲天生的領袖  ▲極強的語言溝通能力  ▲擁有將理論變為方案的魄力",
+        picture:   "http://100sexiest.fhm.com.tw/upload/girl_953a076d6b.jpg"
+     }
+    ];
+
     return {
         getQuestion: function(id) {
             return questions[id - 1];
         },
         getTotalQuestion: function() {
             return questions.length;
+        },
+        getCharacter: function(type){
+            var i=0;
+            for(; i<mbti_character.length;i++)
+            {
+                if(type == mbti_character[i].category)
+                    return  mbti_character[i];
+            }    
+        },
+        getTotalCharacter: function() {
+            return mbti_character.length;
+        },
+        getTypeByIdx: function(idx){
+            return mbti_character[idx].category;
         }
     };
 

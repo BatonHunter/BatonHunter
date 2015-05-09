@@ -10,34 +10,18 @@
 <!--customs-->
 <link rel="stylesheet" href="assets/stylesheet/battlepage.css" />
 <link rel="stylesheet" href="components/battlepage/trainingRoom/mainTrainingRoom/style.css" />
-
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
 </head>
 
 <body>
 <div class="main container">
+<div id="tutorials">
+</div>
+</div>
 
-    <ul class="jobsTutorials list-group">
-	  <li class="list-group-item">
-	      <span class="badge">14</span>
-	          Cras justo odio
-		    </li>
-	  <li class="list-group-item">
-	      <span class="badge">14</span>
-	          Cras justo odio
-		    </li>
-	  <li class="list-group-item">
-	      <span class="badge">14</span>
-	          Cras justo odio
-		    </li>
-	  <li class="list-group-item">
-	      <span class="badge">14</span>
-	          Cras justo odio
-		    </li>
-	  <li class="list-group-item">
-	      <span class="badge">14</span>
-	          Cras justo odio
-		    </li>
-		</ul>
+
+<div class="dialog1" id="dialog" title="Basic dialog">
+    <p>This <i></i>s an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
 </div>
 
 <!--libs-->
@@ -45,7 +29,11 @@
 <script src="assets/lib/js/bootstrap.js"></script>
 <script src="assets/lib/js/jquery-ui.js"></script>
 <!--components-->
-<script src="components/battlepage/hpbar/hp.js"></script>
+
+<script src="components/battlepage/data/battle_data.js"></script>
+<script src="components/battlepage/trainingRoom/data/training_data.js"></script>
+<script src="components/battlepage/trainingRoom/dataloader/dataloader.js"></script>
+<script src="components/battlepage/trainingRoom/mainTrainingRoom/trainingRoom.js"></script>
 <!--main-->
 <script src="assets/js/battlepage.js"></script>
 </body>

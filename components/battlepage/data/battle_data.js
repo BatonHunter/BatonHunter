@@ -16,7 +16,7 @@ var battle_data = (function() {
 	var userName = "Ian";
 	var jobs= [{
 
-	    jobCategory:nurse,
+	    jobCategory:'nurse',
 	tutorialStatus:[
     {
 	"id":1,
@@ -29,7 +29,7 @@ var battle_data = (function() {
     ]
 	},
 	{
-	    jobCategory:police,
+	    jobCategory:'police',
 	tutorialStatus:[
 
     {
@@ -44,7 +44,19 @@ var battle_data = (function() {
 
 	}	
     ];
-    var currentJob={};
+    var currentJob={
+    	jobCategory:'nurse',
+	tutorialStatus:[
+   	 {
+	"id":1,
+	"status":true
+    	},
+	{
+	    "id":2,
+	"status":true
+	}
+     ]  
+    };
 
 
     var herb = {
@@ -75,6 +87,9 @@ var battle_data = (function() {
 		    return false;
 		}
 		return true;
+	    },
+	    getCurrentJob:function(){
+                return currentJob;
 	    }
     };
     })(); {

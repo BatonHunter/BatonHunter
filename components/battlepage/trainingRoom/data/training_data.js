@@ -71,13 +71,13 @@ var training_datas= (function(){
 
 return{
     getDatas:function(){
-	return data;
+	return datas;
     },
     getData:function(id){       
-       var datasCount = data.length;
+       var datasCount = datas.length;
        for (var i = 0; i < datasCount; i++) {
        	    if(datas[i].id === id){
-                return data[i];
+                return datas[i];
 	    }
        }
        return null;

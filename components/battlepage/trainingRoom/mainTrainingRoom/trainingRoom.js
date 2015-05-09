@@ -1,60 +1,29 @@
 
+(function(){
+    var player = battle_data.getPlayer();
+    DataLoader.loadTutorials("tutorials",player);
 
-var thingsToKnowData =
-[{
-    "id":1,
-    "title":"111",
-    "content":"111-content",
-    "imagePath": "1.jpg"
-},
-{
-    "id":2,
-    "title":"222",
-    "content":"222-content",
-    "imagePath": "2.jpg"
-},
-{
-    "id":3,
-    "title":"333",
-    "content":"333-content",
-    "imagePath": "3.jpg"
-}
-];
-
-var thingsStatus = [
-{      
-    "id":1,
-	"status":true
-},
-{      
-    "id":2,
-    "status":false
-},
-{      
-    "id":3,
-    "status":false
-},
-
-    (function(){
+    //dialog effect setting
+    $( "#dialog" ).dialog({
+	autoOpen: false,
+	show: {
+	    effect: "blind",
+	duration: 1000
+	},
+	hide: {
+	    effect: "explode",
+	duration: 1000
+	}
+    });
 
 
+    $("#tutorials").find("li").on("click",function() {            
+	var tutorialId=$(this).data('id');
+	var tutorial=training_datas.getData(tutorialId);
+	var content=tutorial.content
 
-	return {
-	    loadTutorials:function(dom_id){
+	$("#dialog").find('p').html(content);
+	$("#dialog").dialog( "open" );
+    });
 
-		var tutorialsCount = thingsToKnowData.lenght;
-		var tutorialsHtml = "";
-		for (var i=0;i<=turtialsCount;i++){
-                  tutorialsHtml += "<li class='list-group-item'>";
-	          turtialshHtml += "<span class='badge'" + isSuccess +"</span>"; 
-		  tutorialsHtml += tutorialTitle;
-		  tutorialsHtml += "</li>";
-		}
-		$(dom_id).empty();
-		$(dom_id).append(tutorialsHtml);	        
-	    }
-
-	 }
-
-
-    })()
+})();

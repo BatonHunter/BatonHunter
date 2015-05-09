@@ -1,0 +1,23 @@
+body {
+  padding-top: 50px;
+}
+
+body ul {
+  list-style-type: none;
+}
+
+.main-container {
+  margin-top: 20px;
+}
+
+.glyphicon-home {
+  padding-left: 10px;
+}
+
+.info-container {
+  font-size: 20px;
+}
+
+.button-container p {
+  width: 100%;
+}

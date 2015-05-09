@@ -33,7 +33,7 @@ var thingsStatus = [
 {      
     "id":3,
     "status":false
-},
+}]
 
     (function(){
         

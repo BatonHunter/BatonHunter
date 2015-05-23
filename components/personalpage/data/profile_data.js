@@ -7,7 +7,7 @@ var profile_data = (function() {
         var pic ;
         var name ;
         var job;
-        var strength ;//= ["100","100"];    
+        var strength = [];    
 
         return {
             getUuid: function() {
@@ -23,6 +23,11 @@ var profile_data = (function() {
                 return job;
             },
             getStrength: function() {
+
+                for (var i = 0; i < 8; ++i) {
+                    strength[i] = Math.floor(Math.random() * 100);
+                }
+
                 return strength;
             },
         };

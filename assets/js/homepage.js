@@ -13,7 +13,7 @@ var Homepage = (function() {
 			//2.get profile from backend server
 			profile_data.getProfileFromServer(response.email, function(profile) {
 
-				if (profile.getStrength().length)
+				if (profile.getStrength() && profile.getStrength().length)
 				{
 					if (true) {
 					    //goto mobile device

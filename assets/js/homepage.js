@@ -15,7 +15,7 @@ var Homepage = (function() {
 
 				if (profile.getStrength().length)
 				{
-					if (jQuery.browser.mobile) {
+					if (true) {
 					    //goto mobile device
 					    window.location = "components/personalpage/personal_mobile.html";
 					} else {
@@ -30,7 +30,6 @@ var Homepage = (function() {
 				}
 
 			});
-			
 		}
 	}	
 })();

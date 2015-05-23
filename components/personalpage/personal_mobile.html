@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script src="../../assets/lib/js/jquery.js"></script>
 <script src="../../assets/lib/js/bootstrap.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://graves.cl/radar-chart-d3/src/radar-chart-min.js"></script>
 <!--stylesheets-->
 <link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="personal.css">
@@ -22,7 +24,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 text-center capability-radar"><img src="ability_radar.jpg" alt="Capability radar of the player"></div>
+      <div class="col-xs-12 text-center capability-radar" id="radar-chart"></div>
     </div>
     <div class="row">
       <a class="btn btn-default col-xs-6 personal-btn-mobile" href="#" role="button">道具</a>
@@ -35,6 +37,23 @@
     <div class="row">
     </div>
 </div>
+
+<script>
+var d = [
+    [
+      {axis: "行動力", value: 13},
+      {axis: "好奇心", value: 3},
+      {axis: "知識力", value: 8},
+      {axis: "思考力", value: 4},
+      {axis: "語文力", value: 9},
+      {axis: "人際力", value: 3},
+      {axis: "肢體力", value: 6},
+      {axis: "音樂力", value: 8}
+    ]
+];
+
+RadarChart.draw("#radar-chart", d);
+</script>
 
 </body>
 </html>

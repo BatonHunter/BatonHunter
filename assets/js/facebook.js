@@ -72,7 +72,8 @@ function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
         // login to the corresponding page according to user's device
-        Homepage.login();
+
+        Homepage.login(response);
 
         //window.location = "battlepage.html";
     });

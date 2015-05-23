@@ -5,14 +5,32 @@
 
 var Homepage = (function() {
 	return {
-		login : function() {
-			if (jQuery.browser.mobile) {
-			    //goto mobile device
-			    window.location = "components/personalpage/personal_mobile.html";
-			} else {
-			    //goto desktop device
-			    window.location = "components/personalpage/personal_desktop.html";
-			}
+		login : function(response) {
+
+			//1.setfb id @profile_data
+			profile_data.setfbID(response.id);
+
+			//2.get profile from backend server
+			profile_data.getProfileFromServer(response.email, function(profile) {
+
+				if (profile.getStrength().length)
+				{
+					if (jQuery.browser.mobile) {
+					    //goto mobile device
+					    window.location = "components/personalpage/personal_mobile.html";
+					} else {
+					    //goto desktop device
+					    window.location = "components/personalpage/personal_desktop.html";
+					}
+				}
+				else
+				{
+					//to mtbi
+					//window.location = "components/personalpage/personal_desktop.html";
+				}
+
+			});
+			
 		}
 	}	
 })();

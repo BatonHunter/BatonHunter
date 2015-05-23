@@ -2,3 +2,16 @@
     background-color:red;
 }
 
+#dialog img {
+    width:100%;
+    height:100%;
+}
+
+#dialog {
+    text-align:center;
+}
+
+#dialog button {
+    width:100%;
+    height:40px;
+}

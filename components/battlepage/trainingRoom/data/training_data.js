@@ -4,13 +4,14 @@ var training_datas= (function(){
     "type":"imagePlusText",
     "title":"111",
     "content":"空姐必須知道的一件事",
-    "imagePath": "1.jpg"
+    "imagePath": "./components/battlepage/trainingRoom/data/img/cat.gif"
     },
     {
 	"id":2,
     "type":"text",
     "title":"222",     
-    "content":"222-content"
+    "content":"222-content",
+    "imagePath": "./components/battlepage/trainingRoom/data/img/littlepony.png"
     },
     {
 	"id":3,
@@ -66,7 +67,7 @@ var training_datas= (function(){
 	"type":"imagePlusText",
 	"title":"10",
 	"content":"10-content",
-	"imagePath": "10.jpg"
+	"imagePath": "http://animalia-life.com/data_images/dog/dog1.jpg"
     }];
 
 return{

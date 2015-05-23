@@ -20,9 +20,11 @@
     $("#tutorials").find("li").on("click",function() {            
 	var tutorialId=$(this).data('id');
 	var tutorial=training_datas.getData(tutorialId);
-	var content=tutorial.content
+	var content=tutorial.content;
+	var image = tutorial.imagePath;
 
 	$("#dialog").find('p').html(content);
+	$('#dialog').find('img').attr('src',image);
 	$("#dialog").dialog( "open" );
     });
 

@@ -27,3 +27,21 @@ body {
 .color-white {
 	color: white;
 }
+
+.personal_attr {
+  padding: 1em;
+}
+
+.headpic img {
+  width: 100%;
+}
+
+.capability-radar img {
+  width: 100%;
+}
+
+.personal-btn-mobile {
+  background-color: red;
+  color: white;
+}
+

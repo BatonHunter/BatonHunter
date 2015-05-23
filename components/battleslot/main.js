@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $('.slot').css('font-size', $('.slots').css('height'));
+  $('.slot img').css('height', $('.slots').css('height'))
+    .css('width', '90%');
   window.machine = new SlotMachine({
     trigger: '#slotArm',
     defaultRepeat: 10,

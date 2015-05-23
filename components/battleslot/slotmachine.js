@@ -6,6 +6,14 @@
  */
 
 /**
+ * Constant values mapping to slot result.
+ */
+var SLOTMACHINE = {
+  BIG_MONSTER: 0,
+  TREASURE_BOX: 1
+};
+
+/**
  * @type constructor
  * @name SlotMachine
  * @param {Object} params Constructor parameters.
@@ -15,6 +23,7 @@
  *       [jQuery Slot Machine](https://github.com/josex2r/jQuery-SlotMachine)
  *       for details.
  *     - `defaultRepeat` - `{int}` - Default repeat times of spin.
+ *     - `onCompleted` - `{Function}` - Callback function for slot result.
  * @returns {Object} Self.
  * @description Constructor for Slot Machine.
  */

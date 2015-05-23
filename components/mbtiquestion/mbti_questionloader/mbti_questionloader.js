@@ -5,6 +5,8 @@ var mbti_questionloader = (function() {
     var current_question;
     var current_dom_id;
     var score = {};
+    var IS_TEST_MODE = true;
+    var test_idx = 0;
     var init_score = function(){
         score = {
             I: 0,
@@ -18,47 +20,118 @@ var mbti_questionloader = (function() {
         };
     };
 
-    var checkAnswer = function(ans) {
-        //battle_data.getQuestion().removeUsedQustion(current_question);
-        //return (current_question.ans === ans);
+    var restart = function(){
+        init_score();
+        if(IS_TEST_MODE)
+            loadQuestion(32);  //set to last question id for demo purpose
+        else 
+            loadQuestion(1);
+        $('#mbti_container').find('.row').show();
+    }
+
+    var checkAnswer = function() {
+        var scoreTmp = $('[name=mbtians]:checked').val();
+        console.log(scoreTmp);
+        if(scoreTmp == undefined)
+        {
+            var idx = Math.floor(Math.random() * 10 % 6);
+            switch(idx)
+            {
+                case 0:
+                    alert('笨蛋！先選個答案阿！！');
+                    break;
+                case 1:
+                    alert('Choose an answer, Dumbass!!');
+                    break;
+                case 2:
+                    alert('アホ、答えを選択してください！');
+                    break;
+                case 3: 
+                    alert('เลือกคำตอบงี่เง่า !!');
+                    break;
+                case 4:
+                    alert('바보, 답변을 선택!');
+                    break;
+                case 5:
+                    alert('Elija una respuesta, idiota !!');
+                    break;
+            }         
+            return;
+        }
+        score[current_question.ans_A] += (5 - scoreTmp);
+        score[current_question.ans_B] += (parseInt(scoreTmp));
+        $('span.btn-success').switchClass('btn-success','btn-default');
+        go_next();
+    };
+
+    var finish = function() {
+        // get type
+        var type = '';
+        type += (score.I>score.E)?'I':'E';
+        type += (score.N>score.S)?'N':'S';
+        type += (score.T>score.F)?'T':'F';
+        type += (score.P>score.J)?'P':'J';
+
+        //TEST
+        if(IS_TEST_MODE){
+            console.log("test_idx: "+test_idx);
+            type = mbti_data.getTypeByIdx(test_idx);
+            console.log("type: "+type);
+        }
+
+        var result = mbti_data.getCharacter(type);
+        $('#mbti_container').find('.row').hide();
+        $('#mbti_result_title').text(result.character+' (' + type + ')');
+        $('#mbti_result_type').text(result.style);
+        $('#mbti_result_value').text(result.value);
+        $('#mbti_result_capability').text(result.capability);
+        $('#mbti_result_image').attr('src', result.picture);    
+        $('#modal_mbti_result').off('hidden.bs.modal');
+        $('#modal_mbti_result').on('hidden.bs.modal', function () {
+            
+            //TEST
+            if(IS_TEST_MODE){
+                alert('Test Finished.. Restart...');
+                test_idx = (test_idx+1) % mbti_data.getTotalCharacter();
+            }
+            
+            restart();  
+        });
+        $('#modal_mbti_result').modal();
     };
 
     var loadQuestion = function(question_id) {
-      current_question = mbti_data.getQuestion(question_id);
+        current_question = mbti_data.getQuestion(question_id);
 	    current_dom_id.find('#mbti_title').text(current_question.title);
-      current_dom_id.find('#mbti_content').text(current_question.content); 
+        current_dom_id.find('#mbti_content').text(current_question.content); 
 	    current_dom_id.find('input').each(function(){
 	    });
     };
+
     var go_next = function(){
-        //checkAnswer($(this).attr("val")));
+        $('[name=mbtians]:checked').attr('checked', false);
         if (current_question.id < mbti_data.getTotalQuestion()){
             setTimeout(function() {
                 current_dom_id.hide();
                 setTimeout(function() {
-                    loadQuestion(current_question.id + 1);
-                    $('[name=mbtians]:checked').attr('checked', false);
+                    loadQuestion(current_question.id + 1);            
                     current_dom_id.show();
-                }, 500);
-            }, 300);
+                }, 300);
+            }, 100);
         }
         else{
-            // FINISH TBD
-            $('#mbti_container').find('.row').hide();
-            $('#myModal').modal();
+            finish();
         }
     };
+
+
     return {
         start: function(dom_id){
-            current_dom_id = $(dom_id);
-            init_score();
-            loadQuestion(1);
+            current_dom_id = $(dom_id);           
             current_dom_id.find('#btn_mbti_continue').on("click", function() {
-                var scoreTmp = $('[name=mbtians]:checked').val();
-                score[current_question.ans_A] += (5 - scoreTmp);
-                score[current_question.ans_B] += (parseInt(scoreTmp));
-                go_next();
+                checkAnswer();
             });
+            restart();
         }
     };
 })();

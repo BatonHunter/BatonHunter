@@ -1,0 +1,28 @@
+.title {
+	font-size: 3em; 
+	margin: 40px 0 20px 0;
+}
+
+.mt-10 {
+	margin-top: 10px; 
+}
+
+.mt-20 {
+	margin-top: 20px; 
+}
+
+.mb-10 {
+	margin-bottom: 10px;
+}
+
+.ta-c {
+	text-align: center;
+}
+
+.w-70px {
+	width: 70px;
+}
+
+.color-black {
+	color: black;
+}

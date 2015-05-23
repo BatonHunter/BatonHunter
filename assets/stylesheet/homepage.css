@@ -26,3 +26,7 @@
 .color-black {
 	color: black;
 }
+
+.btn-hide {
+	display: none;
+}

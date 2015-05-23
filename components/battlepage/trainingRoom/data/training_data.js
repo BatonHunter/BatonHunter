@@ -16,9 +16,9 @@ var training_datas= (function(){
     {
 	"id":3,
     "type":"imagePlusText",
-    "title":"333",
-    "content":"333-content",
-    "imagePath": "3.jpg"
+    "title":"老師教你的一件事",
+    "content":"科科",
+    "imagePath":  "./components/battlepage/trainingRoom/data/img/girl.jpg"
     },
     {
 	"id":4,

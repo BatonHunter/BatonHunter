@@ -15,8 +15,8 @@
         }
     });
 
-    $(document).on("click","#tutorials li",function(){
-    	console.log(player);
+    $(document).on("click", "#tutorials li", function() {
+        console.log(player);
         var tutorialId = $(this).data('id');
         var tutorial = training_datas.getData(tutorialId);
         var content = tutorial.content
@@ -28,10 +28,11 @@
         DataLoader.loadTutorials("tutorials", player);
 
 
+        var image = tutorial.imagePath;
 
         $("#dialog").find('p').html(content);
+        $('#dialog').find('img').attr('src', image);
         $("#dialog").dialog("open");
-
     });
     //  $("#tutorials").find("li").on("click", function() {
     //     console.log(player);

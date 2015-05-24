@@ -1,3 +1,4 @@
+
 var training_datas= (function(){
     var datas = [{
 	"id":1,
@@ -85,3 +86,4 @@ return{
     }
 };
 })();
+

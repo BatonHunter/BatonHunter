@@ -5,21 +5,21 @@ var training_datas= (function(){
     "type":"imagePlusText",
     "title":"111",
     "content":"空姐必須知道的一件事",
-    "imagePath": "./components/battlepage/trainingRoom/data/img/cat.gif"
+    "imagePath": "./components/trainingRoom_page/data/img/cat.gif"
     },
     {
 	"id":2,
     "type":"text",
     "title":"222",     
     "content":"222-content",
-    "imagePath": "./components/battlepage/trainingRoom/data/img/littlepony.png"
+    "imagePath": "./components/trainingRoom_page/data/img/littlepony.png"
     },
     {
 	"id":3,
     "type":"imagePlusText",
     "title":"老師教你的一件事",
     "content":"科科",
-    "imagePath":  "./components/battlepage/trainingRoom/data/img/girl.jpg"
+    "imagePath":  "./components/trainingRoom_page/data/img/girl.jpg"
     },
     {
 	"id":4,

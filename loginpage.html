@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>LoginBatonHunter</title>    
+    <!--libs-->
+    <link rel="stylesheet" href="assets/lib/css/bootstrap.css">
+  </head>
+
+  <body>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".login-dialog-box">Login</button>
+
+<div class="modal fade login-dialog-box" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+       <div class="modal-header" style="text-align: center;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="login">Baton Hunder Login<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
+        </div>
+        <div class="modal-body">
+      <form class="navbar-form">
+    <div class="row">
+      <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">
+        <div class="input-group">
+          <span class="input-group-addon" id="E-mail" style="width: 70px;">E-mail</span>
+          <input type="text" class="form-control" placeholder="E-mail" aria-describedby="basic-addon1">
+        </div>       
+      </div>
+      <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">        
+        <div class="input-group">
+          <span class="input-group-addon" id="password" style="width: 70px;">密碼</span>
+          <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">       
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-12" style = "margin-bottom:20px">        
+          <a class="forgetPwd" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" data-toggle="modal" data-target=".fotgetPwd-dialog-box">忘記密碼</span></a>
+      </div>
+      <div class="col-xs-12 col-md-12">
+        <button type="submit" class="btn btn-primary">登入</button >
+      </div>      
+    </div>
+    </form>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade fotgetPwd-dialog-box" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+       <div class="modal-header" style="text-align: center;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="login">忘記密碼<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
+        </div>
+        <div class="modal-body">
+      <form class="navbar-form">
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <div class="input-group" style = "margin-bottom:20px">
+          <span class="input-group-addon" id="E-mail" style="width: 70px;">E-mail</span>
+          <input type="text" class="form-control" placeholder="E-mail" aria-describedby="basic-addon1">
+        </div>
+        <div class="col-xs-12 col-md-12">
+          <button type="submit" class="btn btn-primary">傳送密碼至 E-mail</button>
+        </div>
+      </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src="assets/lib/js/jquery.js"></script>
+  <script src="assets/lib/js/bootstrap.js"></script>
+
+  </body>
+
+</html>

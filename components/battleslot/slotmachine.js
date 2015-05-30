@@ -6,6 +6,14 @@
  */
 
 /**
+ * Constant values mapping to slot result.
+ */
+var SLOTMACHINE = {
+  BIG_MONSTER: 0,
+  TREASURE_BOX: 1
+};
+
+/**
  * @type constructor
  * @name SlotMachine
  * @param {Object} params Constructor parameters.
@@ -15,11 +23,14 @@
  *       [jQuery Slot Machine](https://github.com/josex2r/jQuery-SlotMachine)
  *       for details.
  *     - `defaultRepeat` - `{int}` - Default repeat times of spin.
+ *     - `onCompleted` - `{Function}` - Callback function for slot result.
  * @returns {Object} Self.
  * @description Constructor for Slot Machine.
  */
 function SlotMachine(params) {
   var self = this;
+  self.isRandom = false;
+  self.slotValue = null;
   self.params  = params;
   self.slots   = [];
   self.trigger = null;
@@ -53,8 +64,12 @@ SlotMachine.prototype.initTrigger = function () {
   var params   = self.params;
   var selector = params.trigger;
 
-  self.trigger = $(selector).click(function () {
+  var trigger = self.trigger = $(selector).click(function () {
     self.shuffle(params.onCompleted);
+    trigger.addClass('clicked');
+    setTimeout(function() {
+      trigger.removeClass('clicked');
+    }, 500);
   });
   return self;
 };
@@ -99,6 +114,9 @@ SlotMachine.prototype.createSlot = function (config) {
 SlotMachine.prototype.addSlot = function (slot) {
   var self = this;
   self.slots.push(slot);
+  slot.setRandomize(function () {
+    return self.isRandom ? slot.getRandom() : self.slotValue;
+  });
   return self;
 };
 
@@ -138,6 +156,8 @@ SlotMachine.prototype.shuffle = function (repeat, callback) {
     repeat   = undefined;
   }
 
+  self.judgeRandom(1, 2);
+
   callback = callback || params.onCompleted || noop;
   slots.forEach(function (slot, index) {
     self.shuffleSlot(index, repeat, function (active) {
@@ -145,6 +165,28 @@ SlotMachine.prototype.shuffle = function (repeat, callback) {
       ++shuffleCount === slotsLength && callback(result);
     });
   });
+  return self;
+};
+
+/**
+ * @type method
+ * @name SlotMachine#judgeRandom
+ * @returns {Object} Self.
+ * @description Calculate the slots result to random or not.
+ */
+SlotMachine.prototype.judgeRandom = function (bigNum, boxNum) {
+  var self = this;
+  //Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+  var randomNum = Math.floor(Math.random() * (27 - 1 + 1)) + 1;
+  boxNum += bigNum;
+  self.isRandom = false;
+  if (randomNum <= bigNum) {
+    self.slotValue = 0;
+  } else if (randomNum > bigNum && randomNum <= boxNum) {
+    self.slotValue = 1;
+  } else {
+    self.isRandom = true;
+  }
   return self;
 };
 

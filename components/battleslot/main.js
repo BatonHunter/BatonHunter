@@ -1,11 +1,13 @@
 $(document).ready(function() {
+  $('.slot img').css('height', $('.slots').css('height'))
+    .css('width', '90%');
   window.machine = new SlotMachine({
     trigger: '#slotArm',
     defaultRepeat: 10,
     slots: [{
       selector: '#slots-1',
       active: 0,
-      repeat: 5,
+      //repeat: 5,
       randomize: function () {
         // control slot result
         return 4;

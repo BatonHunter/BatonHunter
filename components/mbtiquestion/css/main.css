@@ -27,6 +27,13 @@ input[name=mbtians] {
   margin-top: 20px;
 }
 
+.description-container h1{ 
+  margin: 0 auto;
+  width: 255px;
+}
+.modal-body > p{
+  text-align: left;
+}
 .glyphicon-home {
   padding-left: 10px;
 }
@@ -51,7 +58,13 @@ input[name=mbtians] {
 #mbti_result_image{
 
 }
-
+#mbti_example{ 
+  margin: 20px auto;
+  border-radius: 3px;
+  left: 10px;
+  border: 5px solid #F0F0F0; 
+  background-color: #F0F0F0; 
+}
 .mbti_result_descript{
 	text-align: left;
 	margin-left: 5%; 

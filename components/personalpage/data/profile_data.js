@@ -49,10 +49,24 @@ var profile_data = (function() {
         },
         getProfileFromServer: function(email, callback) {
             //request data from backend server
+            $.post("https://wwww.xxx.yyyy/test.php",email,function(result){  
+                console.log(result);
+
+            });
+
 
             setTimeout(function() {
                 callback(profile);
             }, 1000);
+        },
+
+        postProfileToServer: function(email,name,PhotoUrl,callback) {
+
+            setTimeout(function() {
+                callback(profile);
+            }, 1000);
+
         }
+
     };
 })();

@@ -145,6 +145,7 @@ SlotMachine.prototype.shuffle = function (repeat, callback) {
   var self   = this;
   var slots  = self.slots;
   var params = self.params;
+  var probs  = params.probs;
   var slotsLength  = slots.length;
   var shuffleCount = 0;
   var result = [];
@@ -156,7 +157,7 @@ SlotMachine.prototype.shuffle = function (repeat, callback) {
     repeat   = undefined;
   }
 
-  self.judgeRandom(1, 2);
+  self.judgeRandom(probs);
 
   callback = callback || params.onCompleted || noop;
   slots.forEach(function (slot, index) {
@@ -174,16 +175,21 @@ SlotMachine.prototype.shuffle = function (repeat, callback) {
  * @returns {Object} Self.
  * @description Calculate the slots result to random or not.
  */
-SlotMachine.prototype.judgeRandom = function (bigNum, boxNum) {
+SlotMachine.prototype.judgeRandom = function (probs) {
   var self = this;
+  var base = probs.base;
+  var treasure = probs.treasure;
+  var monster1 = probs.monster1 + treasure;
+  var monster2 = probs.monster2 + monster1;
   //Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-  var randomNum = Math.floor(Math.random() * (27 - 1 + 1)) + 1;
-  boxNum += bigNum;
+  var randomNum = Math.floor(Math.random() * (base - 1 + 1)) + 1;
   self.isRandom = false;
-  if (randomNum <= bigNum) {
+  if (randomNum <= treasure) {
     self.slotValue = 0;
-  } else if (randomNum > bigNum && randomNum <= boxNum) {
+  } else if (randomNum > treasure && randomNum <= monster1) {
     self.slotValue = 1;
+  } else if (randomNum > monster1 && randomNum <= monster2) {
+    self.slotValue = 2;
   } else {
     self.isRandom = true;
   }

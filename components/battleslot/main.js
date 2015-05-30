@@ -4,6 +4,12 @@ $(document).ready(function() {
   window.machine = new SlotMachine({
     trigger: '#slotArm',
     defaultRepeat: 10,
+    probs: {
+      base: 27,
+      treasure: 1,
+      monster1: 1,
+      monster2: 1
+    },
     slots: [{
       selector: '#slots-1',
       active: 0,

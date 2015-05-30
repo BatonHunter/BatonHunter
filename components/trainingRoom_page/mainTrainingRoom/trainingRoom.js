@@ -5,10 +5,6 @@
     //dialog effect setting
     $("#dialog").dialog({
         autoOpen: false,
-        show: {
-            effect: "blind",
-            duration: 1000
-        },
         hide: {
             effect: "explode",
             duration: 1000
@@ -29,7 +25,7 @@
 
 
         var image = tutorial.imagePath;
-
+        $('#dialog').dialog('option', 'title', tutorial.title); 
         $("#dialog").find('p').html(content);
         $('#dialog').find('img').attr('src', image);
         $("#dialog").dialog("open");

@@ -1,5 +1,5 @@
 
-var DataLoader = (function() {
+var DataLoader = (function(training_datas) {
 
     function getstatusString(isSuccess) {
         var result = "";
@@ -52,5 +52,5 @@ var DataLoader = (function() {
     };
 
 
-})();
+})(training_datas);
 

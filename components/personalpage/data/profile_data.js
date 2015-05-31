@@ -38,6 +38,7 @@ var profile_data = (function() {
     return {
         setfbID: function(fbID){
             profile.fbID = fbID;
+            profile.pic = "https://graph.facebook.com/" + fbID + "/picture?type=large";
         },
         setMTBI: function(job,strength){
             profile.job = job;
@@ -49,7 +50,7 @@ var profile_data = (function() {
         },
         getProfileFromServer: function(email, callback) {
             //request data from backend server
-            $.post("https://wwww.xxx.yyyy/test.php",email,function(result){  
+            $.get("https://baton-huner-restful-server.herokuapp.com/hello",function(result){  
                 console.log(result);
 
             });
@@ -59,7 +60,6 @@ var profile_data = (function() {
                 callback(profile);
             }, 1000);
         },
-
         postProfileToServer: function(email,name,PhotoUrl,callback) {
 
             setTimeout(function() {

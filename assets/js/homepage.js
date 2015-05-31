@@ -33,3 +33,11 @@ var Homepage = (function() {
 		}
 	}	
 })();
+
+$(document).ready(function(){
+	$('#loginWithFBButton').click(function(event) {
+		console.log($(this));
+		$(this).attr('disabled', 'disabled');
+		Facebook.login();
+	});
+});

@@ -12,8 +12,13 @@ var Homepage = (function() {
 
 			//2.get profile from backend server
 			profile_data.getProfileFromServer(response.email, function(profile) {
-
-				if (profile.getStrength() && profile.getStrength().length)
+                                
+				if (profile.getJob() === -1)
+				{
+					//to mtbi
+					window.location = "mbtiquestion_description.html";
+				}
+				else if (profile.getStrength() && profile.getStrength().length)
 				{
 					if (true) {
 					    //goto mobile device
@@ -22,11 +27,6 @@ var Homepage = (function() {
 					    //goto desktop device
 					    window.location = "components/personalpage/personal_desktop.html";
 					}
-				}
-				else
-				{
-					//to mtbi
-					//window.location = "components/personalpage/personal_desktop.html";
 				}
 
 			});

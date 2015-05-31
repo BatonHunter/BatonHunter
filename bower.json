@@ -21,7 +21,7 @@
     "font-awesome": "~4.3.0",
     "odometer": "~0.4.7",
     "bootstrap": "~3.3.4",
-    "jquery-mobile": "~1.4.5"
+    "jquery-mobile": "~1.4.5",
     "jquery-validation": "~1.13.1"
   },
   "overrides": {

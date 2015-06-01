@@ -5,7 +5,7 @@ var mbti_questionloader = (function() {
     var current_question;
     var current_dom_id;
     var score = {};
-    var IS_TEST_MODE = true;
+    var IS_TEST_MODE = false;
     var test_idx = 0;
     var init_score = function(){
         score = {
@@ -31,7 +31,7 @@ var mbti_questionloader = (function() {
 
     var checkAnswer = function() {
         var scoreTmp = $('[name=mbtians]:checked').val();
-        console.log(scoreTmp);
+        //console.log(scoreTmp);
         if(scoreTmp == undefined)
         {
             var idx = Math.floor(Math.random() * 10 % 6);
@@ -74,9 +74,9 @@ var mbti_questionloader = (function() {
 
         //TEST
         if(IS_TEST_MODE){
-            console.log("test_idx: "+test_idx);
+            //console.log("test_idx: "+test_idx);
             type = mbti_data.getTypeByIdx(test_idx);
-            console.log("type: "+type);
+            //console.log("type: "+type);
         }
 
         var result = mbti_data.getCharacter(type);

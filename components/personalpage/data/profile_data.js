@@ -10,7 +10,7 @@ var profile_data = (function() {
         var fbID;
         var pic ;
         var name ;
-        var job = ;
+        var job = -1;
         var strength = [];    
 
         return {

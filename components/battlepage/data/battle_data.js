@@ -114,7 +114,7 @@ var battle_data = (function() {
                 },
                 setTutorialState: function(Id) {
                 	//Search Current Job's tutorialStatus match to Id, return Index
-                
+
 
                 	for (var i = 0; i < currentJob.tutorialStatus.length; i++) {
                 		var jobId=currentJob.tutorialStatus[i].id;
@@ -131,7 +131,7 @@ var battle_data = (function() {
                 		}
                 		else{
                 			console.log("fail to success");
-                		}	
+                		}
                 	};
 
             	}

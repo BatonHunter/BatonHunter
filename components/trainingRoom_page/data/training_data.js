@@ -10,7 +10,7 @@ var training_datas= (function(){
     {
 	"id":2,
     "type":"text",
-    "title":"資本主義是啥?",     
+    "title":"資本主義是啥?",
     "content":"錢是投資中必須要知道的一種交換價值,而投資中必須要知道的一種根本概念是資本主義,這是一種基本假設。資本主義(Capitalism),特色是私人擁有資本財產(生產工具),且投資活動是由個人決策左右,而非由國家所控制,經濟行為則以尋求利潤為目標。主要經濟模式包括自由的資本和雇傭流動、市場競爭、以及價格機制的運行。一般普遍認為資本主義在西方世界的封建制度崩壞之後成為了最主要的經濟模式。",
     "imagePath": "./components/trainingRoom_page/data/img/littlepony.png"
     },
@@ -44,7 +44,7 @@ var training_datas= (function(){
     {
 	"id":7,
 	"type":"imagePlusText",
-	"title":"財務報表:現金流量表 (Cash Flow Statement)",             
+	"title":"財務報表:現金流量表 (Cash Flow Statement)",
 	"content":"要了解企業的狀況,一定要從財務數字來看,財務三大表其中之一,現金流量表,反映企業在一定會計期間現金和現金等價物流入和流出,主要功能是呈現企業短期內現金流動的狀況,這可反應償債的能力。 現金流量表所表達的是在一固定期間(通常是每季或每年)內,一家企業或機構的現金 (包含銀行存款) 增滅變動的情況。主要是想反映出資產負債表中各個項目對現金流量的影響,並根據其用途劃分為經營、投資及融資三個活動分類。",
 	"imagePath": "7.jpg"
     },
@@ -58,7 +58,7 @@ var training_datas= (function(){
     {
 	"id":9,
 	"type":"imagePlusText",
-	"title":"槓桿的效用",		
+	"title":"槓桿的效用",
 	"content":"現代企業營運的重要工具就是借債,使用債務就是使用槓桿,其意義就是 用一塊錢(淨值),可以借到多少錢(負債)來用。如果企業負債是5,淨值是1,那槓桿就是負債/淨值=5/1=5倍。 槓桿會放大所有的效果,若槓桿比率是5倍,那企業賺錢可以多五倍,但賠錢也是賠五倍。",
 	"imagePath": "9.jpg"
     },
@@ -74,7 +74,7 @@ return{
     getDatas:function(){
 	return datas;
     },
-    getData:function(id){       
+    getData:function(id){
        var datasCount = datas.length;
        for (var i = 0; i < datasCount; i++) {
        	    if(datas[i].id === id){
@@ -85,4 +85,3 @@ return{
     }
 };
 })();
-

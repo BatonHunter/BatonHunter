@@ -12,7 +12,6 @@
     });
 
     $(document).on("click", "#tutorials li", function() {
-        console.log(player);
         var tutorialId = $(this).data('id');
         var tutorial = training_datas.getData(tutorialId);
         var content = tutorial.content
@@ -30,23 +29,19 @@
         $('#dialog').find('img').attr('src', image);
         $("#dialog").dialog("open");
     });
-    //  $("#tutorials").find("li").on("click", function() {
-    //     console.log(player);
-    //     var tutorialId = $(this).data('id');
-    //     var tutorial = training_datas.getData(tutorialId);
-    //     var content = tutorial.content
 
-    //     //set player state
-    //     player.setTutorialState(tutorialId);
+    var stateObj = { foo: "bar" };
+    function change_my_url()
+    {
+	    history.pushState(stateObj, "page 2", "battlepage.html");
+    }
 
-    //     //refresh page
-    //     DataLoader.loadTutorials("tutorials", player);
-
-
-
-    //     $("#dialog").find('p').html(content);
-    //     $("#dialog").dialog("open");
-    // });
+     $(document).on("click","#EnterBattle",function(){
+        var trainQuestions = [];
+	change_my_url()
+        window.location.href ="battlepage.html";
+//        battle_data.setQuestion(); 
+     });
 
 })();
 

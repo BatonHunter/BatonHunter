@@ -238,6 +238,9 @@ var question = (function() {
         },
         getTotalQuestion: function() {
             return questions.length;
+        },
+	setQuestion:function(ques){
+            questions = ques;
         }
     };
 

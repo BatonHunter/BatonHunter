@@ -1,5 +1,5 @@
 
-var training_datas= (function(){
+var training_datas= (function(questions){
     var datas = [{
 	"id":1,
     "type":"imagePlusText",
@@ -76,13 +76,15 @@ return{
     },
     getData:function(id){       
        var datasCount = datas.length;
+       var training_data_question = questions.getQuestions(id); 
        for (var i = 0; i < datasCount; i++) {
        	    if(datas[i].id === id){
+              datas[i]["questions"] = training_data_question;
                 return datas[i];
 	    }
        }
        return null;
     }
 };
-})();
+})(questions);
 

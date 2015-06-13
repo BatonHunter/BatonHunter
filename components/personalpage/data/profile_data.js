@@ -2,14 +2,26 @@ var profile_data = (function() {
 
 
     var profile = (function() {
+        var IS_FAKE_MODE = false;
         var uuid = "9219affc-8c9d-4705-a13e-e6a1a882c522";
         var fbID;
-        var pic ;
-        var name ;
-        var job = ;
-        var strength = [];    
+        var pic;
+        var name;
+        var job;
+        var strength = [];
 
         return {
+            init: function(result) {
+                if (!result) {
+                    return;
+                }
+                console.log(result);
+                uuid = result.uuid;
+                pic = result.picUri;
+                name = result.name;
+                job = result.job;
+                strength = result.strength; 
+            },
             getUuid: function() {
                 return uuid;
             },
@@ -24,8 +36,10 @@ var profile_data = (function() {
             },
             getStrength: function() {
 
-                for (var i = 0; i < 8; ++i) {
-                    strength[i] = Math.floor(Math.random() * 100);
+                if (IS_FAKE_MODE) {
+                    for (var i = 0; i < 8; ++i) {
+                        strength[i] = Math.floor(Math.random() * 100);
+                    }
                 }
 
                 return strength;
@@ -47,13 +61,13 @@ var profile_data = (function() {
         getProfile: function() {
             return profile;
         },
+
         getProfileFromServer: function(email, callback) {
+
             //request data from backend server
-            $.post("https://wwww.xxx.yyyy/test.php",email,function(result){  
-                console.log(result);
-
+            $.get(ServerConfig.getUrl(email), function(result){  
+                profile.init(result);
             });
-
 
             setTimeout(function() {
                 callback(profile);

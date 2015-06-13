@@ -22,10 +22,11 @@ var mbti_questionloader = (function() {
 
     var restart = function(){
         init_score();
-        if(IS_TEST_MODE)
+        if (IS_TEST_MODE) {
             loadQuestion(32);  //set to last question id for demo purpose
-        else 
+        } else {
             loadQuestion(1);
+        }
         $('#mbti_container').find('.row').show();
     }
 
@@ -91,11 +92,12 @@ var mbti_questionloader = (function() {
             
             //TEST
             if(IS_TEST_MODE){
-                alert('Test Finished.. Restart...');
+                console.log('Test Finished.. Redirecting...');
                 test_idx = (test_idx+1) % mbti_data.getTotalCharacter();
             }
             
-            restart();  
+            // jumps to personal page after then
+            window.location = PageConfig.personalPage();
         });
         $('#modal_mbti_result').modal();
     };

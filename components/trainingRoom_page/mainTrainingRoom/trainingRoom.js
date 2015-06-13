@@ -1,7 +1,7 @@
 (function() {
     var player = battle_data.getPlayer();
     DataLoader.loadTutorials("tutorials", player);
-    DataLoader.showBtnToTigers(player);
+    DataLoader.showBtnToTiger(player);
 
     //dialog effect setting
     $("#dialog").dialog({
@@ -41,9 +41,9 @@
 
      $(document).on("click","#EnterBattle",function(){
         var trainQuestions = [];
-	change_my_url()
+	    change_my_url();
         window.location.href ="battlepage.html";
-//        battle_data.setQuestion(); 
+        battle_data.setQuestion();
      });
 
 })();

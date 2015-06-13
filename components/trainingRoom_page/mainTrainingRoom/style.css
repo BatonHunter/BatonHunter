@@ -19,5 +19,18 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -70%);
+}
+.modal-content {
+    text-align: center;
+    padding: 30px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+.modal-content button a{
+    display: block;
+    padding: 10px;
 }

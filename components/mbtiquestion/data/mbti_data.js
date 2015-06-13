@@ -50,7 +50,7 @@ var mbti_data = (function() {
      },{
         id: 9,
         title: "Question 9",
-        content: "[A]我會與人稍談笑話題後,再自我思考一番。\n [B]我會和他人盡興暢談某事後,再自我思考一番。\n",
+        content: "[A]和別人稍談某個主題,即自我思考一番。\n [B]我會和他人盡興暢談某事後,再自我思考一番。\n",
         ans_A: "I",
         ans_B: "E"
      },{
@@ -153,8 +153,8 @@ var mbti_data = (function() {
         id: 26,
         title: "Question 26",
         content: "[A]我會擬定詳密計劃,然後確實的執行。\n [B]我擬定的計劃,但不一定執行。\n",
-        ans_A: "S",
-        ans_B: "N"
+        ans_A: "N",
+        ans_B: "S"
      },{
         id: 27,
         title: "Question 27",

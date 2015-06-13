@@ -1,5 +1,9 @@
 var profile_data = (function() {
 
+    var SERVER = 'https://baton-huner-restful-server.herokuapp.com/',
+        API_HELLO = 'hello';
+        API_USER = 'user/kkk';
+
 
     var profile = (function() {
         var IS_FAKE_MODE = false;
@@ -7,7 +11,7 @@ var profile_data = (function() {
         var fbID;
         var pic;
         var name;
-        var job;
+        var job = -1;
         var strength = [];
 
         return {
@@ -52,14 +56,44 @@ var profile_data = (function() {
     return {
         setfbID: function(fbID){
             profile.fbID = fbID;
+            profile.pic = "https://graph.facebook.com/" + fbID + "/picture?type=large";
         },
         setMTBI: function(job,strength){
             profile.job = job;
             profile.strength = strength;
         },
 
-        getProfile: function() {
-            return profile;
+        getProfile: function(callback) {
+            $.ajax({
+              url: SERVER + API_USER,
+              type: 'GET',
+              dataType: 'JSONP',
+              contentType: 'application/json; charset=utf-8',
+              //jsonp:"callback",  
+              //jsonpCallback:"success_jsonp", 
+              // success: function(response, status, xhr){
+              //       console.log('response: ' +response);
+              //       console.log('status: ' +status);
+              //       console.log('xhr: ' +xhr);
+              //       callback(response);
+              // },
+              dataFilter:function(json){    
+                console.log("dataFilter:"+json);    
+                return json;    
+               },
+              success:function(json,textStatus){ 
+                console.log('success');
+                console.log(json);
+                console.log(textStatus);
+              },   
+              error:function(XMLHttpRequest,textStatus,errorThrown){ 
+                console.log('error');
+                console.log(XMLHttpRequest);
+                console.log('textStatus: '+textStatus);
+                console.log('errorThrown: '+errorThrown);
+              },
+
+            });
         },
 
         getProfileFromServer: function(email, callback) {
@@ -73,7 +107,6 @@ var profile_data = (function() {
                 callback(profile);
             }, 1000);
         },
-
         postProfileToServer: function(email,name,PhotoUrl,callback) {
 
             setTimeout(function() {

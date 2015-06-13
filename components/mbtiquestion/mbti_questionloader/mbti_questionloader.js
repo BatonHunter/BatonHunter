@@ -89,7 +89,9 @@ var mbti_questionloader = (function() {
         $('#mbti_result_image').attr('src', result.picture);    
         $('#modal_mbti_result').off('hidden.bs.modal');
         $('#modal_mbti_result').on('hidden.bs.modal', function () {
-            
+        
+        var defaultStrength = mbti_data.getDefaultStrengths(result.category);
+        console.log(defaultStrength);
             //TEST
             if(IS_TEST_MODE){
                 console.log('Test Finished.. Redirecting...');

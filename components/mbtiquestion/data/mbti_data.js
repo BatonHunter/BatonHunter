@@ -309,6 +309,153 @@ var mbti_data = (function() {
      }
     ];
 
+    var default_strengths = {
+        ISTJ : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  50,
+                language:  25,
+                social:    40,
+                physical:  25,
+                music:     25},
+        ISFJ : {
+                action:    25,
+                curiosity: 40,
+                knowledge: 50,
+                thinking:  25,
+                language:  25,
+                social:    25,
+                physical:  25,
+                music:     25},
+        INFJ : {
+                action:    25,
+                curiosity: 50,
+                knowledge: 25,
+                thinking:  25,
+                language:  25,
+                social:    25,
+                physical:  25,
+                music:     40},
+        INTJ : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 40,
+                thinking:  50,
+                language:  25,
+                social:    25,
+                physical:  25,
+                music:     25},
+        ISTP : {
+                action:    40,
+                curiosity: 50,
+                knowledge: 25,
+                thinking:  25,
+                language:  25,
+                social:    25,
+                physical:  25,
+                music:     25},
+        ISFP : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  25,
+                language:  40,
+                social:    25,
+                physical:  25,
+                music:     50},
+        INFP : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  40,
+                language:  25,
+                social:    25,
+                physical:  50,
+                music:     25},
+        INTP : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 50,
+                thinking:  40,
+                language:  25,
+                social:    25,
+                physical:  25,
+                music:     25},
+        ESTP : {
+                action:    50,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  25,
+                language:  25,
+                social:    40,
+                physical:  25,
+                music:     25},
+        ESFP : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  25,
+                language:  25,
+                social:    25,
+                physical:  40,
+                music:     50},
+        ENFP : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  25,
+                language:  50,
+                social:    25,
+                physical:  25,
+                music:     40},
+        ENTP : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 40,
+                thinking:  25,
+                language:  25,
+                social:    50,
+                physical:  25,
+                music:     25},
+        ESTJ : {
+                action:    50,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  25,
+                language:  25,
+                social:    25,
+                physical:  40,
+                music:     25},
+        ESFJ : {
+                action:    25,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  25,
+                language:  40,
+                social:    50,
+                physical:  25,
+                music:     25},
+        ENFJ : {
+                action:    25,
+                curiosity: 40,
+                knowledge: 25,
+                thinking:  25,
+                language:  50,
+                social:    25,
+                physical:  25,
+                music:     25},
+        ENTJ : {
+                action:    40,
+                curiosity: 25,
+                knowledge: 25,
+                thinking:  25,
+                language:  25,
+                social:    25,
+                physical:  50,
+                music:     25}
+    };
+
     return {
         getQuestion: function(id) {
             return questions[id - 1];
@@ -329,6 +476,9 @@ var mbti_data = (function() {
         },
         getTypeByIdx: function(idx){
             return mbti_character[idx].category;
+        },
+        getDefaultStrengths: function(jobID){
+            return default_strengths[jobID];
         }
     };
 

@@ -3,9 +3,9 @@ var DataLoader = (function(training_datas) {
 
     function getstatusString(isSuccess) {
         var result = "";
-        if (isSuccess == null)
+        if (isSuccess == null) {
             return result;
-
+        }
         if (isSuccess) {
             result = "Complete";
         }
@@ -78,7 +78,7 @@ var DataLoader = (function(training_datas) {
         },
         showBtnToTiger: function(){
             var isReady = true;
-            // isReady = readyToTiger(player);
+            // isReady = readyToTigerFlag(player);
             if (isReady) {
                 $('#goToTigerModel').modal('show');
             }

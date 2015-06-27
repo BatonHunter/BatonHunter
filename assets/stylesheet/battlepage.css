@@ -6,7 +6,9 @@ html, body {
 .main {
     height: 100%;
     width: 100%;
-    margin-top: 60px;
+}
+.training-room {
+  margin-top: 60px;
 }
 .user, .enemy {
   padding: 0;

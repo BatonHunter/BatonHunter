@@ -12,7 +12,7 @@ var Homepage = (function() {
 
 			//2.get profile from backend server
 			profile_data.getProfileFromServer(response.email, function(profile) {
-                                
+
 				if (profile.getJob() === -1)
 				{
 					//to mtbi

@@ -1,5 +1,5 @@
 
-var DataLoader = (function(training_datas) {
+var DataLoader = (function (training_datas) {
 
     function getstatusString(isSuccess) {
         var result = "";
@@ -25,7 +25,7 @@ var DataLoader = (function(training_datas) {
     }
 
     //return true or false
-    function readyToTiger(user){
+    function readyToTiger(user) {
 
         //取得事件(知識點)內容
         var tutorials = training_datas.getDatas();
@@ -43,8 +43,7 @@ var DataLoader = (function(training_datas) {
             var tutorialStatus = getUserTutorialStatus(tutorials[i].id, user);
 
             //判斷單一事件是否完成? 如未完成代表無法進入吃角子老虎!
-            if (tutorialStatus === false)
-            {
+            if (tutorialStatus === false) {
                 readyToTigerFlag = false;
                 break;
             }
@@ -54,8 +53,9 @@ var DataLoader = (function(training_datas) {
         return readyToTigerFlag;
     }
 
+
     return {
-        loadTutorials: function(dom_id, user) {
+        loadTutorials: function (dom_id, user) {
 
             var tutorials = training_datas.getDatas();
             var tutorialsCount = tutorials.length;
@@ -76,7 +76,7 @@ var DataLoader = (function(training_datas) {
             $("#" + dom_id).empty();
             $("#" + dom_id).append(tutorialsHtml);
         },
-        showBtnToTiger: function(){
+        showBtnToTiger: function () {
             var isReady = true;
             // isReady = readyToTigerFlag(player);
             if (isReady) {
@@ -85,6 +85,4 @@ var DataLoader = (function(training_datas) {
         }
 
     };
-
-
 })(training_datas);

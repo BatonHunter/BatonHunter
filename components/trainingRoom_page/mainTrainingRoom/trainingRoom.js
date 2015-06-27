@@ -18,7 +18,10 @@
         var tutorialId = $(this).data('id');
         var tutorial = training_datas.getData(tutorialId);
         var content = tutorial.content
-
+        
+        //[Cloud_Lin]把玩家點選的的題目的id存入cookie, 之後發出Request時會一併用到
+        Cookies.set('question_id', tutorialId, { expires: 7 });
+        
         //set player state
         player.setTutorialState(tutorialId);
 
@@ -40,6 +43,12 @@
     }
 
      $(document).on("click","#EnterBattle",function(){
+         //[Cloud_Lin] 把e-mail、職業、QuestionId存成JSON, 送到後端去
+        var objToSend = {
+            var player_email = Cookies.get('player_email'),
+            var player_job = Cookies.get('player_job'),
+            var question_id = Cookies.get('question_id')
+            };
         var trainQuestions = [];
 	    change_my_url();
         window.location.href ="battlepage.html";

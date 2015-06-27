@@ -76,9 +76,9 @@ var DataLoader = (function (training_datas) {
             $("#" + dom_id).empty();
             $("#" + dom_id).append(tutorialsHtml);
         },
-        showBtnToTiger: function () {
-            var isReady = true;
-            // isReady = readyToTigerFlag(player);
+        showBtnToTiger: function (player) {
+            var isReady = false;
+            isReady = readyToTiger(player);
             if (isReady) {
                 $('#goToTigerModel').modal('show');
             }

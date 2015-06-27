@@ -45,10 +45,11 @@
      $(document).on("click","#EnterBattle",function(){
          //[Cloud_Lin] 把e-mail、職業、QuestionId存成JSON, 送到後端去
         var objToSend = {
-            var player_email = Cookies.get('player_email'),
-            var player_job = Cookies.get('player_job'),
-            var question_id = Cookies.get('question_id')
+            player_email : Cookies.get('player_email'),
+            player_job : Cookies.get('player_job'),
+            question_id : Cookies.get('question_id')
             };
+        ///////////////////////////////////////////////////////////    
         var trainQuestions = [];
 	    change_my_url();
         window.location.href ="battlepage.html";

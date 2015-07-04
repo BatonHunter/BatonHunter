@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>BatonHunter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--libs-->
+    <link rel="stylesheet" href="assets/lib/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/lib/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/lib/css/jquery.fancybox.css" />
+    <!--customs-->
+    <link rel="stylesheet" href="assets/stylesheet/battlepage.css" />
+    <link rel="stylesheet" href="components/battlepage/hpbar/hp.css" />
+    <link rel="stylesheet" href="components/battlepage/linklinkseequestion/semantic.css" />
+    <link rel="stylesheet" href="components/battlepage/linklinkseequestion/linklinkseeQuestion.css" />
+
+  </head>
+
+  <body>
+    <div class="main container">
+      <section id="battleview" class="row content">
+        <div id="enemy" class="enemy col-sm-6 col-sm-push-6" >
+
+          <header class="blood-flow">
+          <div id="enemy-hp" class="jquery-ui-like enemyHP">
+            <div>&nbsp;</div>
+          </div>
+          </header>
+
+          <div class="role">
+            <img class="img-responsive" src="assets/img/avatar.jpg">
+          </div>
+        </div>
+
+        <div id="user" class="user col-sm-6 col-sm-pull-6" >
+          <header class="blood-flow">
+          <div id="user-hp" class="jquery-ui-like userHP">
+            <div>&nbsp;</div>
+          </div>
+          </header>
+          <div class="role hidden-xs">
+            <img class="img-responsive" src="http://vignette3.wikia.nocookie.net/tos/images/2/22/Pet118.png/revision/latest?cb=20130131102559&path-prefix=zh">
+          </div>
+        </div>
+      </section>
+
+      <section id="" class="row content question">
+        <div id="counter" class="col-xs-2 col-sm-12">
+        </div>
+
+
+        <div id="question" class="col-sm-12 "></div>
+      </section>
+    </div>
+
+    <div style="display: none;">
+      <div id="showme">
+        <span id="hint-timer"></span>
+        <p class="tips"></p>
+      </div>
+    </div>
+    <!--libs-->
+    <script src="assets/lib/js/jquery.js"></script>
+    <script src="assets/lib/js/jquery.fancybox.js"></script>
+    <script src="assets/lib/js/bootstrap.js"></script>
+    <script src="assets/lib/js/jquery-ui.js"></script>
+    <script src="assets/lib/js/circular-progress.js"></script>
+    <!--components-->
+    <script src="components/battlepage/gamestatus/gamestatus.js"></script>
+    <script src="components/battlepage/data/battle_data.js"></script>
+    <script src="components/battlepage/effect/battle_effect.js"></script>
+    <script src="components/battlepage/effect/fighteffect.js"></script>
+    <script src="components/battlepage/questionloader/questionloader.js"></script>
+    <script src="components/battlepage/choicequestion/choicequestion.js"></script>
+    <script src="components/battlepage/truefalsequestion/truefalseQuestion.js"></script>
+    <script src="components/battlepage/linklinkseequestion/linklinkseequestion.js"></script>
+    <script src="components/battlepage/hpbar/hp.js"></script>
+    <!--main-->
+    <script src="assets/js/battlepage.js"></script>
+  </body>
+
+</html>

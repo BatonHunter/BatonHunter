@@ -27,7 +27,17 @@ $(document).ready(function() {
     }],
     onCompleted: function (res) {
       // index start from 0
-      $('#myModal').modal('show');
+      var dDialog = $('#myModal');
+      if(res[0] === res[1] && res[1] === res[2]){
+        if(res[0] === 0){
+          dDialog.find('.modal-body').text("道具");
+        }else{
+          dDialog.find('.modal-body').text("大怪");
+        }
+      }else{
+        dDialog.find('.modal-body').text("小怪");
+      }
+      dDialog.modal('show');
       console.log(res);
     }
   });

@@ -186,37 +186,16 @@ SlotMachine.prototype.judgeRandom = function (probs) {
   self.isRandom = false;
   if (randomNum <= treasure) {
     self.slotValue = 0;
-      self.renderResult(0);
   } else if (randomNum > treasure && randomNum <= monster1) {
     self.slotValue = 1;
-      self.renderResult(1);
   } 
   else if (randomNum > monster1 && randomNum <= monster2) {
     self.slotValue = 2;
-      self.renderResult(2);
   } 
   else {
     self.isRandom = true;
-      self.renderResult();
   }
   return self;
-};
-
-SlotMachine.prototype.renderResult = function (slotValue) {
-
-   switch(slotValue) {
-    case 0:      
-      $('.modal-body').text('道具');
-      break;
-    case 1:
-      $('.modal-body').text('大怪');
-      break;
-    case 2:
-      $('.modal-body').text('小怪');
-      break;
-    default:
-      $('.modal-body').text('小怪');
-   }
 };
 
 /**

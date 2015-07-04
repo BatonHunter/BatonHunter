@@ -27,6 +27,7 @@ $(document).ready(function() {
     }],
     onCompleted: function (res) {
       // index start from 0
+      $('#myModal').modal('show');
       console.log(res);
     }
   });

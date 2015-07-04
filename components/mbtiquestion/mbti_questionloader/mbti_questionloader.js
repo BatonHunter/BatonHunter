@@ -88,7 +88,8 @@ var mbti_questionloader = (function() {
         $('#mbti_result_image').attr('src', result.picture);    
         $('#modal_mbti_result').off('hidden.bs.modal');
         $('#modal_mbti_result').on('hidden.bs.modal', function () {
-            
+        //Send result.strength to backend
+
             //TEST
             if(IS_TEST_MODE){
                 alert('Test Finished.. Restart...');

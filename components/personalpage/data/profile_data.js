@@ -23,11 +23,19 @@ var profile_data = (function() {
                 return job;
             },
             getStrength: function() {
-
+                /*
+                 * 0: 行動力
+                 * 1: 好奇心
+                 * 2: 知識力
+                 * 3: 思考力
+                 * 4: 語文力
+                 * 5: 人際力
+                 * 6: 肢體力
+                 * 7: 音樂力
+                 * */
                 for (var i = 0; i < 8; ++i) {
                     strength[i] = Math.floor(Math.random() * 100);
                 }
-
                 return strength;
             },
         };

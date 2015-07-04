@@ -5,7 +5,7 @@ var mbti_questionloader = (function() {
     var current_question;
     var current_dom_id;
     var score = {};
-    var IS_TEST_MODE = false;
+    var IS_TEST_MODE = true;
     var test_idx = 0;
     var init_score = function(){
         score = {
@@ -80,6 +80,27 @@ var mbti_questionloader = (function() {
         }
 
         var result = mbti_data.getCharacter(type);
+
+        $.ajax({
+          url: 'https://baton-huner-restful-server.herokuapp.com/users/conrad1218@gmail.com/modifystrength',
+          method: 'POST',
+          crossDomain: true,
+          dataType: 'json',
+          data: JSON.stringify({strength: result.strength}),
+          error: function(response) {
+            console.log('Error');
+          },
+          success: function(responseData, textStatus, jqXHR) {
+            console.log('success');
+          }
+        }).done(function(data){
+          if (!data) {
+            console.log('create user error.');
+          } else {
+            console.log('success, ready to redrict.');
+          }
+        });
+
         $('#mbti_container').find('.row').hide();
         $('#mbti_result_title').text(result.character+' (' + type + ')');
         $('#mbti_result_type').text(result.style);
@@ -88,15 +109,6 @@ var mbti_questionloader = (function() {
         $('#mbti_result_image').attr('src', result.picture);    
         $('#modal_mbti_result').off('hidden.bs.modal');
         $('#modal_mbti_result').on('hidden.bs.modal', function () {
-        //Send result.strength to backend
-
-            //TEST
-            if(IS_TEST_MODE){
-                alert('Test Finished.. Restart...');
-                test_idx = (test_idx+1) % mbti_data.getTotalCharacter();
-            }
-            
-            restart();  
         });
         $('#modal_mbti_result').modal();
     };

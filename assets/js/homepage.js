@@ -5,10 +5,13 @@ var Homepage = (function() {
 			//1.setfb id @profile_data
 			profile_data.setfbID(response.id);
 
-			//2.get profile from backend server
-			profile_data.getProfileFromServer(response.email, function(profile) {
+			//2.try to create the profile on server
+			profile_data.tryCreateProfile(response.email, response.first_name + response.last_name, profile_data.getPic(), function(user_data) {
 
-				if (profile.getStrength() && profile.getStrength().length)
+				console.log('user is created : ');
+				console.log(user_data);
+
+				if (user_data.getStrength() && user_data.getStrength().length)
 				{
 					window.location = PageConfig.personalPage();
 				}
@@ -16,10 +19,9 @@ var Homepage = (function() {
 				{
 					window.location = PageConfig.mbtiStartPage();
 				}
-
 			});
 		}
-	}	
+	}
 })();
 
 $(document).ready(function(){

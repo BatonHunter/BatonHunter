@@ -1,11 +1,11 @@
 ServerConfig = (function() {
 
     'use strict';
-    
-    var serverBaseUrl = "https://baton-huner-restful-server.herokuapp.com/users/";
+
+    var serverBaseUrl = "https://baton-huner-restful-server.herokuapp.com/users";
 
     var getUrl = function(email) {
-        return serverBaseUrl + email;
+        return serverBaseUrl + "/" + email;
     }
 
     var postUrl = function() {

@@ -3,15 +3,15 @@ var Homepage = (function() {
 		login : function(response) {
 
 			//1.setfb id @profile_data
-			profile_data.setfbID(response.id);
+			Profile.setfbID(response.id);
 
 			//2.try to create the profile on server
-			profile_data.tryCreateProfile(response.email, response.first_name + response.last_name, profile_data.getPic(), function(user_data) {
+			Profile.tryCreateProfile(response.email, response.first_name + response.last_name, Profile.getPic(), function(strength_array) {
 
 				console.log('user is created : ');
-				console.log(user_data);
+				console.log(strength_array);
 
-				if (user_data.getStrength() && user_data.getStrength().length)
+				if (strength_array && strength_array.length)
 				{
 					window.location = PageConfig.personalPage();
 				}

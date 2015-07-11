@@ -1,5 +1,7 @@
 var gulp = require('gulp');
+var debug = require('gulp-debug');
 var uglify = require('gulp-uglify');
+var browserSync = require('browser-sync').create();
 var gulpFilter = require('gulp-filter');
 var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
@@ -13,6 +15,12 @@ var img_for_fancybox = 'assets/lib/css';
 var jsFilter = gulpFilter('*.js');
 var cssFilter = gulpFilter('*.css');
 var imgFilter = gulpFilter(['*.gif', '*.png']);
+
+var files = [
+  './**/*.*',
+  '!./node_modules/**',
+  '!./bower_components/**'
+];
 
 gulp.task('build', function(callback) {
     runSequence('clean', 'install', 'exportBowerFiles', callback);
@@ -42,4 +50,22 @@ gulp.task('exportBowerFiles', function() {
 
     .pipe(imgFilter)
         .pipe(gulp.dest(img_for_fancybox))
+});
+
+gulp.task('watch', function () {
+  return gulp.watch(files).on('change', browserSync.reload);
+});
+
+gulp.task('browser', function () {
+  browserSync.init(files, {
+    startPath: '/',
+    server: {
+      baseDir: './'
+    },
+    browser: 'default'
+  });
+});
+
+gulp.task('serve', function () {
+  runSequence('build', 'watch', 'browser');
 });

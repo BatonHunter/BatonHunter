@@ -1,5 +1,7 @@
 var gulp = require('gulp');
+var debug = require('gulp-debug');
 var uglify = require('gulp-uglify');
+var browserSync = require('browser-sync').create();
 var gulpFilter = require('gulp-filter');
 var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
@@ -15,6 +17,12 @@ var jsFilter = gulpFilter('*.js');
 var cssFilter = gulpFilter(['*.css', '*.css.map']);
 var imgFilter = gulpFilter(['*.gif', '*.png']);
 var fontFilter = gulpFilter(['*.eot', '*.svg', '*.ttf', '*.woff*']);
+
+var files = [
+  './**/*.*',
+  '!./node_modules/**',
+  '!./bower_components/**'
+];
 
 gulp.task('build', function(callback) {
     runSequence('clean', 'install', 'exportBowerFiles', callback);
@@ -48,4 +56,22 @@ gulp.task('exportBowerFiles', function() {
 
     .pipe(fontFilter)
         .pipe(gulp.dest(font_path))
+});
+
+gulp.task('watch', function () {
+  return gulp.watch(files).on('change', browserSync.reload);
+});
+
+gulp.task('browser', function () {
+  browserSync.init(files, {
+    startPath: '/',
+    server: {
+      baseDir: './'
+    },
+    browser: 'default'
+  });
+});
+
+gulp.task('serve', function () {
+  runSequence('build', 'watch', 'browser');
 });

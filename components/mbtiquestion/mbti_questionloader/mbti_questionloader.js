@@ -5,7 +5,7 @@ var mbti_questionloader = (function() {
     var current_question;
     var current_dom_id;
     var score = {};
-    var IS_TEST_MODE = true;
+    var IS_TEST_MODE = false;
     var test_idx = 0;
     var init_score = function(){
         score = {

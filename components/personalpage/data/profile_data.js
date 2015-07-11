@@ -1,176 +1,174 @@
-var profile_data = (function() {
+var Profile = (function() {
 
-    var SERVER = 'https://baton-huner-restful-server.herokuapp.com/',
-        API_HELLO = 'hello';
-        API_USER = 'user/kkk';
+    var IS_FAKE_MODE = false,
+        COOKIE_KEY = 'profile';
 
+    var init = function(result) {
+        if (!result) {
+            return;
+        }
 
-    var profile = (function() {
-        var IS_FAKE_MODE = false;
-        var uuid = "9219affc-8c9d-4705-a13e-e6a1a882c522";
-        var fbID;
-        var pic;
-        var name;
-        var job = -1;
+        var profile = getProfileFromCookie();
+
+        profile.uuid = result.uuid;
+        profile.pic = result.picUri;
+        profile.name = result.name;
+        profile.strength = result.strength;
+        profile.email = result.email;
+        profile.jobs = result.jobs;
+        profile.ap = result.ap;
+        profile.point = result.point;
+        profile.money = result.money;
+        
+        saveToCookie(profile);
+    }
+
+    var getProfileFromCookie = function() {
+        var profileStr = Cookies.getItem(COOKIE_KEY) || "{}";
+        return JSON.parse(profileStr);
+    }
+
+    var saveToCookie = function(profile) {
+        Cookies.setItem(COOKIE_KEY, JSON.stringify(profile));
+    }
+
+    var getAp = function() {
+        return getProfileFromCookie().ap;
+    }
+
+    var getPoint = function() {
+        return getProfileFromCookie().point;
+    }
+
+    var setfbID = function(ID) {
+        var profile = getProfileFromCookie();
+        profile.fbID = ID;
+        profile.picUrl = ServerConfig.getPictureUrl(ID);
+        saveToCookie(profile);
+    }
+
+    var getEmail = function() {
+        return getProfileFromCookie().email;
+    }
+    
+    var getUuid = function() {
+        return getProfileFromCookie().uuid;
+    }
+
+    var getPic = function() {
+        return getProfileFromCookie().picUrl;
+    }
+
+    var getName = function() {
+        return getProfileFromCookie().name;
+    }
+
+    var setJob = function(job) {
+        var profile = getProfileFromCookie();
+        profile.job = job;
+        saveToCookie(profile);
+    }
+
+    var getJobs = function() {
+        return getProfileFromCookie().jobs;
+    }
+
+    var setStrength = function(strength) {
+        var profile = getProfileFromCookie();
+        profile.strength = strength;
+        saveToCookie(profile);
+    }
+
+    var getStrength = function() {
+        /*
+         * 0: 行動力
+         * 1: 好奇心
+         * 2: 知識力
+         * 3: 思考力
+         * 4: 語文力
+         * 5: 人際力
+         * 6: 肢體力
+         * 7: 音樂力
+         * */
         var strength = [];
 
-        return {
-            init: function(result) {
-                if (!result) {
-                    return;
+        if (IS_FAKE_MODE) {
+            for (var i = 0; i < 8; ++i) {
+                strength[i] = Math.floor(Math.random() * 100);
+            }
+            return strength;
+        }
+
+        return getProfileFromCookie().strength;
+    }
+
+    var setCategory = function(category) {
+        var profile = getProfileFromCookie();
+        profile.category = category;
+        saveToCookie(profile);
+    }
+
+    var setMBTI = function(job, strength, category) {
+        setJob(job);
+        setStrength(strength);
+        setCategory(category);
+
+        $.ajax({
+            url: ServerConfig.modifyStrengthUrl(getEmail()),
+            method: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            data: JSON.stringify({strength: strength, role: job, category: category}),
+            error: function(response) {
+                console.log('Error');
+            },
+            success: function(responseData, textStatus, jqXHR) {
+                console.log('success');
+            }
+            }).done(function(data){
+            if (!data) {
+                console.log('create user error.');
+            } else {
+                console.log('success, ready to redrict.');
+            }
+        });
+    }
+
+    var tryCreateProfile = function(mail, name, photoUrl, callback) {
+
+        $.ajax({
+            url: ServerConfig.postUrl(),
+            method: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            data: JSON.stringify({name: name, picUri: photoUrl, email: mail}),
+            error: function( response ) {
+                console.log(response);
+            },
+            success: function( responseData, textStatus, jqXHR ) {
+                console.log('post success!');
+            }
+        })
+            .done(function( data ) {
+                if ( ! data ) {
+                    console.log( 'create users failed' );
+                } else {
+                    init(data);
+                    callback(getStrength());
                 }
-
-                uuid = result.uuid;
-                pic = result.picUri;
-                name = result.name;
-                job = result.job;
-                strength = result.strength;
-
-                console.log()
-            },
-            getUuid: function() {
-                return uuid;
-            },
-            getPic: function() {
-                return pic;
-            },
-            setPic: function(picture) {
-                pic = picture;
-            },
-            getName: function() {
-                return name;
-            },
-            getJob: function() {
-                return job;
-            },
-            getStrength: function() {
-                /*
-                 * 0: 行動力
-                 * 1: 好奇心
-                 * 2: 知識力
-                 * 3: 思考力
-                 * 4: 語文力
-                 * 5: 人際力
-                 * 6: 肢體力
-                 * 7: 音樂力
-                 * */
-
-                if (IS_FAKE_MODE) {
-                    for (var i = 0; i < 8; ++i) {
-                        strength[i] = Math.floor(Math.random() * 100);
-                    }
-                }
-                return strength;
-            },
-        };
-    })();
-
-
+            });
+    }
 
     return {
-        setfbID: function(fbID){
-            profile.fbID = fbID;
-            profile.setPic("https://graph.facebook.com/" + fbID + "/picture?type=large");
-        },
-        setMBTI: function(job,strength,category){
-            profile.job = job;
-            profile.strength = strength;
-
-            //  TODO  Ready to put data to back-end server.
-            //  FIXME Add Email
-            $.ajax({
-              url: 'https://baton-huner-restful-server.herokuapp.com/users/' + profile.email + '/modifystrength',
-              method: 'POST',
-              crossDomain: true,
-              dataType: 'json',
-              data: JSON.stringify({strength: strength, role: job, category: category}),
-              error: function(response) {
-                //  TODO  fail during access back-end server.
-                //  FIXME fail during access back-end server, need some error handling.
-                console.log('Error');
-              },
-              success: function(responseData, textStatus, jqXHR) {
-                //  TODO  Success, set cookie.
-                //  FIXME Set cookie
-                console.log('success');
-              }
-            }).done(function(data){
-              if (!data) {
-                //  TODO  fail.
-                //  FIXME fail, do something.
-                console.log('create user error.');
-              } else {
-                //  TODO  success, ready to redrict.
-                window.location = PageConfig.personalPage();
-              }
-            });
-        },
-        getPic: function() {
-            return profile.getPic();
-        },
-        getProfile: function(callback) {
-            $.ajax({
-              url: SERVER + API_USER,
-              type: 'GET',
-              dataType: 'JSONP',
-              contentType: 'application/json; charset=utf-8',
-              dataFilter:function(json){
-                console.log("dataFilter:"+json);
-                return json;
-               },
-              success:function(json,textStatus){
-                console.log('success');
-                console.log(json);
-                console.log(textStatus);
-              },
-              error:function(XMLHttpRequest,textStatus,errorThrown){
-                console.log('error');
-                console.log(XMLHttpRequest);
-                console.log('textStatus: '+textStatus);
-                console.log('errorThrown: '+errorThrown);
-              },
-
-            });
-        },
-
-        getProfileFromServer: function(email, callback) {
-
-            //request data from backend server
-            $.get(ServerConfig.getUrl(email), function(result){
-                console.log('get profile from server : ');
-                console.log(result);
-
-                profile.init(result);
-                callback(profile);
-            });
-        },
-        tryCreateProfile: function(mail, name, photoUrl, callback) {
-
-            $.ajax({
-                url: ServerConfig.postUrl(),
-                method: 'POST',
-                crossDomain: true,
-                dataType: 'json',
-                data: JSON.stringify({name: name, picUri: photoUrl, email: mail}),
-                error: function( response ) {
-                    console.log('post failed!');
-                    console.log(response);
-                },
-                success: function( responseData, textStatus, jqXHR ) {
-                    console.log('post success!');
-                }
-            })
-                .done(function( data ) {
-                    if ( ! data ) {
-                        console.log( 'create users failed' );
-                    } else {
-                        console.log('response from server : ');
-                        console.log( data );
-
-                        profile.init(data);
-                        callback(profile);
-                    }
-                });
-        }
+        setfbID: setfbID,
+        setMBTI: setMBTI,
+        getPic: getPic,
+        getJobs: getJobs,
+        getAp: getAp,
+        getPoint: getPoint,
+        getMoney: getMoney,
+        getEmail: getEmail,
+        getStrength: getStrength,
+        tryCreateProfile: tryCreateProfile
     };
 })();

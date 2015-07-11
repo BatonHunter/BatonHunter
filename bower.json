@@ -19,7 +19,9 @@
     "fancybox": "~2.1.5",
     "circular-progress": "~0.2.2",
     "font-awesome": "~4.3.0",
-    "bootstrap": "~3.3.4"
+    "odometer": "~0.4.7",
+    "bootstrap": "~3.3.4",
+    "jquery-validation": "~1.13.1"
   },
   "overrides": {
     "fancybox": {
@@ -28,6 +30,21 @@
         "**/jquery.fancybox.css",
         "**/*.gif",
         "**/*.png"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/css/bootstrap-theme.css",
+        "dist/css/bootstrap.css.map",
+        "dist/css/bootstrap-theme.css.map",
+        "dist/js/bootstrap.js",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
       ]
     }
   }

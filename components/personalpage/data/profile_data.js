@@ -47,9 +47,30 @@ var profile_data = (function() {
         setfbID: function(fbID){
             profile.fbID = fbID;
         },
-        setMTBI: function(job,strength){
+        setMBTI: function(job,strength,category){
             profile.job = job;
             profile.strength = strength;
+
+          //  FIXME Add Email
+          $.ajax({
+            url: 'https://baton-huner-restful-server.herokuapp.com/users/' + profile.email + '/modifystrength',
+            method: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            data: JSON.stringify({strength: strength, job: job, category: category}),
+            error: function(response) {
+              console.log('Error');
+            },
+            success: function(responseData, textStatus, jqXHR) {
+              console.log('success');
+            }
+          }).done(function(data){
+            if (!data) {
+              console.log('create user error.');
+            } else {
+              console.log('success, ready to redrict.');
+            }
+          });
         },
 
         getProfile: function() {

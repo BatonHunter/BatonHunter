@@ -23,7 +23,7 @@ var mbti_questionloader = (function() {
     var restart = function(){
         init_score();
         if(IS_TEST_MODE)
-            loadQuestion(32);  //set to last question id for demo purpose
+            loadQuestion(32);  // set to last question id for demo purpose
         else 
             loadQuestion(1);
         $('#mbti_container').find('.row').show();
@@ -72,34 +72,14 @@ var mbti_questionloader = (function() {
         type += (score.T>score.F)?'T':'F';
         type += (score.P>score.J)?'P':'J';
 
-        //TEST
+        //  TEST
         if(IS_TEST_MODE){
-            //console.log("test_idx: "+test_idx);
             type = mbti_data.getTypeByIdx(test_idx);
-            //console.log("type: "+type);
         }
 
         var result = mbti_data.getCharacter(type);
 
-        $.ajax({
-          url: 'https://baton-huner-restful-server.herokuapp.com/users/conrad1218@gmail.com/modifystrength',
-          method: 'POST',
-          crossDomain: true,
-          dataType: 'json',
-          data: JSON.stringify({strength: result.strength}),
-          error: function(response) {
-            console.log('Error');
-          },
-          success: function(responseData, textStatus, jqXHR) {
-            console.log('success');
-          }
-        }).done(function(data){
-          if (!data) {
-            console.log('create user error.');
-          } else {
-            console.log('success, ready to redrict.');
-          }
-        });
+        profile_data.setMBTI(result.character, result.strength, result.category);
 
         $('#mbti_container').find('.row').hide();
         $('#mbti_result_title').text(result.character+' (' + type + ')');

@@ -21,7 +21,8 @@
     "font-awesome": "~4.3.0",
     "odometer": "~0.4.7",
     "bootstrap": "~3.3.4",
-    "jquery-slotmachine": "~2.0.9"
+    "jquery-slotmachine": "~2.0.9",
+    "jquery.cookie": "~1.4.1"
   },
   "overrides": {
     "fancybox": {

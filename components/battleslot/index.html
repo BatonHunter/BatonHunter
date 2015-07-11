@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="../../assets/lib/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/lib/css/font-awesome.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -45,6 +46,26 @@
         </nav>
     </header>
     <main class="container">
+        <div class="userAttribute">
+            <div class="label label-danger">
+                <i class="glyphicon glyphicon-heart"></i>
+                <span class="userLive">
+                    6
+                </span>
+            </div>
+            <div class="label label-primary">
+                <i class="glyphicon glyphicon-fire"></i>
+                <span class="userPoint">
+                    0
+                </span>
+            </div>
+            <div class="label label-success">
+                <i class="fa fa-money"></i>
+                <span class="userMoney">
+                    3000
+                </span>
+            </div>
+        </div>
         <div class="slotComponents">
             <!--<input type="button" value="spin!" onClick="go(Math.floor(Math.random() * 10),Math.floor(Math.random() * 10));">-->
             <div id="slotPosition" class="done">
@@ -85,13 +106,19 @@
                         </div>
                     </div>
                 </div>
+                <button id="slotArm" type="button" class="btn btn-default">abc</button>
                 <div id="slotBase">
-                    <div>
-                        <button id="slotArm" type="">abc</button>
-                    </div>
                     <!-- <div id="slotArm"></div> -->
                 </div>
             </div>
+        </div>
+        <div class="functionBar">
+            <button type="button" class="btn btn-default trainingRoom" aria-haspopup="true" aria-expanded="false">
+                 練功房
+            </button>
+            <button type="button" class="btn btn-default fightBoss" aria-haspopup="true" aria-expanded="false">
+                挑戰魔王
+            </button>
         </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -114,6 +141,7 @@
     <script src="../../assets/lib/js/jquery.js"></script>
     <script src="../../assets/lib/js/bootstrap.js"></script>
     <script src="../../assets/lib/js/jquery.slotmachine.min.js"></script>
+    <script src="../../assets/lib/js/jquery.cookie.js"></script>
     <script src="slotmachine.js"></script>
     <script src="main.js"></script>
 </body>

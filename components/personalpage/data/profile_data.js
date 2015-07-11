@@ -8,6 +8,9 @@ var Profile = (function() {
             return;
         }
 
+        console.log('result:');
+        console.log(result);
+
         var profile = getProfileFromCookie();
 
         profile.uuid = result.uuid;
@@ -106,6 +109,10 @@ var Profile = (function() {
         var profile = getProfileFromCookie();
         profile.category = category;
         saveToCookie(profile);
+    }
+
+    var getMoney = function() {
+        return getProfileFromCookie().money;
     }
 
     var setMBTI = function(job, strength, category) {

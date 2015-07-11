@@ -141,94 +141,21 @@ var battle_data = (function() {
 
 };
 var question = (function() {
-    var questions = [{
-        id: 1,
-        type: "tf",
-        title: "Question 8",
-        content: "the answer is false !!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, nihil!\n",
-        hint: '...',
-        ans: "No"
-    }, {
-        id: 2,
-        type: "linkQuestion",
-        title: "Question 9",
-        content: [{
-            Qid: 1,
-            Qtxt: "11111"
-        }, {
-            Qid: 2,
-            Qtxt: "2222"
-        }, {
-            Qid: 3,
-            Qtxt: "333"
-        }, {
-            Qid: 4,
-            Qtxt: "444"
-        }],
-        hint: '...',
-        ans: [{
-            Aid: 1,
-            Atxt: "11111"
-        }, {
-            Aid: 2,
-            Atxt: "2222"
-        }, {
-            Aid: 3,
-            Atxt: "333"
-        }, {
-            Aid: 4,
-            Atxt: "444"
-        }],
+         var questions={};
+ 
+	 $.ajax({
+    	url: "https://batonhunter.firebaseio.com/questions.json?print=pretty",
+    	async: false,
+    	dataType: 'json',
+    	success: function(data) {
+		
+    		questions = data;
+        }
 
-    }, {
-        id: 3,
-        type: "linkQuestion",
-        title: "Question 10",
-        content: [{
-            Qid: 1,
-            Qtxt: "10"
-        }, {
-            Qid: 2,
-            Qtxt: "2222"
-        }, {
-            Qid: 3,
-            Qtxt: "333"
-        }, {
-            Qid: 4,
-            Qtxt: "444"
-        }],
-        hint: '...',
-        ans: [{
-            Aid: 1,
-            Atxt: "10"
-        }, {
-            Aid: 2,
-            Atxt: "2222"
-        }, {
-            Aid: 3,
-            Atxt: "333"
-        }, {
-            Aid: 4,
-            Atxt: "444"
-        }],
-    }, {
-        id: 4,
-        type: "ch",
-        title: "Question 11",
-        content: "Which color let people feel cold?\n",
-        hint: '...',
-        anslist: ['red', 'yello', 'black', 'blue'],
-        ans: ['3', '4']
-    }, {
-        id: 5,
-        type: "ch",
-        title: "Question 12",
-        content: "Who is most handsome?\n",
-        hint: '...',
-        anslist: ['Ian', 'Ian', 'Ian', 'Ian'],
-        ans: ['1', '2', '3', '4']
-    }];
+    });
+         questions.splice(0,1);
 
+      console.log(questions.length);
     return {
         getNextQuestion: function() {
             return questions[Math.floor((Math.random() * questions.length))];

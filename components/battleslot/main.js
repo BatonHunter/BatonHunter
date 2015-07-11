@@ -1,4 +1,7 @@
 var slotmachine = {};
+slotmachine.AP = 6;
+slotmachine.point = 0;
+slotmachine.money = 0;
 
 $(document).ready(function() {
     $('.slot img').css('height', $('.slots').css('height'))
@@ -29,22 +32,36 @@ $(document).ready(function() {
         }],
         onCompleted: function(res) {
             // index start from 0
-            var dDialog = $('#myModal');
-            if (res[0] === res[1] && res[1] === res[2]) {
-                if (res[0] === 0) {
-                    dDialog.find('.modal-body').text("道具");
-                } else {
-                    dDialog.find('.modal-body').text("大怪");
-                }
-            } else {
-                dDialog.find('.modal-body').text("小怪");
-            }
-            dDialog.modal({
-                backdrop: false,
-                keyboard: false,
-                show: true
-            });
+            onResult(res);
             console.log(res);
         }
     });
 });
+var showDialog = function(item) {
+    dDialog.find('.modal-body').text(item);
+}
+
+var saveResult = function(item) {
+    
+}
+
+var onResult = function(res) {
+    var dDialog = $('#myModal');
+    dDialog.modal({
+        backdrop: false,
+        keyboard: false,
+        show: true
+    });
+    if (res[0] === res[1] && res[1] === res[2]) {
+        if (res[0] === 0) {
+            showDialog("道具");
+            saveResult("道具");
+        } else {
+            showDialog("大怪");
+            saveResult("大怪");
+        }
+    } else {
+        showDialog("小怪");
+        saveResult("小怪");
+    }
+}

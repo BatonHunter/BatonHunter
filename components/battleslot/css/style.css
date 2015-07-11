@@ -210,14 +210,27 @@ width: 30px;
 }
 
 .modal-content {
-  height: 201px;
+  height: 145px;
+  position: absolute;
+  z-index: 50;
+}
+
+#monsterPic {
+  position: absolute;
+  margin-top: -130px;
+  padding-left: 25px;
+  z-index: 51;
 }
 
 .modal-body {
   position: relative;
   padding: 35px;
-  padding-top: 48px;
-  font-size: 35px;
+  padding-top: 28px;
+  font-size: 30px;
+}
+
+.modal-header .close {
+  margin-top: -10px;
 }
 
 .functionBar{

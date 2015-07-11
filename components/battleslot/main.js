@@ -78,27 +78,26 @@ var getUserStatus = function() {
 var showDialog = function(item) {
     var dDialog = $('#myModal');
     dDialog.find('.modal-body').text(item);
-    var showDialogText;
+    var dMonsterImg = $('#monsterImg');
 
     switch (item) {
         case "獲得道具":
-            showDialogText = "pic1";
+            dMonsterImg.attr("src","img/treasure_box.png");
             break;
         case "大怪來襲":
-            showDialogText = "pic2";
+            dMonsterImg.attr("src","img/big_monster.png");
             break;
         case "小怪來襲":
-            showDialogText = "pic3";
+            dMonsterImg.attr("src","img/small_monster.png");
             break;
     }
 
-    console.log(showDialogText);
 }
 
 var saveResult = function(item) {
     var treasure = "";
     var monster = "";
-    if (item.indexOf('道具')) {
+    if (item.indexOf('獲得道具')) {
         treasure = item;
     } else {
         monster = item;

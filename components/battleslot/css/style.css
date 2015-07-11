@@ -2,6 +2,26 @@ body {
   padding-top: 60px;
 }
 
+.userAttribute {
+    padding-bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+.userAttribute .label{
+    margin:0 15px;
+    width: 30px;
+    height: 10px;
+    padding:.3em .6em;
+}
+
+.userAttribute div span{
+    display: inline-block;
+width: 30px;
+    margin:5px 5px;
+    font-size: 16px;
+}
+
 #machine {
     background: url("../img/slot-machine.png");
     background-repeat: no-repeat;
@@ -16,6 +36,7 @@ body {
 
 #slotPosition {
     position: relative;
+    text-align: center;
 }
 /*底座定位*/
 
@@ -38,10 +59,10 @@ body {
 }
 
 #slotArm {
-    margin-top: 20px;
-    width: 100%;
-    padding-bottom: 15%;
-    padding-top: 15%;
+    margin-top: 10px;
+    width: 20%;
+    padding-bottom: 2%;
+    padding-top: 2%;
 }
 
 /*#slotArm {
@@ -198,3 +219,13 @@ body {
   padding-top: 48px;
   font-size: 35px;
 }
+
+.functionBar{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+.functionBar button{
+    margin:0 25px;
+}
+

@@ -6,6 +6,18 @@ slotmachine.money = 0;
 $(document).ready(function() {
     $('.slot img').css('height', $('.slots').css('height'))
         .css('width', '90%');
+
+    //setCookie
+    var date = new Date();
+    date.setTime(date.getTime() + (10000 * 24 * 60 * 60 * 1000));
+    $.cookie('userInfo', 'jack@gmail.com', {
+        path: location.host,
+        expires: date
+    });
+
+    // getUserStatus();
+    $('.fightBoss').prop('disabled', true);
+
     window.machine = new SlotMachine({
         trigger: '#slotArm',
         defaultRepeat: 10,
@@ -36,14 +48,37 @@ $(document).ready(function() {
             console.log(res);
         }
     });
+
+    $('.fightBoss').click(function() {
+        window.href('/battlepage.html');
+    })
+
+    $('.trainingRoom').click(function() {
+        window.href('/trainingRoom.html' + "?=Boss");
+    })
 });
+
+
+var getUserStatus = function() {
+    $.ajax({
+        method: "POST",
+        url: "/getUserStatus",
+        data: $.cookie('userInfo')
+    })
+    .done(function(data) {
+        $('.userLive').text(data.userLive);
+        $('.userPoint').text(data.userPoint);
+        $('.userMoney').text(data.userMoney);
+        if (data.userPoint < 50) {
+            $('.fightBoss').prop('disabled', true);
+        }
+    });
+}
 
 var showDialog = function(item) {
     var dDialog = $('#myModal');
-    
     dDialog.find('.modal-body').text(item);
-
-    var showDialogText; 
+    var showDialogText;
 
     switch (item) {
         case "獲得道具":
@@ -61,7 +96,24 @@ var showDialog = function(item) {
 }
 
 var saveResult = function(item) {
-    
+    var treasure = "";
+    var monster = "";
+    if (item.indexOf('道具')) {
+        treasure = item;
+    } else {
+        monster = item;
+    }
+    $.ajax({
+            method: "POST",
+            url: "/saveSlotResult",
+            data: {
+                treasure: treasure,
+                monster: treasure
+            }
+        })
+        .done(function(msg) {
+            window.href('/battlepage.html');
+        });
 }
 
 var onResult = function(res) {

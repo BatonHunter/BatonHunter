@@ -13,7 +13,7 @@
 </head>
 <body class="">
 
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <a class='navbar-brand' href='javascript:'>個人頁面</a>
@@ -23,11 +23,11 @@
 
 <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-6 text-center headpic"><img src="headpic.png" alt="Profile picture of this player"></div>
+      <div class="col-xs-6 text-center headpic"><img id="profile-pic" alt="Profile picture of this player"></div>
       <div class="col-xs-6 personal_attr">
-        <p>姓名：冒險者</p>
-        <p>角色：星光舞者</p>
-        <p>稱號：初心學徒</p>
+        <p>姓名：<span id="profile-name"></span></p>
+        <p>角色：<span id="profile-job"></span></p>
+        <p>稱號：<span id="profile-nick"></span></p>
       </div>
     </div>
     <div class="row">
@@ -48,6 +48,42 @@
 </div>
 
 <script>
+
+(function(){
+    var cookies;
+
+    function readCookie(name,c,C,i){
+        if(cookies){ return cookies[name]; }
+
+        c = document.cookie.split('; ');
+        cookies = {};
+
+        for(i=c.length-1; i>=0; i--){
+           C = c[i].split('=');
+           cookies[C[0]] = C[1];
+        }
+
+        return cookies[name];
+    }
+
+    window.readCookie = readCookie; // or expose it however you want
+})();
+
+
+//TODO: set the following variables with data in the cookie
+var profile_fbid = '10203483241303910';
+var profile_name = '冒險者';
+var profile_job = '星光舞者';
+var profile_nick = '初心學徒';
+var profile_strength = [15, 40, 10, 20, 30, 25, 35, 45];
+
+
+$('img#profile-pic').attr("src", "https://graph.facebook.com/" + profile_fbid + "/picture?width=9999");
+$('#profile-name').text(profile_name);
+$('#profile-job').text(profile_job);
+$('#profile-nick').text(profile_nick);
+
+
 var myChart = echarts.init(document.getElementById('radar-chart'));
 
 option = {
@@ -74,7 +110,7 @@ option = {
             type: 'radar',
             data : [
                 {
-                    value: [50, 40, 10, 20, 30, 25, 35, 45],
+                    value: profile_strength,
                     name: '能力',
                 }
             ]
@@ -85,7 +121,7 @@ option = {
 myChart.setOption(option);
 </script>
 
-<nav class="navbar navbar-default navbar-static-bottom" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <div class="btn-group btn-group-justified" role="group">
     <a class='btn btn-default active' href='javascript:'>個人</a>
     <a class='btn btn-default' href='javascript:'>職業</a>

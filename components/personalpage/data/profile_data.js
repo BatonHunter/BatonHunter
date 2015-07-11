@@ -76,7 +76,8 @@ var profile_data = (function() {
             profile.job = job;
             profile.strength = strength;
 
-            //  FIXME Add Email, and set cookie
+            //  TODO  Ready to put data to back-end server.
+            //  FIXME Add Email
             $.ajax({
               url: 'https://baton-huner-restful-server.herokuapp.com/users/' + profile.email + '/modifystrength',
               method: 'POST',
@@ -84,17 +85,23 @@ var profile_data = (function() {
               dataType: 'json',
               data: JSON.stringify({strength: strength, role: job, category: category}),
               error: function(response) {
+                //  TODO  fail during access back-end server.
+                //  FIXME fail during access back-end server, need some error handling.
                 console.log('Error');
               },
               success: function(responseData, textStatus, jqXHR) {
+                //  TODO  Success, set cookie.
+                //  FIXME Set cookie
                 console.log('success');
-                window.location = PageConfig.personalPage();
               }
             }).done(function(data){
               if (!data) {
+                //  TODO  fail.
+                //  FIXME fail, do something.
                 console.log('create user error.');
               } else {
-                console.log('success, ready to redrict.');
+                //  TODO  success, ready to redrict.
+                window.location = PageConfig.personalPage();
               }
             });
         },

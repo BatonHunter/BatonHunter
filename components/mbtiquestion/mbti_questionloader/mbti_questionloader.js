@@ -79,7 +79,6 @@ var mbti_questionloader = (function() {
         }
 
         var result = mbti_data.getCharacter(type);
-
         profile_data.setMBTI(result.character, result.strength, result.category);
 
         $('#mbti_container').find('.row').hide();
@@ -90,17 +89,7 @@ var mbti_questionloader = (function() {
         $('#mbti_result_image').attr('src', result.picture);    
         $('#modal_mbti_result').off('hidden.bs.modal');
         $('#modal_mbti_result').on('hidden.bs.modal', function () {
-        
-        //  var defaultStrength = mbti_data.getDefaultStrengths(result.category);
-        //  console.log(defaultStrength);
-        //      //TEST
-        //      if(IS_TEST_MODE){
-        //          console.log('Test Finished.. Redirecting...');
-        //          test_idx = (test_idx+1) % mbti_data.getTotalCharacter();
-        //      }
-        //      
-        //      // jumps to personal page after then
-        //      window.location = PageConfig.personalPage();
+          window.location = PageConfig.personalPage();
         });
         $('#modal_mbti_result').modal();
     };

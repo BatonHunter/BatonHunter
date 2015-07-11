@@ -11,6 +11,7 @@ var profile_data = (function() {
         var fbID;
         var pic;
         var name;
+        var email;
         var job = -1;
         var strength = [];
 
@@ -25,8 +26,12 @@ var profile_data = (function() {
                 name = result.name;
                 job = result.job;
                 strength = result.strength;
+                email = result.email;
 
                 console.log()
+            },
+            getEmail: function() {
+                return email;
             },
             getUuid: function() {
                 return uuid;
@@ -53,6 +58,9 @@ var profile_data = (function() {
                 console.log(strength);
                 return strength;
             },
+            toCookieStr: function() {
+                return JSON.stringify(this);
+            }
         };
     })();
 
@@ -63,36 +71,21 @@ var profile_data = (function() {
             profile.fbID = fbID;
             profile.setPic("https://graph.facebook.com/" + fbID + "/picture?type=large");
         },
-        setMTBI: function(job,strength){
+        setMTBI: function(job, strength){
             profile.job = job;
             profile.strength = strength;
+            console.log(profile.toCookieStr());
+            document.cookie = profile.toCookieStr();
         },
         getPic: function() {
             return profile.getPic();
         },
+        getEmail: function() {
+            return profile.getEmail();
+        },
         getProfile: function(callback) {
-            $.ajax({
-              url: SERVER + API_USER,
-              type: 'GET',
-              dataType: 'JSONP',
-              contentType: 'application/json; charset=utf-8',
-              dataFilter:function(json){
-                console.log("dataFilter:"+json);
-                return json;
-               },
-              success:function(json,textStatus){
-                console.log('success');
-                console.log(json);
-                console.log(textStatus);
-              },
-              error:function(XMLHttpRequest,textStatus,errorThrown){
-                console.log('error');
-                console.log(XMLHttpRequest);
-                console.log('textStatus: '+textStatus);
-                console.log('errorThrown: '+errorThrown);
-              },
 
-            });
+            callback(profile);
         },
 
         getProfileFromServer: function(email, callback) {

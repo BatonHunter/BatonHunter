@@ -6,55 +6,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script src="../../assets/lib/js/jquery.js"></script>
 <script src="../../assets/lib/js/bootstrap.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://graves.cl/radar-chart-d3/src/radar-chart-min.js"></script>
+<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
 <!--stylesheets-->
 <link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="personal.css">
 </head>
 <body class="">
 
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class='navbar-brand' href='javascript:'>個人頁面</a>
+    </div>
+  </div>
+</nav>
+
 <div class="container-fluid">
     <div class="row">
       <div class="col-xs-6 text-center headpic"><img src="headpic.png" alt="Profile picture of this player"></div>
       <div class="col-xs-6 personal_attr">
         <p>姓名：冒險者</p>
-        <p>職業：星光舞者</p>
+        <p>角色：星光舞者</p>
         <p>稱號：初心學徒</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 text-center capability-radar" id="radar-chart"></div>
+      <div class="col-xs-12 text-center">
+        <div id="radar-chart"></div>
+      </div>
     </div>
     <div class="row">
-      <a class="btn btn-default col-xs-6 personal-btn-mobile" href="#" role="button">道具</a>
-      <a class="btn btn-default col-xs-6 personal-btn-mobile" href="#" role="button">卡片</a>
+      <a class="btn btn-default col-xs-6 disabled" href="#" role="button">道具</a>
+      <a class="btn btn-default col-xs-6 disabled" href="#" role="button">卡片</a>
     </div>
     <div class="row">
-      <a class="btn btn-default col-xs-6 personal-btn-mobile" href="#" role="button">天賦轉職</a>
-      <a class="btn btn-default col-xs-6 personal-btn-mobile" href="#" role="button">能力配置</a>
+      <a class="btn btn-default col-xs-6 disabled" href="#" role="button">天賦轉職</a>
+      <a class="btn btn-default col-xs-6 disabled" href="#" role="button">能力配置</a>
     </div>
     <div class="row">
     </div>
 </div>
 
 <script>
-var d = [
-    [
-      {axis: "行動力", value: 13},
-      {axis: "好奇心", value: 3},
-      {axis: "知識力", value: 8},
-      {axis: "思考力", value: 4},
-      {axis: "語文力", value: 9},
-      {axis: "人際力", value: 3},
-      {axis: "肢體力", value: 6},
-      {axis: "音樂力", value: 8}
-    ]
-];
+var myChart = echarts.init(document.getElementById('radar-chart'));
 
-RadarChart.draw("#radar-chart", d);
+option = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    polar: [
+       {
+           indicator: [
+               { text: '行動力', max: 60},
+               { text: '好奇心', max: 60},
+               { text: '知識力', max: 60},
+               { text: '思考力', max: 60},
+               { text: '語文力', max: 60},
+               { text: '人際力', max: 60},
+               { text: '肢體力', max: 60},
+               { text: '音樂力', max: 60}
+            ]
+        }
+    ],
+    calculable: true,
+    series: [
+        {
+            type: 'radar',
+            data : [
+                {
+                    value: [50, 40, 10, 20, 30, 25, 35, 45],
+                    name: '能力',
+                }
+            ]
+        }
+    ]
+};
+
+myChart.setOption(option);
 </script>
 
+<nav class="navbar navbar-default navbar-static-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default active' href='javascript:'>個人</a>
+    <a class='btn btn-default' href='javascript:'>職業</a>
+    <a class='btn btn-default' href='javascript:'>設定</a>
+  </div>
+</nav>
 </body>
 </html>
 

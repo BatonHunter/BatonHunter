@@ -165,3 +165,36 @@ body {
 
 .slots .slot img {
 }
+
+/**
+* Modify the dDialog.modal
+*/
+
+.modal {
+  text-align: center;
+}
+
+.modal:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: " ";
+  height: 100%;
+}
+
+.modal-dialog {
+  display: inline-block;
+  /*text-align: left;*/
+  width: 60%;
+  vertical-align: middle;
+}
+
+.modal-content {
+  height: 201px;
+}
+
+.modal-body {
+  position: relative;
+  padding: 35px;
+  padding-top: 48px;
+  font-size: 35px;
+}

@@ -37,8 +37,27 @@ $(document).ready(function() {
         }
     });
 });
+
 var showDialog = function(item) {
+    var dDialog = $('#myModal');
+    
     dDialog.find('.modal-body').text(item);
+
+    var showDialogText; 
+
+    switch (item) {
+        case "獲得道具":
+            showDialogText = "pic1";
+            break;
+        case "大怪來襲":
+            showDialogText = "pic2";
+            break;
+        case "小怪來襲":
+            showDialogText = "pic3";
+            break;
+    }
+
+    console.log(showDialogText);
 }
 
 var saveResult = function(item) {
@@ -47,21 +66,23 @@ var saveResult = function(item) {
 
 var onResult = function(res) {
     var dDialog = $('#myModal');
+
     dDialog.modal({
-        backdrop: false,
+        backdrop: true,
         keyboard: false,
         show: true
     });
+
     if (res[0] === res[1] && res[1] === res[2]) {
         if (res[0] === 0) {
-            showDialog("道具");
-            saveResult("道具");
+            showDialog("獲得道具");
+            saveResult("獲得道具");
         } else {
-            showDialog("大怪");
-            saveResult("大怪");
+            showDialog("大怪來襲");
+            saveResult("大怪來襲");
         }
     } else {
-        showDialog("小怪");
-        saveResult("小怪");
+        showDialog("小怪來襲");
+        saveResult("小怪來襲");
     }
 }

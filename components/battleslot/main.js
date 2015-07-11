@@ -42,7 +42,24 @@ var showDialog = function(item) {
 }
 
 var saveResult = function(item) {
-    
+    var treasure = "";
+    var monster = "";
+    if(item.indexOf('道具')){
+        treasure = item;
+    }else{
+        monster = item;
+    }
+    $.ajax({
+        method: "POST",
+        url: "/saveSlotResult",
+        data: {
+            treasure: treasure,
+            monster: treasure
+        }
+    })
+    .done(function(msg) {
+        window.href('/battlepage.html');
+    });
 }
 
 var onResult = function(res) {

@@ -65,6 +65,10 @@ SlotMachine.prototype.initTrigger = function () {
   var selector = params.trigger;
 
   var trigger = self.trigger = $(selector).click(function () {
+    if($(this).hasClass('disable')){
+      return;
+    }
+    $(this).addClass('disable');
     self.shuffle(params.onCompleted);
     trigger.addClass('clicked');
     setTimeout(function() {

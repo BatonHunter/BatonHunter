@@ -44,17 +44,24 @@ $(document).ready(function() {
         }],
         onCompleted: function(res) {
             // index start from 0
-            onResult(res);
+            // onResult(res);
+            var temp = $('.userLive').text();
+            temp = temp-1;
+            $('.userLive').text(temp);
+            if( temp == 0){
+                $('#slotArm').prop('disabled', true);
+            } 
+            $('#slotArm').removeClass('disable');
             console.log(res);
         }
     });
 
     $('.fightBoss').click(function() {
-        window.href('/battlepage.html');
+        window.href('/battlepage.html' + "?monster=Boss");
     })
 
     $('.trainingRoom').click(function() {
-        window.href('/trainingRoom.html' + "?=Boss");
+        window.href('/trainingRoom.html');
     })
 });
 
@@ -95,21 +102,23 @@ var showDialog = function(item) {
 var saveResult = function(item) {
     var treasure = "";
     var monster = "";
-    if (item.indexOf('道具')) {
+    if (item.indexOf('獲得道具')) {
         treasure = item;
-    } else {
-        monster = item;
+    } else if(item.indexOf('小')){
+        monster = "little";
+    }else{
+        monster = "big";
     }
     $.ajax({
             method: "POST",
             url: "/saveSlotResult",
             data: {
-                treasure: treasure,
-                monster: treasure
+                userEmail:$.cookie('userInfo'),
+                treasure: treasure
             }
         })
         .done(function(msg) {
-            window.href('/battlepage.html');
+            window.href('/battlepage.html' + "?monster=" + monster);
         });
 }
 

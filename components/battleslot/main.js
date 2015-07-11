@@ -44,14 +44,7 @@ $(document).ready(function() {
         }],
         onCompleted: function(res) {
             // index start from 0
-            // onResult(res);
-            var temp = $('.userLive').text();
-            temp = temp-1;
-            $('.userLive').text(temp);
-            if( temp == 0){
-                $('#slotArm').prop('disabled', true);
-            } 
-            $('#slotArm').removeClass('disable');
+            onResult(res);
             console.log(res);
         }
     });
@@ -65,6 +58,15 @@ $(document).ready(function() {
     })
 });
 
+var countDownAP = function(){
+    var temp = $('.userLive').text();
+    temp = temp-1;
+    $('.userLive').text(temp);
+    if( temp == 0){
+        $('#slotArm').prop('disabled', true);
+    } 
+    $('#slotArm').removeClass('disable');
+}
 
 var getUserStatus = function() {
     $.ajax({
@@ -132,7 +134,8 @@ var onResult = function(res) {
         keyboard: false,
         show: true
     });
-
+    
+    countDownAP();
     if (res[0] === res[1] && res[1] === res[2]) {
         if (res[0] === 0) {
             showDialog("獲得道具");

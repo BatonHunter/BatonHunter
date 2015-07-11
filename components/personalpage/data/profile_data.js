@@ -76,27 +76,27 @@ var profile_data = (function() {
             profile.job = job;
             profile.strength = strength;
 
-          //  FIXME Add Email, and set cookie
-          $.ajax({
-            url: 'https://baton-huner-restful-server.herokuapp.com/users/' + profile.email + '/modifystrength',
-            method: 'POST',
-            crossDomain: true,
-            dataType: 'json',
-            data: JSON.stringify({strength: strength, job: job, category: category}),
-            error: function(response) {
-              console.log('Error');
-            },
-            success: function(responseData, textStatus, jqXHR) {
-              console.log('success');
-              window.location = PageConfig.personalPage();
-            }
-          }).done(function(data){
-            if (!data) {
-              console.log('create user error.');
-            } else {
-              console.log('success, ready to redrict.');
-            }
-          });
+            //  FIXME Add Email, and set cookie
+            $.ajax({
+              url: 'https://baton-huner-restful-server.herokuapp.com/users/' + profile.email + '/modifystrength',
+              method: 'POST',
+              crossDomain: true,
+              dataType: 'json',
+              data: JSON.stringify({strength: strength, role: job, category: category}),
+              error: function(response) {
+                console.log('Error');
+              },
+              success: function(responseData, textStatus, jqXHR) {
+                console.log('success');
+                window.location = PageConfig.personalPage();
+              }
+            }).done(function(data){
+              if (!data) {
+                console.log('create user error.');
+              } else {
+                console.log('success, ready to redrict.');
+              }
+            });
         },
         getPic: function() {
             return profile.getPic();

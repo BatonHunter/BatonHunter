@@ -188,6 +188,52 @@ width: 30px;
 .slots .slot img {
 }
 
+/**
+* Modify the dDialog.modal
+*/
+
+.modal {
+  text-align: center;
+}
+
+.modal:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: " ";
+  height: 100%;
+}
+
+.modal-dialog {
+  display: inline-block;
+  /*text-align: left;*/
+  width: 200px;
+  vertical-align: middle;
+}
+
+.modal-content {
+  height: 145px;
+  position: absolute;
+  z-index: 50;
+}
+
+#monsterPic {
+  position: absolute;
+  margin-top: -130px;
+  padding-left: 25px;
+  z-index: 51;
+}
+
+.modal-body {
+  position: relative;
+  padding: 35px;
+  padding-top: 28px;
+  font-size: 30px;
+}
+
+.modal-header .close {
+  margin-top: -10px;
+}
+
 .functionBar{
     margin-top: 20px;
     width: 100%;
@@ -196,3 +242,4 @@ width: 30px;
 .functionBar button{
     margin:0 25px;
 }
+

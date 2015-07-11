@@ -65,6 +65,7 @@ $(document).ready(function() {
     })
 });
 
+
 var getUserStatus = function() {
     $.ajax({
         method: "POST",
@@ -84,19 +85,20 @@ var getUserStatus = function() {
 var showDialog = function(item) {
     var dDialog = $('#myModal');
     dDialog.find('.modal-body').text(item);
-    var showDialogText;
+    var dMonsterImg = $('#monsterImg');
+
     switch (item) {
         case "獲得道具":
-            showDialogText = "pic1";
+            dMonsterImg.attr("src","img/treasure_box.png");
             break;
         case "大怪來襲":
-            showDialogText = "pic2";
+            dMonsterImg.attr("src","img/big_monster.png");
             break;
         case "小怪來襲":
-            showDialogText = "pic3";
+            dMonsterImg.attr("src","img/small_monster.png");
             break;
     }
-    console.log(showDialogText);
+
 }
 
 var saveResult = function(item) {
@@ -124,11 +126,13 @@ var saveResult = function(item) {
 
 var onResult = function(res) {
     var dDialog = $('#myModal');
+
     dDialog.modal({
-        backdrop: false,
+        backdrop: true,
         keyboard: false,
         show: true
     });
+
     if (res[0] === res[1] && res[1] === res[2]) {
         if (res[0] === 0) {
             showDialog("獲得道具");

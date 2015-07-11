@@ -205,7 +205,7 @@ width: 30px;
 .modal-dialog {
   display: inline-block;
   /*text-align: left;*/
-  width: 60%;
+  width: 200px;
   vertical-align: middle;
 }
 

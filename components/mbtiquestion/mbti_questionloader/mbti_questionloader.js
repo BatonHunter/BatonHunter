@@ -47,7 +47,7 @@ var mbti_questionloader = (function() {
                 case 2:
                     alert('アホ、答えを選択してください！');
                     break;
-                case 3: 
+                case 3:
                     alert('เลือกคำตอบงี่เง่า !!');
                     break;
                 case 4:
@@ -56,7 +56,7 @@ var mbti_questionloader = (function() {
                 case 5:
                     alert('Elija una respuesta, idiota !!');
                     break;
-            }         
+            }
             return;
         }
         score[current_question.ans_A] += (5 - scoreTmp);
@@ -73,32 +73,23 @@ var mbti_questionloader = (function() {
         type += (score.T>score.F)?'T':'F';
         type += (score.P>score.J)?'P':'J';
 
-        //TEST
+        //  TEST
         if(IS_TEST_MODE){
-            //console.log("test_idx: "+test_idx);
             type = mbti_data.getTypeByIdx(test_idx);
-            //console.log("type: "+type);
         }
 
         var result = mbti_data.getCharacter(type);
+
+        Profile.setMBTI(result.character, result.strength, result.category);
+
         $('#mbti_container').find('.row').hide();
         $('#mbti_result_title').text(result.character+' (' + type + ')');
         $('#mbti_result_type').text(result.style);
         $('#mbti_result_value').text(result.value);
         $('#mbti_result_capability').text(result.capability);
-        $('#mbti_result_image').attr('src', result.picture);    
+        $('#mbti_result_image').attr('src', result.picture);
         $('#modal_mbti_result').off('hidden.bs.modal');
         $('#modal_mbti_result').on('hidden.bs.modal', function () {
-        
-        var defaultStrength = mbti_data.getDefaultStrengths(result.category);
-        console.log(defaultStrength);
-            //TEST
-            if(IS_TEST_MODE){
-                console.log('Test Finished.. Redirecting...');
-                test_idx = (test_idx+1) % mbti_data.getTotalCharacter();
-            }
-            
-            // jumps to personal page after then
             window.location = PageConfig.personalPage();
         });
         $('#modal_mbti_result').modal();
@@ -106,10 +97,10 @@ var mbti_questionloader = (function() {
 
     var loadQuestion = function(question_id) {
         current_question = mbti_data.getQuestion(question_id);
-	    current_dom_id.find('#mbti_title').text(current_question.title);
-        current_dom_id.find('#mbti_content').text(current_question.content); 
-	    current_dom_id.find('input').each(function(){
-	    });
+        current_dom_id.find('#mbti_title').text(current_question.title);
+        current_dom_id.find('#mbti_content').text(current_question.content);
+        current_dom_id.find('input').each(function(){
+        });
     };
 
     var go_next = function(){
@@ -118,7 +109,7 @@ var mbti_questionloader = (function() {
             setTimeout(function() {
                 current_dom_id.hide();
                 setTimeout(function() {
-                    loadQuestion(current_question.id + 1);            
+                    loadQuestion(current_question.id + 1);
                     current_dom_id.show();
                 }, 300);
             }, 100);
@@ -131,7 +122,7 @@ var mbti_questionloader = (function() {
 
     return {
         start: function(dom_id){
-            current_dom_id = $(dom_id);           
+            current_dom_id = $(dom_id);
             current_dom_id.find('#btn_mbti_continue').on("click", function() {
                 checkAnswer();
             });
@@ -139,3 +130,14 @@ var mbti_questionloader = (function() {
         }
     };
 })();
+
+$(document).ready(function() {
+    $(document).keypress(function(e) {
+        var SPACE_KEY = 32;
+        var ENTER_KEY = 13;
+
+        if (e.which === SPACE_KEY || e.which === ENTER_KEY) {
+            $('#btn_mbti_continue').click();
+        }
+    });
+});

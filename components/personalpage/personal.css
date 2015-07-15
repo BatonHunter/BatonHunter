@@ -1,5 +1,7 @@
 body {
 	background-color: #fff;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .no-bottom-margin {
@@ -36,12 +38,14 @@ body {
   width: 100%;
 }
 
-.capability-radar img {
-  width: 100%;
-}
-
 .personal-btn-mobile {
   background-color: red;
   color: white;
 }
 
+#radar-chart {
+  min-height: 200px;
+  max-height: 300px;
+  max-width: 300px;
+  margin: auto;
+}

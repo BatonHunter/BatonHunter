@@ -174,8 +174,28 @@ var question = (function() {
 })();
 
 return {
-    getMonster: function() {
-        return monster;
+    getMonster: function(Monster) {
+        var img_path = 'assets/img/avatar';
+        var hp;
+
+        if (Monster=="boss") {
+            hp=1000;
+        }else if (Monster=="big") {
+            hp=100;
+        }else if (Monster=="little") {
+            hp=10;
+        }
+        
+        return {
+            getImg_path: function() {
+                return img_path;
+            },
+
+            getHp: function() {
+                console.log(hp);
+                return hp;
+            }
+        }
     },
     getPlayer: function() {
         return player;

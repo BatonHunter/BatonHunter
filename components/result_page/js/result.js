@@ -1,24 +1,21 @@
-function callResultPage(isWin, timeCost){
-	if(typeof(Storage) !== "undefined"){
-		//cache[Cloud Lin]: for total fighting time storage
-		localStorage.timeCost = timeCost;
-		if(isWin){
-			location.href = "layout/win.html"; 
-		}else{
-			location.href = "layout/lose.html";
-		}
-	}else {
-		alert("Sorry! No Web Storage support..");
-	}
-}
+jQuery(function($){
+  $(document).ready(function(){
+    var isWin = true;
+    var isLvUp = true;
+    var money = 1000;
+    var exp = 350;
+    //  TODO  自cookie獲得經驗值,金錢和是否升級資料
+    $("#money").text(money);
+    $("#exp").text(exp);
+    //  TODO  根據是否升級的資料顯示升級的畫面,同時升級畫面中也顯示社群分享按鈕
+    if (isLvUp) {
+      $('#modal_fight_result').modal();
+    }
 
-function loadResultValues(){
-	//TODO [Cloud Lin] , 暫時用random
-	var money = (parseInt(Math.random() * 5000) + 1000);
-	var exp = (parseInt(Math.random() * 5000) + 321);
-	var score = (parseInt(Math.random() * 10000) + 1000);
-	$("#time").text(localStorage.timeCost);
-	$("#money").text(money);
-	$("#exp").text(exp);
-	$("#score").text(score);
-}
+    //  TODO  將畫面傳導到拉霸機畫面
+    $('p.btn').click(function(){
+      //  FIXME  加上拉霸機的畫面
+      location.href = '';
+    });
+  });
+});

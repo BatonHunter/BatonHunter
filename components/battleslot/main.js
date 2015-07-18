@@ -15,8 +15,12 @@ $(document).ready(function() {
         expires: date
     });
 
-    // getUserStatus();
-    $('.fightBoss').prop('disabled', true);
+    var userData = getUserStatus();
+    if(userData.userPoint >= 50) {
+        $('.fightBoss').prop('disabled', false);
+    }else{
+        $('.fightBoss').prop('disabled', true);   
+    }
 
     window.machine = new SlotMachine({
         trigger: '#slotArm',
@@ -50,31 +54,39 @@ $(document).ready(function() {
     });
 
     $('.fightBoss').click(function() {
-        window.href('/battlepage.html' + "?monster=Boss");
+        window.href('/battlepage.html' + "?monster=boss");
     })
 
     $('.trainingRoom').click(function() {
         window.href('/trainingRoom.html');
     })
+
+    $('#slotArm').click(function(e){
+
+    })
 });
 
 var countDownAP = function(){
-    var temp = $('.userLive').text();
-    temp = temp-1;
-    $('.userLive').text(temp);
-    if( temp == 0){
-        $('#slotArm').prop('disabled', true);
+    var tempLive = $('.userLive').text();
+    tempLive = tempLive - 1;
+    $('.userLive').text(tempLive);
+    if( tempLive == 5){
+        // $('#slotArm').prop('disabled', true);
     } 
     $('#slotArm').removeClass('disable');
 }
 
 var getUserStatus = function() {
+    var userLive,userPoint,userMoney;
     $.ajax({
         method: "POST",
         url: "/getUserStatus",
         data: $.cookie('userInfo')
     })
     .done(function(data) {
+        userLive = data.userLive;
+        userPoint= data.userPoint
+        userMoney = data.userMoney;
         $('.userLive').text(data.userLive);
         $('.userPoint').text(data.userPoint);
         $('.userMoney').text(data.userMoney);
@@ -82,6 +94,12 @@ var getUserStatus = function() {
             $('.fightBoss').prop('disabled', true);
         }
     });
+
+    return{
+        userLive:userLive,
+        userPoint:userPoint,
+        userMoney:userMoney
+    }
 }
 
 var showDialog = function(item) {
@@ -98,6 +116,8 @@ var showDialog = function(item) {
             break;
         case "小怪來襲":
             dMonsterImg.attr("src","img/small_monster.png");
+            break;
+        default:
             break;
     }
 
@@ -134,8 +154,8 @@ var onResult = function(res) {
         keyboard: false,
         show: true
     });
-    
     countDownAP();
+
     if (res[0] === res[1] && res[1] === res[2]) {
         if (res[0] === 0) {
             showDialog("獲得道具");

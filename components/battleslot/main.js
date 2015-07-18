@@ -130,7 +130,6 @@ var showDialog = function(item) {
             dMonsterImg.attr("src","");
             break;
     }
-
 }
 
 var saveResult = function(item) {
@@ -152,7 +151,9 @@ var saveResult = function(item) {
             }
         })
         .done(function(msg) {
-            window.href('/battlepage.html' + "?monster=" + monster);
+            setTimeout(function() {
+                window.href('/battlepage.html' + "?monster=" + monster);
+            }, 1000);
         });
 }
 

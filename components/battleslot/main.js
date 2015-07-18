@@ -54,7 +54,10 @@ $(document).ready(function() {
         isShuffable: function () {
             var tempLive = $('.userLive').text();
             if (tempLive == 0) {
-                showDialog("體力不足喔")
+                showDialog("體力不足\n晚點再來")
+                setTimeout(function() {
+                    $('#myModal').modal('hide');
+                }, 1000);
                 return false;
             }
             return true;
@@ -62,11 +65,11 @@ $(document).ready(function() {
     });
 
     $('.fightBoss').click(function() {
-        window.href('/battlepage.html' + "?monster=boss");
+        window.location.href = '../../battlepage.html' + "?monster=boss";
     })
 
     $('.trainingRoom').click(function() {
-        window.href('/trainingRoom.html');
+        window.location.href = '/trainingRoom.html';
     })
 });
 
@@ -109,7 +112,7 @@ var showDialog = function(item) {
     var dDialog = $('#myModal');
 
     dDialog.modal({
-        backdrop: true,
+        backdrop: false,
         keyboard: false,
         show: true
     });
@@ -142,19 +145,19 @@ var saveResult = function(item) {
     }else{
         monster = "big";
     }
-    $.ajax({
-            method: "POST",
-            url: "/saveSlotResult",
-            data: {
-                userEmail:$.cookie('userInfo'),
-                treasure: treasure
-            }
-        })
-        .done(function(msg) {
+    // $.ajax({
+    //         method: "POST",
+    //         url: "/saveSlotResult",
+    //         data: {
+    //             userEmail:$.cookie('userInfo'),
+    //             treasure: treasure
+    //         }
+    //     })
+    //     .done(function(msg) {
             setTimeout(function() {
-                window.href('/battlepage.html' + "?monster=" + monster);
+                window.location.href = '../../battlepage.html' + "?monster=" + monster;
             }, 1000);
-        });
+        // });
 }
 
 var onResult = function(res) {

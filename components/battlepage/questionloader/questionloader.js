@@ -33,11 +33,13 @@ var QuestionLoader = (function() {
             }, 1000);
         }
         else {
-            if(is_correct) { 
-                battle_data.getQuestion().removeUsedQustion(current_question);
-                setTimeout(function() {
-                    loadNextQuestion(dom_id);
-                }, 1000);
+            if(is_correct) {     
+                window.location.href ="trainingRoom.html";
+
+                // battle_data.getQuestion().removeUsedQustion(current_question);
+                // setTimeout(function() {
+                //     loadNextQuestion(dom_id);
+                // }, 1000);
             }
             else {
                 keepAnswering();

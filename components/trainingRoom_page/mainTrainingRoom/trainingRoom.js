@@ -52,7 +52,6 @@
         var trainQuestions = [];
 	    change_my_url();
         window.location.href ="battlepage.html?train=1";
-        battle_data.setQuestion();
     });
 
 })();

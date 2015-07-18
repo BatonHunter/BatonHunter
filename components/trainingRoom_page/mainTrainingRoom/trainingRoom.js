@@ -13,7 +13,6 @@
     });
 
 
-
     $(document).on("click", "#tutorials li", function() {
         var tutorialId = $(this).data('id');
         var tutorial = training_datas.getData(tutorialId);
@@ -36,13 +35,7 @@
         $("#dialog").dialog("open");
     });
 
-    var stateObj = { foo: "bar" };
-    function change_my_url()
-    {
-	    history.pushState(stateObj, "page 2", "battlepage.html");
-    }
-
-     $(document).on("click","#EnterBattle",function(){
+    $(document).on("click","#EnterBattle",function(){
          //[Cloud_Lin] 把e-mail、職業、QuestionId存成JSON, 送到後端去
         var objToSend = {
             player_email : Cookies.get('player_email'),
@@ -52,8 +45,8 @@
         ///////////////////////////////////////////////////////////    
         var trainQuestions = [];
 	    change_my_url();
-        window.location.href ="battlepage.html";
+        window.location.href ="battlepage.html?train=true";
         battle_data.setQuestion();
-     });
+    });
 
 })();

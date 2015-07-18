@@ -82,7 +82,7 @@ var battle_data = (function() {
                 quantity: 3
             };
             var star = 3;
-            var hp = 10;
+            var hp = 100;
             return {
                 getStar: function() {
                     return star;

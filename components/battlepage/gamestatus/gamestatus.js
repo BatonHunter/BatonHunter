@@ -25,8 +25,7 @@ function GameStatus(){
     var chkStatus = function(hpObj){
      
         if (hpObj.isDead()) {
-            if (hpObj.$element.attr('id') === "user-hp") {
-                
+            if (hpObj.$element.attr('id') === "user-hp") {    
                 //this.lose();
                 return 2;                
             } else {
@@ -68,4 +67,3 @@ function GameStatus(){
     };
 };
 
-var gameStatus = new GameStatus();

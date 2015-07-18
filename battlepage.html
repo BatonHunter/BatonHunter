@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="components/battlepage/hpbar/hp.css" />
     <link rel="stylesheet" href="components/battlepage/linklinkseequestion/semantic.css" />
     <link rel="stylesheet" href="components/battlepage/linklinkseequestion/linklinkseeQuestion.css" />
-
+    <link rel="stylesheet" href="components/battleslot/css/style.css">
   </head>
 
   <body>
@@ -69,6 +69,36 @@
       <div id="showme">
         <span id="hint-timer"></span>
         <p class="tips"></p>
+      </div>
+    </div>
+
+    <!-- TODO: 重構css -->
+    <div class="modal fade" id="winModal">
+      <div class="modal-dialog">
+        <div id="monsterPic">
+          <img id="monsterImg" src="components/battleslot/img/treasure_box.png" alt="">
+        </div>
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            戰鬥勝利
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="loseModal">
+      <div class="modal-dialog">
+        <div id="monsterPic">
+          <img id="monsterImg" src="components/battleslot/img/treasure_box.png" alt="">
+        </div>
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            戰鬥失敗
+          </div>
+        </div>
       </div>
     </div>
     <!--libs-->

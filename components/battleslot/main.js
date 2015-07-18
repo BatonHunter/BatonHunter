@@ -50,6 +50,14 @@ $(document).ready(function() {
             // index start from 0
             onResult(res);
             console.log(res);
+        },
+        isShuffable: function () {
+            var tempLive = $('.userLive').text();
+            if (tempLive == 0) {
+                showDialog("體力不足喔")
+                return false;
+            }
+            return true;
         }
     });
 
@@ -60,20 +68,15 @@ $(document).ready(function() {
     $('.trainingRoom').click(function() {
         window.href('/trainingRoom.html');
     })
-
-    $('#slotArm').click(function(e){
-
-    })
 });
 
 var countDownAP = function(){
     var tempLive = $('.userLive').text();
     tempLive = tempLive - 1;
     $('.userLive').text(tempLive);
-    if( tempLive == 5){
+    if( tempLive == 0){
         // $('#slotArm').prop('disabled', true);
     } 
-    $('#slotArm').removeClass('disable');
 }
 
 var getUserStatus = function() {
@@ -104,6 +107,12 @@ var getUserStatus = function() {
 
 var showDialog = function(item) {
     var dDialog = $('#myModal');
+
+    dDialog.modal({
+        backdrop: true,
+        keyboard: false,
+        show: true
+    });
     dDialog.find('.modal-body').text(item);
     var dMonsterImg = $('#monsterImg');
 
@@ -118,6 +127,7 @@ var showDialog = function(item) {
             dMonsterImg.attr("src","img/small_monster.png");
             break;
         default:
+            dMonsterImg.attr("src","");
             break;
     }
 
@@ -147,13 +157,6 @@ var saveResult = function(item) {
 }
 
 var onResult = function(res) {
-    var dDialog = $('#myModal');
-
-    dDialog.modal({
-        backdrop: true,
-        keyboard: false,
-        show: true
-    });
     countDownAP();
 
     if (res[0] === res[1] && res[1] === res[2]) {

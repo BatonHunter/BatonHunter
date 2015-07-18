@@ -65,16 +65,31 @@ SlotMachine.prototype.initTrigger = function () {
   var selector = params.trigger;
 
   var trigger = self.trigger = $(selector).click(function () {
-    if($(this).hasClass('disable')){
+    if(trigger.hasClass('disable')){
       return;
     }
-    $(this).addClass('disable');
-    self.shuffle(params.onCompleted);
+    trigger.addClass('disable');
+
+    if (params.isShuffable()){
+      self.shuffle(params.onCompleted);
+      trigger.removeClass('disable');
+    }else{
+      trigger.removeClass('disable');
+    }
+
     trigger.addClass('clicked');
     setTimeout(function() {
       trigger.removeClass('clicked');
     }, 500);
+
   });
+  return self;
+};
+
+
+SlotMachine.prototype.triggerSlot = function () {
+  var self     = this;
+  self.shuffle(params.onCompleted);
   return self;
 };
 

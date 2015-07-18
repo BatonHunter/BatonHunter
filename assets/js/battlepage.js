@@ -3,7 +3,6 @@
 var userHP;
 var enemyHP;
 var battleTimer;
-var gameStatus = new GameStatus();
 
 $(document).ready(function() {
 
@@ -21,7 +20,6 @@ $(document).ready(function() {
         battleTimer = Object.create(batontimer);
         battleTimer.setUpClock('#counter', 20, 'red', 'circle', function() {
             userHP.modifyHP(-50, 1);
-            gameStatus.changeBattleStatus(userHP);
         });
         battleTimer.reset();
         battleTimer.start();

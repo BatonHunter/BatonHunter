@@ -5,13 +5,15 @@
   width: 100%;
 }
 
+.careers .role-col {
+  padding: 5px;
+}
+
 .careers .role {
   color: rgba(0, 0, 0, .5);
   border: 5px dashed rgba(0, 0, 0, .5);
-  height: 100%;
-  margin: 10px;
+  min-height: 300px;
   text-align: center;
-  width: 30%;
 }
 
 .careers .role:hover {
@@ -31,7 +33,7 @@
 
 .careers footer {
   bottom: 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }
 

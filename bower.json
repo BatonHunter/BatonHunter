@@ -21,7 +21,10 @@
     "font-awesome": "~4.3.0",
     "odometer": "~0.4.7",
     "bootstrap": "~3.3.4",
-    "jquery-validation": "~1.13.1"
+    "jquery-validation": "~1.13.1",
+    "js-cookie": "~2.0.1",
+    "jquery-slotmachine": "~2.0.9",
+    "jquery.cookie": "~1.4.1"
   },
   "overrides": {
     "fancybox": {
@@ -46,6 +49,9 @@
         "dist/fonts/glyphicons-halflings-regular.woff",
         "dist/fonts/glyphicons-halflings-regular.woff2"
       ]
+    },
+    "jquery-slotmachine": {
+      "main": "dist/jquery.slotmachine.min.js"
     }
   }
 }

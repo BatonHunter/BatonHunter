@@ -72,10 +72,23 @@ HP.prototype.isFull = function() {
     return (this.currentHP >= this.maxHP);
 };
 
+//TODO: 將battlepage跟simplebattlepage合併後重構
 HP.prototype.win = function() {
-    window.location.href="./components/result_page/win.html";
+    $('#winModal').modal('show');
+    $('#winModal').on('hidden.bs.modal', function (e) {
+        window.location.href="./components/result_page/win.html";
+    });
+    setTimeout(function() {
+        window.location.href="./components/result_page/win.html";
+    }, 2000);
 };
 
 HP.prototype.lose = function() {
-    window.location.href="./components/result_page/lose.html";
+    $('#loseModal').modal('show');
+    $('#loseModal').on('hidden.bs.modal', function (e) {
+        window.location.href="./components/result_page/lose.html";
+    });
+    setTimeout(function() {
+        window.location.href="./components/result_page/lose.html";
+    }, 2000);
 };

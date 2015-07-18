@@ -11,11 +11,10 @@
     <link rel="stylesheet" href="assets/lib/css/jquery.fancybox.css" />
     <!--customs-->
     <link rel="stylesheet" href="assets/stylesheet/battlepage.css" />
-    <link rel="stylesheet" href="components/battlepage/luckystar/luckystar.css" />
     <link rel="stylesheet" href="components/battlepage/hpbar/hp.css" />
     <link rel="stylesheet" href="components/battlepage/linklinkseequestion/semantic.css" />
     <link rel="stylesheet" href="components/battlepage/linklinkseequestion/linklinkseeQuestion.css" />
-    <link rel="stylesheet" href="components/battleslot/css/style.css">
+
   </head>
 
   <body>
@@ -50,18 +49,8 @@
         <div id="counter" class="col-xs-2 col-sm-12">
         </div>
 
-        <div class="tools col-xs-10 col-sm-2 col-sm-push-10">
-          <ul>
-            <li>
-              <img id="luckystar" class="item" href="#showme" src="assets/img/luckystar.png" /><span id="luckyCount"></span>
-            </li>
-            <li>
-              <img id="herb" class="item" src="assets/img/potion.png" /><span id="herbsCount"></span>
-            </li>
-          </ul>
-        </div>
 
-        <div id="question" class="col-sm-10 col-sm-pull-2"></div>
+        <div id="question" class="col-sm-12 "></div>
       </section>
     </div>
 
@@ -69,36 +58,6 @@
       <div id="showme">
         <span id="hint-timer"></span>
         <p class="tips"></p>
-      </div>
-    </div>
-
-    <!-- TODO: 重構css -->
-    <div class="modal fade" id="winModal">
-      <div class="modal-dialog">
-        <div id="monsterPic">
-          <img id="monsterImg" src="components/battleslot/img/treasure_box.png" alt="">
-        </div>
-        <div class="modal-content">
-          <div class="modal-header">
-          </div>
-          <div class="modal-body">
-            戰鬥勝利
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="loseModal">
-      <div class="modal-dialog">
-        <div id="monsterPic">
-          <img id="monsterImg" src="components/battleslot/img/treasure_box.png" alt="">
-        </div>
-        <div class="modal-content">
-          <div class="modal-header">
-          </div>
-          <div class="modal-body">
-            戰鬥失敗
-          </div>
-        </div>
       </div>
     </div>
     <!--libs-->
@@ -112,8 +71,6 @@
     <script src="components/battlepage/data/battle_data.js"></script>
     <script src="components/battlepage/effect/battle_effect.js"></script>
     <script src="components/battlepage/effect/fighteffect.js"></script>
-    <script src="components/battlepage/batontimer/batontimer.js"></script>
-    <script src="components/battlepage/luckystar/luckystar.js"></script>
     <script src="components/battlepage/questionloader/questionloader.js"></script>
     <script src="components/battlepage/choicequestion/choicequestion.js"></script>
     <script src="components/battlepage/truefalsequestion/truefalseQuestion.js"></script>

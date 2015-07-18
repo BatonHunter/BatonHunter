@@ -7,6 +7,10 @@ var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
 var install = require('gulp-install');
 var rimraf = require('rimraf');
+var sass = require('gulp-sass');
+var minifyCss = require('gulp-minify-css');
+var concat = require('gulp-concat');
+var debug = require('gulp-debug');
 
 var js_dest_path = 'assets/lib/js';
 var css_dest_path = 'assets/lib/css';
@@ -14,7 +18,7 @@ var img_for_fancybox = 'assets/lib/css';
 var font_path = 'assets/lib/fonts';
 
 var jsFilter = gulpFilter('*.js');
-var cssFilter = gulpFilter(['*.css', '*.css.map']);
+var cssFilter = gulpFilter(['*.css']);
 var imgFilter = gulpFilter(['*.gif', '*.png']);
 var fontFilter = gulpFilter(['*.eot', '*.svg', '*.ttf', '*.woff*']);
 
@@ -23,6 +27,13 @@ var files = [
   '!./node_modules/**',
   '!./bower_components/**'
 ];
+
+//Compile sass/scss To CSS
+gulp.task('styles',function(){
+    gulp.src('battleslot/style.{sass,scss}')
+    .pipe(sass())
+    .pipe(gulp.dest('battleslot'));
+});
 
 gulp.task('build', function(callback) {
     runSequence('clean', 'install', 'exportBowerFiles', callback);
@@ -47,8 +58,9 @@ gulp.task('exportBowerFiles', function() {
         .pipe(jsFilter.restore())
 
     .pipe(cssFilter)
+        .pipe(minifyCss())
         .pipe(gulp.dest(css_dest_path))
-        .pipe(jsFilter.restore())
+        .pipe(cssFilter.restore())
 
     .pipe(imgFilter)
         .pipe(gulp.dest(img_for_fancybox))

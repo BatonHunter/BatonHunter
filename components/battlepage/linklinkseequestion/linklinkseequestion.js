@@ -108,32 +108,15 @@ var linklinkseeQuestion = (function() {
         } else {
             alert("No");
         }
-        deductHp(is_correct);
-        battleTimer.reset();
-        battleTimer.start();
-    };
-
-    var deductHp = function(is_correct) {
-        if (is_correct) {
-            battle_effect.beatmonster('#enemy', battle_data.getMonster().getImg_path());
-            enemyHP.modifyHP(-50, 1);
-        } else {
-            userHP.modifyHP(-150, 1);
-        }
     };
 
     return {
         init: function(question, checkAnswer, dom_id) {
 
-
-
             q_view = dom_id.find("#linklinkquestion");
             setQuestion(question);
             q_view.find('#llkConfirmBtn').on("click", function() {
-                showResult(checkAnswer());
-                setTimeout(function() {
-                    QuestionLoader.loadQuestion(dom_id);
-                }, 1000);
+                showResult(checkAnswer("lls"));
             });
 
             draggableInit();

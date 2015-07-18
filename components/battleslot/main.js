@@ -54,7 +54,10 @@ $(document).ready(function() {
         isShuffable: function () {
             var tempLive = $('.userLive').text();
             if (tempLive == 0) {
-                showDialog("體力不足/n晚點再來")
+                showDialog("體力不足\n晚點再來")
+                setTimeout(function() {
+                    $('#myModal').modal('hide');
+                }, 1000);
                 return false;
             }
             return true;

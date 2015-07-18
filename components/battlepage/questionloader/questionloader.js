@@ -49,10 +49,10 @@ var QuestionLoader = (function() {
         return is_correct;
     }
 
-    var deductHp = function (type, is_correct){
+    var deductHp = function (is_correct){
         if(is_correct){
             battle_effect.beatmonster('#enemy', battle_data.getMonster().getImg_path());
-            // enemyHP.modifyHP(-200, 1);
+            enemyHP.modifyHP(-200, 1);
         } else{
             userHP.modifyHP(-50, 1);
         }

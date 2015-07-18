@@ -1,8 +1,6 @@
-<html>
-<head>
-<script>
-var urlParams;
-(window.onpopstate = function getPara() {
+var getPara=(function(){
+	var urlParams;
+    (window.onpopstate = function() {
     var match,
         pl     = /\+/g,  // Regex for replacing addition symbol with a space
         search = /([^&=]+)=?([^&]*)/g,
@@ -12,10 +10,13 @@ var urlParams;
     urlParams = {};
     while (match = search.exec(query))
        urlParams[decode(match[1])] = decode(match[2]);
-})();
-</script>
-</head>
-<body>
 
-</body>
-</html>
+	
+    })();
+
+    return{
+	    get:function(){
+            return urlParams;
+        }
+    }
+})();

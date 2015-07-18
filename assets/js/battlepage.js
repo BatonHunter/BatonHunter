@@ -7,8 +7,6 @@ var userHP;
 var enemyHP;
 var battleTimer;
 
-
-
 $(document).ready(function() {
     //fighting page countdown clock
     battleTimer = Object.create(batontimer);
@@ -25,9 +23,15 @@ $(document).ready(function() {
         $.fancybox.close();
     });
     luckystar.setFancybox('#luckystar', hintTimer, battleTimer, '#luckyCount');
+    //Handle paramater, usage: BatonHunter/battlepage.html?train=1
 
+    // BOSSparameter ===   Object {train: "1"}
+
+    
+    var BOSSparameter=getPara.get();
+    //
     userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"));
-    enemyHP = new HP(battle_data.getMonster().getHp(), $("#enemy-hp"));
+    enemyHP = new HP(battle_data.getMonster(BOSSparameter.monster).getHp(), $("#enemy-hp"));
 
     $('#herbsCount').text(' X ' + battle_data.getPlayer().getHerbQuantity());
     $('#herb').on("click", {

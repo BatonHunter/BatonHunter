@@ -12,15 +12,37 @@
 }
 
 .careers .role {
-  color: rgba(0, 0, 0, .5);
-  border: 5px dashed rgba(0, 0, 0, .5);
   height: 100%;
   text-align: center;
 }
 
-.careers .role:hover {
+.careers .role img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.careers .role .title {
+  bottom: 0px;
+  display: inline-block;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.careers .no-role {
+  color: rgba(0, 0, 0, .5);
+  border: 5px dashed rgba(0, 0, 0, .5);
+}
+
+.careers .no-role:hover {
   color: rgba(255, 255, 255, .5);
   border: 5px dashed rgba(255, 255, 255, .5);
+}
+.careers .no-role .title {
+  bottom: 20px;
 }
 
 .careers .role i {

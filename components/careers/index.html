@@ -8,8 +8,10 @@
     <script src="../../assets/lib/js/bootstrap.js"></script>
     <script src="../../assets/lib/js/jquery.validate.js"></script>
     <script src="../../assets/js/facebook.js"></script>
+    <script src="../../assets/js/cookie.js"></script>
     <script src="../config/server_config.js"></script>
     <script src="../config/page_config.js"></script>
+    <script src="../personalpage/data/profile_data.js"></script>
     <script src="careers.js"></script>
     <!--stylesheets-->
     <link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
@@ -25,31 +27,34 @@
     </header>
     <main class="container-fluid">
       <div class="col-xs-4 role-col">
-        <div class="role">
+        <div id="role-1" class="role no-role">
           <a href="select.html">
             <i class="fa fa-plus-circle"></i>
           </a>
+          <span class="title">尚未選擇</span>
         </div>
       </div>
       <div class="col-xs-4 role-col">
-        <div class="role">
+        <div id="role-2" class="role no-role">
           <a href="select.html">
             <i class="fa fa-plus-circle"></i>
           </a>
+          <span class="title">尚未選擇</span>
         </div>
       </div>
       <div class="col-xs-4 role-col">
-        <div class="role">
+        <div id="role-3" class="role no-role">
           <a href="select.html">
             <i class="fa fa-plus-circle"></i>
           </a>
+          <span class="title">尚未選擇</span>
         </div>
       </div>
     </main>
     <footer>
       <div class="btn-group btn-group-justified" role="group">
-        <a class="btn btn-default btn-lg">個人</a>
-        <a class="btn btn-default btn-lg active">職業</a>
+        <a class="btn btn-default btn-lg" href="../personalpage/personal_mobile.html">個人</a>
+        <a class="btn btn-default btn-lg active" href="./">職業</a>
         <a class="btn btn-default btn-lg">設定</a>
       </div>
     </footer>

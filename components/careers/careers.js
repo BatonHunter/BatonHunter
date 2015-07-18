@@ -26,6 +26,7 @@
 
     $roleDom.removeClass('no-role')
       .find('a')
+      .attr('href', '../../trainingRoom.html')
       .empty()
       .append($roleImg);
 

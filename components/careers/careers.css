@@ -63,4 +63,12 @@
 
 .careers .btn {
   border-radius: 0;
+  font-size: 12px;
+  padding: 10px 5px;
+}
+
+.careers .btn i {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
 }

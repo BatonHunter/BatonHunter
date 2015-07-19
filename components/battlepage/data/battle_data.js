@@ -1,6 +1,5 @@
 var battle_data = (function() {
 
-
     var player = (function() {
         var userName = "Ian";
         var jobs = [{
@@ -157,9 +156,32 @@ var battle_data = (function() {
 
     })();
 
+        
     return {
-        getMonster: function() {
-            return monster;
+        getMonster: function(Monster) {
+            var img_path = 'assets/img/avatar';
+            var hp;
+            var monsterType=Monster;
+            if (Monster=="boss") {
+                hp=1000;
+            }else if (Monster=="big") {
+                hp=100;
+            }else if (Monster=="little") {
+                hp=10;
+            }
+            
+            return {
+                getImg_path: function() {
+                    return img_path;
+                },
+                getHp: function() {
+                    console.log(hp);
+                    return hp;
+                },
+                getMonsterType: function() {
+                    return monsterType;
+                }
+            }
         },
         getPlayer: function() {
             return player;
@@ -171,39 +193,4 @@ var battle_data = (function() {
 
 })();
 
-
-return {
-    getMonster: function(Monster) {
-        var img_path = 'assets/img/avatar';
-        var hp;
-        var monsterType=Monster;
-        if (Monster=="boss") {
-            hp=1000;
-        }else if (Monster=="big") {
-            hp=100;
-        }else if (Monster=="little") {
-            hp=10;
-        }
-        
-        return {
-            getImg_path: function() {
-                return img_path;
-            },
-            getHp: function() {
-                console.log(hp);
-                return hp;
-            },
-            getMonsterType: function() {
-                return monsterType;
-            }
-        }
-    },
-    getPlayer: function() {
-        return player;
-    },
-    getQuestion: function() {
-        return question;
-    }
-};
-})();
 

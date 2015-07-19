@@ -11,4 +11,12 @@ Require:
 ```
 npm install
 gulp build
+
+
+********
+
+Remember remove "node_modules" and "bower_components" before you push!!!!!!!!
+
+
+********
 ```

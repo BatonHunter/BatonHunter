@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Class selection - BatonHunter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="../../assets/lib/js/jquery.js"></script>
+<script src="../../assets/lib/js/bootstrap.js"></script>
+<script src="../../assets/lib/js/transparency.js"></script>
+<script src="../../assets/js/cookie.js"></script>
+<script src="data/class_data.js"></script>
+<script src="modernizr.custom.js"></script>
+<script src="jquery.dlmenu.js"></script>
+<!--stylesheets-->
+<link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/class_selection.css">
+<link rel="stylesheet" type="text/css" href="css/component.css">
+</head>
+<body class="">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class='navbar-brand' href='javascript:'>職業選擇</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-3.jpg" alt="...">
+        <div class="carousel-caption">
+          Cat 1
+        </div>
+      </div>
+      <div class="item">
+        <img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-2.jpg" alt="...">
+        <div class="carousel-caption">
+          Cat 2
+        </div>
+      </div>
+      <div class="item">
+        <img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-17.jpg" alt="...">
+        <div class="carousel-caption">
+          Cat 3
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div id="batonhunter-dl-menu" class="dl-menuwrapper">
+    <ul id="batonhunter-job-categories" class="dl-menu dl-menuopen list-group">
+      <li class="job_category list-group-item">
+        <a class="category_name" href="#"></a>
+        <ul class="dl-submenu job_subcategories list-group">
+          <li class="job_sub_category list-group-item">
+            <a class="sub_category_name" href="#"></a>
+            <ul class="dl-submenu jobs list-group">
+              <li class="list-group-item"><a class="job_name" href="#"></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /dl-menuwrapper -->
+</div>
+
+<script>
+$(function () {
+  var job_categories_data = [
+    {
+      category_name: '人文及創作',
+      job_subcategories: [
+        {
+          sub_category_name: '器物工藝',
+          jobs: [
+            {
+              job_name: '職業1'
+            }, {
+              job_name: '職業2'
+            }, {
+              job_name: '職業3'
+            }
+          ]
+        }, {
+          sub_category_name: '戲劇電影',
+          jobs: [
+            {
+              job_name: '職業4'
+            }, {
+              job_name: '職業5'
+            }, {
+              job_name: '職業6'
+            }
+          ]
+        }, {
+          sub_category_name: '文字創作',
+          jobs: [
+            {
+              job_name: '職業10'
+            }, {
+              job_name: '職業11'
+            }, {
+              job_name: '職業12'
+            }
+          ]
+        }
+      ]
+    }, {
+      category_name: '軍警公教',
+      job_subcategories: [
+        {
+          sub_category_name: '小學教師',
+          jobs: [
+            {
+              job_name: '職業13'
+            }, {
+              job_name: '職業14'
+            }, {
+              job_name: '職業15'
+            }
+          ]
+        }, {
+          sub_category_name: '中學教師',
+          jobs: [
+            {
+              job_name: '職業16'
+            }, {
+              job_name: '職業17'
+            }, {
+              job_name: '職業18'
+            }
+          ]
+        }, {
+          sub_category_name: '大學教師',
+          jobs: [
+            {
+              job_name: '職業19'
+            }, {
+              job_name: '職業20'
+            }, {
+              job_name: '職業21'
+            }
+          ]
+        }
+      ]
+    }, {
+      category_name: '民生服務',
+      job_subcategories: [
+        {
+          sub_category_name: '旅遊休閒',
+          jobs: [
+            {
+              job_name: '職業22'
+            }, {
+              job_name: '職業23'
+            }, {
+              job_name: '職業24'
+            }
+          ]
+        }, {
+          sub_category_name: '人力仲介',
+          jobs: [
+            {
+              job_name: '職業25'
+            }, {
+              job_name: '職業26'
+            }, {
+              job_name: '職業27'
+            }
+          ]
+        }, {
+          sub_category_name: '照護安養',
+          jobs: [
+            {
+              job_name: '職業28'
+            }, {
+              job_name: '職業29'
+            }, {
+              job_name: '職業30'
+            }
+          ]
+        }
+      ]
+    }
+  ];
+
+  $('#batonhunter-job-categories').render(job_categories_data);
+
+  $('#batonhunter-dl-menu').dlmenu({
+    animationClasses: {
+      classin:  'dl-animate-in-2',
+      classout: 'dl-animate-out-2'
+    }
+  });
+
+  //ClassData.getCategory().forEach(function () {
+  //});
+});
+</script>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default' href='javascript:'>個人</a>
+    <a class='btn btn-default active' href='javascript:'>職業</a>
+    <a class='btn btn-default' href='javascript:'>設定</a>
+  </div>
+</nav>
+</body>
+</html>
+

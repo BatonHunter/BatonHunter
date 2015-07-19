@@ -35,6 +35,12 @@
         $("#dialog").dialog("open");
     });
 
+    var stateObj = { foo: "bar" }; 
+    function change_my_url()       
+    {      
+       history.pushState(stateObj, "page 2", "battlepage.html");       
+    }
+
     $(document).on("click","#EnterBattle",function(){
          //[Cloud_Lin] 把e-mail、職業、QuestionId存成JSON, 送到後端去
         var objToSend = {
@@ -45,8 +51,7 @@
         ///////////////////////////////////////////////////////////    
         var trainQuestions = [];
 	    change_my_url();
-        window.location.href ="battlepage.html?train=true";
-        battle_data.setQuestion();
+        window.location.href ="battlepage.html?train=1";
     });
 
 })();

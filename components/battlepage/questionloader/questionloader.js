@@ -33,11 +33,13 @@ var QuestionLoader = (function() {
             }, 1000);
         }
         else {
-            if(is_correct) { 
-                battle_data.getQuestion().removeUsedQustion(current_question);
-                setTimeout(function() {
-                    loadNextQuestion(dom_id);
-                }, 1000);
+            if(is_correct) {     
+                window.location.href ="trainingRoom.html";
+
+                // battle_data.getQuestion().removeUsedQustion(current_question);
+                // setTimeout(function() {
+                //     loadNextQuestion(dom_id);
+                // }, 1000);
             }
             else {
                 keepAnswering();
@@ -47,10 +49,10 @@ var QuestionLoader = (function() {
         return is_correct;
     }
 
-    var deductHp = function (type, is_correct){
+    var deductHp = function (is_correct){
         if(is_correct){
             battle_effect.beatmonster('#enemy', battle_data.getMonster().getImg_path());
-            // enemyHP.modifyHP(-200, 1);
+            enemyHP.modifyHP(-200, 1);
         } else{
             userHP.modifyHP(-50, 1);
         }

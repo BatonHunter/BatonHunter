@@ -85,24 +85,24 @@ var countDownAP = function(){
 var getUserStatus = function() {
     var userLive,userPoint,userMoney;
     $.ajax({
-        method: "POST",
-        url: "/getUserStatus",
-        data: $.cookie('userInfo')
+        method: "GET",
+        url: "https://baton-huner-restful-server.herokuapp.com/users/"+$.cookie('userInfo'),
+        dataType:"json"
     })
     .done(function(data) {
-        userLive = data.userLive;
-        userPoint= data.userPoint
-        userMoney = data.userMoney;
-        $('.userLive').text(data.userLive);
-        $('.userPoint').text(data.userPoint);
-        $('.userMoney').text(data.userMoney);
-        if (data.userPoint < 50) {
+        var userAp = data.status.ap;
+        var userPoint= data.status.point
+        var userMoney = data.status.money;
+        $('.userLive').text(userAp);
+        $('.userPoint').text(userPoint);
+        $('.userMoney').text(userMoney);
+        if (userPoint < 50) {
             $('.fightBoss').prop('disabled', true);
         }
     });
 
     return{
-        userLive:userLive,
+        userAp:userAp,
         userPoint:userPoint,
         userMoney:userMoney
     }
@@ -145,19 +145,20 @@ var saveResult = function(item) {
     }else{
         monster = "big";
     }
-    // $.ajax({
-    //         method: "POST",
-    //         url: "/saveSlotResult",
-    //         data: {
-    //             userEmail:$.cookie('userInfo'),
-    //             treasure: treasure
-    //         }
-    //     })
-    //     .done(function(msg) {
+    $.ajax({
+            method: "POST",
+            url: "https://baton-huner-restful-server.herokuapp.com/treasures",
+            dataType:"json",
+            data: JSON.stringify({
+                email:$.cookie('userInfo'),
+                treasure: "slot"
+            })
+        })
+        .done(function(msg) {
             setTimeout(function() {
                 window.location.href = '../../battlepage.html' + "?monster=" + monster;
             }, 1000);
-        // });
+        });
 }
 
 var onResult = function(res) {

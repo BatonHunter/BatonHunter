@@ -75,12 +75,32 @@ HP.prototype.isFull = function() {
 //TODO: 將battlepage跟simplebattlepage合併後重構
 HP.prototype.win = function() {
     $('#winModal').modal('show');
-    $('#winModal').on('hidden.bs.modal', function (e) {
+    var userObj = $.cookie('userInfo');
+    userObj.monster= battle_data.getMonster();
+    $.ajax({
+        method: "POST",
+        url: "/saveBattleResult",
+        data: userObj
+    })
+    .done(function(data) {
+        
+        // var date = new Date();
+        // date.setTime(date.getTime() + (10000 * 24 * 60 * 60 * 1000));
+        // $.cookie('userInfo', 'jack@gmail.com', {
+        //     path: location.host,
+        //     expires: date
+        // });
+
+        //EXP , Money , 是否升級
+
+        $('#winModal').on('hidden.bs.modal', function (e) {
         window.location.href="./components/result_page/win.html";
+        });
+        setTimeout(function() {
+            window.location.href="./components/result_page/win.html";
+        }, 2000);
+
     });
-    setTimeout(function() {
-        window.location.href="./components/result_page/win.html";
-    }, 2000);
 };
 
 HP.prototype.lose = function() {

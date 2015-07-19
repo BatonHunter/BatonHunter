@@ -1,18 +1,5 @@
 var battle_data = (function() {
-    var monster = (function() {
-        var img_path = 'assets/img/avatar';
-        var hp = 10;
-        return {
-            getImg_path: function() {
-                return img_path;
-            },
 
-            getHp: function() {
-                return hp;
-            }
-        };
-
-    })();
 
     var player = (function() {
             var userName = "Ian";
@@ -177,7 +164,7 @@ return {
     getMonster: function(Monster) {
         var img_path = 'assets/img/avatar';
         var hp;
-
+        var monsterType=Monster;
         if (Monster=="boss") {
             hp=1000;
         }else if (Monster=="big") {
@@ -190,10 +177,12 @@ return {
             getImg_path: function() {
                 return img_path;
             },
-
             getHp: function() {
                 console.log(hp);
                 return hp;
+            },
+            getMonsterType: function() {
+                return monsterType;
             }
         }
     },

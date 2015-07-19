@@ -6,7 +6,7 @@ QuestionLoader.loadQuestion('#question');
 var userHP;
 var enemyHP;
 var battleTimer;
-
+var monsterType=battle_data.getMonster().getMonsterType();
 $(document).ready(function() {
     //fighting page countdown clock
     battleTimer = Object.create(batontimer);
@@ -30,6 +30,8 @@ $(document).ready(function() {
     
     var BOSSparameter=getPara.get();
     //
+
+
     userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"));
     enemyHP = new HP(battle_data.getMonster(BOSSparameter.monster).getHp(), $("#enemy-hp"));
 

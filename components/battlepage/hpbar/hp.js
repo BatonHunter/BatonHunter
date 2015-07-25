@@ -75,8 +75,8 @@ HP.prototype.isFull = function() {
 //TODO: 將battlepage跟simplebattlepage合併後重構
 HP.prototype.win = function() {
     $('#winModal').modal('show');
-    var userObj = $.cookie('userInfo');
-    userObj.monster= battle_data.getMonster();
+    // var userObj = $.cookie('userInfo');
+    // userObj.monster= battle_data.getMonster();
     // $.ajax({
     //     method: "POST",
     //     url: "/saveBattleResult",
@@ -87,7 +87,7 @@ HP.prototype.win = function() {
         var data = { money: 1000000000000, isLvUp: true, exp: 100 };
 
         //EXP , Money , 是否升級
-        $Cookies.set('winInfo', JSON.stringify({ money: data.money, isLvUp: data.isLvUp, exp: data.exp }), { expires: 7 });
+        $.cookie('winInfo', JSON.stringify({ money: data.money, isLvUp: data.isLvUp, exp: data.exp }), { expires: 7 });
 
         $('#winModal').on('hidden.bs.modal', function (e) {
         window.location.href="./components/result_page/win.html";
@@ -96,7 +96,7 @@ HP.prototype.win = function() {
             window.location.href="./components/result_page/win.html";
         }, 2000);
 
-        console.log($Cookies.get(data.money));
+        console.log($.cookie('winInfo'));
 
     // });
 };

@@ -145,27 +145,29 @@ var saveResult = function(item) {
     var treasure = "";
     var monster = "";
     if (item == '獲得道具') {
-        treasure = item;
-    } else if(item == '小怪來襲'){
-        monster = "little";
-    }else{
-        monster = "big";
-    }
-    //Ian 不在沒後臺QQ
-    /*$.ajax({
-        method: "POST",
-        url: "https://baton-huner-restful-server.herokuapp.com/treasures",
-        dataType:"json",
-        data: JSON.stringify({
-            email:$.cookie('userInfo'),
-            treasure: "slot"
+        /*Ian 不在沒後臺QQ
+        $.ajax({
+            method: "POST",
+            url: "https://baton-huner-restful-server.herokuapp.com/treasures",
+            dataType:"json",
+            data: JSON.stringify({
+                email:$.cookie('userInfo'),
+                treasure: "slot"
+            })
         })
-    })
-    .done(function(msg) {*/
+        .done(function(msg) {
+            $('#myModal').modal('hide');
+        });*/
+    }else{
+        if (item == '小怪來襲')
+            monster = "small";
+        else
+            monster = "big";
+
         setTimeout(function() {
             window.location.href = '../../battlepage.html' + "?monster=" + monster;
         }, 1000);
-    /*});*/
+    }
 }
 
 var onResult = function(res) {

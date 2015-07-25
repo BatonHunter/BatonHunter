@@ -86,8 +86,4 @@ gulp.task('browser', function () {
 
 gulp.task('serve', function () {
   runSequence('build', 'watch', 'browser');
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> feature/tmp

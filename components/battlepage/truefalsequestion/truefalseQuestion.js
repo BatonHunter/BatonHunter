@@ -1,4 +1,3 @@
-'use strict';
 
 var truefalseQuestion = (function() {
     var q_view,

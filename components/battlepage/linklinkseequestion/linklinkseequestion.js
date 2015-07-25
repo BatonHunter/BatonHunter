@@ -1,13 +1,10 @@
-// 'use strict';
+'use strict';
 
-var linklinkseeQuestion = (function() {
+var linklinkseeQuestion = (function () {
 
-    var draggableInit = function() {
-
-
-        var test=1;
-
-        jQuery.fn.swap = function(b) {
+    var draggableInit = function () {
+        var test = 1;
+        jQuery.fn.swap = function (b) {
             // method from: http://blog.pengoworks.com/index.cfm/2008/9/24/A-quick-and-dirty-swap-method-for-jQuery
             b = jQuery(b)[0];
             var a = this[0];
@@ -57,6 +54,7 @@ var linklinkseeQuestion = (function() {
         q_id,
         q_title,
         q_choseItem,
+        q_ans,
         q_hint;
 
     var setQuestion = function(question) {
@@ -120,7 +118,6 @@ var linklinkseeQuestion = (function() {
             });
 
             draggableInit();
-
         }
     }
 })();

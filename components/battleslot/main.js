@@ -168,7 +168,7 @@ var saveResult = function(item) {
         });*/
     }else{
         if (item == '小怪來襲')
-            monster = "small";
+            monster = "little";
         else
             monster = "big";
 

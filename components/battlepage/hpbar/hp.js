@@ -86,6 +86,10 @@ HP.prototype.win = function() {
 
         var data = { money: 1000000000000, isLvUp: true, exp: 100 };
 
+        profile.setGameMoney(data.money);
+        profile.setGameIsLvUp(data.isLvUp);
+        profile.setGameExp(data.exp);
+
         //EXP , Money , 是否升級
         $.cookie('winInfo', JSON.stringify({ money: data.money, isLvUp: data.isLvUp, exp: data.exp }), { expires: 7 });
 
@@ -93,7 +97,7 @@ HP.prototype.win = function() {
         window.location.href="./components/result_page/win.html";
         });
         setTimeout(function() {
-            window.location.href="./components/result_page/win.html";
+            window.location.href="./testArea/para.html";
         }, 2000);
 
         console.log($.cookie('winInfo'));

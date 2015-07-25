@@ -84,15 +84,21 @@ var countDownAP = function(){
 
 var getUserStatus = function() {
     var userLive,userPoint,userMoney;
+    var userAp, userPoint, userMoney;
     $.ajax({
         method: "GET",
         url: "https://baton-huner-restful-server.herokuapp.com/users/"+$.cookie('userInfo'),
-        dataType:"json"
+        dataType:"json",
+        async: "false"
     })
     .done(function(data) {
-        var userAp = data.status.ap;
-        var userPoint= data.status.point
-        var userMoney = data.status.money;
+        /*userAp = data.status.ap;
+        userPoint= data.status.point
+        userMoney = data.status.money;*/
+        //假資料:
+        userAp = 6;
+        userPoint= 100;
+        userMoney = 11000;
         $('.userLive').text(userAp);
         $('.userPoint').text(userPoint);
         $('.userMoney').text(userMoney);
@@ -138,27 +144,28 @@ var showDialog = function(item) {
 var saveResult = function(item) {
     var treasure = "";
     var monster = "";
-    if (item.indexOf('獲得道具')) {
+    if (item == '獲得道具') {
         treasure = item;
-    } else if(item.indexOf('小')){
+    } else if(item == '小怪來襲'){
         monster = "little";
     }else{
         monster = "big";
     }
-    $.ajax({
-            method: "POST",
-            url: "https://baton-huner-restful-server.herokuapp.com/treasures",
-            dataType:"json",
-            data: JSON.stringify({
-                email:$.cookie('userInfo'),
-                treasure: "slot"
-            })
+    //Ian 不在沒後臺QQ
+    /*$.ajax({
+        method: "POST",
+        url: "https://baton-huner-restful-server.herokuapp.com/treasures",
+        dataType:"json",
+        data: JSON.stringify({
+            email:$.cookie('userInfo'),
+            treasure: "slot"
         })
-        .done(function(msg) {
-            setTimeout(function() {
-                window.location.href = '../../battlepage.html' + "?monster=" + monster;
-            }, 1000);
-        });
+    })
+    .done(function(msg) {*/
+        setTimeout(function() {
+            window.location.href = '../../battlepage.html' + "?monster=" + monster;
+        }, 1000);
+    /*});*/
 }
 
 var onResult = function(res) {

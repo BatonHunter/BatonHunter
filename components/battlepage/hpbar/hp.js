@@ -86,9 +86,11 @@ HP.prototype.win = function() {
 
         var data = { money: 1000000000000, isLvUp: true, exp: 100 };
 
-        //EXP , Money , 是否升級
-        $.cookie('winInfo', JSON.stringify({ money: data.money, isLvUp: data.isLvUp, exp: data.exp }), { expires: 7 });
+        Profile.setGameMoney(data.money);
+        Profile.setGameIsLvUp(data.isLvUp);
+        Profile.setGameExp(data.exp);
 
+        //EXP , Money , 是否升級
         $('#winModal').on('hidden.bs.modal', function (e) {
         window.location.href="./components/result_page/win.html";
         });

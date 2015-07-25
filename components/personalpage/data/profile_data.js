@@ -112,6 +112,24 @@ var Profile = (function () {
         saveToCookie(profile);
     }
 
+    //Get battle Data
+    var getGameMoney = function() {
+        return getProfileFromCookie().gameMoney;
+    }
+
+    var getGameExp = function() {
+        return getProfileFromCookie().gameExp;
+    }
+
+    var getIsWin = function() {
+        return getProfileFromCookie().isWin;
+    }
+
+    var getIsLvUp = function() {
+        return getProfileFromCookie().isLvUp;
+    }
+
+
     //
     var getJobs = function() {
         return getProfileFromCookie().jobs;

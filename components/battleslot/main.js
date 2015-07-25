@@ -85,7 +85,9 @@ var countDownAP = function(){
 
 var getUserStatus = function() {
     var userLive,userPoint,userMoney;
-    var userAp,userPoint,userMoney;
+
+    var userAp, userPoint, userMoney;
+
     $.ajax({
         method: "GET",
         url: "https://baton-huner-restful-server.herokuapp.com/users/"+$.cookie('userInfo'),
@@ -94,12 +96,13 @@ var getUserStatus = function() {
     })
     .done(function(data) {
 
-        // var userAp = data.status.ap;
-        // var userPoint= data.status.point
-        // var userMoney = data.status.money;
-        userAp = 4;
-        userPoint= 123;
-        userMoney = 100;
+        /*userAp = data.status.ap;
+        userPoint= data.status.point
+        userMoney = data.status.money;*/
+        //假資料:
+        userAp = 6;
+        userPoint= 100;
+        userMoney = 11000;
         $('.userLive').text(userAp);
         $('.userPoint').text(userPoint);
         $('.userMoney').text(userMoney);
@@ -149,14 +152,9 @@ var showDialog = function(item) {
 var saveResult = function(item) {
     var treasure = "";
     var monster = "";
-    if (item.indexOf('獲得道具')) {
-        treasure = item;
-    } else if(item.indexOf('小')){
-        monster = "little";
-    }else{
-        monster = "big";
-    }
-    $.ajax({
+    if (item == '獲得道具') {
+        /*Ian 不在沒後臺QQ
+        $.ajax({
             method: "POST",
             url: "https://baton-huner-restful-server.herokuapp.com/treasures",
             dataType:"json",
@@ -166,10 +164,18 @@ var saveResult = function(item) {
             })
         })
         .done(function(msg) {
-            setTimeout(function() {
-                window.location.href = '../../battlepage.html' + "?monster=" + monster;
-            }, 1000);
-        });
+            $('#myModal').modal('hide');
+        });*/
+    }else{
+        if (item == '小怪來襲')
+            monster = "small";
+        else
+            monster = "big";
+
+        setTimeout(function() {
+            window.location.href = '../../battlepage.html' + "?monster=" + monster;
+        }, 1000);
+    }
 }
 
 var onResult = function(res) {

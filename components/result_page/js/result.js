@@ -1,24 +1,35 @@
-function callResultPage(isWin, timeCost){
-	if(typeof(Storage) !== "undefined"){
-		//cache[Cloud Lin]: for total fighting time storage
-		localStorage.timeCost = timeCost;
-		if(isWin){
-			location.href = "layout/win.html"; 
-		}else{
-			location.href = "layout/lose.html";
-		}
-	}else {
-		alert("Sorry! No Web Storage support..");
-	}
-}
+jQuery(function($){
+  $(document).ready(function(){
 
-function loadResultValues(){
-	//TODO [Cloud Lin] , 暫時用random
-	var money = (parseInt(Math.random() * 5000) + 1000);
-	var exp = (parseInt(Math.random() * 5000) + 321);
-	var score = (parseInt(Math.random() * 10000) + 1000);
-	$("#time").text(localStorage.timeCost);
-	$("#money").text(money);
-	$("#exp").text(exp);
-	$("#score").text(score);
-}
+    //  TODO  自cookie獲得經驗值,金錢和是否升級資料
+    var isLvUp = getIsLvUp();
+    var money = getGameMoney();
+    var exp = getGameExp();
+
+    $('#money').text(money);
+    $('#exp').text(exp);
+
+    //  TODO  根據是否升級的資料顯示升級的畫面,同時升級畫面中也顯示社群分享按鈕
+    if (Boolean(isLvUp)) {
+      $('#modal_fight_result').modal();
+      new Share('.share-button', { networks: { facebook: { app_id: '' } } });
+    }
+
+    //  TODO  將畫面傳導到拉霸機畫面
+    $('p.btn').click(function(){
+      //  FIXME  加上拉霸機的畫面
+      location.href = '/components/battleslot/index.html';
+    });
+
+    //  TODO  將分享連結加上title
+    $('body').delegate('div.share-button', 'click', function(){
+      $(this).find('div.social li').each(function(){
+        if ($(this).attr('data-network') == 'google_plus') {
+          $(this).attr('title', 'G+');
+        } else {
+          $(this).attr('title', $(this).attr('data-network'));
+        }
+      });
+    });
+  });
+});

@@ -184,7 +184,7 @@ var Profile = (function () {
             method: 'POST',
             crossDomain: true,
             dataType: 'json',
-            data: JSON.stringify({strength: strength, job: job, category: category}),
+            data: JSON.stringify({strength: strength, role: job, category: category}),
             error: function(response) {
                 console.log('Error');
             },

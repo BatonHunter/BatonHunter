@@ -1,5 +1,7 @@
 var gulp = require('gulp');
+var debug = require('gulp-debug');
 var uglify = require('gulp-uglify');
+var browserSync = require('browser-sync').create();
 var gulpFilter = require('gulp-filter');
 var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
@@ -20,13 +22,18 @@ var cssFilter = gulpFilter(['*.css']);
 var imgFilter = gulpFilter(['*.gif', '*.png']);
 var fontFilter = gulpFilter(['*.eot', '*.svg', '*.ttf', '*.woff*']);
 
+var files = [
+  './**/*.*',
+  '!./node_modules/**',
+  '!./bower_components/**'
+];
+
 //Compile sass/scss To CSS
 gulp.task('styles',function(){
     gulp.src('battleslot/style.{sass,scss}')
     .pipe(sass())
     .pipe(gulp.dest('battleslot'));
 });
-
 
 gulp.task('build', function(callback) {
     runSequence('clean', 'install', 'exportBowerFiles', callback);
@@ -37,8 +44,8 @@ gulp.task('install', function() {
         .pipe(install());
 });
 
-gulp.task('clean', function() {	
-	rimraf("assets/lib", function(){});
+gulp.task('clean', function() { 
+    rimraf("assets/lib", function(){});
     return rimraf("bower_components", function(){});
 
 });
@@ -61,4 +68,22 @@ gulp.task('exportBowerFiles', function() {
 
     .pipe(fontFilter)
         .pipe(gulp.dest(font_path))
+});
+
+gulp.task('watch', function () {
+  return gulp.watch(files).on('change', browserSync.reload);
+});
+
+gulp.task('browser', function () {
+  browserSync.init(files, {
+    startPath: '/',
+    server: {
+      baseDir: './'
+    },
+    browser: 'default'
+  });
+});
+
+gulp.task('serve', function () {
+  runSequence('build', 'watch', 'browser');
 });

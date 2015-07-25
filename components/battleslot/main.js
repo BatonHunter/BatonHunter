@@ -16,6 +16,7 @@ $(document).ready(function() {
     });
 
     var userData = getUserStatus();
+    
     if(userData.userPoint >= 50) {
         $('.fightBoss').prop('disabled', false);
     }else{
@@ -84,28 +85,38 @@ var countDownAP = function(){
 
 var getUserStatus = function() {
     var userLive,userPoint,userMoney;
+    var userAp,userPoint,userMoney;
     $.ajax({
         method: "GET",
         url: "https://baton-huner-restful-server.herokuapp.com/users/"+$.cookie('userInfo'),
-        dataType:"json"
+        dataType:"json",
+        async: "false"
     })
     .done(function(data) {
-        var userAp = data.status.ap;
-        var userPoint= data.status.point
-        var userMoney = data.status.money;
+
+        // var userAp = data.status.ap;
+        // var userPoint= data.status.point
+        // var userMoney = data.status.money;
+        userAp = 4;
+        userPoint= 123;
+        userMoney = 100;
         $('.userLive').text(userAp);
         $('.userPoint').text(userPoint);
         $('.userMoney').text(userMoney);
         if (userPoint < 50) {
             $('.fightBoss').prop('disabled', true);
         }
+
     });
 
-    return{
-        userAp:userAp,
-        userPoint:userPoint,
-        userMoney:userMoney
-    }
+        return{
+            userAp:userAp,
+            userPoint:userPoint,
+            userMoney:userMoney
+        }
+
+
+
 }
 
 var showDialog = function(item) {

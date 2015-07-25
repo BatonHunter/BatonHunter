@@ -2,9 +2,9 @@ jQuery(function($){
   $(document).ready(function(){
 
     //  TODO  自cookie獲得經驗值,金錢和是否升級資料
-    var isLvUp = getIsLvUp();
-    var money = getGameMoney();
-    var exp = getGameExp();
+    var isLvUp = Profile.getIsLvUp();
+    var money = Profile.getGameMoney();
+    var exp = Profile.getGameExp();
 
     $('#money').text(money);
     $('#exp').text(exp);

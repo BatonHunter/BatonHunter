@@ -240,7 +240,11 @@ var Profile = (function () {
         getPoint: getPoint,
         getMoney: getMoney,
         getEmail: getEmail,
-        getStrength: getStrength,
+        getStrength : getStrength,
+        getGameMoney : getGameMoney,
+        getGameExp : getGameExp,
+        getIsWin : getIsWin,
+        getIsLvUp : getIsLvUp,
         tryCreateProfile: tryCreateProfile
 
     };

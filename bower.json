@@ -49,9 +49,18 @@
         "dist/fonts/glyphicons-halflings-regular.woff",
         "dist/fonts/glyphicons-halflings-regular.woff2"
       ]
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
     },
     "jquery-slotmachine": {
       "main": "dist/jquery.slotmachine.min.js"
+>>>>>>> feature/tmp
+=======
+    },
+    "jquery-slotmachine": {
+      "main": "dist/jquery.slotmachine.min.js"
+>>>>>>> 26c835ff74f0f187fb13b43a4b81c23f405dad4b
     }
   }
 }

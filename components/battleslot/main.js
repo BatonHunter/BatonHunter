@@ -16,6 +16,7 @@ $(document).ready(function() {
     });
 
     var userData = getUserStatus();
+    
     if(userData.userPoint >= 50) {
         $('.fightBoss').prop('disabled', false);
     }else{
@@ -84,7 +85,9 @@ var countDownAP = function(){
 
 var getUserStatus = function() {
     var userLive,userPoint,userMoney;
+
     var userAp, userPoint, userMoney;
+
     $.ajax({
         method: "GET",
         url: "https://baton-huner-restful-server.herokuapp.com/users/"+$.cookie('userInfo'),
@@ -92,6 +95,7 @@ var getUserStatus = function() {
         async: "false"
     })
     .done(function(data) {
+
         /*userAp = data.status.ap;
         userPoint= data.status.point
         userMoney = data.status.money;*/
@@ -105,13 +109,17 @@ var getUserStatus = function() {
         if (userPoint < 50) {
             $('.fightBoss').prop('disabled', true);
         }
+
     });
 
-    return{
-        userAp:userAp,
-        userPoint:userPoint,
-        userMoney:userMoney
-    }
+        return{
+            userAp:userAp,
+            userPoint:userPoint,
+            userMoney:userMoney
+        }
+
+
+
 }
 
 var showDialog = function(item) {
@@ -160,7 +168,7 @@ var saveResult = function(item) {
         });*/
     }else{
         if (item == '小怪來襲')
-            monster = "small";
+            monster = "little";
         else
             monster = "big";
 

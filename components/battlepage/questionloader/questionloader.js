@@ -23,10 +23,11 @@ var QuestionLoader = (function() {
 
         console.log("is_correct: " + is_correct);
 
-        if(!is_training){
+        //if is_training is 
+        if(is_training==0){
             battle_data.getQuestion().removeUsedQustion(current_question);
             deductHp(is_correct);
-            setTimeout(function() {
+            setTimeout(function () {
                 loadNextQuestion(dom_id);
                 battleTimer.reset();
                 battleTimer.start();
@@ -35,7 +36,6 @@ var QuestionLoader = (function() {
         else {
             if(is_correct) {     
                 window.location.href ="trainingRoom.html";
-
                 // battle_data.getQuestion().removeUsedQustion(current_question);
                 // setTimeout(function() {
                 //     loadNextQuestion(dom_id);
@@ -126,8 +126,9 @@ var QuestionLoader = (function() {
         alert("Try Again");
         loadQuestion(current_question);
     }
-
-    var loadQuestion = function(question) {
+    //there is a parameter need to select wheater traing question or battle question.
+    //var loadQuestion = function(question)
+    var loadQuestion = function(question,is_tra) {
         current_question = question;
         $(dom_id).empty();
         switch (question.type) {

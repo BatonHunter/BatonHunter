@@ -70,7 +70,7 @@ $(document).ready(function() {
     })
 
     $('.trainingRoom').click(function() {
-        window.location.href = '/trainingRoom.html';
+        window.location.href = '../../trainingRoom.html';
     })
 });
 
@@ -173,7 +173,7 @@ var saveResult = function(item) {
             monster = "big";
 
         setTimeout(function() {
-            window.location.href = '../../battlepage.html' + "?monster=" + monster;
+            window.location.href = '../../battlepage.html?train=0' + "&monster=" + monster;
         }, 1000);
     }
 }

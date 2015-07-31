@@ -1,9 +1,9 @@
-var HP = function(maxHP, $element) {
+var HP = function(maxHP, $element,pageCondition) {
     //variable init
     this.currentHP = maxHP;
     this.maxHP = maxHP;
     this.$element = $element;
-
+    this.pageCondition=pageCondition;
     //blood UI init
     this.HPuiController = function(value) {
         var percent = this.currentHP / this.maxHP * 100;
@@ -72,6 +72,9 @@ HP.prototype.isFull = function() {
     return (this.currentHP >= this.maxHP);
 };
 
+
+
+
 //TODO: 將battlepage跟simplebattlepage合併後重構
 HP.prototype.win = function() {
     $('#winModal').modal('show');
@@ -83,7 +86,7 @@ HP.prototype.win = function() {
     //     data: userObj
     // })
     // .done(function(data) {
-
+        console.log("condition:"+this.pageCondition);
         var data = { money: 1000000000000, isLvUp: true, exp: 100 };
 
         Profile.setGameMoney(data.money);

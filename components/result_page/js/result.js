@@ -18,7 +18,7 @@ jQuery(function($){
     //  TODO  將畫面傳導到拉霸機畫面
     $('p.btn').click(function(){
       //  FIXME  加上拉霸機的畫面
-      location.href = '/components/battleslot/index.html';
+      location.href = '/Batonhunter/components/battleslot/index.html';
     });
 
     //  TODO  將分享連結加上title

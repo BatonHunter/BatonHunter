@@ -1,4 +1,3 @@
-'use strict';
 
 var truefalseQuestion = (function() {
     var q_view,
@@ -35,31 +34,15 @@ var truefalseQuestion = (function() {
             q_view.find('#correctImg').hide();
             q_view.find('#wrongImg').show();
         }
-        deductHp(is_correct);
-        battleTimer.reset();
-        battleTimer.start();
     }
 
-    var deductHp = function (is_correct){
-        if(is_correct){
-            battle_effect.beatmonster('#enemy', battle_data.getMonster().getImg_path());
-            enemyHP.modifyHP(-500, 1);
-            gameStatus.changeBattleStatus(enemyHP);
-        } else{
-            userHP.modifyHP(-250, 1);
-            gameStatus.changeBattleStatus(userHP);
-        }
-    };
 
     return {
         init: function(question, checkAnswer, dom_id) {
             q_view = dom_id.find("#truefalsequestion");
             setQuestion(question);
             q_view.find('#answer button').on("click", function() {
-                showResult(checkAnswer($(this).attr("val")));
-                setTimeout(function() {
-                    QuestionLoader.loadQuestion(dom_id);
-                }, 1000);
+                showResult(checkAnswer("tf", $(this).attr("val")));
             });
         }
     }

@@ -1,4 +1,4 @@
-var Profile = (function() {
+var Profile = (function () {
 
     var IS_FAKE_MODE = false,
         COOKIE_KEY = 'profile';
@@ -23,6 +23,12 @@ var Profile = (function() {
         profile.point = result.point;
         profile.money = result.money;
         
+        //Datas after battle
+        profile.gameMoney = result.gameMoney;
+        profile.gameExp = result.gameExp;
+        profile.isWin = result.isWin;
+        profile.isLvUp = result.isLvUp;
+        //
         saveToCookie(profile);
     }
 
@@ -50,6 +56,9 @@ var Profile = (function() {
         saveToCookie(profile);
     }
 
+
+
+
     var getfbID = function() {
         return getProfileFromCookie().fbID;
     }
@@ -76,6 +85,52 @@ var Profile = (function() {
         saveToCookie(profile);
     }
 
+    // Set Data after battle
+
+    var setGameMoney = function(gameMoney){
+        var profile = getProfileFromCookie();
+        profile.gameMoney = gameMoney; 
+        saveToCookie(profile);
+    }
+
+
+    var setGameExp = function(gameExp){
+        var profile = getProfileFromCookie();
+        profile.gameExp = gameExp; 
+        saveToCookie(profile);
+    }
+
+    var setGameIsWin = function(isWin){
+        var profile = getProfileFromCookie();
+        profile.isWin = isWin; 
+        saveToCookie(profile);
+    }
+
+    var setGameIsLvUp = function(isLvUp){
+        var profile = getProfileFromCookie();
+        profile.isLvUp = isLvUp; 
+        saveToCookie(profile);
+    }
+
+    //Get battle Data
+    var getGameMoney = function() {
+        return getProfileFromCookie().gameMoney;
+    }
+
+    var getGameExp = function() {
+        return getProfileFromCookie().gameExp;
+    }
+
+    var getIsWin = function() {
+        return getProfileFromCookie().isWin;
+    }
+
+    var getIsLvUp = function() {
+        return getProfileFromCookie().isLvUp;
+    }
+
+
+    //
     var getJobs = function() {
         return getProfileFromCookie().jobs;
     }
@@ -129,7 +184,7 @@ var Profile = (function() {
             method: 'POST',
             crossDomain: true,
             dataType: 'json',
-            data: JSON.stringify({strength: strength, job: job, category: category}),
+            data: JSON.stringify({strength: strength, role: job, category: category}),
             error: function(response) {
                 console.log('Error');
             },
@@ -173,6 +228,10 @@ var Profile = (function() {
     return {
         setfbID: setfbID,
         setMBTI: setMBTI,
+        setGameMoney : setGameMoney,
+        setGameExp : setGameExp,
+        setGameIsWin : setGameIsWin,
+        setGameIsLvUp : setGameIsLvUp,
         getfbID: getfbID,
         getName: getName,
         getPic: getPic,
@@ -181,7 +240,12 @@ var Profile = (function() {
         getPoint: getPoint,
         getMoney: getMoney,
         getEmail: getEmail,
-        getStrength: getStrength,
+        getStrength : getStrength,
+        getGameMoney : getGameMoney,
+        getGameExp : getGameExp,
+        getIsWin : getIsWin,
+        getIsLvUp : getIsLvUp,
         tryCreateProfile: tryCreateProfile
+
     };
 })();

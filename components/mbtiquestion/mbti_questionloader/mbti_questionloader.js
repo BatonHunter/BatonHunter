@@ -5,8 +5,6 @@ var mbti_questionloader = (function() {
     var current_question;
     var current_dom_id;
     var score = {};
-    var IS_TEST_MODE = false;
-    var test_idx = 0;
     var init_score = function(){
         score = {
             I: 0,
@@ -22,11 +20,7 @@ var mbti_questionloader = (function() {
 
     var restart = function(){
         init_score();
-        if (IS_TEST_MODE) {
-            loadQuestion(32);  //set to last question id for demo purpose
-        } else {
-            loadQuestion(1);
-        }
+        loadQuestion(1);
         $('#mbti_container').find('.row').show();
     }
 
@@ -73,11 +67,6 @@ var mbti_questionloader = (function() {
         type += (score.T>score.F)?'T':'F';
         type += (score.P>score.J)?'P':'J';
 
-        //  TEST
-        if(IS_TEST_MODE){
-            type = mbti_data.getTypeByIdx(test_idx);
-        }
-
         var result = mbti_data.getCharacter(type);
 
         Profile.setMBTI(result.character, result.strength, result.category);
@@ -90,7 +79,7 @@ var mbti_questionloader = (function() {
         $('#mbti_result_image').attr('src', result.picture);
         $('#modal_mbti_result').off('hidden.bs.modal');
         $('#modal_mbti_result').on('hidden.bs.modal', function () {
-            window.location = PageConfig.personalPage();
+          window.location = PageConfig.personalPage();
         });
         $('#modal_mbti_result').modal();
     };

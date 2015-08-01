@@ -24,7 +24,8 @@
     "jquery-validation": "~1.13.1",
     "js-cookie": "~2.0.1",
     "jquery-slotmachine": "~2.0.9",
-    "jquery.cookie": "~1.4.1"
+    "jquery.cookie": "~1.4.1",
+    "transparency": "~0.10.0"
   },
   "overrides": {
     "fancybox": {

@@ -2,7 +2,7 @@ var ClassSelection = (function() {
     function createCareer() {
 
         Careers.addCareerJobs({
-            id: '1',
+            id: 1,
             title: '理財專家'
         });
 

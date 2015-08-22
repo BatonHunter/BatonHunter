@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to BatonHunter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="../../assets/lib/js/jquery.js"></script>
+<script src="../../assets/lib/js/bootstrap.js"></script>
+<script src="../../assets/js/cookie.js"></script>
+<!--stylesheets-->
+<link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="card.css">
+</head>
+<body class="">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class='navbar-brand'>卡片</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="card col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-6">
+          <img class="img-responsive" src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xft1/v/t1.0-9/1010713_649539498449052_2871548739686288872_n.jpg?oh=6cb96c8942e09b7515da2a41aa464acd&oe=56783CEB&__gda__=1446813645_a881f267523e53d324220aa655cf6a52">
+        </div>
+        <div class="col-xs-6 personal_attr">
+          <p>姓名：<span class="expert-name">邱毅伯</span></p>
+          <p>信箱：<span class="expert-email"><a href="mailto:indieforlife1990@livemail.tw">indieforlife1990@livemail.tw</a></span></p>
+          <p>FB：<span id="expert-fb"><a href="https://www.facebook.com/profile.php?id=100001790232166">邱寶寶</a></span></p>
+        </div>
+        <div class="col-xs-12 text-center flip-card">
+          <button class="btn btn-default" data-toggle="modal" data-target="#expertModal">使用卡片</button>
+        </div>
+      </div>
+      <div class="card col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-6">
+          <img class="img-responsive" src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/11813414_1436447850019276_3403323055745881101_n.jpg?oh=3d27c3c8c8e75a6e8e9ad4ec98b05f3c&oe=56403E33&__gda__=1450532667_29fc79e7d010b506f5a4f078fc7794c9">
+        </div>
+        <div class="col-xs-6 personal_attr">
+          <p>姓名：<span class="expert-name">林嶺</span></p>
+          <p>信箱：<span class="expert-email"><a href="mailto:panguapollo@facebook.com">panguapollo@facebook.com</a></span></p>
+          <p>FB：<span id="expert-fb"><a href="https://www.facebook.com/panguapollo">林寶寶</a></span></p>
+        </div>
+        <div class="col-xs-12 text-center flip-card">
+          <button class="btn btn-default" data-toggle="modal" data-target="#expertModal">使用卡片</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="expertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">連絡專家</h4>
+      </div>
+      <div class="modal-body">
+        表單底加
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">送出</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default btn-lg active' href='javascript:'>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+      個人
+    </a>
+    <a class='btn btn-default btn-lg' href='../careers/index.html'>
+      <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><br>
+      職業
+    </a>
+    <a class='btn btn-default btn-lg' href='javascript:'>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+      設定
+    </a>
+  </div>
+</nav>
+</body>
+</html>

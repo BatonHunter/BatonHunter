@@ -1,0 +1,65 @@
+body {
+	background-color: #fff;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+div.card {
+  margin-bottom: 10px;
+  position: relative;
+  display: block;
+  word-break: break-all;
+  padding: 10px;
+  border: 1px solid rgba(190,191,189,0.8);
+  background-color: #fff;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  overflow: visible;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+div.card:before, div.card:after {
+  vertical-align: top;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+
+  content: "";
+  z-index: -1;
+  position: absolute;
+  bottom: 15px;
+  left: 10px;
+  display: inline-block;
+  width: 50%;
+  max-width: 300px;
+  max-height: 100px;
+  min-height: 10px;
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+  -moz-box-shadow: 0 15px 10px rgba(31,31,31,0.7);
+  -webkit-box-shadow: 0 15px 10px rgba(31,31,31,0.7);
+  box-shadow: 0 15px 10px rgba(31,31,31,0.7);
+}
+
+div.card:after {
+  right: 10px;
+  left: auto;
+  -moz-transform: rotate(4deg);
+  -ms-transform: rotate(4deg);
+  -webkit-transform: rotate(4deg);
+  transform: rotate(4deg);
+}
+
+div.flip-card {
+  margin-top: 10px;
+}

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	var cardInvisible=Profile.getCardInvisible();
+	console.log(cardInvisible);
 	$().ready(function(){
         $('[rel="tooltip"]').tooltip();
         

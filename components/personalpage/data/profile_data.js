@@ -36,7 +36,7 @@ var Profile = (function () {
     }
 
     var getCardInvisible = function() {
-        return getProfileFromCookie.cardInvisible;
+        return getProfileFromCookie().cardInvisible;
     }
 
     var getProfileFromCookie = function() {

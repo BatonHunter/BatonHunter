@@ -4,9 +4,9 @@ var Profile = (function () {
         COOKIE_KEY = 'profile';
 
     var init = function(result) {
-        if (!result) {
+      if (!result) {
             return;
-        }
+      }
 
         console.log('result:');
         console.log(result);
@@ -30,7 +30,14 @@ var Profile = (function () {
         profile.isWin = result.isWin;
         profile.isLvUp = result.isLvUp;
         //
+        profile.cardInvisible = result.cardInvisible;
+        //
+
         saveToCookie(profile);
+    }
+
+    var getCardInvisible = function() {
+        return getProfileFromCookie().cardInvisible;
     }
 
     var getProfileFromCookie = function() {
@@ -86,6 +93,11 @@ var Profile = (function () {
         saveToCookie(profile);
     }
 
+    var setCardInvisible = function(cardInvisible){
+        var profile = getProfileFromCookie();
+        profile.cardInvisible = cardInvisible;
+        saveToCookie(profile);
+    }
     // Set Data after battle
 
     var setGameMoney = function(gameMoney){
@@ -233,6 +245,7 @@ var Profile = (function () {
         setGameExp : setGameExp,
         setGameIsWin : setGameIsWin,
         setGameIsLvUp : setGameIsLvUp,
+        setCardInvisible : setCardInvisible,
         getfbID: getfbID,
         getName: getName,
         getPic: getPic,
@@ -246,7 +259,7 @@ var Profile = (function () {
         getGameExp : getGameExp,
         getIsWin : getIsWin,
         getIsLvUp : getIsLvUp,
+        getCardInvisible : getCardInvisible,
         tryCreateProfile: tryCreateProfile
-
     };
 })();

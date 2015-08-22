@@ -1,9 +1,13 @@
+$(document).ready(function(){
 	$().ready(function(){
         $('[rel="tooltip"]').tooltip();
         
     });
     
-    function rotateCard(btn){
+}
+)
+
+rotateCard = function(btn){
         var $card = $(btn).closest('.card-container');
         console.log($card);
         if($card.hasClass('hover')){
@@ -11,4 +15,4 @@
         } else {
             $card.addClass('hover');
         }
-    }
+     };

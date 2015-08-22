@@ -31,5 +31,8 @@ jQuery(function($){
         }
       });
     });
+
+    // 獲得專家卡片,將profile中invisible設為1
+    Profile.setCardInvisible(true);
   });
 });

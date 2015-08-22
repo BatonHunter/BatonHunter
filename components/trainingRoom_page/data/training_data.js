@@ -1,5 +1,5 @@
 
-var training_datas= (function(serverConfig,questions){
+var training_datas= (function(serverConfig){
 	 var datas;
 
 	return{
@@ -28,4 +28,4 @@ var training_datas= (function(serverConfig,questions){
        return null;
     }
 };
-})(ServerConfig,questions);
+})(ServerConfig);

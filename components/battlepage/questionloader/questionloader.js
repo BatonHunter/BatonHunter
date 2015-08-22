@@ -112,15 +112,21 @@ var QuestionLoader = (function() {
     }
 
 
-    var initQuestion = function (domId, isTraining) {
-        is_training = isTraining;
+    var initQuestion = function (domId) {
+        is_training = false;
         dom_id = domId;
-        loadNextQuestion();
+       	loadQuestion(battle_data.getQuestion().getNextQuestion());
     };
+	var initTrainQuestion = function(domId,jobId,taskId){
+		is_training = true;
+		dom_id = domId;
+			
+		battle_data.getTrainQuestion(jobId,taskId).done(function(question){
+			loadQuestion(question);
+	    });		
+		
+	}
 
-    var loadNextQuestion = function () {
-        loadQuestion(battle_data.getQuestion().getNextQuestion());
-    }
 
     var keepAnswering = function () {
         alert("Try Again");
@@ -155,6 +161,7 @@ var QuestionLoader = (function() {
     };
 
     return {
-        loadQuestion:initQuestion
-    };
+			loadQuestion:initQuestion,
+			loadTrainQuestion:initTrainQuestion
+		};
 })();

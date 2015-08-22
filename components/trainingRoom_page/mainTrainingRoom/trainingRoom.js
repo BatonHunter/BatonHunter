@@ -30,8 +30,9 @@
 
 
     $(document).on("click","#EnterBattle",function(){
-		
-		var url = "battlepage.html?taskId=" + currentTaskId;
+		//test Job Id	    
+		currentJobId = '1';
+		var url = "battlepage.html?train=1&taskId=" + currentTaskId + "&jobId=" + currentJobId;
         window.location.href = url;
     });
 

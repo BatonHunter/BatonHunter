@@ -56,7 +56,6 @@ var DataLoader = (function (training_datas) {
 
     return {
         loadTasks: function (dom_id, user,jobId) {
-			
 			training_datas.getDatas(jobId).done(function(tasks){
 
           	   var tasksCount = tasks.length;

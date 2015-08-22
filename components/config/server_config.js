@@ -16,8 +16,10 @@ ServerConfig = (function() {
 	var getJobTasks = function(jobId){
 		return serverBaseUrl + '/jobs/' + jobId + '/task';
 	}
-
-	var getJ
+	
+	var getJobTasksQuestion = function(jobId,taskId){
+		return getJobTasks(jobId) + '/' + taskId + '/question';
+	}
 
     var modifyStrengthUrl = function(email) {
         return serverBaseUrl + '/' + email + '/modifystrength';
@@ -32,6 +34,7 @@ ServerConfig = (function() {
         postUrl: postUrl,
         modifyStrengthUrl: modifyStrengthUrl,
         getPictureUrl: pictureUrl,
-		getJobTasks:getJobTasks
+		getJobTasks:getJobTasks,
+		getJobTasksQuestion:getJobTasksQuestion
     };
 })();

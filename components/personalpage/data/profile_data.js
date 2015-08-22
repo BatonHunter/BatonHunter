@@ -19,10 +19,11 @@ var Profile = (function () {
         profile.strength = result.strength;
         profile.email = result.email;
         profile.jobs = result.jobs;
-        profile.ap = result.ap;
-        profile.point = result.point;
-        profile.money = result.money;
-        
+        profile.ap = result.status.ap;
+        profile.point = result.status.point;
+        profile.money = result.status.money;
+        profile.level = result.status.level;
+
         //Datas after battle
         profile.gameMoney = result.gameMoney;
         profile.gameExp = result.gameExp;
@@ -62,11 +63,11 @@ var Profile = (function () {
     var getfbID = function() {
         return getProfileFromCookie().fbID;
     }
-    
+
     var getEmail = function() {
         return getProfileFromCookie().email;
     }
-    
+
     var getUuid = function() {
         return getProfileFromCookie().uuid;
     }
@@ -89,26 +90,26 @@ var Profile = (function () {
 
     var setGameMoney = function(gameMoney){
         var profile = getProfileFromCookie();
-        profile.gameMoney = gameMoney; 
+        profile.gameMoney = gameMoney;
         saveToCookie(profile);
     }
 
 
     var setGameExp = function(gameExp){
         var profile = getProfileFromCookie();
-        profile.gameExp = gameExp; 
+        profile.gameExp = gameExp;
         saveToCookie(profile);
     }
 
     var setGameIsWin = function(isWin){
         var profile = getProfileFromCookie();
-        profile.isWin = isWin; 
+        profile.isWin = isWin;
         saveToCookie(profile);
     }
 
     var setGameIsLvUp = function(isLvUp){
         var profile = getProfileFromCookie();
-        profile.isLvUp = isLvUp; 
+        profile.isLvUp = isLvUp;
         saveToCookie(profile);
     }
 

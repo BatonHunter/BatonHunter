@@ -157,6 +157,7 @@ var Profile = (function () {
             method: 'POST',
             crossDomain: true,
             dataType: 'json',
+            async: false,
             data: JSON.stringify(job),
             error: function(response) {
                 console.log('Error');

@@ -61,39 +61,21 @@
               <input id="askFrom" type="hidden" name="from" value="leocmc0723@hotmail.com">
               <input id="askTo" type="hidden"  name="to" value="a8965218@gmail.com">
               <input id="askSubject" type="hidden" name="subject" value="職業獵人課程通關，招喚專家">
-              <textarea id="askContent" name="content" placeholder="content" class="form-control"></textarea>
-              <input type="submit" id="askSubmit" name="submit" value="送出" class="btn btn-primary">
-              <input type="reset" id="askClean" name="clear" value="清除" class="btn btn-warning">
+              <textarea id="askContent" name="content" placeholder="想對專家說的話" class="form-control"></textarea>
             </div>
           </div>
           <div class="footer">
-            <button class="btn btn-simple" rel="tooltip" title="Flip Card" onclick="rotateCard(this)">
+            <button class="btn btn-simple" onclick="rotateCard(this)">
               <i class="fa fa-reply"></i> 返回
             </button>
+            <input type="submit" id="askSubmit" name="submit" value="送出" class="btn btn-primary pull-right">
+            <input type="reset" id="askClean" name="clear" value="清除" class="btn btn-warning pull-right">
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
-
-<div class="modal fade" id="expertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">連絡專家</h4>
-      </div>
-      <div class="modal-body">
-        表單底加
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">送出</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">

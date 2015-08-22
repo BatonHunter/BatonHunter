@@ -92,7 +92,11 @@ body {
 .back .btn-simple {
     position: absolute;
     left: 0;
-    bottom: 4px;
+    bottom: 10px;
+}
+
+.back .footer input {
+    margin-left: 5px;
 }
 
 
@@ -175,7 +179,7 @@ body {
     border-top: 1px solid #EEEEEE;
     color: #999999;
     margin: 30px 0 0;
-    padding: 10px 0 0;
+    padding: 10px 20px 0;
     text-align: center;
 }
 

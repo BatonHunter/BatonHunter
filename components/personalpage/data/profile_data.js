@@ -19,10 +19,13 @@ var Profile = (function () {
         profile.name = result.name;
         profile.strength = result.strength;
         profile.email = result.email;
+        profile.category = result.category;
+        profile.role = result.role;
         profile.jobs = result.jobs;
         profile.ap = result.status.ap;
         profile.point = result.status.point;
         profile.money = result.status.money;
+        profile.exp = result.status.exp;
         profile.level = result.status.level;
 
         //Datas after battle
@@ -85,6 +88,14 @@ var Profile = (function () {
         return getProfileFromCookie().name;
     }
 
+    var getCategory = function() {
+        return getProfileFromCookie().category;
+    }
+
+    var getRole = function() {
+        return getProfileFromCookie().role;
+    }
+
     var setJob = function(job) {
         var profile = getProfileFromCookie();
         profile.job = job;
@@ -101,6 +112,7 @@ var Profile = (function () {
     var setGameMoney = function(gameMoney){
         var profile = getProfileFromCookie();
         profile.gameMoney = gameMoney;
+        profile.money += gameMoney;
         saveToCookie(profile);
     }
 
@@ -108,6 +120,7 @@ var Profile = (function () {
     var setGameExp = function(gameExp){
         var profile = getProfileFromCookie();
         profile.gameExp = gameExp;
+        profile.exp += gameExp;
         saveToCookie(profile);
     }
 
@@ -236,6 +249,10 @@ var Profile = (function () {
         return getProfileFromCookie().money;
     }
 
+    var getExp = function() {
+        return getProfileFromCookie().exp;
+    }
+
     var setMBTI = function(job, strength, category) {
         setJob(job);
         setStrength(strength);
@@ -258,6 +275,32 @@ var Profile = (function () {
                 console.log('create user error.');
             } else {
                 console.log('success, ready to redrict.');
+            }
+        });
+    }
+
+    var rewardVictory = function(treasureType) {
+        var email = getEmail();
+
+        $.ajax({
+            url: ServerConfig.rewardVictoryUrl(),
+            method: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            data: JSON.stringify({email: email, treasure: treasureType}),
+            error: function(response) {
+                console.log('Cannot reward victory');
+            },
+            success: function(responseData, textStatus, jqXHR) {
+                console.log('Successfully rewarded victory');
+            }
+            }).done(function(data){
+            if (!data) {
+                console.log('Error getting money and exp increments');
+            } else {
+                console.log('Success, ready to increment money and exp in browser cookie.');
+                setGameMoney(data.money);
+                setGameExp(data.exp);
             }
         });
     }
@@ -299,10 +342,13 @@ var Profile = (function () {
         getfbID: getfbID,
         getName: getName,
         getPic: getPic,
+        getCategory: getCategory,
+        getRole: getRole,
         getJobs: getJobs,
         getAp: getAp,
         getPoint: getPoint,
         getMoney: getMoney,
+        getExp: getExp,
         getEmail: getEmail,
         getStrength : getStrength,
         getGameMoney : getGameMoney,
@@ -310,6 +356,7 @@ var Profile = (function () {
         getIsWin : getIsWin,
         getIsLvUp : getIsLvUp,
         getCardInvisible : getCardInvisible,
+        rewardVictory: rewardVictory,
         tryCreateProfile: tryCreateProfile
     };
 })();

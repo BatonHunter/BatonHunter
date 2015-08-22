@@ -86,12 +86,15 @@ HP.prototype.win = function() {
     //     data: userObj
     // })
     // .done(function(data) {
-        console.log("condition:"+this.pageCondition);
-        var data = { money: 1000000000000, isLvUp: true, exp: 100 };
+        Profile.rewardVictory(para.monster);
 
-        Profile.setGameMoney(data.money);
-        Profile.setGameIsLvUp(data.isLvUp);
-        Profile.setGameExp(data.exp);
+        console.log("condition:"+this.pageCondition);
+        // var data = { money: 1000000000000, isLvUp: true, exp: 100 };
+
+        // Profile.setGameMoney(data.money);
+        // Profile.setGameIsLvUp(data.isLvUp);
+        // Profile.setGameExp(data.exp);
+        Profile.setGameIsLvUp(true);
 
         //EXP , Money , 是否升級
         $('#winModal').on('hidden.bs.modal', function (e) {

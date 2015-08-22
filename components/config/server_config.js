@@ -14,7 +14,7 @@ ServerConfig = (function() {
     }
 
     var modifyStrengthUrl = function(email) {
-        return serverBaseUrl + '/' + email + '/modifystrength';
+        return serverBaseUrl + '/' + email + '/strength';
     }
 
     var pictureUrl = function(fbID) {

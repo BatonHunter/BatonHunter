@@ -4,6 +4,11 @@
 <title>Welcome to BatonHunter</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="../../assets/lib/js/jquery.js"></script>
+<script src="../../assets/lib/js/bootstrap.js"></script>
+<script src="../config/server_config.js"></script>
+<script src="../../assets/js/cookie.js"></script>
+<script src="./export.js"></script>
 <!--stylesheets-->
 <link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../../assets/lib/css/font-awesome.css">
@@ -53,7 +58,12 @@
           </div> 
           <div class="content">
             <div class="main">
-              
+              <input id="askFrom" type="hidden" name="from" value="leocmc0723@hotmail.com">
+              <input id="askTo" type="hidden"  name="to" value="a8965218@gmail.com">
+              <input id="askSubject" type="hidden" name="subject" value="職業獵人課程通關，招喚專家">
+              <textarea id="askContent" name="content" placeholder="content" class="form-control"></textarea>
+              <input type="submit" id="askSubmit" name="submit" value="送出" class="btn btn-primary">
+              <input type="reset" id="askClean" name="clear" value="清除" class="btn btn-warning">
             </div>
           </div>
           <div class="footer">

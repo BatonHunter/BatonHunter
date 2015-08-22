@@ -293,6 +293,10 @@ pre.prettyprint {
 }
 
 
+#askContent {
+  margin-bottom: 5px;  
+}
+
 /*       Fix bug for IE      */
 
 @media screen and (-ms-high-contrast: active),

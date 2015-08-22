@@ -8,8 +8,8 @@ var choiceQuestion = (function(){
         q_title = question.title;
         q_content = question.content;
         q_hint = question.hint;
-        q_options = question.anslist;
-        q_correct_answers = question.ans;
+        q_options = question.answerList;
+        q_correct_answers = question.answer;
 
         updateQuestionView();
     }

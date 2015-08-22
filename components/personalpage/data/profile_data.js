@@ -2,6 +2,7 @@ var Profile = (function () {
 
     var IS_FAKE_MODE = false,
         COOKIE_KEY = 'profile';
+        COOKIE_PATH = '/';  // one cookie for multiple pages
 
     var init = function(result) {
       if (!result) {
@@ -46,7 +47,7 @@ var Profile = (function () {
     }
 
     var saveToCookie = function(profile) {
-        Cookies.setItem(COOKIE_KEY, JSON.stringify(profile));
+        Cookies.setItem(COOKIE_KEY, JSON.stringify(profile), COOKIE_PATH);
     }
 
     var getAp = function() {
@@ -63,9 +64,6 @@ var Profile = (function () {
         profile.picUrl = ServerConfig.getPictureUrl(ID);
         saveToCookie(profile);
     }
-
-
-
 
     var getfbID = function() {
         return getProfileFromCookie().fbID;
@@ -142,9 +140,60 @@ var Profile = (function () {
         return getProfileFromCookie().isLvUp;
     }
 
+    function isRepeatedJob(job) {
 
-    //
+        var profile = getProfileFromCookie();
+
+        if (!profile.jobs) {
+            return false;
+        }
+
+        for (var i = 0; i < profile.jobs.length; ++i) {
+            if (job.id === profile.jobs[i].id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    var createJob = function(job) {
+
+        // don't create duplicated job
+        if (isRepeatedJob(job)) {
+            console.log('repeated job!');
+            return;
+        }
+
+        $.ajax({
+            url: ServerConfig.createJobUrl(getEmail()),
+            method: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            async: false,
+            data: JSON.stringify(job),
+            error: function(response) {
+                console.log('Error');
+            },
+            success: function(responseData, textStatus, jqXHR) {
+                console.log('success');
+            }
+        }).done(function(data) {
+            if (!data) {
+                console.log('create job error');
+            } else {
+                console.log('create job success');
+            }
+        });
+
+        var profile = getProfileFromCookie();
+        profile.jobs = profile.jobs || [];
+        profile.jobs.push(job);
+        saveToCookie(profile);
+    }
+    
     var getJobs = function() {
+
         return getProfileFromCookie().jobs;
     }
 
@@ -246,6 +295,7 @@ var Profile = (function () {
         setGameIsWin : setGameIsWin,
         setGameIsLvUp : setGameIsLvUp,
         setCardInvisible : setCardInvisible,
+        createJob: createJob,
         getfbID: getfbID,
         getName: getName,
         getPic: getPic,

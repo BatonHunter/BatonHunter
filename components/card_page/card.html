@@ -6,10 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <script src="../../assets/lib/js/jquery.js"></script>
 <script src="../../assets/lib/js/bootstrap.js"></script>
+<!--TODO include in bower-->
+<script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.16/dist/jquery.flip.min.js"></script>
 <script src="../../assets/js/cookie.js"></script>
+<script src="../personalpage/data/profile_data.js"></script>
 <!--stylesheets-->
 <link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="card.css">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 </head>
 <body class="">
 
@@ -36,7 +40,7 @@
           <button class="btn btn-default" data-toggle="modal" data-target="#expertModal">使用卡片</button>
         </div>
       </div>
-      <div class="card col-xs-12 col-sm-6 col-md-4">
+      <div id="LinBowBow" class="card col-xs-12 col-sm-6 col-md-4">
         <div class="col-xs-6">
           <img class="img-responsive" src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/11813414_1436447850019276_3403323055745881101_n.jpg?oh=3d27c3c8c8e75a6e8e9ad4ec98b05f3c&oe=56403E33&__gda__=1450532667_29fc79e7d010b506f5a4f078fc7794c9">
         </div>
@@ -47,7 +51,10 @@
         </div>
         <div class="col-xs-12 text-center flip-card">
           <button class="btn btn-default" data-toggle="modal" data-target="#expertModal">使用卡片</button>
+
         </div>
+      </div>
+      <div id="card"> 
       </div>
     </div>
 </div>

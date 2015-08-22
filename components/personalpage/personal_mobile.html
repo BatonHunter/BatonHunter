@@ -8,7 +8,7 @@
 <script src="../../assets/lib/js/bootstrap.js"></script>
 <script src="../../assets/js/cookie.js"></script>
 <script src="data/profile_data.js"></script>
-<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/2.2.7/echarts-all.js"></script>
 <!--stylesheets-->
 <link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="personal.css">
@@ -30,6 +30,8 @@
         <p>姓名：<span id="profile-name"></span></p>
         <p>角色：<span id="profile-job"></span></p>
         <p>稱號：<span id="profile-nick"></span></p>
+        <p>金錢：<span id="profile-money"></span></p>
+        <p>ＡＰ：<span id="profile-ap"></span></p>
       </div>
     </div>
     <div class="row">
@@ -55,6 +57,8 @@ var profile_name = Profile.getName();
 var profile_job = '星光舞者';
 var profile_nick = '初心學徒';
 var profile_strength = Profile.getStrength();
+var profile_money = Profile.getMoney();
+var profile_ap = Profile.getAp();
 
 
 //$('img#profile-pic').attr("src", "https://graph.facebook.com/" + profile_fbid + "/picture?width=9999");
@@ -62,6 +66,8 @@ $('img#profile-pic').attr("src", Profile.getPic());
 $('#profile-name').text(profile_name);
 $('#profile-job').text(profile_job);
 $('#profile-nick').text(profile_nick);
+$('#profile-money').text(profile_money);
+$('#profile-ap').text(profile_ap);
 
 
 var myChart = echarts.init(document.getElementById('radar-chart'));

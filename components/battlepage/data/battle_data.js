@@ -1,4 +1,4 @@
-var battle_data = (function() {
+var battle_data = (function(serverConfig) {
 
     var player = (function() {
         var userName = "Ian";
@@ -188,9 +188,19 @@ var battle_data = (function() {
         },
         getQuestion: function() {
             return question;
-        }
+        },
+		getTrainQuestion:function(jobId,taskId){
+			var _dfr,
+				url = serverConfig.getJobTasksQuestion(jobId,taskId);	
+			
+			_dfr = $.Deferred();
+			$.getJSON(url,function(data){
+				return _dfr.resolve(data);
+			});
+			return _dfr.promise();
+	    }
     };
 
-})();
+})(ServerConfig);
 
 

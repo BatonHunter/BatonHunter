@@ -11,6 +11,10 @@
 <script src="data/class_data.js"></script>
 <script src="js/modernizr.custom.js"></script>
 <script src="js/jquery.dlmenu.js"></script>
+<script src="../config/server_config.js"></script>
+<script src="../personalpage/data/profile_data.js"></script>
+<script src="../careers/careers.js"></script>
+<script src="js/classSelection.js"></script>
 <!--stylesheets-->
 <link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="css/class_selection.css">
@@ -21,7 +25,8 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <a class='navbar-brand' href='javascript:'>職業選擇</a>
+      <a class='navbar-brand' href='../careers/index.html'>返回職業列表 | </a>
+      <span class='navbar-brand'>職業選擇</span>
     </div>
   </div>
 </nav>
@@ -32,14 +37,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">職業說明 - 遊戲設計</h4>
+          <h4 class="modal-title" id="myModalLabel">職業說明 - 投資理財</h4>
         </div>
         <div class="modal-body">
           <img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-3.jpg" alt="..." class="img-responsive img-rounded">
-          <p>了張以為、去石找做服野重為因戲體著原回還看；動望便是比就，足選人長興而於，分看官影的早葉管，腦大色手，這果假成興不世成。益果意很少什銀。新少展在示！小處時我嗎中新生設機、果們情力大不它意我寫師元細黑了最，小保失一至大看館大藥後工電於技最準反，有發太德奇車童開不能著升馬……住數筆嗎女點山說本記些是。即最造多強正什十。嚴很標人？有考五城，底太性了。</p>
+          <p>賺取報酬的代價，不是風險就是時間。你可以冒高一點的風險，去追求高一點的獲利；也可以犧牲流動性，投資較長的時間，以換取相對較低的風險與較高的報酬。像2002年國內一年期定存利率降到只有1％的時候，許多銀行大力推薦存戶購買各式各樣的「連動債」，標榜在某種條件下，可以拿到3％、5％，甚至更高的利息，但前提是不能主動提前贖回，不然原來獲利和保本的保證就不再有效。這就是典型的犧牲流動性，換取低風險與高報酬的實例。至於在股市短進短出，今天賺、明天賠，則是用高風險當代價，追求高報酬的最佳例子。</p>
         </div>
         <div class="modal-footer">
-          <a href="../../trainingRoom.html" class="btn btn-primary">確定</a>
+          <a class="btn btn-primary" onclick="ClassSelection.create()">確定</a>
           <a href="#" class="btn btn-default" data-dismiss="modal">取消</a>
         </div>
       </div>
@@ -59,19 +64,19 @@
       <div class="item active">
         <a href="#" data-toggle="modal" data-target="#jobDescriptionModal"><img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-3.jpg" alt="..."></a>
         <div class="carousel-caption">
-          遊戲設計
+          投資理財
         </div>
       </div>
       <div class="item">
-        <a href="#" data-toggle="modal" data-target="#jobDescriptionModal"><img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-2.jpg" alt="..."></a>
+        <a href="#" data-toggle="" data-target="#jobDescriptionModal"><img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-2.jpg" alt="..."></a>
         <div class="carousel-caption">
-          運輸司機
+          尚未開放
         </div>
       </div>
       <div class="item">
-        <a href="#" data-toggle="modal" data-target="#jobDescriptionModal"><img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-17.jpg" alt="..."></a>
+        <a href="#" data-toggle="" data-target="#jobDescriptionModal"><img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-17.jpg" alt="..."></a>
         <div class="carousel-caption">
-          音樂老師
+          尚未開放
         </div>
       </div>
     </div>
@@ -138,7 +143,7 @@ $(function () {
   });
 
 
-  $('#batonhunter-job-categories').render(job_categories_data);
+  //$('#batonhunter-job-categories').render(job_categories_data);
 
   $('#batonhunter-dl-menu').dlmenu({
     animationClasses: {
@@ -150,6 +155,7 @@ $(function () {
   $('.job_name').click(function () {
     $('#jobDescriptionModal').modal();
   });
+
 });
 </script>
 

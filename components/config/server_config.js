@@ -2,16 +2,22 @@ ServerConfig = (function() {
 
     'use strict';
     
-    var serverBaseUrl = "https://baton-huner-restful-server.herokuapp.com/users";
+    var serverBaseUrl = "https://baton-huner-restful-server.herokuapp.com";
     var fbGraphAPIUrl = "https://graph.facebook.com/";
 
     var getUrl = function(email) {
-        return serverBaseUrl + '/' + email;
+        return serverBaseUrl + '/users/' + email;
     }
 
     var postUrl = function() {
         return serverBaseUrl;
     }
+
+	var getJobTasks = function(jobId){
+		return serverBaseUrl + '/jobs/' + jobId + '/task';
+	}
+
+	var getJ
 
     var modifyStrengthUrl = function(email) {
         return serverBaseUrl + '/' + email + '/modifystrength';
@@ -25,6 +31,7 @@ ServerConfig = (function() {
         getUrl: getUrl,
         postUrl: postUrl,
         modifyStrengthUrl: modifyStrengthUrl,
-        getPictureUrl: pictureUrl
+        getPictureUrl: pictureUrl,
+		getJobTasks:getJobTasks
     };
 })();

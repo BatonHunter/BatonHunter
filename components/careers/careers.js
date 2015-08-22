@@ -25,12 +25,19 @@
     $roleImg.attr('src', ROLE_PIC_MAP[roleId]);
 
     $roleDom.removeClass('no-role')
-      .find('a')
-      .attr('href', '../../trainingRoom.html')
-      .empty()
+	 .find('a')
+	 .attr('href','#')
+     .empty()
       .append($roleImg);
 
     $roleDom.find('.title').html(job.title);
+	
+	$roleDom.on('click',function(e){
+		e.preventDefault();
+		Cookies.set('current_job_id', job.id, { expires: 7 });
+		window.location.href = "../../trainingRoom.html";	
+	});	
+	
   };
 
   var init = function () {
@@ -39,6 +46,8 @@
     jobs.forEach(function (job, index) {
       renderRole(job, index + 1);
     });
+
+
   };
 
   $(init);

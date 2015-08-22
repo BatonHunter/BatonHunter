@@ -1,8 +1,13 @@
 (function() {
     var player = battle_data.getPlayer(),
-		currentJobId = Cookies.get('current_job_id'),
-		currentTaskId;
-		
+		currentTaskId ;		
+	
+	var para=getPara.get();
+	var currentJobId = para.jobId;
+	
+	//Test set jobId
+	currentJobId = '1';
+			
     DataLoader.loadTasks('tasks',player,currentJobId);
     DataLoader.showBtnToTiger(player);
 

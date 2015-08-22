@@ -38,8 +38,7 @@ var Careers = (function () {
 	
 	$roleDom.on('click',function(e){
 		e.preventDefault();
-		Cookies.set('current_job_id', job.id, { expires: 7 });
-		window.location.href = "../../trainingRoom.html";	
+		window.location.href = "../../trainingRoom.html?jobId=" + job.id;	
 	});	
 	
   };

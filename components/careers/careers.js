@@ -1,4 +1,4 @@
-+function () {
+var Careers = (function () {
   var ROLE_PIC_MAP = {
     '1': '../../assets/img/teacher.png',
     '2': '../../assets/img/lawer.png',
@@ -6,17 +6,21 @@
   };
 
   var getCareerJobs = function () {
-    //var jobs = Profile.getJobs();
-    var jobs = [{
-      id: 1,
-      title: '老師'
-    }, {
-      id: 2,
-      title: '法官'
-    }];
-
-    return jobs;
+    return Profile.getJobs() || [];
   };
+
+  var addCareerJobs = function (job) {
+    
+    var jobs = getCareerJobs();
+
+    for (var i = 0; i < jobs.length; ++i) {
+        if (job.id === jobs[i].id) {
+            return;
+        }
+    }
+
+    Profile.createJob(job);
+  }
 
   var renderRole = function (job, roleId) {
     var $roleDom = $('#role-' + roleId),
@@ -40,16 +44,18 @@
 	
   };
 
-  var init = function () {
+  var init = function() {
     var jobs = getCareerJobs();
 
     jobs.forEach(function (job, index) {
       renderRole(job, index + 1);
     });
-
-
   };
 
-  $(init);
+  return {
+    getCareerJobs: getCareerJobs,
+    addCareerJobs: addCareerJobs,
+    init: init
+  }
 
-}();
+})();

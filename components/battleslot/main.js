@@ -28,7 +28,7 @@ $(document).ready(function() {
         defaultRepeat: 10,
         probs: {
             base: 27,
-            treasure: 1,
+            treasure: 0,   //set probability of treasure to 0
             monster1: 1,
             monster2: 1
         },

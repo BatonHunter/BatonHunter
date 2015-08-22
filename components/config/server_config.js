@@ -22,11 +22,15 @@ ServerConfig = (function() {
 	}
 
     var modifyStrengthUrl = function(email) {
-        return serverBaseUrl + '/' + email + '/modifystrength';
+        return serverBaseUrl + '/' + email + '/strength';
     }
 
     var pictureUrl = function(fbID) {
         return fbGraphAPIUrl + fbID + "/picture?type=large"
+    }
+
+    var createJobUrl = function(email) {
+        return serverBaseUrl + '/' + email + '/job';
     }
 
     return {
@@ -35,6 +39,7 @@ ServerConfig = (function() {
         modifyStrengthUrl: modifyStrengthUrl,
         getPictureUrl: pictureUrl,
 		getJobTasks:getJobTasks,
-		getJobTasksQuestion:getJobTasksQuestion
+		getJobTasksQuestion:getJobTasksQuestion,
+        createJobUrl: createJobUrl
     };
 })();

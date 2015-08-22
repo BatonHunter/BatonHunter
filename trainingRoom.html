@@ -14,30 +14,15 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">BatonHunter<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right" role="form">
-              <div class="form-group">
-                <input type="text" placeholder="Email" class="form-control">
-              </div>
-              <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control">
-              </div>
-              <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
-          </div>
-        </div>
-      </nav>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="btn btn-default navbar-btn" onClick="window.location.href='./components/careers/index.html'">Return</button>
+      <a style='height: 50px; padding: 15px; font-size: 18px; line-height: 20px;' href='javascript:'>十件事清單</a>
+    </div>
+  </div>
+</nav>
 
 <div class="main training-room container">
 <div id="tasks">
@@ -67,11 +52,46 @@
   </div>
 </div>
 
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default btn-lg active' href='javascript:'>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+      個人
+    </a>
+    <!--<a class='btn btn-default btn-lg' href='../careers/index.html'>-->
+    <a class='btn btn-default btn-lg' href='./components/careers/index.html'>
+      <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><br>
+      職業
+    </a>
+    <a class='btn btn-default btn-lg' href='javascript:'>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+      設定
+    </a>
+  </div>
+</nav>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default btn-lg ' href='./components/personalpage/personal_mobile.html'>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+      個人
+    </a>
+    <a class='btn btn-default btn-lg active' href='./components/careers/index.html'>
+      <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><br>
+      職業
+    </a>
+    <a class='btn btn-default btn-lg' href='#'>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+      設定
+    </a>
+  </div>
+</nav>
+
 <!--libs-->
 <script src="assets/lib/js/jquery.js"></script>
 <script src="assets/lib/js/bootstrap.js"></script>
 <script src="assets/lib/js/jquery-ui.js"></script>
-<script src="assets/lib/js/js.cookie.js"></script>
+<script src="assets/js/cookie.js"></script>
 <!--components-->
 <script src="components/config/server_config.js"></script>
 <script src="components/battlepage/data/battle_data.js"></script>

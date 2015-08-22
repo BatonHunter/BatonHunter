@@ -1,8 +1,9 @@
 ServerConfig = (function() {
 
     'use strict';
-    
+
     var serverBaseUrl = "https://baton-huner-restful-server.herokuapp.com/users";
+    var treasuresUrl = "https://baton-huner-restful-server.herokuapp.com/treasures";
     var fbGraphAPIUrl = "https://graph.facebook.com/";
 
     var getUrl = function(email) {
@@ -21,10 +22,15 @@ ServerConfig = (function() {
         return fbGraphAPIUrl + fbID + "/picture?type=large"
     }
 
+    var rewardVictoryUrl = function() {
+        return treasuresUrl;
+    }
+
     return {
         getUrl: getUrl,
         postUrl: postUrl,
         modifyStrengthUrl: modifyStrengthUrl,
-        getPictureUrl: pictureUrl
+        getPictureUrl: pictureUrl,
+        rewardVictoryUrl: rewardVictoryUrl
     };
 })();

@@ -21,10 +21,15 @@ ServerConfig = (function() {
         return fbGraphAPIUrl + fbID + "/picture?type=large"
     }
 
+    var createJobUrl = function(email) {
+        return serverBaseUrl + '/' + email + '/job';
+    }
+
     return {
         getUrl: getUrl,
         postUrl: postUrl,
         modifyStrengthUrl: modifyStrengthUrl,
-        getPictureUrl: pictureUrl
+        getPictureUrl: pictureUrl,
+        createJobUrl: createJobUrl
     };
 })();

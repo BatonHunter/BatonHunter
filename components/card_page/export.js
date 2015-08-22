@@ -31,6 +31,7 @@ $(document).ready(function() {
       },
       success: function( responseData, textStatus, jqXHR ) {
         alert('已經成功聯絡專家');
+        location.reload();
       }
     })
   });

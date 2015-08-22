@@ -4,6 +4,7 @@ ServerConfig = (function() {
     
     var serverAskUrl = "https://baton-huner-restful-server.herokuapp.com/emails";
     var serverBaseUrl = "https://baton-huner-restful-server.herokuapp.com";
+
     var fbGraphAPIUrl = "https://graph.facebook.com/";
 
     var getUrl = function(email) {
@@ -38,6 +39,10 @@ ServerConfig = (function() {
         return serverBaseUrl + '/users/' + email + '/job';
     }
 
+    var rewardVictoryUrl = function() {
+        return serverBaseUrl + '/treasures';
+    }
+
     return {
         getUrl: getUrl,
         postUrl: postUrl,
@@ -46,6 +51,7 @@ ServerConfig = (function() {
         askUrl: askUrl,
 		getJobTasks:getJobTasks,
 		getJobTasksQuestion:getJobTasksQuestion,
-        createJobUrl: createJobUrl
+        createJobUrl: createJobUrl,
+        rewardVictoryUrl: rewardVictoryUrl
     };
 })();

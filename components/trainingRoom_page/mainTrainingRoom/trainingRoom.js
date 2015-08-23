@@ -6,7 +6,7 @@
 	var currentJobId = para.jobId;
 	
 	//Test set jobId
-	currentJobId = '1';
+	//currentJobId = '1';
 			
     DataLoader.loadTasks('tasks',player,currentJobId);
     DataLoader.showBtnToTiger(player);

@@ -92,7 +92,7 @@ var QuestionLoader = (function() {
         
         // If the length of those two arrays are not identical,
         // they must be different
-        if (current_question.answers.length !== player_answers.length) {
+        if (current_question.answer.length !== player_answers.length) {
             return false;
         }
 
@@ -101,7 +101,7 @@ var QuestionLoader = (function() {
 
         player_answers.each(function(){
 
-            if (current_question.ans.indexOf($(this).val()) === -1) {
+            if (current_question.answer.indexOf($(this).val()) === -1) {
                 check_result = false;
                 // return false will leave the loop each()
                 return false;

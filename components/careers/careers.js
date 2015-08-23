@@ -22,6 +22,11 @@ var Careers = (function () {
     Profile.createJob(job);
   }
 
+  var delCareerJobs = function (jobId) {
+    Profile.deleteJob(jobId);
+    window.location = "../careers/index.html";    
+  };  
+
   var renderRole = function (job, roleId) {
     var $roleDom = $('#role-' + roleId),
         $roleImg = $('<img>');
@@ -29,20 +34,23 @@ var Careers = (function () {
     $roleImg.attr('src', ROLE_PIC_MAP[roleId]);
 
     $roleDom.removeClass('no-role')
-	 .find('a')
-	 .attr('href','#')
-     .empty()
+      .find('a')
+      .attr('href','#')
+      .empty()
       .append($roleImg);
 
     $roleDom.find('.title').html(job.title);
 	
-	$roleDom.on('click',function(e){
-		e.preventDefault();
-		window.location.href = "../../trainingRoom.html?jobId=" + job.id;	
-	});	
-	
-  };
+    $roleDom.on('click',function(e){
+      e.preventDefault();
+      window.location.href = "../../trainingRoom.html?jobId=" + job.id;	
+    });
 
+    $roleDom.find('.delCareerBtn').on('click',function(){
+      delCareerJobs(job.id);
+    });
+  };
+ 
   var init = function() {
     var jobs = getCareerJobs();
 
@@ -54,6 +62,7 @@ var Careers = (function () {
   return {
     getCareerJobs: getCareerJobs,
     addCareerJobs: addCareerJobs,
+    delCareerJobs: delCareerJobs,
     init: init
   }
 

@@ -204,6 +204,42 @@ var Profile = (function () {
         profile.jobs.push(job);
         saveToCookie(profile);
     }
+
+    var deleteJob = function(jobId) {
+
+        var url = ServerConfig.deleteJobUrl(getEmail(), jobId);
+
+        $.ajax({
+            url: url,
+            method: 'DELETE',
+            crossDomain: true,
+            dataType: 'json',
+            async: false,
+            error: function(response) {
+                console.log('Error');
+            },
+            success: function(responseData, textStatus, jqXHR) {
+                console.log('success');
+            }
+        }).done(function(data) {
+            if (!data) {
+                console.log('delete job error');
+            } else {
+                console.log('delete job success');
+            }
+        });
+
+        var profile = getProfileFromCookie();
+        profile.jobs = profile.jobs || [];
+
+        for (var i = 0; i < profile.jobs.length; ++i) {
+            if (jobId === profile.jobs[i].id) {
+                profile.jobs.splice(i,1);
+            }
+        }
+
+        saveToCookie(profile);
+    }
     
     var getJobs = function() {
 
@@ -339,6 +375,7 @@ var Profile = (function () {
         setGameIsLvUp : setGameIsLvUp,
         setCardInvisible : setCardInvisible,
         createJob: createJob,
+        deleteJob: deleteJob,
         getfbID: getfbID,
         getName: getName,
         getPic: getPic,

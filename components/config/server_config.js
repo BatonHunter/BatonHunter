@@ -43,6 +43,10 @@ ServerConfig = (function() {
         return serverBaseUrl + '/treasures';
     }
 
+    var deleteJobUrl = function(email, jobId){
+        return serverBaseUrl + '/users/' + email + '/job/' + jobId;
+    }
+
     return {
         getUrl: getUrl,
         postUrl: postUrl,
@@ -52,6 +56,7 @@ ServerConfig = (function() {
 		getJobTasks:getJobTasks,
 		getJobTasksQuestion:getJobTasksQuestion,
         createJobUrl: createJobUrl,
+        deleteJobUrl: deleteJobUrl,
         rewardVictoryUrl: rewardVictoryUrl
     };
 })();

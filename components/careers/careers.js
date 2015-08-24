@@ -20,7 +20,7 @@ var Careers = (function () {
     }
 
     Profile.createJob(job);
-  }
+  };
 
   var delCareerJobs = function (jobId) {
     Profile.deleteJob(jobId);
@@ -39,7 +39,7 @@ var Careers = (function () {
       .empty()
       .append($roleImg);
 
-    $roleDom.find('.title').html(job.title);
+    $roleDom.find('.title').html(job.title + ' <button type="button" class="delCareerBtn btn-danger">刪除!</button>');
 	
     $roleDom.on('click',function(e){
       e.preventDefault();
@@ -64,6 +64,6 @@ var Careers = (function () {
     addCareerJobs: addCareerJobs,
     delCareerJobs: delCareerJobs,
     init: init
-  }
+  };
 
 })();

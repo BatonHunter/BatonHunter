@@ -41,16 +41,35 @@ var Careers = (function () {
 
     $roleDom.find('.title').html(job.title + ' <button type="button" class="delCareerBtn btn-danger">刪除!</button>');
 	
-    $roleDom.on('click',function(e){
-      e.preventDefault();
-      window.location.href = "../../trainingRoom.html?jobId=" + job.id;	
-    });
 
-    $roleDom.find('.delCareerBtn').on('click',function(){
-      delCareerJobs(job.id);
+
+
+    $roleDom.on({
+      click:function(e){
+        var target = e.target,
+            $target = $(target);
+
+            //Judge event has class or not
+            //If has "delCareerBtn" class , then cal delCareerJobs(id)
+            //If not , go to TrainingRoom
+            if($target.hasClass("delCareerBtn btn-danger")){
+              console.log("delBtn");
+
+              delCareerJobs(job.id);
+            }
+            else{
+              console.log("enter trainingRoom");
+
+              e.preventDefault();
+              console.log($roleDom.find('.delCareerBtn'));
+              window.location.href = "../../trainingRoom.html?jobId=" + job.id; 
+            }
+
+      }
     });
   };
  
+
   var init = function() {
     var jobs = getCareerJobs();
 

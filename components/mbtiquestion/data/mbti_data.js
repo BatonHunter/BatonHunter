@@ -200,7 +200,7 @@ var mbti_data = (function() {
         character: "王屬衛隊",
         value:     "▲注重傳統、安全及和平的生活",
         capability:"▲能使用邏輯和理性思維客觀地做出決定",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_8667456683.jpg",
+        picture:   "https://www.filepicker.io/api/file/4zE01Q2gSya5y0yOnCRA",
         strength:  [25, 25, 25, 50, 25, 40, 25, 25] 
      },{
         category:  "ISFJ",
@@ -208,7 +208,7 @@ var mbti_data = (function() {
         character: "靈療牧師",
         value:     "▲實際穩重、腳踏實地——他們不喜歡跟理論及抽象思維打交道",
         capability:"▲擅於察言觀色，對他人的情感和反應有著敏銳的洞察力",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_8e893ba4a7.jpg",
+        picture:   "https://www.filepicker.io/api/file/FUEpU4vQ2u9zwW15ttmw",
         strength:  [25, 40, 50, 25, 25, 25, 25, 25]
      },{
         category:  "INFJ",
@@ -216,7 +216,7 @@ var mbti_data = (function() {
         character: "真理修士",
         value:     "▲憑自己的直覺理解身邊的人和事物",
         capability:"▲能邏輯且理性地工作——運用直覺理解目標並向目標努力",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_d35e750596.jpg",
+        picture:   "https://www.filepicker.io/api/file/mMdco2dsRGsu4niq5Yzn",
         strength:  [25, 50, 25, 25, 25, 25, 25, 40]
      },{
         category:  "INTJ",
@@ -224,7 +224,7 @@ var mbti_data = (function() {
         character: "煉金術師",
         value:     "▲能夠理解極為複雜的理論資料",
         capability:"▲邏輯及推理能力極強",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_d0289b3053.jpg",
+        picture:   "https://www.filepicker.io/api/file/9OyXDvHT7SFEDJGrBzSU",
         strength:  [25, 25, 40, 50, 25, 25, 25, 25]
      },{
         category:  "ISTP",
@@ -232,7 +232,7 @@ var mbti_data = (function() {
         character: "疾風遊俠",
         value:     "▲對於事物的工作原理很有興趣",
         capability:"▲擅於運用邏輯推理來分析自己所儲備的信息，並由此解決問題或發現事情的原委",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_e1816faa9e.jpg",
+        picture:   "https://www.filepicker.io/api/file/uUfIwGb0TsZrmyTYwCoU",
         strength:  [40, 50, 25, 25, 25, 25, 25, 25]
      },{
         category:  "ISFP",
@@ -240,7 +240,7 @@ var mbti_data = (function() {
         character: "吟遊詩人",
         value:     "▲活在當下",
         capability:"▲對周圍的環境有著敏銳的洞察力",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_29a6b31afb.jpg",
+        picture:   "https://www.filepicker.io/api/file/45nGbQT5T4mKs17rpCVN",
         strength:  [25, 25, 25, 25, 40, 25, 25, 50]
      },{
         category:  "INFP",
@@ -248,7 +248,7 @@ var mbti_data = (function() {
         character: "水晶法師",
         value:     "▲堅定地價值體系",
         capability:"▲富於創意和靈感",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_cbe71bc8c8.jpg",
+        picture:   "https://www.filepicker.io/api/file/6eAuyibuQJaY0kxkUF09",
         strength:  [25, 25, 25, 40, 25, 25, 50, 25]
      },{
         category:  "INTP",
@@ -256,7 +256,7 @@ var mbti_data = (function() {
         character: "聖殿主教",
         value:     "▲探究真相，試圖通過分析內在規律和結構來理解事物",
         capability:"▲擅於記住事情細節,具洞察力  ▲具備創造力和洞察力",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_e7fcdacc59.jpg",
+        picture:   "https://www.filepicker.io/api/file/Ij7V1N9ETZa0iJecBRES",
         strength:  [25, 25, 50, 40, 25, 25, 25, 25]
      },{
         category:  "ESTP",
@@ -264,7 +264,7 @@ var mbti_data = (function() {
         character: "熾血鬥士",
         value:     "▲活在當下, 喜歡冒險, 以行動為主",
         capability:"▲能迅速發現問題，並及時給出優秀的解決方案  ▲優秀的人際技巧",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_a375240311.jpg",
+        picture:   "https://www.filepicker.io/api/file/faKwuvCdQ1uGBURmn5LJ",
         strength:  [50, 25, 25, 25, 25, 40, 25, 25]
      },{
         category:  "ESFP",
@@ -272,7 +272,7 @@ var mbti_data = (function() {
         character: "星光舞者",
         value:     "▲活在當下, 狂熱於新鮮事物和體驗",
         capability:"▲知道如何讓自己和他人快樂  ▲待人熱情",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_0657d9265d.jpg",
+        picture:   "https://www.filepicker.io/api/file/BUZhLbU9SQqCXKkNYKKm",
         strength:  [25, 25, 25, 25, 25, 25, 40, 50]
      },{
         category:  "ENFP",
@@ -280,7 +280,7 @@ var mbti_data = (function() {
         character: "大地行者",
         value:     "▲以計劃為中心",
         capability:"▲能有邏輯且理性地工作  ▲善於合作，為人友好  ▲極相信直覺，且對他人的洞察力強",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_0024ebfddb.jpg",
+        picture:   "https://www.filepicker.io/api/file/sWOSVZrBQyyEhcviggTQ",
         strength:  [25, 25, 25, 25, 50, 25, 25, 40]
      },{
         category:  "ENTP",
@@ -288,7 +288,7 @@ var mbti_data = (function() {
         character: "創世技師",
         value:     "▲對於知識和競爭力極為推崇  ▲以解決各類困難的問題為樂",
         capability:"▲優秀的溝通技巧,人際技巧.樂於與他人進行論辯  ▲樂於思考,頭腦機敏,富於創造",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_6ddb8a0d1d.jpg",
+        picture:   "https://www.filepicker.io/api/file/z6hEiCQ0SQupC4iCEA9f",
         strength:  [25, 25, 40, 25, 25, 50, 25, 25]
      },{
         category:  "ESTJ",
@@ -296,7 +296,7 @@ var mbti_data = (function() {
         character: "巨劍戰士",
         value:     "▲在生活中擁有一套明晰的標準和信念  ▲重視安全與傳統,忠誠",
         capability:"▲天生的領袖,樂於創造秩序和架構  ▲優秀的組織能力  ▲做事認真負責,充滿動力",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_c0a75049e5.jpg",
+        picture:   "https://www.filepicker.io/api/file/h6tc5edYTDOkkFS6aGha",
         strength:  [50, 25, 25, 25, 25, 25, 40, 25]
      },{
         category:  "ESFJ",
@@ -304,7 +304,7 @@ var mbti_data = (function() {
         character: "聖慈神官",
         value:     "▲井井有條,忠心不二  ▲腳踏實地、注重實踐  ▲推崇平靜安全的生活",
         capability:"▲喜歡構建秩序、架構和計劃 ▲對日常事務的處理中也十分出色  ▲喜歡與其他人溝通  ▲自始至終完成任務的可靠人選",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_ebad3887ee.jpg",
+        picture:   "https://www.filepicker.io/api/file/FV2Nw7uATE6eLKSL07DQ",
         strength:  [25, 25, 25, 25, 40, 50, 25, 25]
      },{
         category:  "ENFJ",
@@ -312,7 +312,7 @@ var mbti_data = (function() {
         character: "白袍長老",
         value:     "▲重視和諧,待人真誠熱情,重視他人的感受  ▲重視結構和組織",
         capability:"▲優秀的組織能力,富於創造和想像力▲優於常人的人際交往能力,通過幫助他人來獲取滿足感",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_dd39d0814e.jpg",
+        picture:   "https://www.filepicker.io/api/file/bZPQK5LDSS2vpRDynSHY",
         strength:  [25, 40, 25, 25, 50, 25, 25, 25]
      },{
         category:  "ENTJ",
@@ -320,7 +320,7 @@ var mbti_data = (function() {
         character: "戰地霸主",
         value:     "▲高度重視知識  ▲希望事物有組織有秩序▲自信, 果斷",
         capability:"▲天生的領袖  ▲極強的語言溝通能力  ▲擁有將理論變為方案的魄力",
-        picture:   "http://100sexiest.fhm.com.tw/upload/girl_953a076d6b.jpg",
+        picture:   "https://www.filepicker.io/api/file/9x82FEZT9S6hYYJOW8y0",
         strength:  [40, 25, 25, 25, 25, 25, 50, 25]
      }
     ];

@@ -3,7 +3,7 @@ var ClassSelection = (function() {
 
         Careers.addCareerJobs({
             id: 1,
-            title: '理財專家'
+            title: '投資操盤手'
         });
 
         window.location = "../careers/index.html";

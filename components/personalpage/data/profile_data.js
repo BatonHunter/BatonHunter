@@ -281,6 +281,12 @@ var Profile = (function () {
         saveToCookie(profile);
     }
 
+    var setRole = function(role) {
+        var profile = getProfileFromCookie();
+        profile.role = role;
+        saveToCookie(profile);
+    }
+
     var getMoney = function() {
         return getProfileFromCookie().money;
     }
@@ -289,8 +295,8 @@ var Profile = (function () {
         return getProfileFromCookie().exp;
     }
 
-    var setMBTI = function(job, strength, category) {
-        setJob(job);
+    var setMBTI = function(role, strength, category) {
+        setRole(role);
         setStrength(strength);
         setCategory(category);
 
@@ -299,7 +305,7 @@ var Profile = (function () {
             method: 'POST',
             crossDomain: true,
             dataType: 'json',
-            data: JSON.stringify({strength: strength, role: job, category: category}),
+            data: JSON.stringify({strength: strength, role: role, category: category}),
             error: function(response) {
                 console.log('Error');
             },

@@ -1,9 +1,24 @@
 var Careers = (function () {
-  var ROLE_PIC_MAP = {
-    '1': '../../assets/img/teacher.png',
-    '2': '../../assets/img/lawer.png',
-    '3': '../../assets/img/police.png'
-  };
+  var imgPath;
+
+  var getJobImgPath = function(jobId){
+    var url = "https://baton-huner-restful-server.herokuapp.com/jobs/" + jobId;
+    $.ajax({
+            url: url,
+            method: 'GET',
+            async: false,
+            crossDomain: true,
+            dataType: 'json',
+            error: function(response) {
+                console.log('something went wrong');
+            },
+            success: function(responseData, textStatus, jqXHR) {
+                console.log('Successfully');
+            }
+            }).done(function(data){
+              imgPath = data.imgPath;
+            });
+  }
 
   var getCareerJobs = function () {
     return Profile.getJobs() || [];
@@ -28,10 +43,12 @@ var Careers = (function () {
   };  
 
   var renderRole = function (job, roleId) {
+    getJobImgPath(roleId);
+
     var $roleDom = $('#role-' + roleId),
         $roleImg = $('<img>');
 
-    $roleImg.attr('src', ROLE_PIC_MAP[roleId]);
+    $roleImg.attr('src', imgPath);
 
     $roleDom.removeClass('no-role')
       .find('a')

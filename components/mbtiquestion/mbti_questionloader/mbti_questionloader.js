@@ -86,7 +86,9 @@ var mbti_questionloader = (function() {
 
     var loadQuestion = function(question_id) {
         current_question = mbti_data.getQuestion(question_id);
-        current_dom_id.find('#mbti_title').text(current_question.title);
+        var progress = (question_id/32)*100 + "%";
+        current_dom_id.find('.progress-bar').css("width", progress);
+        current_dom_id.find('#mbti_title').text(current_question.title + " (Total 32)");
         current_dom_id.find('#mbti_content').text(current_question.content);
         current_dom_id.find('input').each(function(){
         });

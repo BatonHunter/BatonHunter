@@ -1,5 +1,4 @@
 'use strict';
-
 var linklinkseeQuestion = (function () {
 
     var draggableInit = function () {
@@ -114,10 +113,12 @@ var linklinkseeQuestion = (function () {
             q_view = dom_id.find("#linklinkquestion");
             setQuestion(question);
             q_view.find('#llkConfirmBtn').on("click", function() {
-                showResult(checkAnswer("lls"));
+				var isSuccess = checkAnswer("lls");
+                showResult(isSuccess);
             });
 
             draggableInit();
         }
     }
 })();
+

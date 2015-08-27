@@ -1,5 +1,7 @@
 /*
  * QuestionLoader: abstract the question-loading action to include more different question types (true-false, multi-choice, matching... etc.)
+ *
+ * taskComplete => battlepage/dao/taskStatusDao.js
  */
 var QuestionLoader = (function() {
     var current_question,
@@ -34,12 +36,10 @@ var QuestionLoader = (function() {
             }, 1000);
         }
         else {
-            if(is_correct) {     
-                window.location.href ="trainingRoom.html";
-                // battle_data.getQuestion().removeUsedQustion(current_question);
-                // setTimeout(function() {
-                //     loadNextQuestion(dom_id);
-                // }, 1000);
+            if(is_correct) {    
+				taskComplete.send().done(function(){
+               		window.location.href ="trainingRoom.html";
+				});				 
             }
             else {
                 keepAnswering();

@@ -47,6 +47,10 @@ ServerConfig = (function() {
         return serverBaseUrl + '/users/' + email + '/job/' + jobId;
     }
 
+	var putTaskCompleteUrl = function(email,jobId,taskId){
+		return serverBaseUrl + '/users/' + email + '/job/' + jobId + '/task/' + taskId;
+	}
+
     return {
         getUrl: getUrl,
         postUrl: postUrl,
@@ -57,6 +61,7 @@ ServerConfig = (function() {
 		getJobTasksQuestion:getJobTasksQuestion,
         createJobUrl: createJobUrl,
         deleteJobUrl: deleteJobUrl,
-        rewardVictoryUrl: rewardVictoryUrl
+        rewardVictoryUrl: rewardVictoryUrl,
+		putTaskCompleteUrl : putTaskCompleteUrl
     };
 })();

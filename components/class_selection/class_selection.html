@@ -64,7 +64,7 @@
       <div class="item active">
         <a href="#" data-toggle="modal" data-target="#jobDescriptionModal"><img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-3.jpg" alt="..."></a>
         <div class="carousel-caption">
-          投資理財
+          投資
         </div>
       </div>
       <div class="item">
@@ -143,7 +143,7 @@ $(function () {
   });
 
 
-  //$('#batonhunter-job-categories').render(job_categories_data);
+  $('#batonhunter-job-categories').render(job_categories_data);
 
   $('#batonhunter-dl-menu').dlmenu({
     animationClasses: {
@@ -153,6 +153,8 @@ $(function () {
   });
 
   $('.job_name').click(function () {
+
+    //TODO: set job description content
     $('#jobDescriptionModal').modal();
   });
 

@@ -20,6 +20,10 @@ var ClassData = (function() {
 		'戲劇電影': ['職業4', '職業5', '職業6'],
 		'文字創作': ['職業7', '職業8', '職業9']
 	};
+	var  = function(){
+
+	}
+
 		
 	var getCategory = function() {
 		return category;

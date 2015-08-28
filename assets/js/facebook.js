@@ -30,7 +30,7 @@ var Facebook = (function() {
 
   window.fbAsyncInit = function() {
       FB.init({
-        appId      : '170987831570',
+        appId      : '749074021805322',
         cookie     : true,  // enable cookies to allow the server to access
                             // the session
         xfbml      : true,  // parse social plugins on this page
@@ -49,7 +49,7 @@ var Facebook = (function() {
 
   return {
     login: login
-  }
+  };
 })();
 
 $(document).ready(function() {

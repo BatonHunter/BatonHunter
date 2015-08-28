@@ -10,8 +10,12 @@
 
 .enemyHP div{ 
 	background-image: url(../../../assets/img/HP_user.gif);
+  margin-top: 50px;
 }
-
+.enemyHP img{
+margin-top: -50px;
+width: 100%;
+}
 .userHP div{ 
 	background-image: url(../../../assets/img/HP_enemy.gif); 
 }

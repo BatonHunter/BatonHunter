@@ -3,6 +3,9 @@ html, body {
     margin: 0;
     padding: 0;
 }
+h3 {
+  color: white;
+}
 .main {
     height: 100%;
     width: 100%;
@@ -24,9 +27,13 @@ html, body {
 }
 .role {
     text-align: center;
+    height: 30%;
 }
 .role img {
-    display: inline-block;
+  height: 100%;
+  width: 100%;
+    /*position: absolute;*/
+    /*top: 30%;*/
 }
 .blood-flow {
     background-color: rgba(255, 255, 255, .5);
@@ -90,13 +97,18 @@ html, body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
-  height: 40%;
+  height: 50%;
   overflow: hidden;
   position: relative;
 }
 .question {
-  background-color: #07BA92;
-  height: 60%;
+  background-image: url('../test/dialog.png') ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 50%;
+  overflow: hidden;
+  position: relative;
 }
 
 #question {

@@ -176,7 +176,6 @@ var battle_data = (function(serverConfig) {
                     return img_path;
                 },
                 getHp: function() {
-                    console.log(hp);
                     return hp;
                 },
                 getMonsterType: function() {

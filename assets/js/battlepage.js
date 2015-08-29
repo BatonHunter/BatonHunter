@@ -15,8 +15,10 @@ $(document).ready(function() {
 
     if (para.taskId === undefined) {
 
-        QuestionLoader.loadQuestion('#question');
 
+        var param = {
+            jobId : para.jobId
+		}
         //fighting page countdown clock
         battleTimer = Object.create(batontimer);
         battleTimer.setUpClock('#counter', 20, 'red', 'circle', function() {
@@ -41,12 +43,13 @@ $(document).ready(function() {
             count_id: "#herbsCount"
         }, userHP.heal);
     }
-
     else {
-        var jobId = para.jobId,
-            taskId = para.taskId;
+        var param = {
+            jobId : para.jobId,
+            taskId : para.taskId};
 
-        QuestionLoader.loadTrainQuestion('#question', jobId, taskId);
         $('.tools').hide();
-    }
+    }	
+    QuestionLoader.loadQuestion('#question', param);
+  
 });

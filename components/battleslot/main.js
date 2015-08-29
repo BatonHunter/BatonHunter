@@ -85,7 +85,8 @@ var saveResult = function(item) {
         monster = "boss";
 
     setTimeout(function() {
-        window.location.href = "../../battlepage.html?&monster=" + monster;
+		var currentJobId = Profile.getCurrentJobId();
+        window.location.href = "../../battlepage.html?&monster=" + monster +"&jobId=" + currentJobId;
     }, 1000);
 }
 

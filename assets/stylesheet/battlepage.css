@@ -9,6 +9,10 @@ h3 {
     color: white;
 }
 
+h4 {
+    color: grey;
+}
+
 .main {
     height: 100%;
     width: 100%;

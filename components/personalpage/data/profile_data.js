@@ -104,7 +104,16 @@ var Profile = (function () {
 	}
 
 	var getCurrentJobId = function(){
-		return getProfileFromCookie().currentJobId;
+		var jobId;
+        $.ajax({
+            url: ServerConfig.getUrl(getEmail()),
+            dataType:'json',
+            async: false,
+            success: function(data) {
+            jobId = data.jobs[0].jobId;
+            }
+        });   
+        return jobId;
 	}
 
     var getEmail = function() {

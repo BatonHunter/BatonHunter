@@ -84,6 +84,7 @@ h3 {
     padding: 0;
     margin: 0;
     text-align: right;
+    z-index: 9;
 }
 
 .tools ul {

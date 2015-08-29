@@ -243,3 +243,11 @@ width: 30px;
     margin:0 25px;
 }
 
+
+.navbar-fixed-bottom .btn {
+    border-radius: 0;
+    border-top: 5px solid #ddd;
+    color: #aaa;
+    font-size: 12px;
+    padding: 10px 5px;
+}

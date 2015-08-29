@@ -1,15 +1,18 @@
 (function() {
-    var player = battle_data.getPlayer(),
+    //ToDo : 改成從restful 拿data
+
+    var userState = Profile.getUserJobsState(),
 		currentTaskId ;		
-	
+	//End ToDo 
+
 	var para=getPara.get();
 	var currentJobId = para.jobId;
 	
 	//Test set jobId
 	//currentJobId = '1';
 			
-    DataLoader.loadTasks('tasks',player,currentJobId);
-    DataLoader.showBtnToTiger(player);
+    DataLoader.loadTasks('tasks',userState,currentJobId);
+    DataLoader.showBtnToTiger(userState);
 
     //dialog effect setting
     $("#dialog").dialog({

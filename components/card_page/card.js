@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    //Modal
+
+     $('#myModal').modal('show');
+     
+    //End Modal field
 	var cardInvisible=Profile.getCardInvisible();
 	console.log(cardInvisible);
     var bowbow=document.getElementById("bowbow");    //林寶寶div

@@ -64,13 +64,13 @@
     width: 100%;
 }
 
-.careers .btn {
-    border-radius: 0;
-    border-top: 5px solid #ddd;
-    color: #aaa;
-    font-size: 12px;
-    padding: 10px 5px;
-}
+/* .careers .btn { */
+/*     border-radius: 0; */
+/*     border-top: 5px solid #ddd; */
+/*     color: #aaa; */
+/*     font-size: 12px; */
+/*     padding: 10px 5px; */
+/* } */
 
 .navbar-fixed-bottom .btn span {
     display: block;

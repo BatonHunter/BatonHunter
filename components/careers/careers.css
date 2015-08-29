@@ -19,6 +19,8 @@
 .careers .role img {
   position: relative;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   transform: translateY(-50%);
   max-width: 100%;
   max-height: 100%;

@@ -2,7 +2,7 @@
 var batontimer = {
     totalTimeSecond: 10,
     currentTimeSecond: null,
-    fontsize: 20,
+    fontsize: 25,
     internalTimer: null,
     clock: null,
     timesUpCallBack: null
@@ -37,7 +37,8 @@ var batontimer = {
             radius: radius,
             strokeStyle: color,
             lineCap: lineCap,
-            lineWidth: 4
+            lineWidth: 4,
+            fillStyle: "#ffffff"
         });
         this.timesUpCallBack = timesUpCallBack;
         $(domId).append(this.clock.el);

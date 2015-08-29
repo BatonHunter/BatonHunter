@@ -47,6 +47,7 @@ h4 {
 }
 
 .question #counter {
+    position: absolute;
     text-align: center;
     font-size: 40px;
     color: white;

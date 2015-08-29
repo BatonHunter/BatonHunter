@@ -53,6 +53,12 @@ body {
     margin: auto;
 }
 
+.navbar-fixed-bottom .btn span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
 .navbar-fixed-bottom .btn {
     border-radius: 0;
     border-top: 5px solid #ddd;

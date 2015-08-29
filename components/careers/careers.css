@@ -79,7 +79,7 @@
     color: rgb(53, 53, 121);
 }
 
-.careers .btn i {
+.navbar-fixed-bottom .btn span {
     display: block;
     font-size: 18px;
     margin-bottom: 5px;

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Class selection - BatonHunter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="../../assets/lib/js/jquery.js"></script>
+<script src="../../assets/lib/js/bootstrap.js"></script>
+<script src="../../assets/lib/js/transparency.js"></script>
+<script src="../../assets/js/cookie.js"></script>
+<script src="data/class_data.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<script src="js/jquery.dlmenu.js"></script>
+<script src="../config/server_config.js"></script>
+<script src="../personalpage/data/profile_data.js"></script>
+<script src="../careers/careers.js"></script>
+<script src="js/classSelection.js"></script>
+<!--stylesheets-->
+<link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../assets/lib/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="css/class_selection.css">
+<link rel="stylesheet" type="text/css" href="css/component.css">
+</head>
+<body class="">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class='navbar-brand' href='../careers/index.html'><i class="fa fa-chevron-left"></i> 職業選擇</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="modal fade" id="jobDescriptionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">職業說明 - 投資</h4>
+        </div>
+        <div class="modal-body">
+          <img src="https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m" alt="..." class="img-responsive img-rounded">
+          <p>賺取報酬的代價，不是風險就是時間。你可以冒高一點的風險，去追求高一點的獲利；也可以犧牲流動性，投資較長的時間，以換取相對較低的風險與較高的報酬。像2002年國內一年期定存利率降到只有1％的時候，許多銀行大力推薦存戶購買各式各樣的「連動債」，標榜在某種條件下，可以拿到3％、5％，甚至更高的利息，但前提是不能主動提前贖回，不然原來獲利和保本的保證就不再有效。這就是典型的犧牲流動性，換取低風險與高報酬的實例。至於在股市短進短出，今天賺、明天賠，則是用高風險當代價，追求高報酬的最佳例子。</p>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-primary" onclick="ClassSelection.create()">確定</a>
+          <a href="#" class="btn btn-default" data-dismiss="modal">取消</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <a href="#" data-toggle="modal" data-target="#jobDescriptionModal"><img src="https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m" alt="..."></a>
+        <div class="carousel-caption">
+          投資
+        </div>
+      </div>
+      <div class="item">
+        <a href="#" data-toggle="" data-target="#jobDescriptionModal"><img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-2.jpg" alt="..."></a>
+        <div class="carousel-caption">
+          尚未開放
+        </div>
+      </div>
+      <div class="item">
+        <a href="#" data-toggle="" data-target="#jobDescriptionModal"><img src="http://cdnlava360.saturn.netdna-cdn.com/wp-content/uploads/2014/09/Pictures-of-Cute-Kittes-17.jpg" alt="..."></a>
+        <div class="carousel-caption">
+          尚未開放
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div id="batonhunter-dl-menu" class="dl-menuwrapper">
+    <ul id="batonhunter-job-categories" class="dl-menu dl-menuopen list-group">
+      <li class="job_category list-group-item">
+        <a class="category_name" href="#"></a>
+        <ul class="dl-submenu job_subcategories list-group">
+          <li class="job_sub_category list-group-item">
+            <a class="sub_category_name" href="#"></a>
+            <ul class="dl-submenu jobs list-group">
+              <li class="list-group-item"><a class="job_name" href="#" data-toggle="modal" data-target="#jobDescriptionModal"></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /dl-menuwrapper -->
+
+</div>
+
+<script>
+$(function () {
+  var job_categories_data = [];
+
+  ClassData.getCategory().forEach(function (category_name) {
+    var sub_categories_arr = [];
+    var category_obj = {
+      category_name: category_name
+    };
+
+    ClassData.getSubCategory(category_name).forEach(function (subcategory_name) {
+        var jobs_arr = [];
+        var sub_category_obj = {
+          sub_category_name: subcategory_name
+        };
+
+        ClassData.getClass(subcategory_name).forEach(function (job_name) {
+          var job_obj = {
+            job_name: job_name
+          };
+
+          jobs_arr.push(job_obj);
+        });
+        sub_category_obj.jobs = jobs_arr;
+
+        sub_categories_arr.push(sub_category_obj);
+    });
+    category_obj.job_subcategories = sub_categories_arr;
+
+    job_categories_data.push(category_obj);
+  });
+
+
+  $('#batonhunter-job-categories').render(job_categories_data);
+
+  $('#batonhunter-dl-menu').dlmenu({
+    animationClasses: {
+      classin:  'dl-animate-in-2',
+      classout: 'dl-animate-out-2'
+    }
+  });
+
+  $('.job_name').click(function () {
+
+    //TODO: set job description content
+    $('#jobDescriptionModal').modal();
+  });
+
+});
+</script>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default btn-lg' href='../personalpage/personal_mobile.html'>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+      個人
+    </a>
+    <a class='btn btn-default btn-lg active' href='javascript:'>
+      <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><br>
+      職業
+    </a>
+    <a class='btn btn-default btn-lg' href='javascript:'>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+      設定
+    </a>
+  </div>
+</nav>
+</body>
+</html>
+

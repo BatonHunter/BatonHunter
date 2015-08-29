@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>BatonHunter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--libs-->
+<link rel="stylesheet" href="assets/lib/css/bootstrap.css">
+<link rel="stylesheet" href="assets/lib/css/font-awesome.css">
+<!--customs-->
+<link rel="stylesheet" href="assets/stylesheet/battlepage.css" />
+<link rel="stylesheet" href="components/trainingRoom_page/mainTrainingRoom/style.css" />
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" />
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class='navbar-brand' href="./components/careers/index.html"><i class="fa fa-chevron-left"></i> 十件事清單</a>
+    </div>
+  </div>
+</nav>
+
+<div class="main training-room container">
+<div id="tasks">
+</div>
+
+<div class="row">
+  <div class="col-xs-4">&nbsp;</div>
+  <div class="col-xs-4"><a type="button" class="btn btn-success" href="components/battleslot/index.html">開啟正式戰鬥</a></div>
+  <div class="col-xs-4">&nbsp;</div>
+</div>
+</div>
+
+
+<div class="dialog1" id="dialog" title="Basic dialog">
+    <p>This <i></i>s an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+    <img src="">
+    <button id="EnterBattle">打怪練習</button>
+</div>
+
+
+<div id="goToTigerModel" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <h2>congrations</h2>
+      <button type="button" name="button"><a href="#">Ready to tiger</a></button>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default btn-lg active' href='javascript:'>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+      個人
+    </a>
+    <!--<a class='btn btn-default btn-lg' href='../careers/index.html'>-->
+    <a class='btn btn-default btn-lg' href='./components/careers/index.html'>
+      <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><br>
+      職業
+    </a>
+    <a class='btn btn-default btn-lg' href='javascript:'>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+      設定
+    </a>
+  </div>
+</nav>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default btn-lg ' href='./components/personalpage/personal_mobile.html'>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+      個人
+    </a>
+    <a class='btn btn-default btn-lg active' href='./components/careers/index.html'>
+      <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><br>
+      職業
+    </a>
+    <a class='btn btn-default btn-lg' href='#'>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+      設定
+    </a>
+  </div>
+</nav>
+
+<!--libs-->
+<script src="assets/lib/js/jquery.js"></script>
+<script src="assets/lib/js/bootstrap.js"></script>
+<script src="assets/lib/js/jquery-ui.js"></script>
+<script src="assets/js/cookie.js"></script>
+<!--components-->
+ <script src="components/battlepage/gamestatus/HandleParameter.js"></script>
+<script src="components/config/server_config.js"></script>
+<script src="components/battlepage/data/battle_data.js"></script>
+<script src="components/trainingRoom_page/data/training_data_questions.js"></script>
+<script src="components/trainingRoom_page/data/training_data.js"></script>
+<script src="components/trainingRoom_page/dataloader/dataloader.js"></script>
+<script src="components/trainingRoom_page/mainTrainingRoom/trainingRoom.js"></script>
+<!--main-->
+</body>
+</html>

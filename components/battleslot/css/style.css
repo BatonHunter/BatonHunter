@@ -1,0 +1,253 @@
+body {
+  padding-top: 60px;
+}
+
+.userAttribute {
+    padding-bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+.userAttribute .label{
+    margin:0 15px;
+    width: 30px;
+    height: 10px;
+    padding:.3em .6em;
+}
+
+.userAttribute div span{
+    display: inline-block;
+width: 30px;
+    margin:5px 5px;
+    font-size: 16px;
+}
+
+#machine {
+    background: url("../img/slot-machine.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /*height: 50%;*/
+    margin: 0 auto;
+    padding-bottom: 97.65%;
+    width: 100%;
+    position: relative;
+}
+/*底座定位*/
+
+#slotPosition {
+    position: relative;
+    text-align: center;
+}
+/*底座定位*/
+
+#slotBase {
+    position: relative;
+    margin-top: 50px;
+    width: 30%;
+    height: 0;
+    margin: 0 auto;
+/*    top: 50%;
+    left: 100%;
+    width: 15%;
+    height: 20%;*/
+    /* border-radius: 10px;
+    background-color: #CB9069;
+    border: 1px solid;
+    background-color: #333;
+    background-image: -webkit-linear-gradient(#666 0%, #333 60%, #666 100%);
+    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.2); */
+}
+
+#slotArm {
+    text-align: center;
+    margin-top: 10px;
+    width: 20%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+/*#slotArm {
+    position: relative;
+    cursor: pointer;
+    width: 40%;
+    height: 100%;
+    border-radius: 0% 50% 50% 0%;
+    /*background-color: #CB9069;*/
+    
+    background-color: #FDD942;
+    background-image: -webkit-linear-gradient(top, #CC9D25 0%, #CBA816 10%, #E8BD0F 30%, rgba(250, 239, 186, 1) 50%, #E8BD0F 70%, #CBA816 90%, #CC9D25 100%);
+}*/
+/*拉桿 */
+
+/*#slotArm:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 40%;
+    width: 60%;
+    height: 75%;
+    border-radius: 8px;
+    /*background-color: #CB9069;*/
+    
+    background-color: #FBF3C4;
+    transform: rotate(15deg);
+    /*background-image: -webkit-linear-gradient(left, #CB9069 0%, rgba(129, 38, 38, 0.5) 25%, rgba(129, 38, 38, 0.7) 50%, rgba(129, 38, 38, 0.5) 75%, #CB9069 100%);*/
+    
+    background-image: -webkit-linear-gradient(left, #FCCF13 0%, #FDE26B 50%, #FCCF13 100%);
+    /*background-image: -moz-linear-gradient(left, #666 0%, rgba(255, 255, 255, 0.7) 50%, #666 100%);*/
+    /*background-image: -ms-linear-gradient(left, #666 0%, rgba(255, 255, 255, 0.7) 50%, #666 100%);
+    background-image: -o-linear-gradient(left, #666 0%, rgba(255, 255, 255, 0.7) 50%, #666 100%);
+    background-image: linear-gradient(to right, #666 0%, rgba(255, 255, 255, 0.7) 50%, #666 100%);*/
+    
+    transition: all 0.5s ease-in-out 0s;
+}*/
+/*拉桿球 */
+
+/*#slotArm:after {
+    content: '';
+    position: absolute;
+    top: -80%;
+    left: 45%;
+    width: 130%;
+    height: 40%;
+    /*border-radius: 50% 50% 10% 10%;*/
+    
+    border-radius: 100%;
+    /*改拉桿球顏色 */
+    
+    background-color: #760209;
+    /*background-color: white;*/
+    /*background-color: #C86C64;*/
+    /*background-color: #D870A4;*/
+    
+    border: 1px solid #5d0207;
+    box-sizing: border-box;
+    transform: rotate(-10deg);
+    background-image: -webkit-radial-gradient(50% 27%, closest-corner, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    
+    background-image: -webkit-radial-gradient(50% 40%, closest-corner, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    /*background-image: -moz-radial-gradient(50% 40%, closest-corner, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));*/
+    /*background-image: -ms-radial-gradient(50% 40%, closest-corner, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    background-image: -o-radial-gradient(50% 40%, closest-corner, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));*/
+    
+    transition: all 0.5s ease-in-out 0s;
+}*/
+/*拉桿-點擊後 */
+
+#slotArm.clicked:before {
+    top: 75%;
+    left: 40%;
+    /*旋轉*/
+    
+    transform: rotate3d(100, -15, 0, 180deg);
+    /*基準點,預設(50%,50%) */
+    
+    transform-origin: 50% 50%;
+    /*轉場特效*/
+    
+    transition: all 0.5s ease-in-out 0s;
+}
+/*拉桿球-點擊後 */
+
+#slotArm.clicked:after {
+    /*旋轉後位置*/
+    
+    top: 130%;
+    transition: all 0.5s ease-in-out 0s;
+    /*旋轉*/
+    /* -webkit-transform: rotate3d(100, 10, 0, 180deg);
+    transform-origin: 50% 50%; */
+}
+/* Slots */
+
+.slots-bar {
+    position: absolute;
+    top: 40%;
+    left: 18%;
+    width: 65%;
+    height: 36%;
+    display: flex;
+    justify-content: center;
+}
+
+.slots {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    width: 35%;
+}
+
+.slots .slot {
+    line-height: 100%;
+}
+
+.slots .slot img {
+}
+
+/**
+* Modify the dDialog.modal
+*/
+
+.modal {
+  text-align: center;
+}
+
+.modal:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: " ";
+  height: 100%;
+}
+
+.modal-dialog {
+  display: inline-block;
+  /*text-align: left;*/
+  width: 200px;
+  vertical-align: middle;
+}
+
+.modal-content {
+  height: 145px;
+  position: absolute;
+  z-index: 50;
+}
+
+#monsterPic {
+  position: absolute;
+  margin-top: -130px;
+  padding-left: 25px;
+  z-index: 51;
+}
+
+.modal-body {
+  position: relative;
+  padding: 35px;
+  padding-top: 28px;
+  font-size: 30px;
+}
+
+.modal-header .close {
+  margin-top: -10px;
+}
+
+.functionBar{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+.functionBar button{
+    margin:0 25px;
+}
+
+
+.navbar-fixed-bottom .btn {
+    border-radius: 0;
+    border-top: 5px solid #ddd;
+    color: #aaa;
+    font-size: 12px;
+    padding: 10px 5px;
+}

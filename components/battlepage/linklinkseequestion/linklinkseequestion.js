@@ -1,13 +1,9 @@
-// 'use strict';
+'use strict';
+var linklinkseeQuestion = (function () {
 
-var linklinkseeQuestion = (function() {
-
-    var draggableInit = function() {
-
-
-        var test=1;
-
-        jQuery.fn.swap = function(b) {
+    var draggableInit = function () {
+        var test = 1;
+        jQuery.fn.swap = function (b) {
             // method from: http://blog.pengoworks.com/index.cfm/2008/9/24/A-quick-and-dirty-swap-method-for-jQuery
             b = jQuery(b)[0];
             var a = this[0];
@@ -57,6 +53,7 @@ var linklinkseeQuestion = (function() {
         q_id,
         q_title,
         q_choseItem,
+        q_ans,
         q_hint;
 
     var setQuestion = function(question) {
@@ -108,36 +105,20 @@ var linklinkseeQuestion = (function() {
         } else {
             alert("No");
         }
-        deductHp(is_correct);
-        battleTimer.reset();
-        battleTimer.start();
-    };
-
-    var deductHp = function(is_correct) {
-        if (is_correct) {
-            battle_effect.beatmonster('#enemy', battle_data.getMonster().getImg_path());
-            enemyHP.modifyHP(-50, 1);
-        } else {
-            userHP.modifyHP(-150, 1);
-        }
     };
 
     return {
         init: function(question, checkAnswer, dom_id) {
 
-
-
             q_view = dom_id.find("#linklinkquestion");
             setQuestion(question);
             q_view.find('#llkConfirmBtn').on("click", function() {
-                showResult(checkAnswer());
-                setTimeout(function() {
-                    QuestionLoader.loadQuestion(dom_id);
-                }, 1000);
+				var isSuccess = checkAnswer("lls");
+                showResult(isSuccess);
             });
 
             draggableInit();
-
         }
     }
 })();
+

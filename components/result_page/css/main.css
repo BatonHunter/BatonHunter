@@ -12,6 +12,19 @@ body ul {
 .glyphicon-home {
     padding-left: 10px;
 }
+
+.info-container ul {
+  padding: 0;
+}
+
+.info-container ul li > span {
+  width: 100%;
+}
+
+.info-container ul li > span .num {
+  float: right;
+}
+
 .info-container .glyphicon::before {
     padding-right: 10px;
 }
@@ -38,6 +51,7 @@ body ul {
 }
 .info-container {
     font-size: 20px;
+    padding: 20px 15px;
 }
 footer {
 	width:100%;

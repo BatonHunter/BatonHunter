@@ -3,7 +3,6 @@ var HP = function(maxHP, $element) {
     this.currentHP = maxHP;
     this.maxHP = maxHP;
     this.$element = $element;
-
     //blood UI init
     this.HPuiController = function(value) {
         var percent = this.currentHP / this.maxHP * 100;
@@ -72,10 +71,28 @@ HP.prototype.isFull = function() {
     return (this.currentHP >= this.maxHP);
 };
 
+
 HP.prototype.win = function() {
-    window.location.href="./components/result_page/win.html";
+    $('#winModal').modal('show');
+        Profile.rewardVictory(para.monster);
+        Profile.setGameIsLvUp(true);
+
+        $('#winModal').on('hidden.bs.modal', function (e) {
+        window.location.href="./components/result_page/win.html";
+        });
+        setTimeout(function() {
+            window.location.href="./components/result_page/win.html";
+        }, 2000);
 };
 
+
+
 HP.prototype.lose = function() {
-    window.location.href="./components/result_page/lose.html";
+    $('#loseModal').modal('show');
+    $('#loseModal').on('hidden.bs.modal', function (e) {
+        window.location.href="./components/result_page/lose.html";
+    });
+    setTimeout(function() {
+        window.location.href="./components/result_page/lose.html";
+    }, 2000);
 };

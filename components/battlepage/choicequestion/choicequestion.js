@@ -8,8 +8,8 @@ var choiceQuestion = (function(){
         q_title = question.title;
         q_content = question.content;
         q_hint = question.hint;
-        q_options = question.anslist;
-        q_correct_answers = question.ans;
+        q_options = question.answerList;
+        q_correct_answers = question.answer;
 
         updateQuestionView();
     }
@@ -41,29 +41,15 @@ var choiceQuestion = (function(){
             q_view.find('#correctImg').hide();
             q_view.find('#wrongImg').show();
         }
-        deductHp(is_correct);
-        battleTimer.reset();
-        battleTimer.start();
     }
-
-    var deductHp = function (is_correct){
-        if(is_correct){
-            battle_effect.beatmonster('#enemy', battle_data.getMonster().getImg_path());
-            enemyHP.modifyHP(-50, 1);
-        } else{
-            userHP.modifyHP(-150, 1);
-        }
-    };
 
     return {
         init: function(question, checkAnswer, dom_id) {
             q_view = dom_id.find("#choicequestion");
             setQuestion(question);
             q_view.find('#answer button').on("click", function() {
-                showResult(checkAnswer(q_correct_answers, $('[name=answers]:checked')));
-                setTimeout(function() {
-                    QuestionLoader.loadQuestion(dom_id);
-                }, 1000);
+				var isSuccess = checkAnswer("choice", $('[name=answers]:checked'));
+                showResult(checkAnswer(isSuccess));
             });
         }
     }

@@ -21,36 +21,17 @@
         <script src="../../assets/lib/js/bootstrap.js"></script>
         <script src="../../assets/lib/js/odometer.js"></script>
         <script src="../../assets/js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="../../assets/js/cookie.js"></script>
+        <script src="../config/server_config.js"></script>
+        <script src="../personalpage/data/profile_data.js"></script>
         <script src="js/result.js"></script>     
+        <script src="js/share.min.js"></script>     
     </head>
-    <body onload="loadResultValues()">
+    <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">BatonHunter<span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <form class="navbar-form navbar-right" role="form">
-                <div class="form-group">
-                  <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                  <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-              </form>
-            </div><!--/.navbar-collapse -->
-          </div>
-        </nav>  
+         
         <div class="container main-image-container">
             <div class="row">
                 <div class="col-xs-12 img-container col-md-6">
@@ -61,19 +42,42 @@
                 </div>
                 <div class="info-container">
                     <div class="col-xs-12 info-container col-md-6">
-                        <h2>Reward</h2>
-                        <ul>
-                            <li><span class="glyphicon glyphicon-usd" aria-hidden="true">money <span id="money"class="moneyNum num odometer">0</span></li>
-                            <li><span class="glyphicon glyphicon-new-window" aria-hidden="true">exp<span id="exp"class="expNum num odometer">0</span></li>
-                            <li><span class="glyphicon glyphicon-list-alt" aria-hidden="true">score<span id="score"class="scoreNum num odometer">0</span></li>
-                            <li><span class="glyphicon glyphicon-time" aria-hidden="true">time<span id="time"class="timeNum num odometer">0</span></li>
-                        </ul>
+                      <table class="table">
+                        <tr><th colspan="2">REWARD</th></tr>
+                        <tr>
+                          <td><span class="glyphicon glyphicon-usd" aria-hidden="true">MONEY</span></td>
+                          <td><span id="money" class="moneyNum num odometer">0</span></td>
+                        </tr>
+                        <tr>
+                          <td><span class="glyphicon glyphicon-new-window" aria-hidden="true">EXP</span></td>
+                          <td><span id="exp" class="expNum num odometer">0</span></td>
+                        </tr>
+                      </table>
                     </div>
-                    <div class="col-xs-12 button-container visible-xs-block visible-sm-block">
-                        <p class="btn btn-primary ">Continue</p>
-                    </div>
+                </div>
+                <div class="col-xs-12 button-container visible-xs-block visible-sm-block">
+                    <p class="btn btn-primary">Continue</p>
                 </div>
             </div>
         </div>
     </body>
+    <div class="modal fade" id="modal_fight_result" tabindex="-1" role="dialog" aria-labelledby="title_fight_result" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="fight_result_title">Congras!!! LVL UP!!!</h4>
+              <h2>恭喜獲得專家卡片！</h2>
+            </div>
+            <div class="modal-body">
+              <img id="fight_result_image" class="img-responsive" src="http://img05.deviantart.net/5036/i/2009/357/7/f/poker_girl_by_lorenzo_bucci.jpg" alt="Can't find image">
+            </div>
+            <div class="modal-footer">
+              <div class="share-button">
+              </div>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
 </html>

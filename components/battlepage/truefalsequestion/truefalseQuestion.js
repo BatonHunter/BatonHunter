@@ -43,7 +43,7 @@ var truefalseQuestion = (function(taskComplete) {
             setQuestion(question);
             q_view.find('#answer button').on("click", function() {
 				var isCorrect = checkAnswer("tf", $(this).attr("val"));
-                showResult(checkAnswer(isCorrect));
+                showResult(isCorrect);
             });
         }
     }

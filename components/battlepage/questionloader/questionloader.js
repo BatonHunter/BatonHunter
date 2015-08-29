@@ -26,10 +26,10 @@ var QuestionLoader = (function() {
 
         //if is_training is 
         if(!isTraining){
-            battle_data.getQuestion().removeUsedQustion(current_question);
+            //battle_data.getQuestion().removeUsedQustion(current_question);
             deductHp(is_correct);
             setTimeout(function () {
-                loadNextQuestion(dom_id);
+                //loadNextQuestion(dom_id);
                 battleTimer.reset();
                 battleTimer.start();
             }, 1000);
@@ -116,7 +116,7 @@ var QuestionLoader = (function() {
     };
 
     var keepAnswering = function () {
-        alert("Try Again");
+        //alert("Try Again");
         loadQuestion(current_question);
     }
     //there is a parameter need to select wheater traing question or battle question.

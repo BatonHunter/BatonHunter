@@ -1,9 +1,24 @@
 var Careers = (function () {
-  var ROLE_PIC_MAP = {
-    '1': '../../assets/img/teacher.png',
-    '2': '../../assets/img/lawer.png',
-    '3': '../../assets/img/police.png'
-  };
+  var imgPath;
+
+  var getJobImgPath = function(jobId){
+    var url = "https://baton-huner-restful-server.herokuapp.com/jobs/" + jobId;
+    $.ajax({
+            url: url,
+            method: 'GET',
+            async: false,
+            crossDomain: true,
+            dataType: 'json',
+            error: function(response) {
+                console.log('something went wrong');
+            },
+            success: function(responseData, textStatus, jqXHR) {
+                console.log('Successfully');
+            }
+            }).done(function(data){
+              imgPath = data.imgPath;
+            });
+  }
 
   var getCareerJobs = function () {
     return Profile.getJobs() || [];
@@ -20,28 +35,57 @@ var Careers = (function () {
     }
 
     Profile.createJob(job);
-  }
+  };
+
+  var delCareerJobs = function (jobId) {
+    Profile.deleteJob(jobId);
+    window.location = "../careers/index.html";    
+  };  
 
   var renderRole = function (job, roleId) {
+    getJobImgPath(roleId);
+
     var $roleDom = $('#role-' + roleId),
         $roleImg = $('<img>');
 
-    $roleImg.attr('src', ROLE_PIC_MAP[roleId]);
+    $roleImg.attr('src', imgPath);
 
     $roleDom.removeClass('no-role')
-	 .find('a')
-	 .attr('href','#')
-     .empty()
+      .find('a')
+      .attr('href','#')
+      .empty()
       .append($roleImg);
 
-    $roleDom.find('.title').html(job.title);
+    $roleDom.find('.title').html(job.title + ' <button type="button" class="delCareerBtn btn-danger">刪除!</button>');
 	
-	$roleDom.on('click',function(e){
-		e.preventDefault();
-		window.location.href = "../../trainingRoom.html?jobId=" + job.id;	
-	});	
-	
+
+
+
+    $roleDom.on({
+      click:function(e){
+        var target = e.target,
+            $target = $(target);
+
+            //Judge event has class or not
+            //If has "delCareerBtn" class , then cal delCareerJobs(id)
+            //If not , go to TrainingRoom
+            if($target.hasClass("delCareerBtn btn-danger")){
+              console.log("delBtn");
+
+              delCareerJobs(job.id);
+            }
+            else{
+              console.log("enter trainingRoom");
+
+              e.preventDefault();
+              console.log($roleDom.find('.delCareerBtn'));
+              window.location.href = "../../trainingRoom.html?jobId=" + job.id; 
+            }
+
+      }
+    });
   };
+ 
 
   var init = function() {
     var jobs = getCareerJobs();
@@ -54,7 +98,8 @@ var Careers = (function () {
   return {
     getCareerJobs: getCareerJobs,
     addCareerJobs: addCareerJobs,
+    delCareerJobs: delCareerJobs,
     init: init
-  }
+  };
 
 })();

@@ -19,6 +19,7 @@ ServerConfig = (function() {
 		return serverBaseUrl + '/jobs/' + jobId + '/task';
 	}
 	
+
 	var getJobTasksQuestion = function(jobId,taskId){
 		return getJobTasks(jobId) + '/' + taskId + '/question';
 	}
@@ -34,6 +35,9 @@ ServerConfig = (function() {
     var askUrl = function() {
       return serverAskUrl;
 	}
+    var cardUrl = function(email) {
+        return serverBaseUrl + '/users/' + email + '/card';
+    }
 
     var createJobUrl = function(email) {
         return serverBaseUrl + '/users/' + email + '/job';
@@ -42,6 +46,14 @@ ServerConfig = (function() {
     var rewardVictoryUrl = function() {
         return serverBaseUrl + '/treasures';
     }
+
+    var deleteJobUrl = function(email, jobId){
+        return serverBaseUrl + '/users/' + email + '/job/' + jobId;
+    }
+
+	var putTaskCompleteUrl = function(email,jobId,taskId){
+		return serverBaseUrl + '/users/' + email + '/job/' + jobId + '/task/' + taskId;
+	}
 
     return {
         getUrl: getUrl,
@@ -52,6 +64,9 @@ ServerConfig = (function() {
 		getJobTasks:getJobTasks,
 		getJobTasksQuestion:getJobTasksQuestion,
         createJobUrl: createJobUrl,
-        rewardVictoryUrl: rewardVictoryUrl
+        deleteJobUrl: deleteJobUrl,
+        rewardVictoryUrl: rewardVictoryUrl,
+		putTaskCompleteUrl : putTaskCompleteUrl,
+        cardUrl: cardUrl
     };
 })();

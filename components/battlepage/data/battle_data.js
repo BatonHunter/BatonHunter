@@ -127,6 +127,7 @@ var battle_data = (function(serverConfig) {
         var questions = {};
 
         $.ajax({
+            //君君‘s database
             url: "https://batonhunter.firebaseio.com/questions.json?print=pretty",
             async: false,
             dataType: 'json',
@@ -175,7 +176,6 @@ var battle_data = (function(serverConfig) {
                     return img_path;
                 },
                 getHp: function() {
-                    console.log(hp);
                     return hp;
                 },
                 getMonsterType: function() {
@@ -190,8 +190,8 @@ var battle_data = (function(serverConfig) {
             return question;
         },
 		getTrainQuestion:function(jobId,taskId){
-			var _dfr,
-				url = serverConfig.getJobTasksQuestion(jobId,taskId);	
+			var _dfr;
+            var url = serverConfig.getJobTasksQuestion(jobId,taskId);	
 			
 			_dfr = $.Deferred();
 			$.getJSON(url,function(data){

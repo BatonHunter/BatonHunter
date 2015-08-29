@@ -1,51 +1,68 @@
 body {
-	background-color: #fff;
-  padding-top: 60px;
-  padding-bottom: 70px;
+    background-color: #fff;
+    padding-top: 60px;
+    padding-bottom: 70px;
 }
 
 .no-bottom-margin {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
-.name, .career, .nickname, .large-font {
-	font-size: 32px;
-	color: black;
+.name,
+.career,
+.nickname,
+.large-font {
+    font-size: 32px;
+    color: black;
 }
 
 .ability_radar {
-	width: 80%;
-	height: 80%;
+    width: 80%;
+    height: 80%;
 }
 
 .bg-yellow {
-	background-color: yellow;
+    background-color: yellow;
 }
 
 .bg-brown {
-	background-color: brown;
+    background-color: brown;
 }
 
 .color-white {
-	color: white;
+    color: white;
 }
 
 .personal_attr {
-  padding: 1em;
+    padding: 1em;
 }
 
 .headpic img {
-  width: 100%;
+    width: 100%;
 }
 
 .personal-btn-mobile {
-  background-color: red;
-  color: white;
+    background-color: red;
+    color: white;
 }
 
 #radar-chart {
-  min-height: 200px;
-  max-height: 300px;
-  max-width: 300px;
-  margin: auto;
+    min-height: 200px;
+    max-height: 300px;
+    max-width: 300px;
+    margin: auto;
+}
+
+.navbar-fixed-bottom .btn span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.navbar-fixed-bottom .btn {
+    border-radius: 0;
+    border-top: 5px solid #ddd;
+    color: #aaa;
+    font-size: 12px;
+    padding: 10px 5px;
 }

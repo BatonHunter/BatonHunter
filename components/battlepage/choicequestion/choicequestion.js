@@ -8,8 +8,8 @@ var choiceQuestion = (function(){
         q_title = question.title;
         q_content = question.content;
         q_hint = question.hint;
-        q_options = question.anslist;
-        q_correct_answers = question.ans;
+        q_options = question.answerList;
+        q_correct_answers = question.answer;
 
         updateQuestionView();
     }
@@ -48,7 +48,8 @@ var choiceQuestion = (function(){
             q_view = dom_id.find("#choicequestion");
             setQuestion(question);
             q_view.find('#answer button').on("click", function() {
-                showResult(checkAnswer("choice", $('[name=answers]:checked')));
+				var isSuccess = checkAnswer("choice", $('[name=answers]:checked'));
+                showResult(checkAnswer(isSuccess));
             });
         }
     }

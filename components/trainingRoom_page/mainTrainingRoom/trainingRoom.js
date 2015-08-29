@@ -6,7 +6,7 @@
 	var currentJobId = para.jobId;
 	
 	//Test set jobId
-	currentJobId = '1';
+	//currentJobId = '1';
 			
     DataLoader.loadTasks('tasks',player,currentJobId);
     DataLoader.showBtnToTiger(player);
@@ -37,7 +37,7 @@
     $(document).on("click","#EnterBattle",function(){
 		//test Job Id	    
 		currentJobId = '1';
-		var url = "battlepage.html?train=1&taskId=" + currentTaskId + "&jobId=" + currentJobId;
+		var url = "battlepage.html?monster=big&taskId=" + currentTaskId + "&jobId=" + currentJobId;
         window.location.href = url;
     });
 

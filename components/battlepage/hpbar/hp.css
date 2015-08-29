@@ -1,31 +1,51 @@
-.jquery-ui-like-enemy {
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 5% auto 0;
-    width: 85%;
+.hp {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-.jquery-ui-like-user {
-    border-radius: 4px;
-    overflow: hidden;
-    width: 85%;
-    margin: auto;
+.hp img {
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
 }
 
-.enemyHP div {
+.hp .jquery-ui-like {
+    border-radius: 4px;
+    overflow: hidden;
+    width: 72%;
+    line-height: 2vh;
+    position: absolute;
+    z-index: 1;
+}
+
+.hp .enemyHP {
+    margin-top: 4vh;
+    margin-left: 21%;
     background-image: url(../../../assets/img/HP_user.gif);
 }
 
-.enemyHP img {
-    width: 100%;
-}
-
-.userHP div {
+.hp .userHP {
+    margin-top: 1.5vh;
+    margin-left: 9%;
+    width: 82%;
     background-image: url(../../../assets/img/HP_enemy.gif);
 }
 
+.hp .txt_hp{
+    padding-top: 0.3vh;
+    padding-left: 3%;
+    font-size: 12px;
+}
+
+.hp .userHP .txt_hp{
+    padding-left: 2.1%;
+}
+
 @media screen and (max-width: 320px) {
-    body {
-        font-size: 12px;
+    .hp .txt_hp {
+        font-size: 5px;
     }
 }
+

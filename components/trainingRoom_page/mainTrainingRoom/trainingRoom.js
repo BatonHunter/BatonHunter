@@ -1,18 +1,14 @@
 (function() {
-    //ToDo : 改成從restful 拿data
 
     var userState = Profile.getUserJobsState(),
 		currentTaskId ;		
-	//End ToDo 
 
 	var para=getPara.get();
 	var currentJobId = Profile.getCurrentJobId();
+
 	
-	//Test set jobId
-	//currentJobId = '1';
-			
     DataLoader.loadTasks('tasks',userState,currentJobId);
-    DataLoader.showBtnToTiger(userState);
+    DataLoader.showBtnToTiger(userState,currentJobId);
 
     //dialog effect setting
     $("#dialog").dialog({
@@ -38,7 +34,6 @@
 
 
     $(document).on("click","#EnterBattle",function(){
-		//test Job Id	    
 		
 		var url = "battlepage.html?monster=big&taskId=" + currentTaskId + "&jobId=" + currentJobId;
         window.location.href = url;

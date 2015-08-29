@@ -1,9 +1,8 @@
-var HP = function(maxHP, $element,pageCondition) {
+var HP = function(maxHP, $element) {
     //variable init
     this.currentHP = maxHP;
     this.maxHP = maxHP;
     this.$element = $element;
-    this.pageCondition=pageCondition;
     //blood UI init
     this.HPuiController = function(value) {
         var percent = this.currentHP / this.maxHP * 100;
@@ -73,40 +72,17 @@ HP.prototype.isFull = function() {
 };
 
 
-
-
-//TODO: 將battlepage跟simplebattlepage合併後重構
 HP.prototype.win = function() {
     $('#winModal').modal('show');
-    // var userObj = $.cookie('userInfo');
-    // userObj.monster= battle_data.getMonster();
-    // $.ajax({
-    //     method: "POST",
-    //     url: "/saveBattleResult",
-    //     data: userObj
-    // })
-    // .done(function(data) {
         Profile.rewardVictory(para.monster);
-
-        console.log("condition:"+this.pageCondition);
-        // var data = { money: 1000000000000, isLvUp: true, exp: 100 };
-
-        // Profile.setGameMoney(data.money);
-        // Profile.setGameIsLvUp(data.isLvUp);
-        // Profile.setGameExp(data.exp);
         Profile.setGameIsLvUp(true);
 
-        //EXP , Money , 是否升級
         $('#winModal').on('hidden.bs.modal', function (e) {
         window.location.href="./components/result_page/win.html";
         });
         setTimeout(function() {
             window.location.href="./components/result_page/win.html";
         }, 2000);
-
-        console.log($.cookie('winInfo'));
-
-    // });
 };
 
 

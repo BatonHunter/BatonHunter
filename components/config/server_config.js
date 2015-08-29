@@ -19,6 +19,7 @@ ServerConfig = (function() {
 		return serverBaseUrl + '/jobs/' + jobId + '/task';
 	}
 	
+
 	var getJobTasksQuestion = function(jobId,taskId){
 		return getJobTasks(jobId) + '/' + taskId + '/question';
 	}
@@ -34,6 +35,9 @@ ServerConfig = (function() {
     var askUrl = function() {
       return serverAskUrl;
 	}
+    var cardUrl = function(email) {
+        return serverBaseUrl + '/users/' + email + '/card';
+    }
 
     var createJobUrl = function(email) {
         return serverBaseUrl + '/users/' + email + '/job';
@@ -63,5 +67,6 @@ ServerConfig = (function() {
         deleteJobUrl: deleteJobUrl,
         rewardVictoryUrl: rewardVictoryUrl,
 		putTaskCompleteUrl : putTaskCompleteUrl
+        cardUrl: cardUrl
     };
 })();

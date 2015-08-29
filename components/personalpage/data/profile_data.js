@@ -41,8 +41,33 @@ var Profile = (function () {
     }
 
     var getCardInvisible = function() {
-        return getProfileFromCookie().cardInvisible;
-    }
+        var cardType;
+
+        $.ajax({
+            url: ServerConfig.getUrl(getEmail()),
+            dataType:'json',
+            async: false,
+            success: function(data) {
+            cardType = data.cards;
+            }
+        });   
+
+        console.log(cardType);
+
+        if (cardType.length >=1) {
+            return true;
+        }else{
+            return false;
+        }
+        // if($.isEmptyObject(cardType)){
+        //         console.log("true")
+        //         return true;
+        //         optional stuff to do after success 
+        //     }else{
+        //         console.log("false")
+        //         return false;
+        //     }
+    }       
 
     var getProfileFromCookie = function() {
         var profileStr = Cookies.getItem(COOKIE_KEY) || "{}";
@@ -102,10 +127,27 @@ var Profile = (function () {
         saveToCookie(profile);
     }
 
-    var setCardInvisible = function(cardInvisible){
-        var profile = getProfileFromCookie();
-        profile.cardInvisible = cardInvisible;
-        saveToCookie(profile);
+    var setCardInvisible = function(type){
+
+        $.ajax({
+            url: ServerConfig.cardUrl(getEmail()),
+            method: "POST",
+            crossDomain: true,
+            dataType: "json",
+            data: JSON.stringify({"title":"tony!!"}),
+            error: function(response) {
+                console.log("cant set card state");
+            },
+            success: function(responseData, textStatus, jqXHR) {
+                console.log('Successfully seted');
+            }
+        }).done(function(data){
+            if (!data) {
+                console.log('cant set');
+            } else{
+                console.log('success set');
+            }
+        });
     }
     // Set Data after battle
 
@@ -280,6 +322,11 @@ var Profile = (function () {
         profile.category = category;
         saveToCookie(profile);
     }
+    var setRole = function(role) {
+        var profile = getProfileFromCookie();
+        profile.role = role;
+        saveToCookie(profile); 
+    }
 
     var getMoney = function() {
         return getProfileFromCookie().money;
@@ -289,8 +336,8 @@ var Profile = (function () {
         return getProfileFromCookie().exp;
     }
 
-    var setMBTI = function(job, strength, category) {
-        setJob(job);
+    var setMBTI = function(role, strength, category) {
+        setRole(role);
         setStrength(strength);
         setCategory(category);
 
@@ -299,7 +346,7 @@ var Profile = (function () {
             method: 'POST',
             crossDomain: true,
             dataType: 'json',
-            data: JSON.stringify({strength: strength, role: job, category: category}),
+            data: JSON.stringify({strength: strength, role: role, category: category}),
             error: function(response) {
                 console.log('Error');
             },

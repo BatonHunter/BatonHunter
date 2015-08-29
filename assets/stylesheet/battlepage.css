@@ -1,50 +1,82 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
+
+h3 {
+    color: white;
+}
+
 .main {
     height: 100%;
     width: 100%;
 }
+
 .training-room {
-  margin-top: 60px;
+    margin-top: 60px;
 }
-.user, .enemy {
-  padding: 0;
+
+.user,
+.enemy {
+    padding: 0;
 }
+
 .enemy {
     /* background-color: #8080FF; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    height: 100%;
 }
+
 .user {
     /* background-color: #07BA92; */
 }
+
 .role {
     text-align: center;
+    height: 70%;
+    width: 70%;
+    margin: 0 auto;
 }
+
 .role img {
-    display: inline-block;
+    height: 100%;
+    width: 100%;
+    margin-top: -10%;
 }
+
 .blood-flow {
-    background-color: rgba(255, 255, 255, .5);
+    height: 20%;
 }
+
+.blood-flow img {
+    height: 100%;
+    width: 100%;
+    margin-top: -10%;
+}
+
 .user .blood-flow {
     box-sizing: border-box;
 }
+
 .question #counter {
     text-align: center;
     font-size: 40px;
 }
+
 .answer-block {
     margin-top: 20px;
     text-align: center;
 }
+
 #result img {
     max-height: 50px;
 }
+
+
 /* item animation*/
 
 .tools {
@@ -61,7 +93,7 @@ html, body {
 }
 
 .tools ul li {
-  padding: 5px;
+    padding: 5px;
 }
 
 .item {
@@ -74,6 +106,7 @@ html, body {
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
 .item:hover {
     width: 4.5em;
     height: 4.5em;
@@ -85,38 +118,42 @@ html, body {
     -ms-transform: rotate(-20deg);
     transform: rotate(-20deg);
 }
+
 #battleview {
-  background-image: url('http://1cv4y131sweukg8sr2f7vd57.wpengine.netdna-cdn.com/wp-content/uploads/windows-xp-desktop-background-wallpaper-bliss-800x600.jpg') ;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  height: 40%;
-  overflow: hidden;
-  position: relative;
-}
-.question {
-  background-color: #07BA92;
-  height: 60%;
+    background-image: url('https://www.filepicker.io/api/file/orJRL2bZTe23G2RQRO5V');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    height: 50%;
+    overflow: hidden;
+    position: relative;
 }
 
-#question {
+.question {
+    background-image: url('../test/dialog.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    height: 50%;
+    overflow: hidden;
+    position: relative;
 }
 
 #truefalsequestion {
-  overflow: scroll;
-  height: 100%;
+    overflow: scroll;
+    height: 100%;
 }
 
 @media (max-width: 768px) {
-  .user {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-  .tools ul li {
-    display: inline-block;
-  }
-  #question {
-      padding-top: 60px;
-  }
+    .user {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .tools ul li {
+        display: inline-block;
+    }
+    #question {
+        padding-top: 60px;
+    }
 }

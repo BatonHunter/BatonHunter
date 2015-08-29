@@ -1,5 +1,5 @@
 
-var truefalseQuestion = (function() {
+var truefalseQuestion = (function(taskComplete) {
     var q_view,
         q_id,
         q_title,
@@ -42,7 +42,8 @@ var truefalseQuestion = (function() {
             q_view = dom_id.find("#truefalsequestion");
             setQuestion(question);
             q_view.find('#answer button').on("click", function() {
-                showResult(checkAnswer("tf", $(this).attr("val")));
+				var isCorrect = checkAnswer("tf", $(this).attr("val"));
+                showResult(checkAnswer(isCorrect));
             });
         }
     }

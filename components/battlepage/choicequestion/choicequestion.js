@@ -48,7 +48,8 @@ var choiceQuestion = (function(){
             q_view = dom_id.find("#choicequestion");
             setQuestion(question);
             q_view.find('#answer button').on("click", function() {
-                showResult(checkAnswer("choice", $('[name=answers]:checked')));
+				var isSuccess = checkAnswer("choice", $('[name=answers]:checked'));
+                showResult(checkAnswer(isSuccess));
             });
         }
     }

@@ -65,6 +65,12 @@ h3 {
 .question #counter {
     text-align: center;
     font-size: 40px;
+    color: white;
+    background-image: url("../test/battle_timer_background.png");
+    background-size: 70px 70px;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
 }
 
 .answer-block {

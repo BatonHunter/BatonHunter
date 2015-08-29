@@ -70,16 +70,15 @@ var Careers = (function () {
             //If has "delCareerBtn" class , then cal delCareerJobs(id)
             //If not , go to TrainingRoom
             if($target.hasClass("delCareerBtn btn-danger")){
-              console.log("delBtn");
 
               delCareerJobs(job.id);
             }
             else{
-              console.log("enter trainingRoom");
 
               e.preventDefault();
-              console.log($roleDom.find('.delCareerBtn'));
-              window.location.href = "../../trainingRoom.html?jobId=" + job.id; 
+			  //set cookie
+			  Profile.setCurrentJobId(job.jobId); 
+              window.location.href = "../../trainingRoom.html?jobId=" + job.jobId; 
             }
 
       }

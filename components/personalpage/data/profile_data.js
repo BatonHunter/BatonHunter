@@ -97,6 +97,16 @@ var Profile = (function () {
         return getProfileFromCookie().fbID;
     }
 
+	var setCurrentJobId = function(jobId){
+		var profile = getProfileFromCookie();
+		profile.currentJobId = jobId;
+		saveToCookie(profile);
+	}
+
+	var getCurrentJobId = function(){
+		return getProfileFromCookie().currentJobId;
+	}
+
     var getEmail = function() {
         return getProfileFromCookie().email;
     }
@@ -458,6 +468,8 @@ var Profile = (function () {
         getCardInvisible : getCardInvisible,
         getUserJobsState : getUserJobsState,
         rewardVictory: rewardVictory,
-        tryCreateProfile: tryCreateProfile
+        tryCreateProfile: tryCreateProfile,
+		getCurrentJobId:getCurrentJobId,
+		setCurrentJobId:setCurrentJobId
     };
 })();

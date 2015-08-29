@@ -1,7 +1,7 @@
 body {
     background-color: #fff;
     padding-top: 60px;
-    padding-bottom: 60px;
+    padding-bottom: 70px;
 }
 
 .no-bottom-margin {
@@ -51,6 +51,12 @@ body {
     max-height: 300px;
     max-width: 300px;
     margin: auto;
+}
+
+.navbar-fixed-bottom .btn span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
 .navbar-fixed-bottom .btn {

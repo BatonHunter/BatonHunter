@@ -56,18 +56,29 @@
       </div>
     </main>
 
+<div class="modal fade" id="underconstruction-modal" tabindex="-1" role="dialog" aria-labelledby="underConstructionModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body bg-warning text-center">
+        <p>此功能尚待開發，請考慮捐款支持我們~ :D</p>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
       <div class="btn-group btn-group-justified" role="group">
         <a class="btn btn-default btn-lg" href="../personalpage/personal_mobile.html">
-          <i class="glyphicon glyphicon-user"></i>
+          <span class="glyphicon glyphicon-user"></span>
           個人
         </a>
-        <a class="btn btn-default btn-lg active" href="./">
-          <i class="glyphicon glyphicon-briefcase"></i>
+        <a class="btn btn-default btn-lg active" href="javascript:">
+          <span class="glyphicon glyphicon-briefcase"></span>
           職業
         </a>
-        <a class="btn btn-default btn-lg">
-          <i class="glyphicon glyphicon-cog"></i>
+        <a class="btn btn-default btn-lg" href='javascript:' data-toggle="modal" data-target="#underconstruction-modal">
+          <span class="glyphicon glyphicon-cog"></span>
           設定
         </a>
       </div>

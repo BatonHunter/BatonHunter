@@ -26,7 +26,7 @@ var QuestionLoader = (function() {
         console.log("is_correct: " + is_correct);
 
         //if is_training is 
-        if(is_training==0){
+        if(!is_training){
             battle_data.getQuestion().removeUsedQustion(current_question);
             deductHp(is_correct);
             setTimeout(function () {
@@ -120,7 +120,6 @@ var QuestionLoader = (function() {
 	var initTrainQuestion = function(domId,jobId,taskId){
 		is_training = true;
 		dom_id = domId;
-			
 		battle_data.getTrainQuestion(jobId,taskId).done(function(question){
 			loadQuestion(question);  
 	    });		

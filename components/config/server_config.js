@@ -66,7 +66,7 @@ ServerConfig = (function() {
         createJobUrl: createJobUrl,
         deleteJobUrl: deleteJobUrl,
         rewardVictoryUrl: rewardVictoryUrl,
-		putTaskCompleteUrl : putTaskCompleteUrl
+		putTaskCompleteUrl : putTaskCompleteUrl,
         cardUrl: cardUrl
     };
 })();

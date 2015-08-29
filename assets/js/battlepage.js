@@ -21,7 +21,7 @@ $(document).ready(function() {
 		}
         //fighting page countdown clock
         battleTimer = Object.create(batontimer);
-        battleTimer.setUpClock('#counter', 20, 'red', 'circle', function() {
+        battleTimer.setUpClock('#counter', 26, 'red', 'circle', function() {
             userHP.modifyHP(-50, 1);
         });
         battleTimer.reset();

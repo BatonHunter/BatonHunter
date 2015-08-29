@@ -1,9 +1,8 @@
-var HP = function(maxHP, $element,pageCondition) {
+var HP = function(maxHP, $element) {
     //variable init
     this.currentHP = maxHP;
     this.maxHP = maxHP;
     this.$element = $element;
-    this.pageCondition=pageCondition;
     //blood UI init
     this.HPuiController = function(value) {
         var percent = this.currentHP / this.maxHP * 100;

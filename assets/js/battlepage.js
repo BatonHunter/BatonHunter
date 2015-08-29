@@ -1,4 +1,3 @@
-
 // //component init
 var userHP;
 var enemyHP;
@@ -9,18 +8,14 @@ var monsterType;
 $(document).ready(function() {
 
     // URLparameter
-    para=getPara.get();
+    para = getPara.get();
 
-    //If battlepage , the format liked  ?train=1&monster=boss
-    //Else , that's train page , so only the  follow string liked ?train=0
+    userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"));
+    enemyHP = new HP(battle_data.getMonster(para.monster).getHp(), $("#enemy-hp"));
 
-    //Page for normal fighting , also need monster value
-    if(para.train==0){
+    if (para.taskId === undefined) {
 
-  	    QuestionLoader.loadQuestion('#question');
-        //set HP            
-        userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"),para.train);
-        enemyHP = new HP(battle_data.getMonster(para.monster).getHp(), $("#enemy-hp"),para.train);
+        QuestionLoader.loadQuestion('#question');
 
         //fighting page countdown clock
         battleTimer = Object.create(batontimer);
@@ -46,18 +41,12 @@ $(document).ready(function() {
             count_id: "#herbsCount"
         }, userHP.heal);
     }
-    //Page for training 
-    else if(para.train==1){
-		var jobId = para.jobId,
-			taskId = para.taskId;
- 
-		QuestionLoader.loadTrainQuestion('#question',jobId,taskId);
-        //set HP
-        userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"),para.train);
-        enemyHP = new HP(battle_data.getMonster().getHp(), $("#enemy-hp"),para.train);
 
+    else {
+        var jobId = para.jobId,
+            taskId = para.taskId;
+
+        QuestionLoader.loadTrainQuestion('#question', jobId, taskId);
         $('.tools').hide();
     }
- 
-     
 });

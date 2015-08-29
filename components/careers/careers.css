@@ -72,7 +72,7 @@
     padding: 10px 5px;
 }
 
-.careers .btn i {
+.navbar-fixed-bottom .btn span {
     display: block;
     margin-bottom: 5px;
 }

@@ -1,18 +1,22 @@
 (function() {
-    //ToDo : 改成從restful 拿data
 
     var userState = Profile.getUserJobsState(),
 		currentTaskId ;		
-	//End ToDo 
 
 	var para=getPara.get();
-	var currentJobId = para.jobId;
+
+
+    //Mark merge me!!!!!!!!!!
+    //Mark merge me!!!!!!!!!!
+    //Mark merge me!!!!!!!!!!
+	var currentJobId = 1;   //currentjob=profile.getcurrentjob();
+	//End merge by mark
+    //End merge by mark
+    //End merge by mark
+
 	
-	//Test set jobId
-	//currentJobId = '1';
-			
     DataLoader.loadTasks('tasks',userState,currentJobId);
-    DataLoader.showBtnToTiger(userState);
+    DataLoader.showBtnToTiger(userState,currentJobId);
 
     //dialog effect setting
     $("#dialog").dialog({

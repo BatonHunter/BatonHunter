@@ -124,25 +124,27 @@ var battle_data = (function(serverConfig) {
     })(); 
     
     var question = (function() {
-        var questions = {};
+       var result; 
+       var getQuestionFromDb = function(param){
+
+	   var url = serverConfig.getQuestionUrl(param);
 
         $.ajax({
-            //君君‘s database
-            url: "https://batonhunter.firebaseio.com/questions.json?print=pretty",
+            url: url,
             async: false,
             dataType: 'json',
             success: function(data) {
 
-                questions = data;
+                result = data;
             }
+		});
 
-        });
-        questions.splice(0, 1);
+      }
 
-        console.log(questions.length);
         return {
-            getNextQuestion: function() {
-                return questions[Math.floor((Math.random() * questions.length))];
+            getNextQuestion: function(param) {
+				getQuestionFromDb(param);
+				return result;           
             },
             removeUsedQustion: function(current_question) {
                 questions.splice(questions.indexOf(current_question), 1);
@@ -154,8 +156,9 @@ var battle_data = (function(serverConfig) {
                 questions = ques;
             }
         };
-
     })();
+       
+
 
         
     return {
@@ -186,7 +189,7 @@ var battle_data = (function(serverConfig) {
         getPlayer: function() {
             return player;
         },
-        getQuestion: function() {
+        getQuestion: function(jobId) {
             return question;
         },
 		getTrainQuestion:function(jobId,taskId){

@@ -4,12 +4,11 @@
  * taskComplete => battlepage/dao/taskStatusDao.js
  */
 var QuestionLoader = (function() {
-    var current_question,
-        is_training,
-        dom_id;
+    var current_question;
+    var isTraining = true;
+    var dom_id;
 
     var checkAnswer = function (type, ans) {
-        console.log("checkAnswer type: "+ type);
 
         var is_correct = false;
         
@@ -26,7 +25,7 @@ var QuestionLoader = (function() {
         console.log("is_correct: " + is_correct);
 
         //if is_training is 
-        if(is_training==0){
+        if(!isTraining){
             battle_data.getQuestion().removeUsedQustion(current_question);
             deductHp(is_correct);
             setTimeout(function () {
@@ -86,10 +85,6 @@ var QuestionLoader = (function() {
     // This function checks the answers by comparing two arrays
     // Return true if two given arrays are identical
     var checkAnswerMutiChoice = function(player_answers) {
-
-        console.log("checkAnswerMutiChoice: correct ans:"+current_question.ans);
-        console.log("checkAnswerMutiChoice: player ans:"+player_answers);
-        
         // If the length of those two arrays are not identical,
         // they must be different
         if (current_question.answer.length !== player_answers.length) {
@@ -112,21 +107,13 @@ var QuestionLoader = (function() {
     }
 
 
-    var initQuestion = function (domId) {
-        is_training = false;
+    var initQuestion = function (domId,param) {
         dom_id = domId;
-       	loadQuestion(battle_data.getQuestion().getNextQuestion());
+       	loadQuestion(battle_data.getQuestion().getNextQuestion(param));
+        if(param.taskId === undefined || param.taskId === ""){
+           isTraining = false;
+        }
     };
-	var initTrainQuestion = function(domId,jobId,taskId){
-		is_training = true;
-		dom_id = domId;
-			
-		battle_data.getTrainQuestion(jobId,taskId).done(function(question){
-			loadQuestion(question);  
-	    });		
-		
-	}
-
 
     var keepAnswering = function () {
         alert("Try Again");
@@ -134,7 +121,7 @@ var QuestionLoader = (function() {
     }
     //there is a parameter need to select wheater traing question or battle question.
     //var loadQuestion = function(question)
-    var loadQuestion = function(question,is_tra) {
+    var loadQuestion = function(question) {
         current_question = question;
         $(dom_id).empty();
         switch (question.type) {
@@ -161,7 +148,6 @@ var QuestionLoader = (function() {
     };
 
     return {
-			loadQuestion:initQuestion,
-			loadTrainQuestion:initTrainQuestion
+			loadQuestion:initQuestion
 		};
-})();
+	})();

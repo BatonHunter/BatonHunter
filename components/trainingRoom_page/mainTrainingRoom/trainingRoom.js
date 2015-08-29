@@ -3,7 +3,7 @@
 		currentTaskId ;		
 	
 	var para=getPara.get();
-	var currentJobId = para.jobId;
+	var currentJobId = Profile.getCurrentJobId();
 	
 	//Test set jobId
 	//currentJobId = '1';
@@ -36,7 +36,7 @@
 
     $(document).on("click","#EnterBattle",function(){
 		//test Job Id	    
-		currentJobId = '1';
+		
 		var url = "battlepage.html?monster=big&taskId=" + currentTaskId + "&jobId=" + currentJobId;
         window.location.href = url;
     });

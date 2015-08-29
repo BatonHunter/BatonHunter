@@ -9,6 +9,10 @@ h3 {
     color: white;
 }
 
+h4 {
+    color: white;
+}
+
 .main {
     height: 100%;
     width: 100%;
@@ -156,4 +160,12 @@ h3 {
     #question {
         padding-top: 60px;
     }
+}
+.answer_but {
+}
+
+.answer_label {
+    color : white;
+    text-align : left;
+    padding-left : 5px;
 }

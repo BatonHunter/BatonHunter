@@ -288,6 +288,22 @@ var Profile = (function () {
         return getProfileFromCookie().jobs;
     }
 
+    var getUserJobsState = function() {
+
+        var state;
+        $.ajax({
+            url: ServerConfig.getUrl(getEmail()),
+            dataType:'json',
+            async: false,
+            success: function(data) {
+            state = data.jobs[0].tasks;
+            }
+        });   
+        //After get user data, Return user task information.
+        return state;
+
+    }
+
     var setStrength = function(strength) {
         var profile = getProfileFromCookie();
         profile.strength = strength;
@@ -440,6 +456,7 @@ var Profile = (function () {
         getIsWin : getIsWin,
         getIsLvUp : getIsLvUp,
         getCardInvisible : getCardInvisible,
+        getUserJobsState : getUserJobsState,
         rewardVictory: rewardVictory,
         tryCreateProfile: tryCreateProfile
     };

@@ -18,10 +18,12 @@ ServerConfig = (function() {
 	var getJobTasks = function(jobId){
 		return serverBaseUrl + '/jobs/' + jobId + '/task';
 	}
-	
-
-	var getJobTasksQuestion = function(jobId,taskId){
-		return getJobTasks(jobId) + '/' + taskId + '/question';
+	var getQuestionUrl = function(battle){
+		if(battle.taskId === undefined || battle.taskId === ""){
+           return serverBaseUrl + '/jobs/' + battle.jobId + '/question';
+        }else{
+           return serverBaseUrl + '/jobs/' + battle.jobId + '/task/' + battle.taskId + '/question'
+        }
 	}
 
     var modifyStrengthUrl = function(email) {
@@ -51,6 +53,10 @@ ServerConfig = (function() {
         return serverBaseUrl + '/users/' + email + '/job/' + jobId;
     }
 
+	var putTaskCompleteUrl = function(email,jobId,taskId){
+		return serverBaseUrl + '/users/' + email + '/job/' + jobId + '/task/' + taskId;
+	}
+
     return {
         getUrl: getUrl,
         postUrl: postUrl,
@@ -58,10 +64,11 @@ ServerConfig = (function() {
         getPictureUrl: pictureUrl,
         askUrl: askUrl,
 		getJobTasks:getJobTasks,
-		getJobTasksQuestion:getJobTasksQuestion,
         createJobUrl: createJobUrl,
         deleteJobUrl: deleteJobUrl,
         rewardVictoryUrl: rewardVictoryUrl,
-        cardUrl: cardUrl
+		putTaskCompleteUrl : putTaskCompleteUrl,
+        cardUrl: cardUrl,
+		getQuestionUrl:getQuestionUrl 
     };
 })();

@@ -29,26 +29,27 @@ var mbti_questionloader = (function() {
         //console.log(scoreTmp);
         if(scoreTmp == undefined)
         {
-            var idx = Math.floor(Math.random() * 10 % 6);
+            //  var idx = Math.floor(Math.random() * 10 % 6);
+            var idx = 0;
             switch(idx)
             {
                 case 0:
-                    alert('笨蛋！先選個答案阿！！');
+                    alert('請選擇您想要的答案');
                     break;
                 case 1:
-                    alert('Choose an answer, Dumbass!!');
+                    //  alert('Choose an answer, Dumbass!!');
                     break;
                 case 2:
-                    alert('アホ、答えを選択してください！');
+                    //  alert('アホ、答えを選択してください！');
                     break;
                 case 3:
-                    alert('เลือกคำตอบงี่เง่า !!');
+                    //  alert('เลือกคำตอบงี่เง่า !!');
                     break;
                 case 4:
-                    alert('바보, 답변을 선택!');
+                    //  alert('바보, 답변을 선택!');
                     break;
                 case 5:
-                    alert('Elija una respuesta, idiota !!');
+                    //  alert('Elija una respuesta, idiota !!');
                     break;
             }
             return;

@@ -19,12 +19,14 @@
     <link rel="stylesheet" type="text/css" href="../../bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="careers.css">
   </head>
-  <body class="bg-primary careers">
-    <header>
-      <div class="container-fluid">
-        <h1>選擇職業</h1>
+  <body class="careers">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class='navbar-brand'> 職業列表</a>
       </div>
-    </header>
+    </div>
+  </nav>
     <main class="container-fluid">
       <div class="col-xs-4 role-col">
         <div id="role-1" class="role no-role">
@@ -50,23 +52,33 @@
             <i class="fa fa-plus-circle"></i>
           </a>
           <span class="title">選擇職業</span>
-          <!-- <button type="button" class="delCareerBtn">刪除!</button> -->
         </div>
       </div>
     </main>
 
+<div class="modal fade" id="underconstruction-modal" tabindex="-1" role="dialog" aria-labelledby="underConstructionModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body bg-warning text-center">
+        <p>此功能尚待開發，請考慮捐款支持我們~ :D</p>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
       <div class="btn-group btn-group-justified" role="group">
         <a class="btn btn-default btn-lg" href="../personalpage/personal_mobile.html">
-          <i class="glyphicon glyphicon-user"></i>
+          <span class="glyphicon glyphicon-user"></span>
           個人
         </a>
-        <a class="btn btn-default btn-lg active" href="./">
-          <i class="glyphicon glyphicon-briefcase"></i>
+        <a class="btn btn-default btn-lg active" href="javascript:">
+          <span class="glyphicon glyphicon-briefcase"></span>
           職業
         </a>
-        <a class="btn btn-default btn-lg">
-          <i class="glyphicon glyphicon-cog"></i>
+        <a class="btn btn-default btn-lg" href='javascript:' data-toggle="modal" data-target="#underconstruction-modal">
+          <span class="glyphicon glyphicon-cog"></span>
           設定
         </a>
       </div>

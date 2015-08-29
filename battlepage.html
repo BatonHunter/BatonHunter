@@ -21,22 +21,22 @@
     <div class="main container">
         <section id="battleview" class="row content">
             <div id="enemy" class="enemy col-sm-6 col-sm-push-6">
-                <header class="blood-flow">
-                    <div id="enemy-hp" class="jquery-ui-like-enemy enemyHP">
-                        <div>&nbsp;</div>
+                <div class="hp">
+                    <div id="enemy-hp" class="jquery-ui-like enemyHP">
+                        <div class="txt_hp">&nbsp;</div>
                     </div>
                     <img src="assets/test/hp_bar.png" alt="">
-                </header>
-                <div class="role">
+                </div>   
+            </div>
+            <div class="role">
                     <img class="img-responsive" src="https://www.filepicker.io/api/file/UphNqgbFSAOMbA60vI9O/convert">
                 </div>
-            </div>
             <div id="user" class="user col-sm-6 col-sm-pull-6">
-                <header class="blood-flow">
-                    <div id="user-hp" class="jquery-ui-like-user userHP">
-                        <div>&nbsp;</div>
+                <header class="hp">
+                    <div id="user-hp" class="jquery-ui-like userHP">
+                        <div class="txt_hp">&nbsp;</div>
                     </div>
-                    <img src="assets/test/hpbar3_role.png" alt="">
+                    <img class="img-responsive" src="assets/test/hpbar3_role.png" alt="">
                 </header>
                 <!--    <div class="role hidden-xs">
             <img class="img-responsive" src="http://vignette3.wikia.nocookie.net/tos/images/2/22/Pet118.png/revision/latest?cb=20130131102559&path-prefix=zh">
@@ -118,6 +118,7 @@
     <!--main-->
     <script src="assets/js/battlepage.js"></script>
     <script src="assets/js/cookie.js"></script>
+	<script src="components/battlepage/dao/taskStatusDao.js"></script>
 </body>
 
 </html>

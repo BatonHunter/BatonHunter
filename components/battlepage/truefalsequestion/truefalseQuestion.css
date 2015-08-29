@@ -1,3 +1,27 @@
+#truefalsequestion {
+  position: relative;
+  height: 100%;
+}
+#truefalsequestion .title{
+  position: absolute;
+  margin: 0px;
+  height: 30px;
+  width: 100%;
+}
+#truefalsequestion .content{
+  margin: 0px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  height: 100%;
+  overflow-y: auto;
+}
+#truefalsequestion .answer-block{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+}
+
 button {
   width: 140px;
 }

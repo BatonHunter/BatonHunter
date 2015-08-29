@@ -72,16 +72,8 @@
     padding: 10px 5px;
 }
 
-.careers .btn.active {
-    background-color: #fff;
-    box-shadow: none;
-    border-top: 5px solid rgb(53, 53, 121);
-    color: rgb(53, 53, 121);
-}
-
 .navbar-fixed-bottom .btn span {
     display: block;
-    font-size: 18px;
     margin-bottom: 5px;
 }
 

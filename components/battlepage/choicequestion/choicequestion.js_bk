@@ -27,19 +27,34 @@ var choiceQuestion = (function(){
         } else {
           inpuType = 'radio';
         }
-        var count = 0;
         for (var choAns in q_options) {
-          if (count % 2 == 0){
-            q_view.find('#answer').append('<div class="row">');
+          console.log(choAns);
+          console.log(typeof(choAns));
+          if (parseInt(choAns) == 0){
+            q_view.find('#answer button').before('<table style="margin: 0 auto">');
+            q_view.find('#answer button').before('<tr>');
+            q_view.find('#answer button').before('<td><input type="' + inpuType + '" name="answers" id ="r' + (choAns + 1) + '" value="' + (parseInt(choAns) + 1) + '"></td>');
+            q_view.find('#answer button').before('<td>' + q_options[choAns] + '</td>');
           }
-          q_view.find('#answer').append('<input class="answer_but col-xs-2" type="' + inpuType + '" name="answers" id ="r' + (choAns + 1) + '" value="' + (parseInt(choAns) + 1) + '"><label class="answer_label col-xs-4" for="r' + (choAns + 1) + '">' + q_options[choAns] + '</label></input>');
-          if (count % 2 == 1){
-            q_view.find('#answer').append('</div>');
+          if (parseInt(choAns) == 1){
+            q_view.find('#answer button').before('<td><input type="' + inpuType + '" name="answers" id ="r' + (choAns + 1) + '" value="' + (parseInt(choAns) + 1) + '"></td>');
+            q_view.find('#answer button').before('<td>' + q_options[choAns] + '</td>');
           }
+          if (parseInt(choAns) == 2){
+            q_view.find('#answer button').before('</tr>');
+            q_view.find('#answer button').before('<tr>');
+            q_view.find('#answer button').before('<td><input type="' + inpuType + '" name="answers" id ="r' + (choAns + 1) + '" value="' + (parseInt(choAns) + 1) + '"></td>');
+            q_view.find('#answer button').before('<td>' + q_options[choAns] + '</td>');
           
-          count++;
+          }
+          if (parseInt(choAns) == 3){
+            q_view.find('#answer button').before('<td><input type="' + inpuType + '" name="answers" id ="r' + (choAns + 1) + '" value="' + (parseInt(choAns) + 1) + '"></td>');
+            q_view.find('#answer button').before('<td>' + q_options[choAns] + '</td>');
+            q_view.find('#answer button').before('</tr>');
+            q_view.find('#answer button').before('</table>');
+            q_view.find('#answer button').before('<br>');
+          }
         }
-        q_view.find('#answer').append('<button class="trueitem flat-butt flat-info-butt flat-info-grad-butt" val="Yes">確認</button>');
     }
 
     var showResult = function(is_correct) {

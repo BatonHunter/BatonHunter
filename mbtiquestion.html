@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MBTI問題</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/lib/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/lib/css/font-awesome.css">
+    <link rel="stylesheet" href="components/mbtiquestion/css/main.css">
+  </head>
+  <body>
+    <div id='mbti_container' class="container main-container">
+      <div class="row">
+        <div class="col-xs-12 info-container" id="questionArea">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
+            </div>
+          </div>
+          <p id='mbti_title'></p>
+          <p id='mbti_content'></p>
+        </div>
+        <div class="col-xs-12 info-container" id="answerArea">
+          <ul>
+            <li>
+              <input type="radio" name="mbtians" value="0" id="a5b0">
+              <label for="a5b0"><span class="btn btn-default mbti_btn">[A] 5分, [B] 0分</span></label>
+            </li>
+            <li>
+              <input type="radio" name="mbtians" value="1" id="a4b1">
+              <label for="a4b1"><span class="btn btn-default mbti_btn">[A] 4分, [B] 1分</span></label>
+            </li>
+            <li>
+              <input type="radio" name="mbtians" value="2" id="a3b2">
+              <label for="a3b2"><span class="btn btn-default mbti_btn">[A] 3分, [B] 2分</span></label>
+            </li>
+            <li>
+              <input type="radio" name="mbtians" value="3" id="a2b3">
+              <label for="a2b3"><span class="btn btn-default mbti_btn">[A] 2分, [B] 3分</span></label>
+            </li>
+            <li>
+              <input type="radio" name="mbtians" value="4" id="a1b4">
+              <label for="a1b4"><span class="btn btn-default mbti_btn">[A] 1分, [B] 4分</span></label>
+            </li>
+            <li>
+              <input type="radio" name="mbtians" value="5" id="a0b5">
+              <label for="a0b5"><span class="btn btn-default mbti_btn">[A] 0分, [B] 5分</span></label>
+            </li>
+          </ul>
+        </div>
+        <div id='btn_mbti_continue' class="col-xs-12 button-container">
+          <p class="btn btn-primary btn_mbti_continue">Continue</p>
+        </div>
+      </div>
+      <div class="modal fade" id="modal_mbti_result" tabindex="-1" role="dialog" aria-labelledby="title_mbti_result" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="mbti_result_title">Your Character</h4>
+            </div>
+            <div class="modal-body">
+              <img id="mbti_result_image" class="img-responsive" src="assets/img/girl.jpg" alt="Can't find image">
+
+              <table class="mbti_result_table">
+                <tr>
+                  <td class="mbti_result_descript mbti_result_td1">類型：</td>
+                  <td id="mbti_result_type" class="mbti_result_descript mbti_result_td2"></td>
+                </tr>
+                <tr>
+                  <td class="mbti_result_descript mbti_result_td1">價值觀：</td>
+                  <td id="mbti_result_value" class="mbti_result_descript mbti_result_td2"></td>
+                </tr>
+                <tr>
+                  <td class="mbti_result_descript mbti_result_td1">能力：</td>
+                  <td id="mbti_result_capability" class="mbti_result_descript mbti_result_td2"></td>
+                </tr>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="assets/lib/js/jquery.js"></script>
+  <script src="assets/lib/js/jquery.fancybox.js"></script>
+  <script src="assets/lib/js/bootstrap.js"></script>
+  <script src="assets/lib/js/jquery-ui.js"></script>
+  <script src="assets/lib/js/circular-progress.js"></script>
+  <script src="assets/js/cookie.js"></script>
+  <script src="components/config/page_config.js"></script>
+  <script src="components/config/server_config.js"></script>
+  <script src="components/personalpage/data/profile_data.js"></script>
+  <script src="components/mbtiquestion/mbti_questionloader/mbti_questionloader.js"></script>
+  <script src="components/mbtiquestion/data/mbti_data.js"></script>
+  <script src="assets/js/mbtiquestion.js"></script>
+  </body>
+</html>

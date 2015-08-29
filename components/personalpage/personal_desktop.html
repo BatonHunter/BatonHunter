@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to BatonHunter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<nav class="navbar navbar-inverse no-bottom-margin">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Baton Hunter</a>
+	    </div>
+	    <div>
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#">個人資訊</a></li>
+	        <li><a href="#">任務</a></li>
+	        <li><a href="#">地圖</a></li> 
+	        <li><a href="#">設定</a></li> 
+	      </ul>
+		  <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Out </a></li>
+	      </ul>
+	    </div>
+	  </div> <!-- End of container-fluid -->
+	</nav>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 text-center bg-brown">
+				<a href="#" class="color-white">您有一則新留言</a>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<img src="headpic.png"></img>
+			</div>
+			<div class="col-md-4">
+				<img class="ability_radar" src="ability_radar.jpg"></img>
+			</div>
+			<div class="col-md-4">
+				<div class="name">姓名：冒險者</div>
+				<div class="career">職業：星光舞者</div>
+				<div class="nickname">綽號：小瓜呆</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-md-offset-1 bg-yellow">
+				<div class="large-font">最新一期拉霸結果</div>
+				<div class="large-font">沒有中獎</div>
+				<div class="large-font">獲得星星一顆</div>
+				<div class="large-font">沒有中獎</div>
+			</div>
+			<div class="col-md-4">
+				<div class="large-font">歷史訊息</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="data/profile_data.js"></script>
+	<script src="personal.js"></script>
+	<script src="../../assets/lib/js/jquery.js"></script>
+	<script src="../../assets/lib/js/bootstrap.js"></script>
+	<script src="../../assets/lib/js/jquery.validate.js"></script>
+	<script src="../../components/homepage/validation.js"></script>
+	<!--stylesheets-->
+	<link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/stylesheet/bootstrap-extensions.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/stylesheet/homepage.css">
+	<link rel="stylesheet" type="text/css" href="personal.css">
+
+</body>
+</html>

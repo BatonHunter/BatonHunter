@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to BatonHunter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<script src="../../assets/lib/js/jquery.js"></script>
+<script src="../../assets/lib/js/bootstrap.js"></script>
+<script src="../config/server_config.js"></script>
+<script src="../../assets/js/cookie.js"></script>
+<script src="./export.js"></script>
+<!--stylesheets-->
+<link rel="stylesheet" type="text/css" href="../../assets/lib/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../../assets/lib/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="card.css">
+</head>
+<body class="">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class='navbar-brand' href="../personalpage/personal_mobile.html"><i class="fa fa-chevron-left"></i> 卡片</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-sm-6" id="bowbow" style="visibility:hidden">
+     <div class="card-container manual-flip">
+      <div class="card">
+        <div class="front">
+          <div class="cover">
+            <img src="images/rotating_card_thumb.png"/>
+          </div>
+          <div class="user">
+            <img class="img-circle" src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xat1/v/t1.0-9/11813414_1436447850019276_3403323055745881101_n.jpg?oh=3d27c3c8c8e75a6e8e9ad4ec98b05f3c&oe=56403E33&__gda__=1450532667_29fc79e7d010b506f5a4f078fc7794c9"/>
+          </div>
+          <div class="content">
+            <div class="main">
+              <h3 class="name">林嶺</h3>
+              <p class="profession">愛情獵人</p>
+              <h5><i class="fa fa-map-marker fa-fw text-muted"></i> 台北, 臺灣</h5>
+              <h5><i class="fa fa-building-o fa-fw text-muted"></i> Love Hunter Inc. </h5>
+              <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> LinBowBow@loveHunter.com</h5>
+              <h5><i class="fa fa-facebook-square  fa-fw text-muted"></i> <a href="https://www.facebook.com/panguapollo">林寶寶</a></h5>
+            </div>
+            <div class="footer">
+              <button class="btn btn-simple" onclick="rotateCard(this)">
+                <i class="fa fa-mail-forward"></i> 使用卡片
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="back">
+          <div class="header">
+            <h5 class="motto">"想要認識妹子嗎？想要的話可以全部給你，去找吧！我把所有的妹子都放在那裡！"</h5>
+          </div> 
+          <div class="content">
+            <div class="main">
+              <input id="askFrom" type="hidden" name="from" value="leocmc0723@hotmail.com">
+              <input id="askTo" type="hidden"  name="to" value="a8965218@gmail.com">
+              <input id="askSubject" type="hidden" name="subject" value="職業獵人課程通關，招喚專家">
+              <textarea id="askContent" name="content" placeholder="想對專家說的話" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="footer">
+            <button class="btn btn-simple" onclick="rotateCard(this)">
+              <i class="fa fa-reply"></i> 返回
+            </button>
+            <input type="submit" id="askSubmit" name="submit" value="送出" class="btn btn-primary pull-right">
+            <input type="reset" id="askClean" name="clear" value="清除" class="btn btn-warning pull-right">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class='btn btn-default btn-lg active' href='javascript:'>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span><br>
+      個人
+    </a>
+    <a class='btn btn-default btn-lg' href='../careers/index.html'>
+      <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><br>
+      職業
+    </a>
+    <a class='btn btn-default btn-lg' href='javascript:'>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><br>
+      設定
+    </a>
+  </div>
+</nav>
+
+<script src="../../assets/lib/js/jquery.js"></script>
+<script src="../../assets/lib/js/bootstrap.js"></script>
+<!--TODO include in bower-->
+<script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.16/dist/jquery.flip.min.js"></script>
+<!--TODO include in bower-->
+<script src="../../assets/js/cookie.js"></script>
+<script src="../personalpage/data/profile_data.js"></script>
+<script src="card.js"></script>
+</body>
+</html>

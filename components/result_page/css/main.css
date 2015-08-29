@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    padding-top: 50px;
+}
+
+body ul {
+    list-style-type: none;
+}
+.glyphicon-home {
+    padding-left: 10px;
+}
+
+.info-container ul {
+  padding: 0;
+}
+
+.info-container ul li > span {
+  width: 100%;
+}
+
+.info-container ul li > span .num {
+  float: right;
+}
+
+.info-container .glyphicon::before {
+    padding-right: 10px;
+}
+.button-container p {
+    width: 100%;
+}
+.main-image-container {
+    margin-top: 20px;
+}
+.main-image {
+    width: 100%;
+}
+
+.img-container {
+	margin-bottom: 20px;
+}
+
+.info-container .num {
+    padding-left: 10px;
+}
+.info-container .info-container h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+.info-container {
+    font-size: 20px;
+    padding: 20px 15px;
+}
+footer {
+	width:100%;
+    position: absolute;
+    bottom: 0;
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 736px) and (orientation: portrait) {
+	.img-container {
+		margin-bottom: 50px;
+	}
+}
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) {
+	.img-container {
+		margin-bottom: 70px;
+	}
+}

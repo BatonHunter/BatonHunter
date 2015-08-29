@@ -26,7 +26,8 @@ var DataLoader = (function (training_datas) {
     function readyToTiger(userState,jobId) {
 
         var state = true;
-        training_datas.getDatas(jobId).done(function(tasks){
+        var _dfr = $.Deferred();
+         training_datas.getDatas(jobId).done(function(tasks){
 
             //取得事件(知識點)數量
             var tasksCount = tasks.length;
@@ -49,9 +50,11 @@ var DataLoader = (function (training_datas) {
 
             //回傳是否可進入吃角子老虎的狀態(true or false)
             state = readyToTigerFlag;
-
+            _dfr.resolve(state);
         });
-        return state;
+
+
+        return _dfr.promise();
     }
 
 
@@ -78,15 +81,18 @@ var DataLoader = (function (training_datas) {
            	   $("#" + dom_id).append(tasksHtml);
 			});
         },
+
+
         showBtnToTiger: function (userState,jobId) {
             var isReady = false;
             var startButton = document.getElementById("goToFightBtn");
-            isReady = readyToTiger(userState,jobId);
-            console.log("isReady"+isReady);
-            if (isReady) {
-                $('#goToTigerModel').modal('show');
-                startButton.style.visibility='visible';
-            }
+            readyToTiger(userState,jobId).done(function(isReady){
+                console.log("isReady"+isReady);
+                if (isReady) {
+                    $('#goToTigerModel').modal('show');
+                    startButton.style.visibility='visible';
+                }
+            });
         }
 
     };

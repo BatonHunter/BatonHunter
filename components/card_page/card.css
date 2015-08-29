@@ -1,7 +1,7 @@
 body {
-	background-color: #E5E9ED;
-  padding-top: 60px;
-  padding-bottom: 80px;
+    background-color: #E5E9ED;
+    padding-top: 60px;
+    padding-bottom: 80px;
 }
 
 .btn:hover,
@@ -296,10 +296,24 @@ pre.prettyprint {
     font-size: 16px;
 }
 
+.navbar-fixed-bottom .btn span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.navbar-fixed-bottom .btn {
+    border-radius: 0;
+    border-top: 5px solid #ddd;
+    color: #aaa;
+    font-size: 12px;
+    padding: 10px 5px;
+}
 
 #askContent {
-  margin-bottom: 5px;  
+    margin-bottom: 5px;
 }
+
 
 /*       Fix bug for IE      */
 

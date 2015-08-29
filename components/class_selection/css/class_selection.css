@@ -1,9 +1,23 @@
 body {
 	background-color: #fff;
   padding-top: 60px;
-  padding-bottom: 60px;
+  padding-bottom: 70px;
+  min-height: 850px;
 }
 
 #jobDescriptionModal {
   display: hidden;
+}
+
+.navbar-fixed-bottom .btn {
+    border-radius: 0;
+    border-top: 5px solid #ddd;
+    color: #aaa;
+    font-size: 12px;
+    padding: 10px 5px;
+}
+.navbar-fixed-bottom .btn span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
 }

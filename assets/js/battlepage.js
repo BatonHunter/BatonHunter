@@ -43,7 +43,6 @@ $(document).ready(function() {
             count_id: "#herbsCount"
         }, userHP.heal);
     }
-
     else {
         var param = {
             jobId : para.jobId,
@@ -52,4 +51,5 @@ $(document).ready(function() {
         $('.tools').hide();
     }	
     QuestionLoader.loadQuestion('#question', param);
+  
 });

@@ -40,9 +40,6 @@ $(document).ready(function() {
             return true;
         }
     });
-    $('.trainingRoom').click(function() {
-        window.location.href = '../../trainingRoom.html';
-    })
 });
 
 var countDownAP = function() {

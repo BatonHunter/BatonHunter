@@ -84,6 +84,7 @@ h3 {
     padding: 0;
     margin: 0;
     text-align: right;
+    z-index: 9;
 }
 
 .tools ul {
@@ -139,11 +140,6 @@ h3 {
     position: relative;
 }
 
-#truefalsequestion {
-    overflow: scroll;
-    height: 100%;
-}
-
 @media (max-width: 768px) {
     .user {
         position: absolute;
@@ -154,6 +150,15 @@ h3 {
         display: inline-block;
     }
     #question {
+        height: 100%;
         padding-top: 60px;
+        padding-bottom: 25px;
+    }
+    .questionitem-block {
+        height: 100%;
+        padding: 5px;
+    }
+    .questionitem-block p {
+        margin: 0;
     }
 }

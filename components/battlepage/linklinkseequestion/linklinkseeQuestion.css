@@ -4,15 +4,8 @@
 #linklinkquestion {
 	margin-top: 20px;
 }
-.questionitem-block {
-	/*border: 1px #eee solid;*/
-	padding: 5px;
-}
 .linkLinkFiled {
 	margin: 20px 0;
-}
-.questionitem-block p {
-	margin: 0;
 }
 .choseItem, .resultItem {
 	margin-top: 5px;

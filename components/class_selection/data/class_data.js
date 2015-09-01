@@ -40,7 +40,7 @@ var ClassData = (function() {
 	
 	var getClass = function(subCategory_name) {
 		getGameDataFromSever("categories/經營管理/subcategory/" + subCategory_name + "/job");
-		return getResult();
+		return result;
 	}
 	
 	return {

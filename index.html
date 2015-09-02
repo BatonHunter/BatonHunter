@@ -1,163 +1,144 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Welcome to BatonHunter</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="assets/lib/js/jquery.js"></script>
-<script src="assets/lib/js/bootstrap.js"></script>
-<script src="assets/lib/js/jquery.validate.js"></script>
-<script src="assets/js/cookie.js"></script>
-<script src="components/config/server_config.js"></script>
-<script src="components/config/page_config.js"></script>
-<script src="components/personalpage/data/profile_data.js"></script>
-<script src="components/homepage/validation.js"></script>
-<script src="assets/js/facebook.js"></script>
-<script src="assets/js/homepage.js"></script>
-<!--stylesheets-->
-<link rel="stylesheet" type="text/css" href="assets/lib/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="assets/stylesheet/bootstrap-extensions.css">
-<link rel="stylesheet" type="text/css" href="assets/stylesheet/homepage.css">
-</head>
-<body class="bg-primary">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 text-center">
+<head>
+    <title>Welcome to BatonHunter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="assets/lib/js/jquery.js"></script>
+    <script src="assets/lib/js/bootstrap.js"></script>
+    <script src="assets/lib/js/jquery.validate.js"></script>
+    <script src="assets/js/cookie.js"></script>
+    <script src="components/config/server_config.js"></script>
+    <script src="components/config/page_config.js"></script>
+    <script src="components/personalpage/data/profile_data.js"></script>
+    <script src="components/homepage/validation.js"></script>
+    <script src="assets/js/facebook.js"></script>
+    <script src="assets/js/homepage.js"></script>
+    <script src="assets/js/parameterhandler.js"></script>
+    <!--stylesheets-->
+    <link rel="stylesheet" type="text/css" href="assets/lib/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet/bootstrap-extensions.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet/homepage.css">
+</head>
+
+<body class="bg-primary">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
                 <!-- place logo here -->
                 <h1 class="title">Welcome to BatonHunter</h1>
                 <img src="assets/img/baton_logo.png" alt="..." class="img-thumbnail">
-
-        </div>
-    </div>
-    <div class="row" style="display:none">
-        <div class="col-md-12"></div>
-        <div class="col-md-4 col-md-offset-4"  >
-            <button 
-                type="button" 
-                id="signupButton" 
-                data-toggle="collapse"
-                data-target="#collapseExample"
-                class="btn-success btn-primary btn-block btn-xlarge mt-10 mb-10" 
-                autocomplete="off">Sign Up
-            </button>
-            <div class="col-md-10 col-md-offset-1 collapse" id="collapseExample">
-                <!-- display the sign up form -->
-                <form class="text-center" id="signUpForm" role="form" action="register" method="post">
-                    <div class="form-group">
-                        <label for="email">Email address:</label>
-                        <input type="email" class="form-control required" id="email">
-                        <span id="email-error" />
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control required" minLength="8" name="pwd" id="pwd">
-                        <label for="pwd">Type Password Again:</label>
-                        <input type="password" class="form-control required" minLength="8" name="pwd_confirm" id="pwd_confirm">
-                    </div>
-                    <button type="submit" class="btn btn-success btn-lg">Submit</button>
-                </form>
-                <!-- display the sign up form end here -->
             </div>
         </div>
-    </div>
-    <div class="row" style="display:none">
-        <div class="col-md-12"></div>
-        <div class="col-md-4 col-md-offset-4">
-            <button 
-                type="button" 
-                id="loginButton" 
-                data-loading-text="Loading..." 
-                class="btn-warning btn-primary btn-block btn-xlarge mt-10 mb-10"
-                data-toggle="modal" 
-                data-target=".login-dialog-box"
-                autocomplete="off">Login
-            </button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12"></div>
-        <div class="col-md-4 col-md-offset-4">
-            <button 
-                type="button" 
-                id="loginWithFBButton" 
-                data-loading-text="Loading..." 
-                class="btn-info btn-primary btn-block btn-xlarge mt-10 mb-10"
-                autocomplete="off">FB Login
-            </button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <span>CopyRight@BatonHunter 2015</span>
-        </div>
-    </div>
-</div>
-
-<!-- popup dialog window -->
-<div class="modal fade login-dialog-box" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header ta-c">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title color-black" id="login">Baton Hunder Login<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
-            </div>
-            <div class="modal-body">
-                <form class="navbar-form" id="loginForm">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-12 mb-20">
-                            <div class="input-group">
-                                <span class="input-group-addon w-70px" id="E-mail">E-mail</span>
-                                <input type="email" class="form-control required" placeholder="E-mail" aria-describedby="basic-addon1">    
-                            </div>       
+        <div class="row" style="display:none">
+            <div class="col-md-12"></div>
+            <div class="col-md-4 col-md-offset-4">
+                <button type="button" id="signupButton" data-toggle="collapse" data-target="#collapseExample" class="btn-success btn-primary btn-block btn-xlarge mt-10 mb-10" autocomplete="off">Sign Up
+                </button>
+                <div class="col-md-10 col-md-offset-1 collapse" id="collapseExample">
+                    <!-- display the sign up form -->
+                    <form class="text-center" id="signUpForm" role="form" action="register" method="post">
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control required" id="email">
+                            <span id="email-error" />
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control required" minLength="8" name="pwd" id="pwd">
+                            <label for="pwd">Type Password Again:</label>
+                            <input type="password" class="form-control required" minLength="8" name="pwd_confirm" id="pwd_confirm">
                         </div>
-                        <div class="col-xs-12 col-md-12 mb-20">        
-                            <div class="input-group">
-                                <span class="input-group-addon w-70px" id="password">密碼</span>
-                                <input type="password" minLength="8" class="form-control required" placeholder="Password" aria-describedby="basic-addon2">       
+                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+                    </form>
+                    <!-- display the sign up form end here -->
+                </div>
+            </div>
+        </div>
+        <div class="row" style="display:none">
+            <div class="col-md-12"></div>
+            <div class="col-md-4 col-md-offset-4">
+                <button type="button" id="loginButton" data-loading-text="Loading..." class="btn-warning btn-primary btn-block btn-xlarge mt-10 mb-10" data-toggle="modal" data-target=".login-dialog-box" autocomplete="off">Login
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12"></div>
+            <div class="col-md-4 col-md-offset-4">
+                <button type="button" id="loginWithFBButton" data-loading-text="Loading..." class="btn-info btn-primary btn-block btn-xlarge mt-10 mb-10" autocomplete="off">FB Login
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <span>CopyRight@BatonHunter 2015</span>
+            </div>
+        </div>
+    </div>
+    <!-- popup dialog window -->
+    <div class="modal fade login-dialog-box" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header ta-c">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title color-black" id="login">Baton Hunder Login<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="navbar-form" id="loginForm">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 mb-20">
+                                <div class="input-group">
+                                    <span class="input-group-addon w-70px" id="E-mail">E-mail</span>
+                                    <input type="email" class="form-control required" placeholder="E-mail" aria-describedby="basic-addon1">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-md-12 mb-20">        
-                            <a class="forgetPwd" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" data-toggle="modal" data-target=".fotgetPwd-dialog-box">忘記密碼</span></a>
-                        </div>
-                        <div class="col-xs-12 col-md-12">
-                            <button type="submit" class="btn btn-primary" onclick=Homepage.login()>登入</button >
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal">取消</button>
-                        </div>      
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- popup dialog window end here -->
-
-<!-- popup dialog window to reset password -->
-<div class="modal fade fotgetPwd-dialog-box" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header ta-c">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title color-black" id="login">忘記密碼<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
-            </div>
-            <div class="modal-body">
-                <form class="navbar-form" id="resetPasswordForm">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-12">
-                            <div class="input-group mb-20">
-                                <span class="input-group-addon w-70px" id="E-mail">E-mail</span>
-                                <input type="email" class="form-control required" placeholder="E-mail" aria-describedby="basic-addon1">
+                            <div class="col-xs-12 col-md-12 mb-20">
+                                <div class="input-group">
+                                    <span class="input-group-addon w-70px" id="password">密碼</span>
+                                    <input type="password" minLength="8" class="form-control required" placeholder="Password" aria-describedby="basic-addon2">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-12 mb-20">
+                                <a class="forgetPwd" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" data-toggle="modal" data-target=".fotgetPwd-dialog-box">忘記密碼</span></a>
                             </div>
                             <div class="col-xs-12 col-md-12">
-                                <button type="submit" class="btn btn-primary">傳送密碼</button>
+                                <button type="submit" class="btn btn-primary" onclick=Homepage.login()>登入</button>
                                 <button type="submit" class="btn btn-primary" data-dismiss="modal">取消</button>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- popup dialog window to reset password end here -->
-
+    <!-- popup dialog window end here -->
+    <!-- popup dialog window to reset password -->
+    <div class="modal fade fotgetPwd-dialog-box" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header ta-c">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title color-black" id="login">忘記密碼<a class="anchorjs-link" href="#login"><span class="anchorjs-icon"></span></a></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="navbar-form" id="resetPasswordForm">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12">
+                                <div class="input-group mb-20">
+                                    <span class="input-group-addon w-70px" id="E-mail">E-mail</span>
+                                    <input type="email" class="form-control required" placeholder="E-mail" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="col-xs-12 col-md-12">
+                                    <button type="submit" class="btn btn-primary">傳送密碼</button>
+                                    <button type="submit" class="btn btn-primary" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- popup dialog window to reset password end here -->
 </body>
+
 </html>

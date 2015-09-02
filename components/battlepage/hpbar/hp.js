@@ -7,7 +7,7 @@ var HP = function(maxHP, $element) {
     this.HPuiController = function(value) {
         var percent = this.currentHP / this.maxHP * 100;
         var progressBarWidth = percent * this.$element.width() / 100;
-        this.$element.find('div').animate({
+        this.$element.animate({
             width: progressBarWidth
         }, 500).html(this.currentHP + "/" + this.maxHP + "&nbsp;(" + parseInt(percent) + "%)&nbsp;");
         if (this.isDead()) {

@@ -1,13 +1,14 @@
-var HP = function(maxHP, $element, monstertype) {
+var HP = function(maxHP, $element, monstertype, $HPbarInitWidth) {
     //variable init
     this.monstertype = monstertype;
     this.currentHP = maxHP;
     this.maxHP = maxHP;
     this.$element = $element;
+    this.HPBarInitWidth = $HPbarInitWidth;
     //blood UI init
     this.HPuiController = function(value) {
         var percent = this.currentHP / this.maxHP * 100;
-        var progressBarWidth = percent * this.$element.width() / 100;
+        var progressBarWidth = percent * this.HPBarInitWidth / 100;
         this.$element.animate({
             width: progressBarWidth
         }, 500).html(this.currentHP + "/" + this.maxHP + "&nbsp;(" + parseInt(percent) + "%)&nbsp;");

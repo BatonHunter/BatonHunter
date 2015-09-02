@@ -10,8 +10,8 @@ $(document).ready(function() {
     // URLparameter
     para = getPara.get();
 
-    userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"), para.monster);
-    enemyHP = new HP(battle_data.getMonster(para.monster).getHp(), $("#enemy-hp"), para.monster);
+    userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"), para.monster, $("#user-hp").width());
+    enemyHP = new HP(battle_data.getMonster(para.monster).getHp(), $("#enemy-hp"), para.monster ,$("#enemy-hp").width());
 
     if (para.taskId === undefined) {
 

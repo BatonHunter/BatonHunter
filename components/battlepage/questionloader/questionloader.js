@@ -7,6 +7,7 @@ var QuestionLoader = (function() {
     var current_question;
     var isTraining = true;
     var dom_id;
+    var param;
 
     var checkAnswer = function (type, ans) {
 
@@ -24,24 +25,27 @@ var QuestionLoader = (function() {
 
         console.log("is_correct: " + is_correct);
 
-        //if is_training is 
         if(!isTraining){
-            //battle_data.getQuestion().removeUsedQustion(current_question);
+            loadQuestion(battle_data.getQuestion().getNextQuestion(param));
             deductHp(is_correct);
             setTimeout(function () {
-                //loadNextQuestion(dom_id);
                 battleTimer.reset();
                 battleTimer.start();
             }, 1000);
         }
         else {
-            if(is_correct) {    
+            if(is_correct) {
+                enemyHP.modifyHP(-99, 1);
 				taskComplete.send().done(function(){
                		window.location.href ="trainingRoom.html";
 				});				 
             }
             else {
-                keepAnswering();
+                loadQuestion(battle_data.getQuestion().getNextQuestion(param));
+                userHP.modifyHP(-20, 1);
+                if(userHP.isDead()){
+                    window.location.href ="trainingRoom.html";
+                }
             }
         }
 
@@ -51,9 +55,9 @@ var QuestionLoader = (function() {
     var deductHp = function (is_correct){
         if(is_correct){
             beatmonster('#enemy', battle_data.getMonster().getImg_path());
-            enemyHP.modifyHP(-200, 1);
+            enemyHP.modifyHP(-25, 1);
         } else{
-            userHP.modifyHP(-50, 1);
+            userHP.modifyHP(-20, 1);
         }
     };
 
@@ -107,8 +111,9 @@ var QuestionLoader = (function() {
     }
 
 
-    var initQuestion = function (domId,param) {
+    var initQuestion = function (domId,obj) {
         dom_id = domId;
+        param = obj;
        	loadQuestion(battle_data.getQuestion().getNextQuestion(param));
         if(param.taskId === undefined || param.taskId === ""){
            isTraining = false;
@@ -116,7 +121,6 @@ var QuestionLoader = (function() {
     };
 
     var keepAnswering = function () {
-        //alert("Try Again");
         loadQuestion(current_question);
     }
     //there is a parameter need to select wheater traing question or battle question.

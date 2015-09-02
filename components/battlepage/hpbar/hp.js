@@ -1,5 +1,6 @@
-var HP = function(maxHP, $element) {
+var HP = function(maxHP, $element, monstertype) {
     //variable init
+    this.monstertype = monstertype;
     this.currentHP = maxHP;
     this.maxHP = maxHP;
     this.$element = $element;
@@ -76,12 +77,13 @@ HP.prototype.win = function() {
     $('#winModal').modal('show');
         Profile.rewardVictory(para.monster);
         Profile.setGameIsLvUp(true);
+        self = this;
 
         $('#winModal').on('hidden.bs.modal', function (e) {
-        window.location.href="./components/result_page/win.html";
+        window.location.href="./components/result_page/win.html?monster=" + self.monstertype;
         });
         setTimeout(function() {
-            window.location.href="./components/result_page/win.html";
+            window.location.href="./components/result_page/win.html?monster=" + self.monstertype;
         }, 2000);
 };
 

@@ -10,8 +10,8 @@ $(document).ready(function() {
     // URLparameter
     para = getPara.get();
 
-    userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"));
-    enemyHP = new HP(battle_data.getMonster(para.monster).getHp(), $("#enemy-hp"));
+    userHP = new HP(battle_data.getPlayer().getHp(), $("#user-hp"), para.monster);
+    enemyHP = new HP(battle_data.getMonster(para.monster).getHp(), $("#enemy-hp"), para.monster);
 
     if (para.taskId === undefined) {
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
         //fighting page countdown clock
         battleTimer = Object.create(batontimer);
         battleTimer.setUpClock('#counter', 26, 'red', 'circle', function() {
-            userHP.modifyHP(-50, 1);
+            userHP.modifyHP(-20, 1);
         });
         battleTimer.reset();
         battleTimer.start();
@@ -48,7 +48,8 @@ $(document).ready(function() {
     else {
         var param = {
             jobId : para.jobId,
-            taskId : para.taskId};
+            taskId : para.taskId
+        };
 
         $('.tools').hide();
     }

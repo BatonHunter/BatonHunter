@@ -42,8 +42,6 @@ $(document).ready(function() {
             type: 1,
             count_id: "#herbsCount"
         }, userHP.heal);
-
-        $('#question').css('margin-top', '-35px');
     }
     else {
         var param = {

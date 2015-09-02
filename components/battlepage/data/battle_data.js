@@ -67,7 +67,7 @@ var battle_data = (function(serverConfig) {
             quantity: 3
         };
         var star = 3;
-        var hp = 10;
+        var hp = 100;
         return {
             getStar: function() {
                 return star;
@@ -167,11 +167,11 @@ var battle_data = (function(serverConfig) {
             var hp;
             var monsterType=Monster;
             if (Monster=="boss") {
-                hp=1000;
+                hp=200;
             }else if (Monster=="big") {
                 hp=100;
             }else if (Monster=="little") {
-                hp=10;
+                hp=100;
             }
             
             return {

@@ -59,14 +59,6 @@ var Profile = (function () {
         }else{
             return false;
         }
-        // if($.isEmptyObject(cardType)){
-        //         console.log("true")
-        //         return true;
-        //         optional stuff to do after success 
-        //     }else{
-        //         console.log("false")
-        //         return false;
-        //     }
     }       
 
     var getProfileFromCookie = function() {

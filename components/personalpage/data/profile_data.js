@@ -302,8 +302,7 @@ var Profile = (function () {
         saveToCookie(profile);
     }
     
-    var getJobs = function() {
-
+    var getJobs = function() {	
         return getProfileFromCookie().jobs;
     }
 

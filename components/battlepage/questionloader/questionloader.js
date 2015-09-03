@@ -54,8 +54,9 @@ var QuestionLoader = (function() {
 
     var deductHp = function (is_correct){
         if(is_correct){
-            beatmonster('#enemy', battle_data.getMonster().getImg_path());
+            beatmonster('.role img', battle_data.getMonster().getImg_path());
             enemyHP.modifyHP(-25, 1);
+
         } else{
             userHP.modifyHP(-20, 1);
         }

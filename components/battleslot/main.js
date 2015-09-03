@@ -14,7 +14,7 @@ $(document).ready(function() {
             base: 27,
             treasure: 0, //set probability of treasure to 0
             monster1: 1,
-            monster2: 1
+            monster2: 27
         },
         slots: [{
             selector: '#slots-1',

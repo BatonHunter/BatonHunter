@@ -167,13 +167,16 @@ width: 30px;
     width: 65%;
     height: 36%;
     display: flex;
+    display: -webkit-flex;
     justify-content: center;
+    -webkit-justify-content: center;
 }
 
 .slots {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
     display: inline-block;
     height: 100%;
     overflow: hidden;

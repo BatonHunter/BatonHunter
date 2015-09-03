@@ -27,7 +27,7 @@ $(document).ready(function() {
         Facebook.login();
     });
 
-    var access_token = window.location.href.split("?#")[1].split("&")[0].split("=")[1];
+    var access_token = window.location.href.split("#")[1].split("&")[0].split("=")[1];
 
     if (access_token != "") {
         $.ajax({

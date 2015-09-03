@@ -24,6 +24,7 @@
 .modal-content {
     text-align: center;
     padding: 30px;
+    -webkit-transform: translateX(-50%);
 }
 
 .modal-content h2 {

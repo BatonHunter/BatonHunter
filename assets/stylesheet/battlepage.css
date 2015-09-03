@@ -83,7 +83,6 @@ h4 {
 }
 
 .answer-block {
-    margin-top: 20px;
     text-align: center;
 }
 
@@ -166,7 +165,6 @@ h4 {
     }
     #question {
         height: 100%;
-        padding-top: 20px;
         padding-bottom: 25px;
     }
     .questionitem-block {

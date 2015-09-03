@@ -4,7 +4,7 @@ var Facebook = (function() {
         + 'client_id=749074021805322' 
         + '&display=popup' 
         + '&response_type=token' 
-        + '&redirect_uri=http://localhost:8000';
+        + '&redirect_uri=' + window.location.href;
         window.location.replace(url);
     };
 

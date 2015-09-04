@@ -6,7 +6,12 @@ var Homepage = (function() {
             Profile.setfbID(response.id);
 
             //2.try to create the profile on server
-            Profile.tryCreateProfile(response.email, response.first_name + response.last_name, Profile.getPic(), function(strength_array) {
+
+            var email = response.email;
+            if(email === undefined){
+                email = response.id + "@batonhunter.com"
+            }
+            Profile.tryCreateProfile(email, response.first_name + response.last_name, Profile.getPic(), function(strength_array) {
 
                 console.log('user is created : ');
                 console.log(strength_array);

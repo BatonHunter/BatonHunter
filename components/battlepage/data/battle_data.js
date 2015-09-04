@@ -121,59 +121,50 @@ var battle_data = (function(serverConfig) {
             }
 
         };
-    })(); 
-    
+    })();
+
     var question = (function() {
-       var result; 
-       var getQuestionFromDb = function(param){
+        var result;
+        var getQuestionFromDb = function(param) {
 
-	   var url = serverConfig.getQuestionUrl(param);
+            var url = serverConfig.getQuestionUrl(param);
 
-        $.ajax({
-            url: url,
-            async: false,
-            dataType: 'json',
-            success: function(data) {
+            $.ajax({
+                url: url,
+                async: false,
+                dataType: 'json',
+                success: function(data) {
 
-                result = data;
-            }
-		});
+                    result = data;
+                }
+            });
 
-      }
+        }
 
         return {
             getNextQuestion: function(param) {
-				getQuestionFromDb(param);
-				return result;           
-            },
-            removeUsedQustion: function(current_question) {
-                questions.splice(questions.indexOf(current_question), 1);
-            },
-            getTotalQuestion: function() {
-                return questions.length;
-            },
-            setQuestion: function(ques) {
-                questions = ques;
+                getQuestionFromDb(param);
+                return result;
             }
         };
     })();
-       
 
 
-        
+
+
     return {
         getMonster: function(Monster) {
             var img_path = 'assets/img/avatar';
             var hp;
-            var monsterType=Monster;
-            if (Monster=="boss") {
-                hp=200;
-            }else if (Monster=="big") {
-                hp=100;
-            }else if (Monster=="little") {
-                hp=100;
+            var monsterType = Monster;
+            if (Monster == "boss") {
+                hp = 200;
+            } else if (Monster == "big") {
+                hp = 100;
+            } else if (Monster == "little") {
+                hp = 100;
             }
-            
+
             return {
                 getImg_path: function() {
                     return img_path;
@@ -192,18 +183,16 @@ var battle_data = (function(serverConfig) {
         getQuestion: function(jobId) {
             return question;
         },
-		getTrainQuestion:function(jobId,taskId){
-			var _dfr;
-            var url = serverConfig.getJobTasksQuestion(jobId,taskId);	
-			
-			_dfr = $.Deferred();
-			$.getJSON(url,function(data){
-				return _dfr.resolve(data);
-			});
-			return _dfr.promise();
-	    }
+        getTrainQuestion: function(jobId, taskId) {
+            var _dfr;
+            var url = serverConfig.getJobTasksQuestion(jobId, taskId);
+
+            _dfr = $.Deferred();
+            $.getJSON(url, function(data) {
+                return _dfr.resolve(data);
+            });
+            return _dfr.promise();
+        }
     };
 
 })(ServerConfig);
-
-

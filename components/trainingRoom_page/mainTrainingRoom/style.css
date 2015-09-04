@@ -1,3 +1,9 @@
+body {
+    background-color: #fff;
+    padding-top: 60px;
+    padding-bottom: 70px;
+}
+
 .jobsTutorials li:hover {
     background-color:red;
 }
